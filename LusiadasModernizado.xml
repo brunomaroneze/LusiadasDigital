@@ -23,7 +23,12 @@
       <div type="canto" n="1">
         <head>Canto Primeiro</head>
         <lg type="estrofe" n="1">
-          <l>As armas e os barões assinalados,</l>
+          <l><w lemma="o" pos="DEF">As</w>
+            <w lemma="arma" pos="N">armas</w>
+            <w pos="CONJ">e</w>
+            <w lemma="o" pos="DEF">os</w>
+            <w lemma="barão" pos="N">barões</w>
+            <w lemma="assinalado" pos="ADJ">assinalados</w>,</l>
           <l>Que da ocidental praia Lusitana,</l>
           <l>Por mares nunca de antes navegados,</l>
           <l>Passaram ainda além da Taprobana,</l>

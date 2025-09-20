@@ -116,10 +116,6 @@ if __name__ == "__main__":
     input_file = "LusiadasModernizado.xml"
     output_file = "LusiadasModernizadoLematizado.xml"
 
-    with open(input_file, "w", encoding="utf-8") as f:
-        f.write(input_xml_content)
-    print(f"Arquivo de exemplo '{input_file}' criado para teste.")
-
     lemmatize_and_tag_tei(input_file, output_file)
 
     print("\n--- Verificando o resultado da primeira linha com <pc> ---")

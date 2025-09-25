@@ -6,8 +6,7 @@ from difflib import SequenceMatcher
 XML_NAMESPACE = "http://www.w3.org/XML/1998/namespace"
 TEI_NAMESPACE = "http://www.tei-c.org/ns/1.0" # Definindo o namespace TEI
 
-# --- 1. Funções de Pré-processamento ---
-
+# --- 1. Funções de Pré-processamento (mantidas inalteradas) ---
 def preprocess_old_version_l(l_element):
     """
     Extrai o texto de um elemento <l> de uma versão antiga,
@@ -16,21 +15,17 @@ def preprocess_old_version_l(l_element):
     """
     full_text_parts = []
     
-    # Processar o texto direto do elemento <l>
     if l_element.text:
         full_text_parts.append(l_element.text)
     
-    # Processar os elementos filhos e seus textos/tails
     for child in l_element:
-        if child.tag == '{'+TEI_NAMESPACE+'}lb' and child.get('break') == 'no': # Ajuste aqui para namespace
+        # A tag pode ou não ter namespace, dependendo do XML. Vamos ser flexíveis.
+        child_tag_local = child.tag.split('}')[-1]
+        if child_tag_local == 'lb' and child.get('break') == 'no':
             if child.tail:
                 full_text_parts.append(child.tail)
         else:
-            # Assumimos que outros elementos como <fw> não estarão dentro de <l>
-            # Se houvesse, poderiam ser ignorados ou tratados de forma específica.
-            # Por enquanto, o texto 'tail' de qualquer outro elemento child é processado.
             if child.tail:
-                # Adiciona espaço apenas se o anterior não for espaço, hífen ou pontuação/&
                 if full_text_parts and not re.match(r'[\s\-.,:;?!&]$', full_text_parts[-1]):
                     full_text_parts.append(" ")
                 full_text_parts.append(child.tail)
@@ -68,7 +63,7 @@ def preprocess_modern_l(l_element):
         tokens.append((tag, original_text, comparable_text, is_punct, attrs))
     return tokens
 
-# Helper para alinhar uma sequência alvo com uma base usando SequenceMatcher
+# Helper para alinhar uma sequência alvo com uma base usando SequenceMatcher (mantido inalterado)
 def _align_target_to_base(base_tokens_full, target_tokens_full, base_comparable, target_comparable):
     matcher = SequenceMatcher(None, base_comparable, target_comparable)
     
@@ -94,8 +89,7 @@ def _align_target_to_base(base_tokens_full, target_tokens_full, base_comparable,
 
     return aligned_target, insertions_before_base_idx
 
-# --- 2. Função Principal de Colação ---
-
+# --- 2. Função Principal de Colação (mantida inalterada) ---
 def collate_lus(modern_xml_path, vesq_xml_path, vdir_xml_path):
     """
     Cola três versões dos Lusíadas (modernizada, VEsq, VDir) em um novo XML.
@@ -120,9 +114,8 @@ def collate_lus(modern_xml_path, vesq_xml_path, vdir_xml_path):
     text_elem = etree.SubElement(tei_root, '{'+TEI_NAMESPACE+'}text')
     collated_body = etree.SubElement(text_elem, '{'+TEI_NAMESPACE+'}body')
 
-    namespaces = {'tei': TEI_NAMESPACE} # Dicionário de namespaces para XPath
+    namespaces = {'tei': TEI_NAMESPACE}
 
-    # Todas as versões usam TEI, então os XPath precisam do prefixo tei:
     canto1_mod = root_mod.xpath('//tei:div[@type="canto" and @n="1"]', namespaces=namespaces)
     canto1_vesq = root_vesq.xpath('//tei:div[@type="canto" and @n="1"]', namespaces=namespaces)
     canto1_vdir = root_vdir.xpath('//tei:div[@type="canto" and @n="1"]', namespaces=namespaces)
@@ -136,13 +129,9 @@ def collate_lus(modern_xml_path, vesq_xml_path, vdir_xml_path):
     
     collated_div = etree.SubElement(collated_body, '{'+TEI_NAMESPACE+'}div', type='canto', n='1')
     
-    # Encontrar e adicionar o head do canto
-    # Note que head pode ser um filho direto de div.
-    # O seu exemplo de XML antigo tem <head>OS LVSIADAS...</head> e <head>Canto Primeiro.</head>
-    # Vamos pegar o segundo <head> para "Canto Primeiro".
     head_elements_mod = canto1_mod.xpath('./tei:head', namespaces=namespaces)
     if head_elements_mod:
-        canto_head_text = head_elements_mod[-1].text # Pegar o texto do último head (Canto Primeiro)
+        canto_head_text = head_elements_mod[-1].text
         new_head = etree.SubElement(collated_div, '{'+TEI_NAMESPACE+'}head')
         new_head.text = canto_head_text
     
@@ -150,31 +139,23 @@ def collate_lus(modern_xml_path, vesq_xml_path, vdir_xml_path):
     estrofes_vesq = canto1_vesq.xpath('./tei:lg[@type="estrofe"]', namespaces=namespaces)
     estrofes_vdir = canto1_vdir.xpath('./tei:lg[@type="estrofe"]', namespaces=namespaces)
 
-    # Verifica se há estrofes em todas as versões para evitar IndexError
     if not estrofes_mod or not estrofes_vesq or not estrofes_vdir:
         raise ValueError("Não foi possível encontrar estrofes em uma ou mais versões do Canto 1.")
 
-
-    # Usar o iterador mais longo para garantir que todos os versos sejam processados
     max_estrofes = max(len(estrofes_mod), len(estrofes_vesq), len(estrofes_vdir))
 
-
-    for i in range(max_estrofes): # Itera por índice, não diretamente pelo objeto estrofe
+    for i in range(max_estrofes):
         estrofe_mod = estrofes_mod[i] if i < len(estrofes_mod) else None
         estrofe_vesq = estrofes_vesq[i] if i < len(estrofes_vesq) else None
         estrofe_vdir = estrofes_vdir[i] if i < len(estrofes_vdir) else None
 
-        # Para pegar o n da estrofe, pegamos do mod, ou se não houver, tentamos esq ou dir
         estrofe_n = estrofe_mod.get('n') if estrofe_mod is not None else \
-                    (estrofe_vesq.get('n') if estrofe_vesq is not None else estrofe_vdir.get('n'))
+                    (estrofe_vesq.get('n') if estrofe_vesq is not None else (estrofe_vdir.get('n') if estrofe_vdir is not None else None))
         
-        # Se não há estrofe_n (i.e. todas as versões se esgotaram), pular
-        if estrofe_n is None:
-            continue
+        if estrofe_n is None: continue
 
         collated_lg = etree.SubElement(collated_div, '{'+TEI_NAMESPACE+'}lg', type='estrofe', n=estrofe_n)
 
-        # Correção aqui: usar namespace nos xpath para os versos
         versos_mod = estrofe_mod.xpath('./tei:l', namespaces=namespaces) if estrofe_mod is not None else []
         versos_vesq = estrofe_vesq.xpath('./tei:l', namespaces=namespaces) if estrofe_vesq is not None else []
         versos_vdir = estrofe_vdir.xpath('./tei:l', namespaces=namespaces) if estrofe_vdir is not None else []
@@ -193,7 +174,6 @@ def collate_lus(modern_xml_path, vesq_xml_path, vdir_xml_path):
             collated_l = collate_line(tokens_mod_full, tokens_vesq_full, tokens_vdir_full, wit_ids)
             collated_lg.append(collated_l)
 
-    # Adicionar os IDs wit como tei:witness
     tei_header = etree.SubElement(tei_root, '{'+TEI_NAMESPACE+'}teiHeader')
     file_desc = etree.SubElement(tei_header, '{'+TEI_NAMESPACE+'}fileDesc')
     title_stmt = etree.SubElement(file_desc, '{'+TEI_NAMESPACE+'}titleStmt')
@@ -210,10 +190,10 @@ def collate_lus(modern_xml_path, vesq_xml_path, vdir_xml_path):
 
     return etree.tostring(tei_root, pretty_print=True, encoding='utf-8', xml_declaration=True).decode('utf-8')
 
-
+# --- collate_line (MODIFICADA) ---
 def collate_line(tokens_mod_full, tokens_vesq_full, tokens_vdir_full, wit_ids):
     """
-    Cola os tokens de um único verso das três versões usando alinhamento de 3 vias.
+    Cola os tokens de um único verso, aninhando <app> dentro de <w> para palavras.
     """
     collated_l = etree.Element('{'+TEI_NAMESPACE+'}l')
 
@@ -242,6 +222,7 @@ def collate_line(tokens_mod_full, tokens_vesq_full, tokens_vdir_full, wit_ids):
 
         if current_insert_blocks:
             app = etree.Element('{'+TEI_NAMESPACE+'}app')
+            collated_l.append(app) # Inserções são sempre <app> de nível superior
             rdg_mod_empty = etree.SubElement(app, '{'+TEI_NAMESPACE+'}rdg', wit=wit_ids['VMod'])
             
             grouped_insert_rdgs = {}
@@ -255,7 +236,6 @@ def collate_line(tokens_mod_full, tokens_vesq_full, tokens_vdir_full, wit_ids):
             for text_val, wits_list in grouped_insert_rdgs.items():
                 rdg = etree.SubElement(app, '{'+TEI_NAMESPACE+'}rdg', wit=" ".join(wits_list))
                 rdg.text = text_val
-            collated_l.append(app)
 
 
         if mod_idx < len(tokens_mod_full):
@@ -267,62 +247,66 @@ def collate_line(tokens_mod_full, tokens_vesq_full, tokens_vdir_full, wit_ids):
             esq_original_text = esq_token[0] if esq_token else None
             dir_original_text = dir_token[0] if dir_token else None
 
+            mod_tag = mod_token[0]
             mod_attrs = mod_token[4]
 
             if (esq_original_text is not None and dir_original_text is not None and
                 mod_original_text == esq_original_text and 
                 mod_original_text == dir_original_text):
                 
-                mod_elem = etree.Element('{'+TEI_NAMESPACE+'}' + mod_token[0], mod_attrs)
-                mod_elem.text = mod_original_text
-                collated_l.append(mod_elem)
+                # Caso 1: Todos idênticos. Criar <w> ou <pc> diretamente.
+                elem = etree.Element('{'+TEI_NAMESPACE+'}' + mod_tag, mod_attrs)
+                elem.text = mod_original_text
+                collated_l.append(elem)
             else:
-                app = etree.Element('{'+TEI_NAMESPACE+'}app')
+                # Caso 2: Há uma variação.
+                
+                # Determinar o elemento pai para <app>
+                parent_for_app = collated_l
+                
+                if mod_tag == 'w':
+                    # Se for uma palavra, crie um <w> wrapper com os atributos
+                    wrapper_w = etree.Element('{'+TEI_NAMESPACE+'}w', mod_attrs)
+                    collated_l.append(wrapper_w)
+                    parent_for_app = wrapper_w # O <app> irá dentro do <w>
+                
+                # Criar o <app> dentro do pai correto (collated_l ou wrapper_w)
+                app = etree.SubElement(parent_for_app, '{'+TEI_NAMESPACE+'}app')
 
+                # Coletar leituras (apenas texto) para agrupamento
                 readings_data = {
-                    'VMod': {'text': mod_original_text, 'attrs': mod_attrs, 'wit_id': wit_ids['VMod']},
-                    'VEsq': {'text': esq_original_text, 'attrs': {}, 'wit_id': wit_ids['VEsq']},
-                    'VDir': {'text': dir_original_text, 'attrs': {}, 'wit_id': wit_ids['VDir']}
+                    wit_ids['VMod']: mod_original_text,
+                    wit_ids['VEsq']: esq_original_text,
+                    wit_ids['VDir']: dir_original_text
                 }
 
-                grouped_rdgs = {}
-                
-                for key, data in readings_data.items():
-                    text = data['text']
-                    attrs_tuple = frozenset(data['attrs'].items()) if data['attrs'] else frozenset()
-                    group_key = (text, attrs_tuple)
-                    grouped_rdgs.setdefault(group_key, []).append(data['wit_id'])
+                # Agrupar leituras idênticas pelo texto
+                grouped_rdgs = {} # { text_val: [wit_id] }
+                for wit_id, text in readings_data.items():
+                    grouped_rdgs.setdefault(text, []).append(wit_id)
 
+                # Criar os elementos <rdg>
+                # Ordenar para ter a leitura da VMod primeiro, se for única
                 ordered_keys = sorted(grouped_rdgs.keys(), 
                                       key=lambda k: 0 if wit_ids['VMod'] in grouped_rdgs[k] else 1)
-
-                for key in ordered_keys:
-                    text_val, attrs_tuple = key
-                    wits_list = grouped_rdgs[key]
-                    
-                    rdg = etree.SubElement(app, '{'+TEI_NAMESPACE+'}rdg', wit=" ".join(sorted(wits_list)))
-                    if text_val is not None:
-                        rdg.text = text_val
-                    
-                    for attr, val in attrs_tuple:
-                        rdg.set(attr, val)
                 
-                collated_l.append(app)
+                for key in ordered_keys:
+                    wits_list = grouped_rdgs[key]
+                    rdg = etree.SubElement(app, '{'+TEI_NAMESPACE+'}rdg', wit=" ".join(sorted(wits_list)))
+                    if key is not None:
+                        rdg.text = key
 
     return collated_l
 
-# --- Exemplo de Uso (já reescrito) ---
+# --- Exemplo de Uso (mantido inalterado) ---
 modern_file_path = 'LusiadasModernizadoLematizado.xml'
 vesq_file_path = 'LusiadasEsquerda.xml'
 vdir_file_path = 'LusiadasDireita.xml'
 
-# Executar a colação com os arquivos reais
 collated_xml = collate_lus(modern_file_path, vesq_file_path, vdir_file_path)
 
-# Imprimir o XML resultante
 print(collated_xml)
 
-# Opcional: Salvar em um arquivo
 output_file_path = 'lus_collated_full.xml'
 with open(output_file_path, 'w', encoding='utf-8') as f:
     f.write(collated_xml)

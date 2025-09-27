@@ -6,20 +6,14 @@ from difflib import SequenceMatcher
 XML_NAMESPACE = "http://www.w3.org/XML/1998/namespace"
 TEI_NAMESPACE = "http://www.tei-c.org/ns/1.0" # Definindo o namespace TEI
 
-# --- 1. Funções de Pré-processamento (mantidas inalteradas) ---
+# --- Funções de Pré-processamento (mantidas inalteradas) ---
 def preprocess_old_version_l(l_element):
-    """
-    Extrai o texto de um elemento <l> de uma versão antiga,
-    tratando <lb break="no"/> e tokenizando em palavras e pontuação.
-    Retorna uma lista de tuplas (original_text, comparable_text, is_punct).
-    """
     full_text_parts = []
     
     if l_element.text:
         full_text_parts.append(l_element.text)
     
     for child in l_element:
-        # A tag pode ou não ter namespace, dependendo do XML. Vamos ser flexíveis.
         child_tag_local = child.tag.split('}')[-1]
         if child_tag_local == 'lb' and child.get('break') == 'no':
             if child.tail:
@@ -49,10 +43,6 @@ def preprocess_old_version_l(l_element):
     return tokens
 
 def preprocess_modern_l(l_element):
-    """
-    Extrai tokens de um elemento <l> da versão modernizada.
-    Retorna uma lista de tuplas (tag, original_text, comparable_text, is_punct, attrs).
-    """
     tokens = []
     for child in l_element.xpath('./tei:w | ./tei:pc', namespaces={'tei': TEI_NAMESPACE}):
         tag = child.tag.split('}')[-1]
@@ -63,7 +53,6 @@ def preprocess_modern_l(l_element):
         tokens.append((tag, original_text, comparable_text, is_punct, attrs))
     return tokens
 
-# Helper para alinhar uma sequência alvo com uma base usando SequenceMatcher (mantido inalterado)
 def _align_target_to_base(base_tokens_full, target_tokens_full, base_comparable, target_comparable):
     matcher = SequenceMatcher(None, base_comparable, target_comparable)
     
@@ -89,11 +78,8 @@ def _align_target_to_base(base_tokens_full, target_tokens_full, base_comparable,
 
     return aligned_target, insertions_before_base_idx
 
-# --- 2. Função Principal de Colação (mantida inalterada) ---
+# --- Função Principal de Colação (mantida inalterada) ---
 def collate_lus(modern_xml_path, vesq_xml_path, vdir_xml_path):
-    """
-    Cola três versões dos Lusíadas (modernizada, VEsq, VDir) em um novo XML.
-    """
     parser = etree.XMLParser(remove_blank_text=True) 
     
     tree_mod = etree.parse(modern_xml_path, parser)
@@ -190,10 +176,11 @@ def collate_lus(modern_xml_path, vesq_xml_path, vdir_xml_path):
 
     return etree.tostring(tei_root, pretty_print=True, encoding='utf-8', xml_declaration=True).decode('utf-8')
 
-# --- collate_line (MODIFICADA) ---
+# --- collate_line (MODIFICADA para inserções de pontuação) ---
 def collate_line(tokens_mod_full, tokens_vesq_full, tokens_vdir_full, wit_ids):
     """
-    Cola os tokens de um único verso, aninhando <app> dentro de <w> para palavras.
+    Cola os tokens de um único verso, aninhando <app> dentro de <w> para palavras
+    e dentro de <pc> para pontuação quando há variação ou inserção.
     """
     collated_l = etree.Element('{'+TEI_NAMESPACE+'}l')
 
@@ -214,23 +201,41 @@ def collate_line(tokens_mod_full, tokens_vesq_full, tokens_vdir_full, wit_ids):
     insert_ptr = 0
 
     for mod_idx in range(len(tokens_mod_full) + 1):
-        current_insert_blocks = {}
+        # Processar inserções que devem ocorrer ANTES ou NO PONTO do token VMod atual
+        current_insert_blocks = {} # {source_wit: list_of_inserted_token_full_data}
         while insert_ptr < len(all_inserts_data) and all_inserts_data[insert_ptr][0] == mod_idx:
-            _, source_wit, inserted_tokens_full = all_inserts_data[insert_ptr]
-            current_insert_blocks.setdefault(source_wit, []).extend([t[0] for t in inserted_tokens_full])
+            _, source_wit, inserted_tokens_full_data = all_inserts_data[insert_ptr]
+            current_insert_blocks.setdefault(source_wit, []).extend(inserted_tokens_full_data) # Armazena dados completos do token
             insert_ptr += 1
 
         if current_insert_blocks:
-            app = etree.Element('{'+TEI_NAMESPACE+'}app')
-            collated_l.append(app) # Inserções são sempre <app> de nível superior
+            # Verificar se TODAS as inserções neste bloco são APENAS pontuação
+            is_pure_punctuation_insert = True
+            for wit_tokens in current_insert_blocks.values():
+                for token_data in wit_tokens:
+                    if not token_data[2]: # token_data[2] é 'is_punct'
+                        is_pure_punctuation_insert = False
+                        break
+                if not is_pure_punctuation_insert:
+                    break
+
+            parent_for_app_insert = collated_l
+            if is_pure_punctuation_insert:
+                # Se for só pontuação, criar um <pc> wrapper
+                wrapper_pc = etree.Element('{'+TEI_NAMESPACE+'}pc')
+                collated_l.append(wrapper_pc)
+                parent_for_app_insert = wrapper_pc
+            
+            app = etree.SubElement(parent_for_app_insert, '{'+TEI_NAMESPACE+'}app')
             rdg_mod_empty = etree.SubElement(app, '{'+TEI_NAMESPACE+'}rdg', wit=wit_ids['VMod'])
             
             grouped_insert_rdgs = {}
             if 'VEsq' in current_insert_blocks:
-                text = " ".join(current_insert_blocks['VEsq'])
+                # Join original_text from full token data
+                text = " ".join([t[0] for t in current_insert_blocks['VEsq']])
                 grouped_insert_rdgs.setdefault(text, []).append(wit_ids['VEsq'])
             if 'VDir' in current_insert_blocks:
-                text = " ".join(current_insert_blocks['VDir'])
+                text = " ".join([t[0] for t in current_insert_blocks['VDir']])
                 grouped_insert_rdgs.setdefault(text, []).append(wit_ids['VDir'])
             
             for text_val, wits_list in grouped_insert_rdgs.items():
@@ -254,39 +259,33 @@ def collate_line(tokens_mod_full, tokens_vesq_full, tokens_vdir_full, wit_ids):
                 mod_original_text == esq_original_text and 
                 mod_original_text == dir_original_text):
                 
-                # Caso 1: Todos idênticos. Criar <w> ou <pc> diretamente.
                 elem = etree.Element('{'+TEI_NAMESPACE+'}' + mod_tag, mod_attrs)
                 elem.text = mod_original_text
                 collated_l.append(elem)
             else:
-                # Caso 2: Há uma variação.
-                
-                # Determinar o elemento pai para <app>
                 parent_for_app = collated_l
                 
                 if mod_tag == 'w':
-                    # Se for uma palavra, crie um <w> wrapper com os atributos
                     wrapper_w = etree.Element('{'+TEI_NAMESPACE+'}w', mod_attrs)
                     collated_l.append(wrapper_w)
-                    parent_for_app = wrapper_w # O <app> irá dentro do <w>
+                    parent_for_app = wrapper_w
+                elif mod_tag == 'pc':
+                    wrapper_pc = etree.Element('{'+TEI_NAMESPACE+'}pc')
+                    collated_l.append(wrapper_pc)
+                    parent_for_app = wrapper_pc
                 
-                # Criar o <app> dentro do pai correto (collated_l ou wrapper_w)
                 app = etree.SubElement(parent_for_app, '{'+TEI_NAMESPACE+'}app')
 
-                # Coletar leituras (apenas texto) para agrupamento
                 readings_data = {
                     wit_ids['VMod']: mod_original_text,
                     wit_ids['VEsq']: esq_original_text,
                     wit_ids['VDir']: dir_original_text
                 }
 
-                # Agrupar leituras idênticas pelo texto
-                grouped_rdgs = {} # { text_val: [wit_id] }
+                grouped_rdgs = {}
                 for wit_id, text in readings_data.items():
                     grouped_rdgs.setdefault(text, []).append(wit_id)
 
-                # Criar os elementos <rdg>
-                # Ordenar para ter a leitura da VMod primeiro, se for única
                 ordered_keys = sorted(grouped_rdgs.keys(), 
                                       key=lambda k: 0 if wit_ids['VMod'] in grouped_rdgs[k] else 1)
                 

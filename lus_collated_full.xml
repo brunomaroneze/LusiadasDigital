@@ -5481,7 +5481,7 @@
             <pc>,</pc>
           </l>
           <l>
-            <w lemma="Tornarão" pos="PROPN" msd="Gender=Masc|Number=Sing">
+            <w lemma="tornar" pos="VERB" msd="Mood=Ind|Number=Plur|Person=3|Tense=Fut|VerbForm=Fin">
               <app>
                 <rdg wit="#VEsq #VMod">Tornarão</rdg>
                 <rdg wit="#VDir">Começáram</rdg>

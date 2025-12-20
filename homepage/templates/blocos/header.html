@@ -1,0 +1,11 @@
+
+<!-- Hero (etiqueta, título e subtítulo) -->
+<header class="hero-container">
+{% if etiqueta %}
+    <span class="hero-etiqueta">{{ etiqueta }}</span>
+{% endif %}
+    <h1 class="hero-titulo">{{ titulo }}</h1>
+{% if subtitulo %}
+    <p class="hero-subtitulo">{{ subtitulo }}</p>
+{% endif %}
+</header>

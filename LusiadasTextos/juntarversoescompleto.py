@@ -6,8 +6,13 @@ from difflib import SequenceMatcher
 XML_NAMESPACE = "http://www.w3.org/XML/1998/namespace"
 TEI_NAMESPACE = "http://www.tei-c.org/ns/1.0" # Definindo o namespace TEI
 
-# --- Funções de Pré-processamento (mantidas inalteradas) ---
+# --- 1. Funções de Pré-processamento (mantidas inalteradas) ---
 def preprocess_old_version_l(l_element):
+    """
+    Extrai o texto de um elemento <l> de uma versão antiga,
+    tratando <lb break="no"/> e tokenizando em palavras e pontuação.
+    Retorna uma lista de tuplas (original_text, comparable_text, is_punct, tag, attrs).
+    """
     full_text_parts = []
     
     if l_element.text:
@@ -31,18 +36,28 @@ def preprocess_old_version_l(l_element):
     tokens = []
     for match_str in re.findall(r"([^\s.,:;?!&]+|[.,:;?!&])", full_line_text):
         if match_str:
-            is_punct = bool(re.match(r"[.,:;?!&]", match_str))
             original_text = match_str
             comparable_text = original_text.lower()
+            attrs = {}
             
             if original_text == '&':
+                is_punct = False
+                tag = 'w'
                 comparable_text = 'e'
+                attrs = {'lemma': 'e', 'pos': 'CCONJ'}
+            else:
+                is_punct = bool(re.match(r"[.,:;?!&]", original_text))
+                tag = 'pc' if is_punct else 'w'
             
-            tokens.append((original_text, comparable_text, is_punct))
+            tokens.append((original_text, comparable_text, is_punct, tag, attrs))
         
     return tokens
 
 def preprocess_modern_l(l_element):
+    """
+    Extrai tokens de um elemento <l> da versão modernizada.
+    Retorna uma lista de tuplas (tag, original_text, comparable_text, is_punct, attrs).
+    """
     tokens = []
     for child in l_element.xpath('./tei:w | ./tei:pc', namespaces={'tei': TEI_NAMESPACE}):
         tag = child.tag.split('}')[-1]
@@ -78,7 +93,7 @@ def _align_target_to_base(base_tokens_full, target_tokens_full, base_comparable,
 
     return aligned_target, insertions_before_base_idx
 
-# --- Função Principal de Colação (mantida inalterada) ---
+# --- 2. Função Principal de Colação (mantida inalterada, exceto correção de typo) ---
 def collate_lus(modern_xml_path, vesq_xml_path, vdir_xml_path):
     parser = etree.XMLParser(remove_blank_text=True) 
     
@@ -162,7 +177,7 @@ def collate_lus(modern_xml_path, vesq_xml_path, vdir_xml_path):
 
     tei_header = etree.SubElement(tei_root, '{'+TEI_NAMESPACE+'}teiHeader')
     file_desc = etree.SubElement(tei_header, '{'+TEI_NAMESPACE+'}fileDesc')
-    title_stmt = etree.SubElement(file_desc, '{'+TEI_NAMESPACE+'}titleStmt')
+    title_stmt = etree.SubElement(file_desc, '{'+TEI_NAMESPACE+'}titleStmt') # Correção do typo: file_header para file_desc
     etree.SubElement(title_stmt, '{'+TEI_NAMESPACE+'}title').text = 'Os Lusíadas Colacionado (VMod, VEsq, VDir)'
     publication_stmt = etree.SubElement(file_desc, '{'+TEI_NAMESPACE+'}publicationStmt')
     etree.SubElement(publication_stmt, '{'+TEI_NAMESPACE+'}p').text = 'Colação automatizada.'
@@ -176,72 +191,85 @@ def collate_lus(modern_xml_path, vesq_xml_path, vdir_xml_path):
 
     return etree.tostring(tei_root, pretty_print=True, encoding='utf-8', xml_declaration=True).decode('utf-8')
 
-# --- collate_line (MODIFICADA para inserções de pontuação) ---
+# --- collate_line (MODIFICADA para <w>/<pc> dentro de <rdg> E tratamento de atributos/inserções) ---
 def collate_line(tokens_mod_full, tokens_vesq_full, tokens_vdir_full, wit_ids):
-    """
-    Cola os tokens de um único verso, aninhando <app> dentro de <w> para palavras
-    e dentro de <pc> para pontuação quando há variação ou inserção.
-    """
     collated_l = etree.Element('{'+TEI_NAMESPACE+'}l')
 
     mod_comparable = [t[2] for t in tokens_mod_full]
-    esq_comparable = [t[1] for t in tokens_vesq_full]
+    esq_comparable = [t[1] for t in tokens_vesq_full] 
     dir_comparable = [t[1] for t in tokens_vdir_full]
 
     aligned_esq_to_mod, esq_inserts = _align_target_to_base(tokens_mod_full, tokens_vesq_full, mod_comparable, esq_comparable)
     aligned_dir_to_mod, dir_inserts = _align_target_to_base(tokens_mod_full, tokens_vdir_full, mod_comparable, dir_comparable)
 
     all_inserts_data = []
-    for base_idx, ins_tokens in esq_inserts:
-        all_inserts_data.append((base_idx, 'VEsq', ins_tokens))
-    for base_idx, ins_tokens in dir_inserts:
-        all_inserts_data.append((base_idx, 'VDir', ins_tokens))
+    # Inserções são blocos de tokens, vamos mantê-los como blocos para agrupamento
+    for base_idx, ins_tokens_list in esq_inserts:
+        all_inserts_data.append((base_idx, 'VEsq', ins_tokens_list))
+    for base_idx, ins_tokens_list in dir_inserts:
+        all_inserts_data.append((base_idx, 'VDir', ins_tokens_list))
     all_inserts_data.sort(key=lambda x: x[0])
 
     insert_ptr = 0
 
     for mod_idx in range(len(tokens_mod_full) + 1):
-        # Processar inserções que devem ocorrer ANTES ou NO PONTO do token VMod atual
-        current_insert_blocks = {} # {source_wit: list_of_inserted_token_full_data}
+        current_insert_blocks = {} # {block_representation_tuple: [list_of_wit_ids]}
+        # Agrupar inserções no mesmo ponto da base
         while insert_ptr < len(all_inserts_data) and all_inserts_data[insert_ptr][0] == mod_idx:
-            _, source_wit, inserted_tokens_full_data = all_inserts_data[insert_ptr]
-            current_insert_blocks.setdefault(source_wit, []).extend(inserted_tokens_full_data) # Armazena dados completos do token
+            _, source_wit, inserted_tokens_full_data_block = all_inserts_data[insert_ptr]
+            
+            # CRIAR REPRESENTAÇÃO HASHABLE DO BLOCO DE TOKENS
+            # Cada token_data é (original_text, comparable_text, is_punct, tag, attrs)
+            # Precisamos converter 'attrs' para frozenset para que o tuple seja hashable.
+            hashable_block_parts = []
+            for token_data in inserted_tokens_full_data_block:
+                # Assuming token_data is (original_text, comparable_text, is_punct, tag, attrs)
+                # Ensure attrs is the last element and is a dict
+                if len(token_data) == 5 and isinstance(token_data[4], dict):
+                    hashable_token = token_data[:-1] + (frozenset(token_data[4].items()),)
+                else: # Fallback if attrs is not a dict or token structure is different
+                    hashable_token = tuple(token_data)
+                hashable_block_parts.append(hashable_token)
+            
+            block_representation = tuple(hashable_block_parts) # This tuple of tuples is now hashable
+            
+            current_insert_blocks.setdefault(block_representation, []).append(wit_ids[source_wit])
             insert_ptr += 1
 
         if current_insert_blocks:
-            # Verificar se TODAS as inserções neste bloco são APENAS pontuação
-            is_pure_punctuation_insert = True
-            for wit_tokens in current_insert_blocks.values():
-                for token_data in wit_tokens:
-                    if not token_data[2]: # token_data[2] é 'is_punct'
-                        is_pure_punctuation_insert = False
-                        break
-                if not is_pure_punctuation_insert:
-                    break
-
-            parent_for_app_insert = collated_l
-            if is_pure_punctuation_insert:
-                # Se for só pontuação, criar um <pc> wrapper
-                wrapper_pc = etree.Element('{'+TEI_NAMESPACE+'}pc')
-                collated_l.append(wrapper_pc)
-                parent_for_app_insert = wrapper_pc
+            app = etree.Element('{'+TEI_NAMESPACE+'}app')
+            collated_l.append(app)
             
-            app = etree.SubElement(parent_for_app_insert, '{'+TEI_NAMESPACE+'}app')
+            # Adicionar o rdg vazio para VMod primeiro
             rdg_mod_empty = etree.SubElement(app, '{'+TEI_NAMESPACE+'}rdg', wit=wit_ids['VMod'])
             
-            grouped_insert_rdgs = {}
-            if 'VEsq' in current_insert_blocks:
-                # Join original_text from full token data
-                text = " ".join([t[0] for t in current_insert_blocks['VEsq']])
-                grouped_insert_rdgs.setdefault(text, []).append(wit_ids['VEsq'])
-            if 'VDir' in current_insert_blocks:
-                text = " ".join([t[0] for t in current_insert_blocks['VDir']])
-                grouped_insert_rdgs.setdefault(text, []).append(wit_ids['VDir'])
+            # Criar rdgs agrupados para as inserções (não VMod)
+            # current_insert_blocks: {block_representation_tuple: [list_of_wit_ids]}
             
-            for text_val, wits_list in grouped_insert_rdgs.items():
-                rdg = etree.SubElement(app, '{'+TEI_NAMESPACE+'}rdg', wit=" ".join(wits_list))
-                rdg.text = text_val
+            # Ordenar keys para consistência, garantindo que não seja a VMod (já tratada)
+            # e que keys vazias ou None sejam tratadas.
+            ordered_insert_keys = sorted(current_insert_blocks.keys(), 
+                                         key=lambda k: (0 if k else 1, str(k))) # 0 para não-vazio, 1 para vazio, depois lexicográfico
+            
+            for block_key in ordered_insert_keys:
+                wits_list = current_insert_blocks[block_key]
+                # Não criar rdg para VMod aqui, já foi feito
+                if wit_ids['VMod'] in wits_list:
+                    continue 
 
+                rdg = etree.SubElement(app, '{'+TEI_NAMESPACE+'}rdg', wit=" ".join(sorted(wits_list)))
+                
+                # Reconstruir os elementos <w> ou <pc> a partir do block_key
+                for token_data_tuple in block_key:
+                    original_text = token_data_tuple[0]
+                    tag_type = token_data_tuple[3]
+                    # attrs aqui é um frozenset, precisa converter de volta para dict
+                    attrs = dict(token_data_tuple[4])
+                    
+                    inner_elem = etree.Element('{'+TEI_NAMESPACE+'}' + tag_type, attrs)
+                    inner_elem.text = original_text
+                    rdg.append(inner_elem)
+            
 
         if mod_idx < len(tokens_mod_full):
             mod_token = tokens_mod_full[mod_idx]
@@ -255,45 +283,61 @@ def collate_line(tokens_mod_full, tokens_vesq_full, tokens_vdir_full, wit_ids):
             mod_tag = mod_token[0]
             mod_attrs = mod_token[4]
 
+            esq_tag = esq_token[3] if esq_token else None
+            esq_attrs = esq_token[4] if esq_token else {}
+            dir_tag = dir_token[3] if dir_token else None
+            dir_attrs = dir_token[4] if dir_token else {}
+
+
             if (esq_original_text is not None and dir_original_text is not None and
                 mod_original_text == esq_original_text and 
-                mod_original_text == dir_original_text):
+                mod_original_text == dir_original_text and
+                mod_tag == esq_tag and mod_tag == dir_tag): 
                 
                 elem = etree.Element('{'+TEI_NAMESPACE+'}' + mod_tag, mod_attrs)
                 elem.text = mod_original_text
                 collated_l.append(elem)
             else:
-                parent_for_app = collated_l
-                
-                if mod_tag == 'w':
-                    wrapper_w = etree.Element('{'+TEI_NAMESPACE+'}w', mod_attrs)
-                    collated_l.append(wrapper_w)
-                    parent_for_app = wrapper_w
-                elif mod_tag == 'pc':
-                    wrapper_pc = etree.Element('{'+TEI_NAMESPACE+'}pc')
-                    collated_l.append(wrapper_pc)
-                    parent_for_app = wrapper_pc
-                
-                app = etree.SubElement(parent_for_app, '{'+TEI_NAMESPACE+'}app')
+                app = etree.Element('{'+TEI_NAMESPACE+'}app')
+                collated_l.append(app)
 
-                readings_data = {
-                    wit_ids['VMod']: mod_original_text,
-                    wit_ids['VEsq']: esq_original_text,
-                    wit_ids['VDir']: dir_original_text
-                }
+                grouped_rdgs = {} 
+                
+                # Para VMod
+                mod_key = (mod_original_text, mod_tag, frozenset(mod_attrs.items()))
+                grouped_rdgs.setdefault(mod_key, []).append(wit_ids['VMod'])
+                
+                # Para VEsq
+                if esq_original_text is not None:
+                    esq_key_attrs = mod_attrs if esq_tag == 'w' else esq_attrs # Usar attrs da VMod se for palavra, senão os próprios (e.g. &)
+                    esq_key = (esq_original_text, esq_tag, frozenset(esq_key_attrs.items()))
+                else: # rdg vazio
+                    esq_key = (None, None, frozenset())
+                grouped_rdgs.setdefault(esq_key, []).append(wit_ids['VEsq'])
 
-                grouped_rdgs = {}
-                for wit_id, text in readings_data.items():
-                    grouped_rdgs.setdefault(text, []).append(wit_id)
+                # Para VDir
+                if dir_original_text is not None:
+                    dir_key_attrs = mod_attrs if dir_tag == 'w' else dir_attrs # Usar attrs da VMod se for palavra, senão os próprios (e.g. &)
+                    dir_key = (dir_original_text, dir_tag, frozenset(dir_key_attrs.items()))
+                else: # rdg vazio
+                    dir_key = (None, None, frozenset())
+                grouped_rdgs.setdefault(dir_key, []).append(wit_ids['VDir'])
 
                 ordered_keys = sorted(grouped_rdgs.keys(), 
-                                      key=lambda k: 0 if wit_ids['VMod'] in grouped_rdgs[k] else 1)
-                
+                                      key=lambda k: (0 if k[0] is not None and wit_ids['VMod'] in grouped_rdgs[k] else 
+                                                     (2 if k[0] is None else 1),
+                                                     k[0] or ''))
+
                 for key in ordered_keys:
+                    text_val, tag_type_val, attrs_tuple = key
                     wits_list = grouped_rdgs[key]
+                    
                     rdg = etree.SubElement(app, '{'+TEI_NAMESPACE+'}rdg', wit=" ".join(sorted(wits_list)))
-                    if key is not None:
-                        rdg.text = key
+                    
+                    if text_val is not None:
+                        inner_elem = etree.Element('{'+TEI_NAMESPACE+'}' + tag_type_val, dict(attrs_tuple))
+                        inner_elem.text = text_val
+                        rdg.append(inner_elem)
 
     return collated_l
 

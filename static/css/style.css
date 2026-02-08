@@ -34,7 +34,7 @@
         .link-voltar:hover { color: #fff; }
 
 
-        /* --- HERO --- */
+ /* --- HERO --- */
         .hero-container {
             background-color: #e7e5e4; /* Stone-200 */
             padding: 4rem 1.5rem;
@@ -70,3 +70,75 @@
             max-width: 700px;
             margin: 0 auto;
         }
+
+
+/* --- CSS BASE CANTOS --- */
+    /* coluna de conteúdo */
+        .coluna .conteudo {
+         height: calc(100vh - 4rem); /* ajusta conforme header */
+         overflow-y: auto;
+         padding: 1rem;
+    }
+
+        .poema-img {
+         display: block;
+         margin: 0 auto;
+         max-width: 100%;
+         height: auto;
+         
+         /* sensação de página */
+           box-shadow: 0 0 12px rgba(0,0,0,0.25);
+           background: white;
+}
+
+    /* Fac-símile (Imagem)*/
+        .poema-img {
+         display: block;
+         margin: 0 auto;
+         max-width: 100%;
+         height: auto;
+
+         /* sensação de página */
+           box-shadow: 0 0 12px rgba(0,0,0,0.25);
+           background: white;
+}
+
+    /* Figura + legenda (estilo editorial)*/
+        figure {
+         margin: 0;
+         padding: 0;
+}
+
+        figcaption {
+         text-align: center;
+         font-size: 0.85rem;
+         margin-top: 0.5rem;
+         color: #444;
+}
+
+    /* Paginação (simples e sólida) */
+        .paginacao {
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+         margin: 1rem 0;
+         font-size: 0.9rem;
+}
+        .paginacao a {
+         text-decoration: none;
+         color: #003366;
+}
+
+        .paginacao a:hover {
+         text-decoration: underline;
+}
+
+    /* Zoom SEM JavaScript  */
+        .poema-img {
+         cursor: zoom-in;
+}
+
+        .poema-img:active {
+         transform: scale(1.5);
+         cursor: zoom-out;
+}

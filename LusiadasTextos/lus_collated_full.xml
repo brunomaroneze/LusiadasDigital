@@ -766,12 +766,12 @@
                 <pc>,</pc>
               </rdg>
               <rdg wit="#VDir #VEsq">
-                <w>Tagides</w>
+                <w pos="PROPN" lemma="Tágides" msd="Gender=Fem|Number=Sing">Tagides</w>
               </rdg>
             </app>
             <app>
               <rdg wit="#VMod">
-                <w pos="PROPN" lemma="Tágides" msd="Gender=Masc|Number=Sing">Tágides</w>
+                <w pos="PROPN" lemma="Tágides" msd="Gender=Fem|Number=Sing">Tágides</w>
               </rdg>
               <rdg wit="#VDir #VEsq"/>
             </app>
@@ -1024,10 +1024,10 @@
             <w lemma="de" pos="ADP">de</w>
             <app>
               <rdg wit="#VMod">
-                <w lemma="Hipoerene" pos="PROPN" msd="Number=Sing">Hipoerene</w>
+                <w lemma="Hipocrene" pos="PROPN" msd="Number=Sing">Hipocrene</w>
               </rdg>
               <rdg wit="#VDir #VEsq">
-                <w lemma="Hipoerene" pos="PROPN" msd="Number=Sing">Hypocrene</w>
+                <w lemma="Hipocrene" pos="PROPN" msd="Number=Sing">Hypocrene</w>
               </rdg>
             </app>
             <pc>.</pc>

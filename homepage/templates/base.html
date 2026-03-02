@@ -1,20 +1,20 @@
 {% load static %}
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <title>{% block title %}Os Lusíadas – Leitura Comparada{% endblock %}</title>
-  <link rel="stylesheet" href="{% static 'css/style.css' %}">
-</head>
-<body>
+<!-- Head -->
+{% include 'blocos/head.html' %}
+
+<body class="lusiadas">
+<!-- Navegação -->
+{% include 'blocos/nav.html' %}
 
 <div class="layout">
 
   <!-- MENU LATERAL: CANTOS -->
   <nav class="menu-cantos" aria-label="Cantos do poema">
     <ul>
-      {% for i in "123456789X" %}
-        <li><a href="{% url 'canto' forloop.counter %}">{{ i }}</a></li>
+      {% load roman %}
+
+      {% for i in "123456789"|make_list %}
+        <li><a href="{% url 'canto_index' forloop.counter %}">{{ i|romano }}</a></li>
       {% endfor %}
     </ul>
   </nav>
@@ -25,8 +25,8 @@
     <header class="abas">
       <nav aria-label="Abas coluna esquerda">
         <ul>
-          <li><a href="{% url 'leitura' canto 'modernizado' 'esq' %}" class="{% if esq == 'modernizado' %}ativa{% endif %}">MODERNIZADO</a></li>
           <li><a href="{% url 'leitura' canto 'original' 'esq' %}" class="{% if esq == 'original' %}ativa{% endif %}">ORIGINAL</a></li>
+          <li><a href="{% url 'leitura' canto 'modernizado' 'esq' %}" class="{% if esq == 'modernizado' %}ativa{% endif %}">MODERNIZADO</a></li>
           <li><a href="{% url 'leitura' canto 'imagem' 'esq' %}" class="{% if esq == 'imagem' %}ativa{% endif %}">IMAGEM</a></li>
         </ul>
       </nav>
@@ -44,8 +44,8 @@
     <header class="abas">
       <nav aria-label="Abas coluna direita">
         <ul>
+          <li><a href="{% url 'leitura' canto 'original' 'dir' %}" class="{% if dir == 'original' %}ativa{% endif %}">ORIGINAL</a></li>         
           <li><a href="{% url 'leitura' canto 'modernizado' 'dir' %}" class="{% if dir == 'modernizado' %}ativa{% endif %}">MODERNIZADO</a></li>
-          <li><a href="{% url 'leitura' canto 'original' 'dir' %}" class="{% if dir == 'original' %}ativa{% endif %}">ORIGINAL</a></li>
           <li><a href="{% url 'leitura' canto 'imagem' 'dir' %}" class="{% if dir == 'imagem' %}ativa{% endif %}">IMAGEM</a></li>
         </ul>
       </nav>

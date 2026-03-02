@@ -1,11 +1,11 @@
  {% load static %}
- <!-- Navegação -->
     <nav class="nav-fixa">
         <div class="container-nav">
             <a href="{% url 'homepage' %}" class="link-voltar">
                 <i data-lucide="arrow-left"></i>
                 <span>Voltar à Capa</span>
             </a>
-            <span style="font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase;">Biografia Crítica</span>
+            <span style="font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase;">{% block title %}{% endblock %}
+            </span>
         </div>
     </nav>

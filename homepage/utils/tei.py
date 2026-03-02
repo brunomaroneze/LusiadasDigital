@@ -1,37 +1,40 @@
 from lxml import etree
 
 def tei_para_html(tei_xml):
-    if not tei_xml:
-        return ""
+    parser = etree.XMLParser(remove_blank_text=True)
+    root = etree.fromstring(tei_xml.encode(), parser=parser)
 
-    xml = etree.XML(tei_xml.encode("utf-8"))
-    xslt = etree.XML("""
-    <xsl:stylesheet version="1.0"
-      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-      xmlns:tei="http://www.tei-c.org/ns/1.0">
+    # remover namespace
+    for elem in root.iter():
+        if isinstance(elem.tag, str):
+            elem.tag = etree.QName(elem).localname
 
-      <xsl:template match="/">
-        <div class="tei">
-          <xsl:apply-templates/>
-        </div>
-      </xsl:template>
+    etree.cleanup_namespaces(root)
 
-      <xsl:template match="tei:p">
-        <p><xsl:apply-templates/></p>
-      </xsl:template>
+    # 🎯 pegar apenas o corpo do texto
+    body = root.find(".//body")
+    if body is not None:
+        root = body
 
-      <xsl:template match="tei:w">
-        <span class="w"><xsl:apply-templates/></span>
-      </xsl:template>
+    # <lg> → <div class="estrofe">
+    for lg in root.findall(".//lg"):
+        lg.tag = "div"
+        lg.attrib.clear()
+        lg.attrib["class"] = "estrofe"
 
-      <xsl:template match="text()">
-        <xsl:value-of select="."/>
-      </xsl:template>
+    # <l> → <div class="verso">
+    for l in root.findall(".//l"):
+        l.tag = "div"
+        l.attrib.clear()
+        l.attrib["class"] = "verso"
 
-    </xsl:stylesheet>
-    """)
+    # <lb> → <br>
+    for lb in root.findall(".//lb"):
+        lb.tag = "br"
+        lb.attrib.clear()
 
-    transform = etree.XSLT(xslt)
-    html = transform(xml)
+    # <head> → <h3>
+    for head in root.findall(".//head"):
+        head.tag = "h3"
 
-    return str(html)
+    return etree.tostring(root, encoding="unicode", method="html")

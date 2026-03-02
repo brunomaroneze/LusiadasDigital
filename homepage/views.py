@@ -46,12 +46,27 @@ def canto(request, canto):
     return render(request, "poema/canto.html", contexto)
 
 
+# -----------------------
+# Página inicial de CANTO
+# -----------------------
+def canto_index(request, canto):
+    paginas = PaginaImagem.objects.filter(
+        canto__numero=canto
+    ).order_by("numero")
+
+    return render(request, "poema/canto_index.html", {
+        "canto": canto,
+        "paginas": paginas
+    })
+
+
 
 # -----------------------
 # LEITURA
 # -----------------------
 
-def leitura(request, canto, conteudo, coluna):
+def leitura(request, canto, conteudo, coluna, pagina=None):
+    print("ENTROU NA LEITURA")
     esq = "modernizado"
     dir = "original"
 

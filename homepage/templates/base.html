@@ -1,0 +1,63 @@
+{% load static %}
+<!-- Head -->
+{% include 'blocos/head.html' %}
+
+<body class="lusiadas">
+<!-- Navegação -->
+{% include 'blocos/nav.html' %}
+
+<div class="layout">
+
+  <!-- MENU LATERAL: CANTOS -->
+  <nav class="menu-cantos" aria-label="Cantos do poema">
+    <ul>
+      {% load roman %}
+
+      {% for i in "123456789"|make_list %}
+        <li><a href="{% url 'canto_index' forloop.counter %}">{{ i|romano }}</a></li>
+      {% endfor %}
+    </ul>
+  </nav>
+
+  <!-- COLUNA ESQUERDA (SLOT A) -->
+  <section class="coluna coluna-esquerda" aria-label="Coluna esquerda">
+
+    <header class="abas">
+      <nav aria-label="Abas coluna esquerda">
+        <ul>
+          <li><a href="{% url 'leitura' canto 'original' 'esq' %}" class="{% if esq == 'original' %}ativa{% endif %}">ORIGINAL</a></li>
+          <li><a href="{% url 'leitura' canto 'modernizado' 'esq' %}" class="{% if esq == 'modernizado' %}ativa{% endif %}">MODERNIZADO</a></li>
+          <li><a href="{% url 'leitura' canto 'imagem' 'esq' %}" class="{% if esq == 'imagem' %}ativa{% endif %}">IMAGEM</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <article class="conteudo">
+      {% block conteudo_esquerda %}{% endblock %}
+    </article>
+
+  </section>
+
+  <!-- COLUNA DIREITA (SLOT B) -->
+  <section class="coluna coluna-direita" aria-label="Coluna direita">
+
+    <header class="abas">
+      <nav aria-label="Abas coluna direita">
+        <ul>
+          <li><a href="{% url 'leitura' canto 'original' 'dir' %}" class="{% if dir == 'original' %}ativa{% endif %}">ORIGINAL</a></li>         
+          <li><a href="{% url 'leitura' canto 'modernizado' 'dir' %}" class="{% if dir == 'modernizado' %}ativa{% endif %}">MODERNIZADO</a></li>
+          <li><a href="{% url 'leitura' canto 'imagem' 'dir' %}" class="{% if dir == 'imagem' %}ativa{% endif %}">IMAGEM</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <article class="conteudo">
+      {% block conteudo_direita %}{% endblock %}
+    </article>
+
+  </section>
+
+</div>
+
+</body>
+</html>

@@ -1,3 +1,8 @@
+## ALTERAÇÕES 08/02/2025
+- Primeira etapa de integração TEI-XML → HTML. Ainda exploratório, sem impacto no fluxo atual
+- A ideia é que os textos possam ser inseridos por meio de Editor no Django Admin
+- Para saber melhor: https://github.com/Suthiery/LusiadasDigital/tree/feature/tei-editor
+
 ## ALTERAÇÕES 20/12/2025
 
 ## CSS

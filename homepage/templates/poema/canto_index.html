@@ -1,0 +1,17 @@
+{% extends "base_simples.html" %}
+{% load roman %}
+{% block title %}Canto {{ canto|romano }}{% endblock %}
+
+{% block conteudo %}
+<h1>Canto {{ canto|romano }}</h1>
+
+<div class="grid-miniaturas">
+    {% for pagina in paginas %}
+        <a href="{% url 'leitura_paginada' canto 'modernizado' 'esq' pagina.numero %}" class="thumb">
+            <img src="{{ pagina.imagem.url }}" class="poema-img-min"/>
+            <br />
+            <span>Página {{ pagina.numero }}</span>
+        </a>
+    {% endfor %}
+</div>
+{% endblock %}

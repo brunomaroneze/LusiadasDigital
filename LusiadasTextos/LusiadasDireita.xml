@@ -1528,8 +1528,43 @@
                 <fw type="catch" place="bottom">Torna</fw>
                 <pb n="23"/>
                 <fw type="header" place="top">CANTO PRIMEIRO.</fw>
-                <lg type="estrofe" n="24">   
-                    
+                <lg type="estrofe" n="24">
+                    <l>Torna pera detras a Nao forçada,</l>
+                    <l>A pesar dos que leua, que gritando,</l>
+                    <l>Mareão vellas, ferue a gente yrada,</l>
+                    <l>O leme a hũ bordo, &amp; a outro atrauessando,</l>
+                    <l>O Mestre astuto em vão da popa brada,</l>
+                    <l>Vendo como diante ameaçando</l>
+                    <l>O estaua hum maritimo penedo,</l>
+                    <l>Que de quebrarlhe a Nao lhe mete medo.</l>
+                </lg>
+                <lg type = "estrofe" n = "25">
+                    <l>A celeuma medonha se aleuanta,</l>
+                    <l>No rudo Marinheiro que trabalha,</l>
+                    <l>O grande estrondo a Maura gente espanta,</l>
+                    <l>Como se vissem horrida batalha:</l>
+                    <l>Nam sabem a razam de furia tanta,</l> 
+                    <l>Nam sabem nesta pressa quem lhe valha:</l>
+                    <l>Cuydão que seus enganos sam sabidos,</l>
+                    <l>E que ande ser por isso aqui punidos.</l>
+                </lg>
+                <lg type = "estrofe" n = "26">
+                    <l>Eilos subitamente se lançauão,</l>
+                    <l>A seus bateis veloces que trazião,</l>
+                    <l>Outros encima o mar aleuantauão,</l>
+                    <l>Saltando nagoa a nado se acolhião:</l>
+                    <l>De hum bordo &amp; doutro subito faltauão,</l>
+                    <l>Que o medo os compelia do que vião.</l>
+                    <l>Que antes querem ao mar auenturarse,</l>
+                    <l>Que nas mãos inimigas entregarse.</l>
+                </lg>
+                <fw type="catch" place="bottom">Assi</fw>
+                <pb/>
+                <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
+                <lg type="estrofe" n="27">
+                
+
+                
             </div>
         </body>
     </text>

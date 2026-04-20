@@ -1,0 +1,27 @@
+{% load static %}
+<!-- Head -->
+{% include 'blocos/head.html' %}
+<body class="lusiadas">
+<!-- Navegação -->
+{% include 'blocos/nav.html' %}
+<div class="layout">
+
+  <!-- MENU LATERAL: CANTOS -->
+  <nav class="menu-cantos" aria-label="Cantos do poema">
+    <ul>
+      {% load roman %}
+
+      {% for i in "123456789"|make_list %}
+        <li><a href="{% url 'canto_index' forloop.counter %}">{{ i|romano }}</a></li>
+      {% endfor %}
+    </ul>
+  </nav>
+
+    <main class="container-simples">
+      {% block conteudo %}{% endblock %}
+    </main>
+
+</div>
+
+</body>
+</html>

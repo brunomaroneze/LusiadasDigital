@@ -34,7 +34,7 @@
         .link-voltar:hover { color: #fff; }
 
 
-        /* --- HERO --- */
+ /* --- HERO --- */
         .hero-container {
             background-color: #e7e5e4; /* Stone-200 */
             padding: 4rem 1.5rem;
@@ -70,3 +70,201 @@
             max-width: 700px;
             margin: 0 auto;
         }
+
+
+/* ============================= */
+/*           LUSÍADAS            */
+/* ============================= */
+
+body.lusiadas {
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    background: #ffffff;
+    color: #111;
+}
+
+
+/* ============================= */
+/*            LAYOUT             */
+/* ============================= */
+
+.lusiadas .layout {
+    display: grid;
+    grid-template-columns: 60px 1fr 1fr;
+    column-gap: 120px;
+    padding: 80px 120px;
+    align-items: start;
+}
+
+
+/* ============================= */
+/*         MENU LATERAL          */
+/* ============================= */
+
+.lusiadas .menu-cantos {
+    text-align: center;
+    border-right: 1px solid #ddd;
+    padding-right: 20px;
+}
+
+.lusiadas .menu-cantos ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.lusiadas .menu-cantos li {
+    margin-bottom: 18px;
+}
+
+.lusiadas .menu-cantos a {
+    text-decoration: none;
+    font-size: 14px;
+    color: #666;
+    transition: 0.2s;
+}
+
+.lusiadas .menu-cantos a:hover {
+    color: #000;
+}
+
+
+/* ============================= */
+/*            COLUNAS            */
+/* ============================= */
+
+.lusiadas .coluna {
+    max-width: 520px;
+    margin: 0 auto;
+}
+
+
+/* ============================= */
+/*             ABAS              */
+/* ============================= */
+
+.lusiadas .abas {
+    margin-bottom: 50px;
+}
+
+.lusiadas .abas ul {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.lusiadas .abas a {
+    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: 1px;
+    color: #666;
+    padding-bottom: 6px;
+    text-transform: uppercase;
+}
+
+.lusiadas .abas a.ativa {
+    border-bottom: 2px solid #000;
+    color: #000;
+}
+
+
+/* ============================= */
+/*           CONTEÚDO            */
+/* ============================= */
+
+.lusiadas .conteudo {
+    line-height: 1.8;
+    font-size: 16px;
+}
+
+
+/* ============================= */
+/*             POEMA             */
+/* ============================= */
+
+.lusiadas h3 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-weight: normal;
+    letter-spacing: 1px;
+}
+
+.lusiadas .estrofe {
+    margin-bottom: 30px;
+}
+
+.lusiadas .verso {
+    margin-left: 60px;
+    margin-bottom: 6px;
+}
+
+/* Cada verso em bloco */
+l {
+  display: block;
+  margin-bottom: 0.4em;
+}
+
+/* Espaço padrão depois de palavra */
+w::after {
+  content: " ";
+}
+
+/* Se a palavra vier antes de pontuação, remove o espaço */
+w:has(+ pc)::after {
+  content: "";
+}
+
+/* Pontuação NÃO tem espaço antes */
+pc::before {
+  content: "";
+}
+
+/* Pontuação TEM espaço depois */
+pc::after {
+  content: " ";
+}
+
+/* EXCEÇÃO: se a pontuação estiver no fim do verso, não adicionar espaço */
+pc:last-child::after {
+  content: "";
+}
+
+/* imagem */
+.poema-img {
+    width: 100%;
+}
+
+.poema-img-min {
+    width: 150px;
+}
+/* ============================= */
+/*          RESPONSIVO           */
+/* ============================= */
+
+@media (max-width: 1200px) {
+    .lusiadas .layout {
+        column-gap: 80px;
+        padding: 60px 60px;
+    }
+}
+
+@media (max-width: 900px) {
+    .lusiadas .layout {
+        grid-template-columns: 1fr;
+        padding: 40px 30px;
+    }
+
+    .lusiadas .menu-cantos {
+        border-right: none;
+        border-bottom: 1px solid #ddd;
+        padding-bottom: 20px;
+        margin-bottom: 40px;
+    }
+
+    .lusiadas .coluna {
+        max-width: 100%;
+    }
+}

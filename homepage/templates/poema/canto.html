@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="layout">
+
+  <div class="coluna">
+    {% block conteudo_esquerda %}
+      {% if esq == "imagem" %}
+        {% include "poema/partials/imagem_paginada.html" %}
+      {% else %}
+        {% include "poema/"|add:esq|add:".html" %}
+      {% endif %}
+    {% endblock %}
+  </div>
+
+  <div class="coluna">
+    {% block conteudo_direita %}
+      {% if dir == "imagem" %}
+        {% include "poema/partials/imagem_paginada.html" %}
+      {% else %}
+        {% include "poema/"|add:dir|add:".html" %}
+      {% endif %}
+    {% endblock %}
+  </div>
+
+</div>
+
+{% endblock %}

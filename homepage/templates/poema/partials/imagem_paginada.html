@@ -1,0 +1,18 @@
+{% load static %}
+
+{% if imagem %}
+  <figure class="pagina-imagem">
+    <img
+      src="{{ imagem.imagem.url }}"
+      alt="Canto {{ canto }} – página {{ pagina_num }}"
+      class="poema-img"
+    >
+    <figcaption>
+      Canto {{ canto }} – página {{ pagina_num }}
+    </figcaption>
+  </figure>
+{% else %}
+  <p>Imagem não disponível para esta página.</p>
+{% endif %}
+
+

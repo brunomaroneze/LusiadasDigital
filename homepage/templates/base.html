@@ -16,6 +16,8 @@
       {% for i in "123456789"|make_list %}
         <li><a href="{% url 'canto_index' forloop.counter %}">{{ i|romano }}</a></li>
       {% endfor %}
+      <li><a href="{% url 'canto_index' 10 %}">{{ 10|romano }}</a></li>
+
     </ul>
   </nav>
 

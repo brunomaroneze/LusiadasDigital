@@ -5,6 +5,10 @@
 {% block conteudo %}
 <h1>Canto {{ canto|romano }}</h1>
 
+<p>
+    <a href="{% url 'canto' canto %}">Abrir leitura em colunas</a>
+</p>
+
 <div class="grid-miniaturas">
     {% for pagina in paginas %}
         <a href="{% url 'leitura_paginada' canto 'modernizado' 'esq' pagina.numero %}" class="thumb">

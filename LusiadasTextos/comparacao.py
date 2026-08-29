@@ -67,7 +67,7 @@ def comparar_arquivos(arquivo1, arquivo2, saida):
     print(f"Comparação concluída. Diferenças salvas em {saida}")
 
 # Exemplo de uso
-arquivo1 = "LusiadasDireita.xml"
-arquivo2 = "LusiadasEsquerda.xml"
+arquivo1 = "LusiadasEsquerda.xml"
+arquivo2 = "LusiadasDireita.xml"
 saida = "diferencas.csv"
 comparar_arquivos(arquivo1, arquivo2, saida)

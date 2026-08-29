@@ -1,11 +1,56 @@
- {% load static %}
-    <nav class="nav-fixa">
-        <div class="container-nav">
-            <a href="{% url 'homepage' %}" class="link-voltar">
-                <i data-lucide="arrow-left"></i>
-                <span>Voltar à Capa</span>
-            </a>
-            <span style="font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase;">{% block title %}{% endblock %}
-            </span>
-        </div>
-    </nav>
+{% load static %}
+<nav class="nav-fixa">
+  <div class="container-nav">
+    <!-- Lado Esquerdo: Logo para voltar à página principal -->
+    <a
+      href="{% url 'homepage' %}"
+      class="logo-nav"
+      aria-label="Voltar para a página principal"
+    >
+      <img
+        src="{% static 'images/logos/barco.svg' %}"
+        alt="Logo Barco"
+        class="icone-barco"
+        width="32"
+        height="32"
+      />
+    </a>
+
+    <!-- Lado Direito: Links e Menu Hamburger -->
+    <div class="menu-direita">
+      <ul class="links-nav" id="links-nav">
+        <li><a href="{% url 'homepage' %}">homepage</a></li>
+        <li><a href="{% url 'canto_index' 1 %}" class="nav-item">cantos</a></li>
+        <li><a href="{% url 'autor' %}">autor</a></li>
+        <li><a href="{% url 'sobre' %}">projeto</a></li>
+      </ul>
+
+      <!-- Ícone do Menu Hamburger (visível apenas no mobile) -->
+      <button
+        class="btn-menu-hamburger"
+        type="button"
+        aria-label="Abrir menu"
+        aria-expanded="false"
+        aria-controls="links-nav"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<script>
+  (function () {
+    var botao = document.querySelector(".btn-menu-hamburger");
+    var container = document.querySelector(".nav-fixa .container-nav");
+
+    if (!botao || !container) return;
+
+    botao.addEventListener("click", function () {
+      var aberto = container.classList.toggle("menu-aberto");
+      botao.setAttribute("aria-expanded", aberto ? "true" : "false");
+    });
+  })();
+</script>

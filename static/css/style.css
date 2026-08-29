@@ -1,204 +1,352 @@
-/* --- RESET BÁSICO --- */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+/* Reset básico, variáveis de cor/fonte e estado de foco:
+   ver variables.css (carregado antes deste arquivo). */
+
+/* --- RODAPÉ (elemento global, presente em todas as páginas exceto a home) --- */
+footer {
+  background-color: var(--cor-destaque);
+  color: #a8a29e;
+  padding: 2rem;
+  margin-top: 4rem;
+  font-size: 0.9rem;
+}
 
 /* --- NAVEGAÇÃO --- */
-        .nav-fixa {
-            background-color: var(--cor-menu);
-            color: #f0e6d2;
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
+.nav-fixa {
+  background-color: #1a0f01; /* preto fixo, não depende de variável de página */
+  color: #f0e6d2;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
 
-        .container-nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+.container-nav {
+  position: relative;
+  max-width: 1200px;
+  height: 72px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-        .link-voltar {
-            text-decoration: none;
-            color: inherit;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-weight: 700;
-            font-family: var(--fonte-titulo);
-            transition: color 0.3s;
-        }
-        .link-voltar:hover { color: #fff; }
+/* Estilos do Logo (Barco) */
+.logo-nav {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  height: 32px;
+  line-height: 0;
+}
 
+.logo-nav img,
+.logo-nav svg {
+  display: block;
+  height: 32px;
+  width: 32px;
+  max-width: 32px;
+  max-height: 32px;
+  object-fit: contain;
+  /* o arquivo barco.svg é preenchido em preto; este filtro deixa o ícone
+     branco/creme para aparecer sobre o fundo escuro, como na referência */
+  filter: brightness(0) saturate(100%) invert(94%) sepia(8%) saturate(316%)
+    hue-rotate(1deg) brightness(97%) contrast(93%);
+}
 
- /* --- HERO --- */
-        .hero-container {
-            background-color: #e7e5e4; /* Stone-200 */
-            padding: 4rem 1.5rem;
-            border-bottom: 1px solid #d6d3d1;
-            text-align: center;
-        }
+/* Container da Direita (Links + Hamburger) */
+.menu-direita {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
 
-        .hero-etiqueta {
-            display: inline-block;
-            background-color: var(--cor-destaque);
-            color: var(--cor-texto-claro);
-            padding: 0.25rem 0.75rem;
-            border-radius: 9999px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 1rem;
-        }
+.links-nav {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
 
-        .hero-titulo {
-            font-family: var(--fonte-titulo);
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            color: #1c1917;
-        }
+.links-nav a {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  color: #f0e6d2;
+  font-family: var(--fonte-titulo, "Cinzel", serif);
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+  transition: color 0.3s;
+}
 
-        .hero-subtitulo {
-            font-family: var(--fonte-leitura);
-            font-size: 1.25rem;
-            font-style: italic;
-            color: #44403c;
-            max-width: 700px;
-            margin: 0 auto;
-        }
+.links-nav a:hover {
+  color: #ffffff;
+}
 
+/* Estilo do Menu Hamburger — some no desktop, só aparece no mobile */
+.btn-menu-hamburger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  padding: 0.5rem;
+  margin: -0.5rem;
+}
+
+.btn-menu-hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: #f0e6d2;
+  border-radius: 1px;
+  transition:
+    background-color 0.3s,
+    transform 0.3s,
+    opacity 0.3s;
+}
+
+.btn-menu-hamburger:hover span {
+  background-color: #ffffff;
+}
+
+.container-nav.menu-aberto .btn-menu-hamburger span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.container-nav.menu-aberto .btn-menu-hamburger span:nth-child(2) {
+  opacity: 0;
+}
+
+.container-nav.menu-aberto .btn-menu-hamburger span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* --- NAV RESPONSIVA (MOBILE) --- */
+@media (max-width: 720px) {
+  .btn-menu-hamburger {
+    display: flex;
+  }
+
+  .links-nav {
+    position: absolute;
+    top: 56px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    background-color: #000000;
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 1.5rem;
+    box-shadow: 0 6px 6px -4px rgba(0, 0, 0, 0.15);
+    transition:
+      max-height 0.3s ease,
+      padding 0.3s ease;
+  }
+
+  .container-nav.menu-aberto .links-nav {
+    max-height: 300px;
+    padding: 1rem 1.5rem 1.5rem;
+  }
+
+  .links-nav li {
+    width: 100%;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(240, 230, 210, 0.15);
+  }
+}
+
+/* --- HERO --- */
+.hero-container {
+  background-color: #e7e5e4; /* Stone-200 */
+  padding: 4rem 1.5rem;
+  border-bottom: 1px solid #d6d3d1;
+  text-align: center;
+}
+
+.hero-etiqueta {
+  display: inline-block;
+  background-color: var(--cor-destaque);
+  color: var(--cor-texto-claro);
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+}
+
+.hero-titulo {
+  font-family: var(--fonte-titulo);
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: #1c1917;
+}
+
+.hero-subtitulo {
+  font-family: var(--fonte-leitura);
+  font-size: 1.25rem;
+  font-style: italic;
+  color: #44403c;
+  max-width: 700px;
+  margin: 0 auto;
+}
 
 /* ============================= */
 /*           LUSÍADAS            */
 /* ============================= */
 
 body.lusiadas {
-    margin: 0;
-    font-family: Georgia, "Times New Roman", serif;
-    background: #ffffff;
-    color: #111;
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  background: #ffffff;
+  color: #111;
 }
-
 
 /* ============================= */
 /*            LAYOUT             */
 /* ============================= */
 
 .lusiadas .layout {
-    display: grid;
-    grid-template-columns: 60px 1fr 1fr;
-    column-gap: 120px;
-    padding: 80px 120px;
-    align-items: start;
+  display: grid;
+  grid-template-columns: 60px 1fr 1fr;
+  column-gap: 120px;
+  padding: 80px 120px;
+  align-items: start;
 }
-
 
 /* ============================= */
 /*         MENU LATERAL          */
 /* ============================= */
 
 .lusiadas .menu-cantos {
-    text-align: center;
-    border-right: 1px solid #ddd;
-    padding-right: 20px;
+  text-align: center;
+  border-right: 1px solid #ddd;
+  padding-right: 20px;
 }
 
 .lusiadas .menu-cantos ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .lusiadas .menu-cantos li {
-    margin-bottom: 18px;
+  margin-bottom: 18px;
 }
 
 .lusiadas .menu-cantos a {
-    text-decoration: none;
-    font-size: 14px;
-    color: #666;
-    transition: 0.2s;
+  text-decoration: none;
+  font-size: 14px;
+  color: #666;
+  transition: 0.2s;
 }
 
 .lusiadas .menu-cantos a:hover {
-    color: #000;
+  color: #000;
 }
 
+/* Item "Elementos pré-textuais": texto bem mais longo que os numerais
+   romanos que dividem essa coluna (só 60px de largura), por isso
+   precisa de um tratamento tipográfico próprio + um separador visual
+   antes da lista de cantos. */
+.lusiadas .menu-cantos li:first-child {
+  margin-bottom: 26px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #ddd;
+}
+
+.lusiadas .menu-cantos a.item-pretextuais {
+  display: block;
+  font-size: 10px;
+  line-height: 1.4;
+  letter-spacing: 0;
+  word-break: normal;
+  overflow-wrap: normal;
+}
 
 /* ============================= */
 /*            COLUNAS            */
 /* ============================= */
 
 .lusiadas .coluna {
-    max-width: 520px;
-    margin: 0 auto;
+  max-width: 520px;
+  margin: 0 auto;
 }
-
 
 /* ============================= */
 /*             ABAS              */
 /* ============================= */
 
 .lusiadas .abas {
-    margin-bottom: 50px;
+  margin-bottom: 50px;
 }
 
 .lusiadas .abas ul {
-    display: flex;
-    gap: 30px;
-    list-style: none;
-    padding: 0;
-    margin: 0 0 20px 0;
-    border-bottom: 1px solid #ddd;
+  display: flex;
+  gap: 30px;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+  border-bottom: 1px solid #ddd;
 }
 
 .lusiadas .abas a {
-    text-decoration: none;
-    font-size: 13px;
-    letter-spacing: 1px;
-    color: #666;
-    padding-bottom: 6px;
-    text-transform: uppercase;
+  text-decoration: none;
+  font-size: 13px;
+  letter-spacing: 1px;
+  color: #666;
+  padding-bottom: 6px;
+  text-transform: uppercase;
 }
 
 .lusiadas .abas a.ativa {
-    border-bottom: 2px solid #000;
-    color: #000;
+  border-bottom: 2px solid #000;
+  color: #000;
 }
-
 
 /* ============================= */
 /*           CONTEÚDO            */
 /* ============================= */
 
 .lusiadas .conteudo {
-    line-height: 1.8;
-    font-size: 16px;
+  line-height: 1.8;
+  font-size: 16px;
 }
-
 
 /* ============================= */
 /*             POEMA             */
 /* ============================= */
 
 .lusiadas h3 {
-    text-align: center;
-    margin-bottom: 40px;
-    font-weight: normal;
-    letter-spacing: 1px;
+  text-align: center;
+  margin-bottom: 40px;
+  font-weight: normal;
+  letter-spacing: 1px;
 }
 
 .lusiadas .estrofe {
-    margin-bottom: 30px;
+  margin-bottom: 30px;
+}
+
+/* Destaque temporário ao chegar numa estrofe pela aba "selecionar
+   estrofes" (ver base.html + barra-estrofes.js). Removida via JS depois
+   de alguns segundos. */
+.lusiadas .estrofe.estrofe--destacada {
+  background-color: #fef3c7;
+  border-radius: 6px;
+  box-shadow: 0 0 0 4px #fef3c7;
+  transition: background-color 0.4s ease, box-shadow 0.4s ease;
 }
 
 .lusiadas .verso {
-    margin-left: 60px;
-    margin-bottom: 6px;
+  margin-left: 60px;
+  margin-bottom: 6px;
 }
 
 /* Cada verso em bloco */
@@ -234,37 +382,37 @@ pc:last-child::after {
 
 /* imagem */
 .poema-img {
-    width: 100%;
+  width: 100%;
 }
 
 .poema-img-min {
-    width: 150px;
+  width: 150px;
 }
 /* ============================= */
 /*          RESPONSIVO           */
 /* ============================= */
 
 @media (max-width: 1200px) {
-    .lusiadas .layout {
-        column-gap: 80px;
-        padding: 60px 60px;
-    }
+  .lusiadas .layout {
+    column-gap: 80px;
+    padding: 60px 60px;
+  }
 }
 
 @media (max-width: 900px) {
-    .lusiadas .layout {
-        grid-template-columns: 1fr;
-        padding: 40px 30px;
-    }
+  .lusiadas .layout {
+    grid-template-columns: 1fr;
+    padding: 40px 30px;
+  }
 
-    .lusiadas .menu-cantos {
-        border-right: none;
-        border-bottom: 1px solid #ddd;
-        padding-bottom: 20px;
-        margin-bottom: 40px;
-    }
+  .lusiadas .menu-cantos {
+    border-right: none;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 20px;
+    margin-bottom: 40px;
+  }
 
-    .lusiadas .coluna {
-        max-width: 100%;
-    }
+  .lusiadas .coluna {
+    max-width: 100%;
+  }
 }

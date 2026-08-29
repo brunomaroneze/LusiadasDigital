@@ -1,0 +1,52 @@
+/* =====================================================
+   VARIABLES.CSS — Fonte única dos tokens visuais do site
+   (cores, fontes, espaçamento) + reset básico.
+
+   Antes esses valores estavam duplicados, com nomes
+   diferentes, em autor.css, sobre.css e style.css.
+   Qualquer ajuste de identidade visual (cor, fonte) deve
+   ser feito AQUI — os outros arquivos apenas consomem
+   essas variáveis via var(--nome).
+   ===================================================== */
+
+:root {
+  /* --- Cores --- */
+  --cor-fundo: #fdfbf7;         /* fundo principal (páginas claras) */
+  --cor-texto: #2c2420;         /* texto principal sobre fundo claro */
+  --cor-destaque: #3e3b32;      /* menu, rodapé, fundos escuros */
+  --cor-texto-claro: #f0e6d2;   /* texto sobre fundo escuro */
+  --cor-accent: #b45309;        /* laranja/âmbar — links, ícones, destaques */
+  --cor-borda: #e7e5e4;         /* bordas e divisores suaves */
+  --cor-borda-forte: #d6d3d1;   /* bordas um pouco mais marcadas */
+
+  /* --- Tipografia --- */
+  --fonte-titulo: "Cinzel", serif;       /* títulos, identidade do projeto */
+  --fonte-corpo: "Lato", sans-serif;     /* interface, menus, UI */
+  --fonte-leitura: "Merriweather", serif; /* corpo de texto longo */
+
+  /* --- Espaçamento (escala consistente) --- */
+  --espaco-xs: 0.5rem;
+  --espaco-sm: 1rem;
+  --espaco-md: 1.5rem;
+  --espaco-lg: 2.5rem;
+  --espaco-xl: 4rem;
+
+  /* --- Camadas --- */
+  --z-nav: 100;
+  --z-sobreposto: 10;
+}
+
+/* --- Reset básico (única definição do site) --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* --- Acessibilidade: estado de foco visível para navegação por teclado --- */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--cor-accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}

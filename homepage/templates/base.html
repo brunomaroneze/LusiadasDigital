@@ -11,6 +11,7 @@
   <!-- MENU LATERAL: CANTOS -->
   <nav class="menu-cantos" aria-label="Cantos do poema">
     <ul>
+      <li><a href="{% url 'pretextuais' %}" class="item-pretextuais">Elementos pré-textuais</a></li>
       {% load roman %}
 
       {% for i in "123456789"|make_list %}
@@ -27,9 +28,9 @@
     <header class="abas">
       <nav aria-label="Abas coluna esquerda">
         <ul>
-          <li><a href="{% url 'leitura' canto 'original' 'esq' %}" class="{% if esq == 'original' %}ativa{% endif %}">ORIGINAL</a></li>
-          <li><a href="{% url 'leitura' canto 'modernizado' 'esq' %}" class="{% if esq == 'modernizado' %}ativa{% endif %}">MODERNIZADO</a></li>
-          <li><a href="{% url 'leitura' canto 'imagem' 'esq' %}" class="{% if esq == 'imagem' %}ativa{% endif %}">IMAGEM</a></li>
+          <li><a href="{% url 'leitura' canto 'original' 'esq' %}?p={{ pagina_num }}&dir={{ dir }}" class="{% if esq == 'original' %}ativa{% endif %}">ORIGINAL</a></li>
+          <li><a href="{% url 'leitura' canto 'modernizado' 'esq' %}?p={{ pagina_num }}&dir={{ dir }}" class="{% if esq == 'modernizado' %}ativa{% endif %}">MODERNIZADO</a></li>
+          <li><a href="{% url 'leitura' canto 'imagem' 'esq' %}?p={{ pagina_num }}&dir={{ dir }}" class="{% if esq == 'imagem' %}ativa{% endif %}">IMAGEM</a></li>
         </ul>
       </nav>
     </header>
@@ -46,9 +47,9 @@
     <header class="abas">
       <nav aria-label="Abas coluna direita">
         <ul>
-          <li><a href="{% url 'leitura' canto 'original' 'dir' %}" class="{% if dir == 'original' %}ativa{% endif %}">ORIGINAL</a></li>         
-          <li><a href="{% url 'leitura' canto 'modernizado' 'dir' %}" class="{% if dir == 'modernizado' %}ativa{% endif %}">MODERNIZADO</a></li>
-          <li><a href="{% url 'leitura' canto 'imagem' 'dir' %}" class="{% if dir == 'imagem' %}ativa{% endif %}">IMAGEM</a></li>
+          <li><a href="{% url 'leitura' canto 'original' 'dir' %}?p={{ pagina_num }}&esq={{ esq }}" class="{% if dir == 'original' %}ativa{% endif %}">ORIGINAL</a></li>         
+          <li><a href="{% url 'leitura' canto 'modernizado' 'dir' %}?p={{ pagina_num }}&esq={{ esq }}" class="{% if dir == 'modernizado' %}ativa{% endif %}">MODERNIZADO</a></li>
+          <li><a href="{% url 'leitura' canto 'imagem' 'dir' %}?p={{ pagina_num }}&esq={{ esq }}" class="{% if dir == 'imagem' %}ativa{% endif %}">IMAGEM</a></li>
         </ul>
       </nav>
     </header>
@@ -60,6 +61,25 @@
   </section>
 
 </div>
+{% include 'blocos/footer.html' %}
+
+{% if estrofe_alvo %}
+<script>
+  // Rola até a estrofe pedida (chegou aqui pela aba "selecionar estrofes")
+  // e a destaca por alguns segundos. Se a estrofe não existir nas colunas
+  // renderizadas (ex: coluna mostrando a imagem em vez de texto), não faz
+  // nada — falha silenciosa, sem quebrar a página.
+  (function () {
+    var alvo = document.querySelector('.estrofe[data-estrofe="{{ estrofe_alvo|escapejs }}"]');
+    if (!alvo) return;
+    alvo.scrollIntoView({ behavior: "smooth", block: "center" });
+    alvo.classList.add("estrofe--destacada");
+    window.setTimeout(function () {
+      alvo.classList.remove("estrofe--destacada");
+    }, 4000);
+  })();
+</script>
+{% endif %}
 
 </body>
 </html>

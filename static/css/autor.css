@@ -1,46 +1,12 @@
+/* autor.css — estilos específicos da página de biografia.
+   Tokens de cor/fonte vêm de variables.css (carregado antes deste). */
 
- /* --- ESTILOS GERAIS (Mantendo identidade visual) --- */
-        :root {
-            --cor-fundo: #fdfbf7;
-            --cor-texto: #2c2420;
-            --cor-menu: #3e3b32;
-            --cor-ouro: #b45309;
-            --fonte-titulo: 'Cinzel', serif;
-            --fonte-texto: 'Merriweather', serif; /* Fonte serifada para leitura longa */
-            --fonte-ui: 'Lato', sans-serif;
-        }
-        
-        body {
-            font-family: var(--fonte-ui);
-            background-color: var(--cor-fundo);
-            color: var(--cor-texto);
-            line-height: 1.8;
-        }
-
-
-        /* --- CABEÇALHO (HERO) --- */
-        .hero-autor {
-            background-color: #e7e5e4;
-            padding: 5rem 1.5rem;
-            text-align: center;
-            border-bottom: 1px solid #d6d3d1;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-titulo {
-            font-family: var(--fonte-titulo);
-            font-size: 3rem;
-            color: #1c1917;
-            margin-bottom: 1rem;
-        }
-
-        .hero-subtitulo {
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            font-size: 1.5rem;
-            color: #57534e;
-        }
+body {
+    font-family: var(--fonte-corpo);
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    line-height: 1.8;
+}
 
         /* --- CONTEÚDO PRINCIPAL (GRID) --- */
         .container-principal {
@@ -60,19 +26,19 @@
 
         /* --- TEXTO BIOGRÁFICO --- */
         .artigo-biografia {
-            font-family: var(--fonte-texto);
+            font-family: var(--fonte-leitura);
             font-size: 1.125rem;
             color: #292524;
             text-align: justify;
         }
 
         .artigo-biografia h3 {
-            font-family: var(--fonte-ui);
+            font-family: var(--fonte-corpo);
             font-weight: 700;
             font-size: 1.5rem;
             margin-top: 2.5rem;
             margin-bottom: 1rem;
-            color: var(--cor-ouro);
+            color: var(--cor-accent);
             border-bottom: 2px solid #e7e5e4;
             padding-bottom: 0.5rem;
         }
@@ -88,12 +54,12 @@
             font-weight: 700;
             margin-right: 1rem;
             margin-bottom: -0.5rem;
-            color: var(--cor-menu);
+            color: var(--cor-destaque);
         }
 
         .citacao-bloco {
             background-color: #f5f5f4;
-            border-left: 4px solid var(--cor-ouro);
+            border-left: 4px solid var(--cor-accent);
             padding: 1.5rem;
             margin: 2rem 0;
             font-style: italic;
@@ -141,28 +107,19 @@
             top: 0.25rem;
             width: 0.8rem;
             height: 0.8rem;
-            background-color: var(--cor-ouro);
+            background-color: var(--cor-accent);
             border-radius: 50%;
         }
 
         .ano-crono {
             font-weight: 700;
-            color: var(--cor-menu);
+            color: var(--cor-destaque);
             display: block;
             margin-bottom: 0.25rem;
-            font-family: var(--fonte-ui);
+            font-family: var(--fonte-corpo);
         }
 
         .evento-crono {
             font-size: 0.9rem;
             color: #57534e;
-        }
-
-        /* --- RODAPÉ --- */
-        footer {
-            background-color: var(--cor-menu);
-            color: #a8a29e;
-            padding: 2rem;
-            margin-top: 4rem;
-            font-size: 0.9rem;
         }

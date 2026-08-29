@@ -1,7 +1,6 @@
 {% load static %}
     <!-- Head -->
-        {% include 'blocos/head.html' %}
-<title>{% block title %}Sobre{% endblock %}</title>
+        {% include 'blocos/head.html' with titulo='Sobre o Projeto' css_extra='css/sobre.css' %}
 <body>
     <!-- Navegação -->
         {% include 'blocos/nav.html' %}
@@ -108,12 +107,6 @@
                     </article>
                 </div>
             </div>
-        </section>
-        <section>
-            <h1>
-                
-                
-            </h1>
         </section>
     </main>
 

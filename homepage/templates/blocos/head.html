@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}{% endblock %}</title>
-    
+    <title>{% if titulo %}{{ titulo }} · Os Lusíadas{% else %}Os Lusíadas{% endif %}</title>
+
     <!-- Ícones -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
@@ -13,10 +13,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lato:wght@300;400;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&family=Playfair+Display:ital,wght@1,400&display=swap" rel="stylesheet">
     
     <!-- CSS -->
-    <link href="{% static 'css/autor.css' %}" rel="stylesheet" >   
-    <link href="{% static 'css/sobre.css' %}" rel="stylesheet" >   
+    <link href="{% static 'css/variables.css' %}" rel="stylesheet">
+    {% if css_extra %}
+    <link href="{% static css_extra %}" rel="stylesheet">
+    {% endif %}
     <link href="{% static 'css/style.css' %}" rel="stylesheet" >
+
+    <!-- Aba lateral de navegação por estrofe (só ativa em páginas com o
+         menu padrão; não faz nada em páginas sem .links-nav .nav-item) -->
+    <link href="{% static 'css/barra-estrofes.css' %}" rel="stylesheet">
     
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous"> 
+
+    <script src="{% static 'js/barra-estrofes.js' %}" defer></script>
 </head>

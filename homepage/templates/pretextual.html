@@ -1,0 +1,22 @@
+{% extends "base_simples.html" %}
+
+{% block conteudo %}
+<article class="pretextuais">
+  <header class="pretextuais__cabecalho">
+    <h1>Elementos pré-textuais</h1>
+    <p class="pretextuais__intro">
+      Antes do poema propriamente dito, a edição de 1572 de Os Lusíadas
+      trazia estes documentos: a folha de rosto e as duas licenças de
+      impressão exigidas na época — a autorização do Rei e a aprovação
+      da Inquisição. Reproduzidos aqui a partir da transcrição do
+      fac-símile.
+    </p>
+  </header>
+
+  {% if erro %}
+    <p class="aviso-erro">{{ erro }}</p>
+  {% else %}
+    {{ html_pretextual|safe }}
+  {% endif %}
+</article>
+{% endblock %}

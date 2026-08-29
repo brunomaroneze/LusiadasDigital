@@ -1,0 +1,124 @@
+/* barra-estrofes.css
+   Barra horizontal "selecionar estrofe", logo abaixo do nav (não é
+   mais um painel lateral). Ativada a partir do link "cantos" do menu
+   principal (nav.html) quando o usuário já está na tela de leitura —
+   ver barra-estrofes.js. 
+*/
+
+.barra-estrofes {
+  position: sticky;
+  top: 72px; /* mesma altura de .container-nav em style.css — fica logo abaixo do menu */
+  z-index: 99; /* logo abaixo do nav (z-index 100), nunca sobrepõe o menu */
+  background: var(--cor-destaque, #3e3b32);
+  color: var(--cor-texto-claro, #f0e6d2);
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.22s ease;
+  font-family: var(--fonte-corpo, "Lato", sans-serif);
+}
+
+.barra-estrofes.barra-estrofes--aberta {
+  max-height: 64px; /* menor que os 72px do nav*/
+}
+
+.barra-estrofes__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.barra-estrofes__rotulo {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  color: var(--cor-texto-claro, #f0e6d2);
+}
+
+/* a escolha dos versos (select + input) fica à direita do rótulo,
+   dentro do mesmo grupo — ordem natural do flex já resolve isso */
+.barra-estrofes__controles {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.barra-estrofes__canto,
+.barra-estrofes__input {
+  font-family: var(--fonte-corpo, "Lato", sans-serif);
+  font-size: 0.85rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  border: 1px solid rgba(240, 230, 210, 0.35);
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--cor-texto-claro, #f0e6d2);
+}
+
+.barra-estrofes__canto option {
+  color: #1a0f01; /* opções do <select> abrem com fundo claro do SO — texto escuro fica legível */
+}
+
+.barra-estrofes__input {
+  width: 110px;
+}
+
+.barra-estrofes__input::placeholder {
+  color: rgba(240, 230, 210, 0.55);
+}
+
+.barra-estrofes__canto:disabled,
+.barra-estrofes__input:disabled,
+.barra-estrofes__ir:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.barra-estrofes__canto:focus-visible,
+.barra-estrofes__input:focus-visible,
+.barra-estrofes__ir:focus-visible {
+  outline: 2px solid var(--cor-accent, #b45309);
+  outline-offset: 2px;
+}
+
+.barra-estrofes__ir {
+  background: var(--cor-accent, #b45309);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 0.35rem 0.9rem;
+  font-family: var(--fonte-corpo, "Lato", sans-serif);
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: filter 0.15s ease;
+}
+
+.barra-estrofes__ir:hover:not(:disabled) {
+  filter: brightness(1.1);
+}
+
+.barra-estrofes__status {
+  font-size: 0.78rem;
+  color: rgba(240, 230, 210, 0.75);
+}
+
+.barra-estrofes__status--erro {
+  color: #fca5a5;
+}
+
+@media (max-width: 640px) {
+  .barra-estrofes.barra-estrofes--aberta {
+    max-height: 120px;
+  }
+  .barra-estrofes__container {
+    height: auto;
+    padding: 0.6rem 1rem;
+  }
+}

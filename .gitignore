@@ -1,2 +1,29 @@
+# Python
+__pycache__/
 *.pyc
+*.pyo
+
+# Ambiente virtual
+venv/
+.venv/
+env/
+
+# Configurações locais / segredos
+.env
+
+# Banco de dados local
 db.sqlite3
+
+# Arquivos coletados pelo collectstatic (se um dia usar em produção)
+staticfiles/
+
+# IDEs
+.vscode/
+.idea/
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log

@@ -1,0 +1,8 @@
+{% load static %}
+<div class="texto">
+  {% if html_texto %}
+  <div class="edicao-poema">{{ html_texto|safe }}</div>
+  {% else %}
+  <p>Texto não disponível nesta versão para esta página.</p>
+  {% endif %}
+</div>

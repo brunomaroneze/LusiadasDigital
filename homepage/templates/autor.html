@@ -1,8 +1,6 @@
-{% load static %}  
+{% load static %}
     <!-- Head -->
-        {% include 'blocos/head.html'%}
-        <title>{% block title %}Biografia{% endblock %}</title>
-     
+        {% include 'blocos/head.html' with titulo='Biografia' css_extra='css/autor.css' %}
 <body>
     <!-- Navegação -->
         {% include 'blocos/nav.html' %}

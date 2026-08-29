@@ -1,107 +1,15 @@
+/* sobre.css — estilos específicos da página "Sobre o Projeto".
+   Tokens de cor/fonte vêm de variables.css (carregado antes deste). */
 
-        /* --- VARIÁVEIS DE CORES E FONTES --- */
-        :root {
-            --cor-fundo-principal: #fdfbf7;
-            --cor-texto-principal: #2c2420;
-            --cor-destaque: #3e3b32; /* Menu e rodapé */
-            --cor-texto-claro: #f0e6d2;
-            --cor-accent: #b45309; /* Laranja/Amber */
-            --cor-borda: #e7e5e4;
-            
-            --fonte-titulo: 'Cinzel', serif;
-            --fonte-corpo: 'Lato', sans-serif;
-            --fonte-leitura: 'Merriweather', serif;
-        }
-
-        /* --- RESET BÁSICO --- */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body {
-            font-family: var(--fonte-corpo);
-            background-color: var(--cor-fundo-principal);
-            color: var(--cor-texto-principal);
-            line-height: 1.6;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-
-        /* --- MENU DE NAVEGAÇÃO --- */
-        .barra-navegacao {
-            background-color: var(--cor-destaque);
-            color: var(--cor-texto-claro);
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-        }
-
-        .container-nav {
-            max-width: 1150px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .botao-voltar {
-            text-decoration: none;
-            color: var(--cor-texto-claro);
-            font-family: var(--fonte-titulo);
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: color 0.3s;
-        }
-
-        .botao-voltar:hover { color: #ffffff; }
-
-        .subtitulo-nav {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            opacity: 0.8;
-        }
-
-        /* --- CABEÇALHO (HERO) --- */
-        .cabecalho-pagina {
-            background-color: #e7e5e4; /* Stone-200 */
-            padding: 4rem 1.5rem;
-            border-bottom: 1px solid #d6d3d1;
-            text-align: center;
-        }
-
-        .etiqueta-projeto {
-            display: inline-block;
-            background-color: var(--cor-destaque);
-            color: var(--cor-texto-claro);
-            padding: 0.25rem 0.75rem;
-            border-radius: 9999px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 1rem;
-        }
-
-        .titulo-principal {
-            font-family: var(--fonte-titulo);
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            color: #1c1917;
-        }
-
-        .citacao-destaque {
-            font-family: var(--fonte-leitura);
-            font-size: 1.25rem;
-            font-style: italic;
-            color: #44403c;
-            max-width: 700px;
-            margin: 0 auto;
-        }
+body {
+    font-family: var(--fonte-corpo);
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
 
         /* --- CONTEÚDO PRINCIPAL --- */
         .secao-conteudo {
@@ -125,7 +33,6 @@
 
         @media (min-width: 768px) {
             .grid-contexto { grid-template-columns: 1fr 1fr; }
-            .titulo-principal { font-size: 3rem; }
         }
 
         .titulo-secao {
@@ -191,7 +98,7 @@
 
         /* --- SEÇÃO DE FUNCIONALIDADES (Cards) --- */
         .secao-funcionalidades {
-            background-color: var(--cor-fundo-principal);
+            background-color: var(--cor-fundo);
             padding: 4rem 0;
             border-top: 1px solid var(--cor-borda);
             border-bottom: 1px solid var(--cor-borda);
@@ -257,16 +164,3 @@
             color: #57534e;
             line-height: 1.6;
         }
-
-        /* --- RODAPÉ --- */
-        .rodape-pagina {
-            background-color: var(--cor-destaque);
-            color: var(--cor-texto-claro);
-            padding: 2rem;
-            text-align: center;
-            margin-top: auto;
-            border-top: 1px solid #44403c;
-        }
-
-        .texto-rodape { font-size: 0.875rem; opacity: 0.8; }
-

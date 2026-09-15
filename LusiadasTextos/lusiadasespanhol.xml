@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="tei_Lusiadas.rng" schematypens="http://relaxng.org/ns/structure/1.0" type="application/xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title>Os Lusíadas</title>
+                <author>Luís de Camões</author>
+            </titleStmt>
+            <publicationStmt>
+                <publisher>António Gonçalves</publisher>
+                <date>1572</date>
+                <pubPlace>Lisboa</pubPlace>
+            </publicationStmt>
+            <sourceDesc>
+                <p>Edição de Os Lusíadas com o pelicano à direita no frontispício.</p>
+            </sourceDesc>
+        </fileDesc>
+    </teiHeader>
+    <text>
+        <body>
+            <div>
+<fw>CANTO PRIMERO.</fw>
+<lg>
+<l>Esta pequeña Isla que habitamos</l>
+<l>es en toda esta tierra cierta escala</l>
+<l>de aquellos que las ondas nauegamos</l>
+de Quiloa, de Mombaça, y de Sofala,
+Por ser tannecessaria procuramos
+de habitalla, tambien por noser mala
+y porque todo en fin os notifique
+es la pequeña Ifla Moçambique.
+</lg>
+59
+Mas puesya de tan lexos nauegando
+buscays el Indo y Daspe y tierra, ardiente
+piloto aqui tendreys del qual vsando
+corrays por estas ondas sabiamente:
+Tambien sera acertado, que tomando
+aqui refresco alguno, que el Regente
+que esta tierra gouiernay manda, os vea
+y delo necessario que os prouea.
+55
+Como esto dixo el Moro se tornaua
+a sus bateles con su compañia
+del capitan ygente se apartaua
+con muestras de devida cortesia,
+Apollo ya en las ondas encerraua
+con carro de christal el claro dia
+dando cargo a la hermana que alumbrasse
+el ancho mundo enquanto el reposasse.
+C a
+
+
+            </div>
+    
+        </body>
+
+        
+    </text>
+    </TEI>

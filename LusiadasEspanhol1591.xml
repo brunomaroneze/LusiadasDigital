@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="tei_Lusiadas.rng" schematypens="http://relaxng.org/ns/structure/1.0" type="application/xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+    <teiHeader>
+        <fileDesc>
+             <titleStmt>
+                <title>LOS LVSIADAS</title> 
+                <author>Luys de Camoes</author>
+            </titleStmt>
+            <publicationStmt>
+                <publisher>Guillermo Drouy</publisher>
+                <pubPlace>Madrid</pubPlace>
+                <date>1591</date>
+            </publicationStmt>
+            <sourceDesc>
+                <p>Traduzidos de Portugues en Castellano por Henrique Garces.</p>
+             </sourceDesc>
+        </fileDesc>          
+    </teiHeader>
+    <text>
+        <front>
+            <titlePage>
+                <docTitle>LOS LVSIADAS</docTitle>
+                <docAuthor>DE LVYS DE CAMOES,</docAuthor>
+                    <docImprint>
+                        <lb/>Traduzidos de Portugues en Castellano <lb/>por <name>Henrique Garces</name>. <div type="dedication"><lb/>DIRIGIDOS
+                         A <name>PHILIPPO</name> <lb/>Monarcha primero de las Españas, <lb/>y de las Indias. <lb/>EN <pubPlace>MADRID</pubPlace>. <lb/>Impresso
+                        con licencia en casa de <name>Guillermo Drouy</name> <lb/>impressor de libros. Año <date>1591</date>.
+                    </docImprint>
+            </titlePage>
+            <pb/>
+            <div type="taxation">
+                <p>
+                    YO <name>Miguel Ondarça Çauala</name> escriuano de Camara de su <lb/>Magestad delos
+                    q̄ en su Consejo residen, doy fe q̄ auiẽdo <lb/>se visto por los señores del vn libro
+                    intitulado <title>Los Lusiadas</title> de <lb/><name>Luys Camoes</name>, traduzido de
+                    Portugues en Castellano por En<lb/>rique Garces, que con su licencia hizo imprimir, tassaron
+                    a tres <lb/>marauedis cada pliego de los del dicho libro en papel. Y man-<lb break="no"/>daron 
+                    q̄ antes que se venda se imprima en la primera oja de <lb/>cada vno dellos este 
+                    testimonio y tassa. Y para que dello cõste <lb/>de mandamiento de los dichos señores 
+                    del Consejo de su Ma-<lb break="no"/>gestcd y de pedimiento del dicho <name>Enrique Garces</name> 
+                    di la pre-<lb break="no"/>sente fee. Que es fecha en <pubPlace>Madrid</pubPlace> a <date>cinco
+                    de Septiembre, de <lb/>mil y quinientos y nouenta y vn años</date>. <lb/><name>Miguel de
+                    Ondarça <lb/>Çauala</name>.
+                </p>
+            </div>
+            <pb/>
+            <div type="CedulaReal">
+                <head><lb/>EL REY.</head>
+                 <p>
+                    <lb/>POR quanto por parte de vos <name>Henrique <lb/>Garces</name>, vezino de Lima en el Peru nos,
+
+
+                </p>
+            </div>
+        </front>
+    </text>
+</TEI> 

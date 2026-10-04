@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="tei_Lusiadas.rng" schematypens="http://relaxng.org/ns/structure/1.0" type="application/xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title>Dicionário dos Lusíadas</title>
+                <author>Afrânio Peixoto e Pedro A. Pinto</author>
+            </titleStmt>
+            <publicationStmt>
+                <publisher>INSERIR EDITORA</publisher>
+                <date>INSERIR DATA</date>
+                <pubPlace>Rio de Janeiro</pubPlace>
+            </publicationStmt>
+            <sourceDesc>
+                <p>Dicionário com todas as palavras da obra.</p>
+            </sourceDesc>
+        </fileDesc>
+    </teiHeader>
+    <text>
+        <body>
+            <pb n="419"/>
+            <entry><form>Olhado</form>, visto, examinado: “Dos vestidos olhados juntamente."
+                (2.99)</entry>
+            <entry><form>Olhar</form>, visão, mirada, golpe de vista: “Quem viu um olhar seguro, um
+                gesto brando." (3.143)</entry>
+            <entry><form>Olhar</form>, vêr, examinar, observar: "Não vale mais que olhar a causa
+                dela.” (1.45) “Olhando a cor, o trajo e a forte armada.” (1.62) “Olhando o
+                ajuntamento lusitano.” (1.73) “Estas que agora olhais, abaterão. (7.55) V. cantos
+                (3.32); (6.64), (70); (8.21), (31), (34), (54).</entry>
+            <entry><form>Olho</form>, órgão da visão; faculdade de exame, vista: “Os olhos da real
+                benignidade.” (1.9) "Que esses chorosos olhos soberanos.” (2.44) “Com que os olhos
+                cansados adormece.” (2.57) “De teus fermosos olhos nunca enxuito." (3.120) “Fogo no
+                coração, agua nos olhos.” (10.33) V. cantos (1.16), (69), (88); (2.34), (60), (99);
+                (3.102), (120), (121), (125), (131), (132); (4.68), (69), (94); (5.3), (11), (19),
+                (24), (39), (48), (49), (55), (60), (91); (6.9), (22), (34), (39); (7.47), (65),
+                (74), (77); (8.43), (50); (9.22), (41), (44).</entry>
+            <entry><form>Olimpica</form>, relativo ao Olimpo ou morada dos deuses; divino, sobre
+                excelente: "Em vos se vem da olimpica morada.” (1.17)</entry>
+            <entry><form>Olimpo</form>, monte na Tessália, em cujo alto tinham morada os deuses
+                fabulosos: “Quando os Deuses no Olimpo luminoso.” (1.20) “Entre os deuses no Olimpo
+                consagrado.” (1.35) “Casa eterea do Olimpo onipotente.” (1.42) “Com guerra va o
+                Olimpo claro e puro.” (2.112) V. cantos (2.79); (4.85); (6.7), (34); (9.90).</entry>
+            <entry><form>Oliveira</form>, planta que simboliza a paz, “Oliva speciosa”, consagrada a
+                Minerva: “De Minerva pacifica oliveira." (6.13)</entry>
+        </body>
+    </text>
+</TEI>

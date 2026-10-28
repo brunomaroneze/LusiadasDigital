@@ -22,15 +22,42 @@
     </ul>
   </nav>
 
+  <!-- TOPO DA LEITURA: navegação entre páginas + ferramentas -->
+  <div class="topo-leitura">
+    {% include "poema/partials/navegacao_paginas.html" with posicao="topo" %}
+
+    {% if tem_texto %}
+    <div class="ferramentas-leitura">
+      <div class="tamanho-letra" role="group" aria-label="Tamanho da letra">
+        <span class="tamanho-letra__rotulo">Tamanho da letra</span>
+        <button type="button" class="tamanho-letra__botao" data-acao="diminuir" aria-label="Diminuir a letra">A&minus;</button>
+        <button type="button" class="tamanho-letra__valor" data-acao="padrao" aria-label="Voltar ao tamanho padrão da letra" aria-live="polite">100%</button>
+        <button type="button" class="tamanho-letra__botao" data-acao="aumentar" aria-label="Aumentar a letra">A+</button>
+      </div>
+
+      {% if pode_comparar %}
+      <button type="button" class="alternar-diferencas" aria-pressed="false">
+        Realçar diferenças entre as versões
+        <span class="alternar-diferencas__contagem">({{ total_diferencas }} nesta página)</span>
+      </button>
+      <ul class="legenda-diferencas" aria-label="Legenda do realce">
+        <li><span class="dif">palavra</span> palavras diferentes</li>
+        <li><span class="dif dif--leve">palavra</span> só pontuação ou hifenização</li>
+      </ul>
+      {% endif %}
+    </div>
+    {% endif %}
+  </div>
+
   <!-- COLUNA ESQUERDA (SLOT A) -->
   <section class="coluna coluna-esquerda" aria-label="Coluna esquerda">
 
     <header class="abas">
       <nav aria-label="Abas coluna esquerda">
         <ul>
-          <li><a href="{% url 'leitura' canto 'original' 'esq' %}?p={{ pagina_num }}&dir={{ dir }}" class="{% if esq == 'original' %}ativa{% endif %}">ORIGINAL</a></li>
-          <li><a href="{% url 'leitura' canto 'modernizado' 'esq' %}?p={{ pagina_num }}&dir={{ dir }}" class="{% if esq == 'modernizado' %}ativa{% endif %}">MODERNIZADO</a></li>
-          <li><a href="{% url 'leitura' canto 'imagem' 'esq' %}?p={{ pagina_num }}&dir={{ dir }}" class="{% if esq == 'imagem' %}ativa{% endif %}">IMAGEM</a></li>
+          {% for slug, rotulo in abas %}
+          <li><a href="{% url 'leitura' canto slug 'esq' %}?p={{ pagina_num }}&dir={{ dir }}" class="{% if esq == slug %}ativa{% endif %}">{{ rotulo }}</a></li>
+          {% endfor %}
         </ul>
       </nav>
     </header>
@@ -47,9 +74,9 @@
     <header class="abas">
       <nav aria-label="Abas coluna direita">
         <ul>
-          <li><a href="{% url 'leitura' canto 'original' 'dir' %}?p={{ pagina_num }}&esq={{ esq }}" class="{% if dir == 'original' %}ativa{% endif %}">ORIGINAL</a></li>         
-          <li><a href="{% url 'leitura' canto 'modernizado' 'dir' %}?p={{ pagina_num }}&esq={{ esq }}" class="{% if dir == 'modernizado' %}ativa{% endif %}">MODERNIZADO</a></li>
-          <li><a href="{% url 'leitura' canto 'imagem' 'dir' %}?p={{ pagina_num }}&esq={{ esq }}" class="{% if dir == 'imagem' %}ativa{% endif %}">IMAGEM</a></li>
+          {% for slug, rotulo in abas %}
+          <li><a href="{% url 'leitura' canto slug 'dir' %}?p={{ pagina_num }}&esq={{ esq }}" class="{% if dir == slug %}ativa{% endif %}">{{ rotulo }}</a></li>
+          {% endfor %}
         </ul>
       </nav>
     </header>
@@ -60,8 +87,12 @@
 
   </section>
 
+  <!-- NAVEGAÇÃO ENTRE PÁGINAS (rodapé da leitura) -->
+  {% include "poema/partials/navegacao_paginas.html" with posicao="rodape" %}
+
 </div>
 {% include 'blocos/footer.html' %}
+<script src="{% static 'js/leitura.js' %}" defer></script>
 
 {% if estrofe_alvo %}
 <script>

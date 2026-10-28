@@ -6,11 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% if titulo %}{{ titulo }} · Os Lusíadas{% else %}Os Lusíadas{% endif %}</title>
 
-    <!-- Ícones -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Conexões antecipadas (fontes e Bootstrap) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+
+    <!-- Ícones: versão local mínima (substitui lucide@latest, ~450 KB, só para 3 ícones) -->
+    <script src="{% static 'js/icones.js' %}"></script>
 
     <!-- Fontes -->
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lato:wght@300;400;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&family=Playfair+Display:ital,wght@1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lato:wght@300;400;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
     
     <!-- CSS -->
     <link href="{% static 'css/variables.css' %}" rel="stylesheet">

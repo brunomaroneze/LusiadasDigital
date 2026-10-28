@@ -1,7 +1,7 @@
 {% load static %}
     <!-- Head -->
         {% include 'blocos/head.html' with titulo='Biografia' css_extra='css/autor.css' %}
-<body>
+<body class="pagina-autor">
     <!-- Navegação -->
         {% include 'blocos/nav.html' %}
 
@@ -52,11 +52,9 @@
 
         <!-- Coluna da Direita: Sidebar -->
         <aside class="sidebar">
-            <div class="moldura-retrato">
-                <!-- A imagem será carregada aqui via CSS -->
-            </div>
+            <img class="retrato" src="{% static 'images/autor/camoes.jpg' %}" alt="Retrato de Luís Vaz de Camões">
             
-            <h4 style="font-family: 'Cinzel', serif; margin-bottom: 1.5rem; border-bottom: 1px solid #ccc; padding-bottom: 0.5rem;">Cronologia Resumida</h4>
+            <h4 class="titulo-cronologia">Cronologia Resumida</h4>
             
             <ul class="lista-cronologia">
                 <li class="item-cronologia">

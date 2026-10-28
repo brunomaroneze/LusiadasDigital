@@ -1,0 +1,24 @@
+{% if total_paginas %}
+<nav class="nav-paginas nav-paginas--{{ posicao }}" aria-label="Navegação entre páginas">
+  {% if pagina_anterior %}
+  <a class="nav-paginas__botao" rel="prev" href="{% url 'leitura' canto esq 'esq' %}?p={{ pagina_anterior }}&dir={{ dir }}">Página anterior</a>
+  {% else %}
+  <span class="nav-paginas__botao nav-paginas__botao--inativo" aria-disabled="true">Página anterior</span>
+  {% endif %}
+
+  <form class="nav-paginas__ir" method="get" action="{% url 'leitura' canto esq 'esq' %}">
+    <input type="hidden" name="dir" value="{{ dir }}">
+    <label>Página
+      <input type="number" name="p" min="1" max="{{ total_paginas }}" value="{{ pagina_num }}" inputmode="numeric" aria-label="Número da página">
+    </label>
+    <span>de {{ total_paginas }}</span>
+    <button type="submit" class="nav-paginas__botao">Ir</button>
+  </form>
+
+  {% if pagina_seguinte %}
+  <a class="nav-paginas__botao" rel="next" href="{% url 'leitura' canto esq 'esq' %}?p={{ pagina_seguinte }}&dir={{ dir }}">Próxima página</a>
+  {% else %}
+  <span class="nav-paginas__botao nav-paginas__botao--inativo" aria-disabled="true">Próxima página</span>
+  {% endif %}
+</nav>
+{% endif %}

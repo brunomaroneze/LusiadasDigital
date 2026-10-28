@@ -1,166 +1,141 @@
-/* sobre.css — estilos específicos da página "Sobre o Projeto".
-   Tokens de cor/fonte vêm de variables.css (carregado antes deste). */
+/* sobre.css — página "O Projeto".
+   Tokens globais em variables.css; o hero está em style.css.
+   Acento local: azul-petróleo (#1f4e5f). */
 
 body {
-    font-family: var(--fonte-corpo);
-    background-color: var(--cor-fundo);
-    color: var(--cor-texto);
-    line-height: 1.6;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+  font-family: var(--fonte-corpo);
+  background-color: #fff;
+  color: #1d1b19;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-        /* --- CONTEÚDO PRINCIPAL --- */
-        .secao-conteudo {
-            padding: 4rem 0;
-            background-color: #ffffff;
-        }
+main {
+  flex: 1;
+}
 
-        .container-central {
-            max-width: 1024px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
+.container-central {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
 
-        /* GRID DO CONTEXTO (Texto + Ficha Técnica) */
-        .grid-contexto {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
+.titulo-secao {
+  font-family: var(--fonte-leitura);
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #1d1b19;
+  margin-bottom: 1.25rem;
+}
 
-        @media (min-width: 768px) {
-            .grid-contexto { grid-template-columns: 1fr 1fr; }
-        }
+.texto-leitura {
+  font-family: var(--fonte-leitura);
+  font-size: 1.0625rem;
+  line-height: 1.85;
+  color: #2b2825;
+}
 
-        .titulo-secao {
-            font-family: var(--fonte-titulo);
-            font-size: 1.875rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            color: #1c1917;
-        }
+.texto-leitura p + p {
+  margin-top: 1.35rem;
+}
 
-        .texto-leitura {
-            font-family: var(--fonte-leitura);
-            color: #57534e;
-            line-height: 1.8;
-            margin-bottom: 1rem;
-        }
+/* --- Contexto: texto + ficha técnica --- */
+.secao-conteudo {
+  padding: 3.5rem 0 4rem;
+}
 
-        /* FICHA TÉCNICA (Card Lateral) */
-        .cartao-ficha-tecnica {
-            background-color: #f5f5f4;
-            padding: 2rem;
-            border-radius: 0.75rem;
-            border: 1px solid #e7e5e4;
-            position: relative;
-            overflow: hidden;
-        }
+.grid-contexto {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: start;
+}
 
-        .icone-fundo {
-            position: absolute;
-            right: -2.5rem;
-            bottom: -2.5rem;
-            width: 16rem;
-            height: 16rem;
-            color: #e7e5e4;
-            opacity: 0.5;
-            transform: rotate(12deg);
-            z-index: 1;
-        }
+@media (min-width: 900px) {
+  .grid-contexto {
+    grid-template-columns: minmax(0, 1fr) 320px;
+    gap: 5rem;
+  }
+}
 
-        .conteudo-ficha {
-            position: relative;
-            z-index: 2;
-        }
+.coluna-texto {
+  max-width: 40rem;
+}
 
-        .lista-ficha { list-style: none; }
-        
-        .item-ficha {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 1.25rem;
-            color: #44403c;
-        }
+/* --- Ficha técnica: lista simples, sem cartão --- */
+.titulo-ficha {
+  font-family: var(--fonte-leitura);
+  font-size: 1rem;
+  font-weight: 700;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #1d1b19;
+}
 
-        .icone-ficha { color: var(--cor-accent); margin-top: 0.25rem; }
-        
-        .rotulo-ficha {
-            display: block;
-            font-size: 0.875rem;
-            text-transform: uppercase;
-            color: #78716c;
-            font-weight: 700;
-        }
+.lista-ficha {
+  list-style: none;
+}
 
-        /* --- SEÇÃO DE FUNCIONALIDADES (Cards) --- */
-        .secao-funcionalidades {
-            background-color: var(--cor-fundo);
-            padding: 4rem 0;
-            border-top: 1px solid var(--cor-borda);
-            border-bottom: 1px solid var(--cor-borda);
-        }
+.item-ficha {
+  padding: 0.9rem 0;
+  border-bottom: 1px solid var(--cor-borda);
+  font-size: 0.95rem;
+  color: #2b2825;
+}
 
-        .cabecalho-secao { text-align: center; margin-bottom: 3rem; }
+.rotulo-ficha {
+  display: block;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: #1f4e5f;
+  margin-bottom: 0.15rem;
+}
 
-        .grid-cards {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-        }
+/* --- Funcionalidades --- */
+.secao-funcionalidades {
+  padding: 3.5rem 0 4rem;
+  border-top: 1px solid var(--cor-borda-forte);
+}
 
-        @media (min-width: 768px) {
-            .grid-cards { grid-template-columns: repeat(3, 1fr); }
-        }
+.cabecalho-secao {
+  max-width: 40rem;
+  margin-bottom: 2.5rem;
+}
 
-        .card-funcionalidade {
-            background-color: #ffffff;
-            padding: 2rem;
-            border-radius: 0.5rem;
-            border: 1px solid var(--cor-borda);
-            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-            transition: box-shadow 0.3s ease;
-        }
+.cabecalho-secao .texto-leitura {
+  color: #4a4642;
+}
 
-        .card-funcionalidade:hover {
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-        }
+.grid-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+}
 
-        .icone-card-box {
-            width: 3rem;
-            height: 3rem;
-            background-color: #fef3c7; /* Amber-100 */
-            border-radius: 0.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-            transition: background-color 0.3s;
-        }
+@media (min-width: 768px) {
+  .grid-cards {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+  }
+}
 
-        .card-funcionalidade:hover .icone-card-box {
-            background-color: var(--cor-accent);
-        }
+.card-funcionalidade {
+  padding-top: 1.25rem;
+  border-top: 2px solid #1d1b19;
+}
 
-        .icone-card {
-            color: #92400e; /* Amber-800 */
-            transition: color 0.3s;
-        }
+.titulo-card {
+  font-family: var(--fonte-leitura);
+  font-size: 1.0625rem;
+  font-weight: 700;
+  line-height: 1.35;
+  margin-bottom: 0.6rem;
+}
 
-        .card-funcionalidade:hover .icone-card { color: #ffffff; }
-
-        .titulo-card {
-            font-family: var(--fonte-titulo);
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin-bottom: 0.75rem;
-        }
-
-        .texto-card {
-            font-size: 0.9rem;
-            color: #57534e;
-            line-height: 1.6;
-        }
+.texto-card {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #4a4642;
+}

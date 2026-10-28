@@ -19,6 +19,15 @@
   --cor-borda: #e7e5e4;         /* bordas e divisores suaves */
   --cor-borda-forte: #d6d3d1;   /* bordas um pouco mais marcadas */
 
+  /* --- Leitura (autor, projeto e telas de leitura) --- */
+  --cor-tinta: #1d1b19;         /* texto principal */
+  --cor-tinta-suave: #5b5650;   /* texto secundário */
+  --cor-acento-ui: #1f4e5f;     /* azul-petróleo: destaques e estados ativos */
+  --cor-realce: #e3edf0;        /* fundo de estrofe realçada */
+  --cor-dif: #fbdcd2;           /* palavra diferente entre versões */
+  --cor-dif-linha: #b4472c;     /* sublinhado das diferenças */
+  --cor-realce-linha: #fff6bd;  /* amarelo bem claro: verso realçado, sobre o realce da estrofe */
+
   /* --- Tipografia --- */
   --fonte-titulo: "Cinzel", serif;       /* títulos, identidade do projeto */
   --fonte-corpo: "Lato", sans-serif;     /* interface, menus, UI */

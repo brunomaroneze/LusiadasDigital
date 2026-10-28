@@ -1,7 +1,7 @@
 {% load static %}
     <!-- Head -->
         {% include 'blocos/head.html' with titulo='Sobre o Projeto' css_extra='css/sobre.css' %}
-<body>
+<body class="pagina-sobre">
     <!-- Navegação -->
         {% include 'blocos/nav.html' %}
 
@@ -21,8 +21,7 @@
                             <p>
                                 Este plano de Iniciação Científica foca na criação de uma interface digital para a edição filológica de <em>"Os Lusíadas"</em>, preenchendo uma lacuna importante: a ausência de uma plataforma que reúna fac-símiles, transcrições e glossários de forma integrada.
                             </p>
-                            <br>
-                            <p>
+                                                        <p>
                                 Conforme salientado por <em>Crane et al. (2008)</em>, a filologia digital exige práticas novas que unem pesquisadores de Letras e Computação. O objetivo é tornar o texto acessível tanto para especialistas quanto para estudantes do Ensino Médio.
                             </p>
                         </div>
@@ -30,27 +29,23 @@
 
                     <!-- Coluna Ficha Técnica -->
                     <div class="cartao-ficha-tecnica">
-                        <i data-lucide="book-open" class="icone-fundo"></i>
                         
                         <div class="conteudo-ficha">
-                            <h3 class="titulo-secao" style="font-size: 1.25rem;">Ficha Técnica</h3>
+                            <h3 class="titulo-ficha">Ficha Técnica</h3>
                             <ul class="lista-ficha">
                                 <li class="item-ficha">
-                                    <i data-lucide="user" class="icone-ficha" width="20"></i>
                                     <div>
                                         <strong class="rotulo-ficha">Orientador</strong>
                                         Prof. Dr. Bruno Oliveira Maroneze
                                     </div>
                                 </li>
                                 <li class="item-ficha">
-                                    <i data-lucide="landmark" class="icone-ficha" width="20"></i>
                                     <div>
                                         <strong class="rotulo-ficha">Instituição</strong>
                                         UFGD (Universidade Federal da Grande Dourados)
                                     </div>
                                 </li>
                                 <li class="item-ficha">
-                                    <i data-lucide="calendar" class="icone-ficha" width="20"></i>
                                     <div>
                                         <strong class="rotulo-ficha">Início</strong>
                                         2025
@@ -76,7 +71,6 @@
                     <!-- Card 1 -->
                     <article class="card-funcionalidade">
                         <div class="icone-card-box">
-                            <i data-lucide="image" class="icone-card" width="24"></i>
                         </div>
                         <h3 class="titulo-card">Fac-símile Digital</h3>
                         <p class="texto-card">
@@ -87,7 +81,6 @@
                     <!-- Card 2 -->
                     <article class="card-funcionalidade">
                         <div class="icone-card-box">
-                            <i data-lucide="file-text" class="icone-card" width="24"></i>
                         </div>
                         <h3 class="titulo-card">Multi-transcrição</h3>
                         <p class="texto-card">
@@ -98,7 +91,6 @@
                     <!-- Card 3 -->
                     <article class="card-funcionalidade">
                         <div class="icone-card-box">
-                            <i data-lucide="search" class="icone-card" width="24"></i>
                         </div>
                         <h3 class="titulo-card">Glossário Interativo</h3>
                         <p class="texto-card">

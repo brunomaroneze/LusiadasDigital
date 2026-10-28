@@ -1,17 +1,17 @@
 from lxml import etree
 
-def tei_para_html(tei_xml):
-    if not tei_xml:
-        return ""
-        
+from .diferencas import marcar_diferencas
+
+def _carregar(tei_xml):
+    """Lê o TEI e devolve (raiz, None); em caso de erro, (None, html_do_aviso)."""
     parser = etree.XMLParser(remove_blank_text=True)
-    
+
     try:
         root = etree.fromstring(tei_xml.encode(), parser=parser)
     except etree.XMLSyntaxError:
-        return '<div class="aviso-erro">Erro na formatação: O XML TEI inserido é inválido ou está malformado.</div>'
+        return None, '<div class="aviso-erro">Erro na formatação: O XML TEI inserido é inválido ou está malformado.</div>'
     except Exception:
-        return '<div class="aviso-erro">Erro inesperado ao processar o texto XML.</div>'
+        return None, '<div class="aviso-erro">Erro inesperado ao processar o texto XML.</div>'
 
     # remover namespace
     for elem in root.iter():
@@ -24,6 +24,11 @@ def tei_para_html(tei_xml):
     if body is not None:
         root = body
 
+    return root, None
+
+
+def _converter(root):
+    """Converte a árvore TEI (já sem namespace) em HTML."""
     # <lg> -> <div class="estrofe" data-estrofe="N">
     # (preserva o número da estrofe do TEI-XML original, que antes era
     #  descartado por attrib.clear(). Isso não muda a aparência da página —
@@ -38,6 +43,7 @@ def tei_para_html(tei_xml):
         lg.attrib["class"] = "estrofe"
         if numero_estrofe:
             lg.attrib["data-estrofe"] = numero_estrofe
+            lg.attrib["tabindex"] = "0"  # permite realçar a estrofe correspondente via teclado
 
     # <l> -> <div class="verso">
     for l in root.findall(".//l"):
@@ -55,6 +61,34 @@ def tei_para_html(tei_xml):
         head.tag = "h3"
 
     return etree.tostring(root, encoding="unicode", method="html")
+
+
+def tei_para_html(tei_xml):
+    if not tei_xml:
+        return ""
+
+    root, erro = _carregar(tei_xml)
+    if erro:
+        return erro
+    return _converter(root)
+
+
+def tei_para_html_comparado(tei_a, tei_b):
+    """Converte dois TEI para HTML marcando as diferenças entre eles.
+
+    Devolve (html_a, html_b, total_de_diferencas). Se qualquer um dos lados
+    estiver vazio ou inválido, converte cada um sozinho, sem realce.
+    """
+    if not tei_a or not tei_b:
+        return tei_para_html(tei_a), tei_para_html(tei_b), 0
+
+    raiz_a, erro_a = _carregar(tei_a)
+    raiz_b, erro_b = _carregar(tei_b)
+    if erro_a or erro_b:
+        return (erro_a or _converter(raiz_a)), (erro_b or _converter(raiz_b)), 0
+
+    total = marcar_diferencas(raiz_a, raiz_b)
+    return _converter(raiz_a), _converter(raiz_b), total
 
 
 def pretextual_para_html(tei_xml):

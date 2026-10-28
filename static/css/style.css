@@ -198,26 +198,59 @@ footer {
 }
 
 /* ============================= */
-/*           LUSÍADAS            */
+/*      TELAS DE LEITURA         */
 /* ============================= */
+/* Tipografia: Merriweather (--fonte-leitura) no texto do poema, Lato
+   (--fonte-corpo) na interface (abas, menus, botões) e Cinzel
+   (--fonte-titulo) nos títulos — as mesmas famílias do resto do site. */
 
 body.lusiadas {
   margin: 0;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--fonte-leitura);
   background: #ffffff;
-  color: #111;
+  color: var(--cor-tinta);
+}
+
+.lusiadas h1 {
+  font-family: var(--fonte-titulo);
+  font-weight: 400;
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  line-height: 1.2;
+  margin-bottom: 1rem;
 }
 
 /* ============================= */
 /*            LAYOUT             */
 /* ============================= */
+/* Linhas: 1 = navegação (topo), 2 = colunas, 3 = navegação (rodapé).
+   O menu de cantos ocupa as três. */
 
 .lusiadas .layout {
   display: grid;
-  grid-template-columns: 60px 1fr 1fr;
-  column-gap: 120px;
-  padding: 80px 120px;
+  grid-template-columns: 60px minmax(0, 1fr) minmax(0, 1fr);
+  column-gap: clamp(32px, 6vw, 120px);
+  padding: clamp(32px, 6vw, 80px) clamp(20px, 8vw, 120px);
   align-items: start;
+  /* sem este limite o conteúdo se espalhava por toda a janela ao reduzir o
+     zoom, enquanto menu, nav e rodapé (que têm largura máxima) ficavam
+     centralizados. 1580px = largura em que as duas colunas atingem 520px. */
+  max-width: 1580px;
+  margin: 0 auto;
+}
+
+.lusiadas .menu-cantos {
+  grid-column: 1;
+  grid-row: 1 / span 3;
+}
+
+.lusiadas .coluna-esquerda {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.lusiadas .coluna-direita {
+  grid-column: 3;
+  grid-row: 2;
 }
 
 /* ============================= */
@@ -225,6 +258,7 @@ body.lusiadas {
 /* ============================= */
 
 .lusiadas .menu-cantos {
+  font-family: var(--fonte-corpo);
   text-align: center;
   border-right: 1px solid #ddd;
   padding-right: 20px;
@@ -243,12 +277,12 @@ body.lusiadas {
 .lusiadas .menu-cantos a {
   text-decoration: none;
   font-size: 14px;
-  color: #666;
-  transition: 0.2s;
+  color: var(--cor-tinta-suave);
+  transition: color 0.2s;
 }
 
 .lusiadas .menu-cantos a:hover {
-  color: #000;
+  color: var(--cor-tinta);
 }
 
 /* Item "Elementos pré-textuais": texto bem mais longo que os numerais
@@ -271,12 +305,236 @@ body.lusiadas {
 }
 
 /* ============================= */
+/*   NAVEGAÇÃO ENTRE PÁGINAS     */
+/* ============================= */
+
+.lusiadas .nav-paginas {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 20px;
+  font-family: var(--fonte-corpo);
+  font-size: 0.875rem;
+  color: var(--cor-tinta-suave);
+}
+
+/* topo da leitura: navegação + ferramentas, juntas na linha 1 do grid */
+.lusiadas .topo-leitura {
+  grid-column: 2 / 4;
+  grid-row: 1;
+  margin-bottom: 40px;
+}
+
+.lusiadas .nav-paginas--rodape {
+  grid-column: 2 / 4;
+  grid-row: 3;
+  margin-top: 56px;
+  padding-top: 20px;
+  border-top: 1px solid #ddd;
+}
+
+.lusiadas .nav-paginas__botao {
+  display: inline-block;
+  font: inherit;
+  font-size: 0.8125rem;
+  line-height: 1;
+  color: var(--cor-tinta);
+  background: #fff;
+  padding: 10px 18px;
+  border: 1px solid #ccc;
+  border-radius: 999px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s, color 0.15s;
+}
+
+.lusiadas a.nav-paginas__botao:hover,
+.lusiadas button.nav-paginas__botao:hover {
+  border-color: var(--cor-tinta);
+}
+
+.lusiadas .nav-paginas__botao--inativo {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.lusiadas .nav-paginas__ir {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.lusiadas .nav-paginas__ir input[type="number"] {
+  width: 4.5em;
+  font: inherit;
+  color: var(--cor-tinta);
+  text-align: center;
+  padding: 8px 6px;
+  margin-left: 6px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.lusiadas .nav-paginas__ir button.nav-paginas__botao {
+  padding: 9px 16px;
+}
+
+.lusiadas .nav-paginas a:focus-visible,
+.lusiadas .nav-paginas button:focus-visible,
+.lusiadas .nav-paginas input:focus-visible {
+  outline: 2px solid var(--cor-acento-ui);
+  outline-offset: 2px;
+}
+
+/* ============================= */
+/*   DIFERENÇAS ENTRE VERSÕES    */
+/* ============================= */
+/* O HTML já traz <span class="dif"> nas palavras que diferem; sem a classe
+   .mostrar-diferencas no .layout elas ficam invisíveis. Além da cor, o
+   sublinhado diferencia os dois níveis (não depende só de cor). */
+
+.lusiadas .ferramentas-leitura {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 24px;
+  margin-top: 20px;
+  font-family: var(--fonte-corpo);
+  font-size: 0.8125rem;
+  color: var(--cor-tinta-suave);
+}
+
+/* --- tamanho da letra --- */
+.lusiadas .tamanho-letra {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.lusiadas .tamanho-letra__rotulo {
+  margin-right: 4px;
+}
+
+.lusiadas .tamanho-letra__botao,
+.lusiadas .tamanho-letra__valor {
+  font: inherit;
+  color: var(--cor-tinta);
+  background: #fff;
+  height: 34px;
+  border: 1px solid #ccc;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: border-color 0.15s, opacity 0.15s;
+}
+
+.lusiadas .tamanho-letra__botao {
+  width: 40px;
+  font-weight: 700;
+}
+
+.lusiadas .tamanho-letra__valor {
+  min-width: 52px;
+  padding: 0 8px;
+  border-color: transparent;
+  color: var(--cor-tinta-suave);
+}
+
+.lusiadas .tamanho-letra__botao:hover,
+.lusiadas .tamanho-letra__valor:hover {
+  border-color: var(--cor-tinta);
+}
+
+.lusiadas .tamanho-letra__botao:disabled {
+  opacity: 0.4;
+  cursor: default;
+  border-color: #ccc;
+}
+
+.lusiadas .tamanho-letra button:focus-visible {
+  outline: 2px solid var(--cor-acento-ui);
+  outline-offset: 2px;
+}
+
+.lusiadas .alternar-diferencas {
+  font: inherit;
+  color: var(--cor-tinta);
+  background: #fff;
+  padding: 9px 16px;
+  border: 1px solid #ccc;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.lusiadas .alternar-diferencas:hover {
+  border-color: var(--cor-tinta);
+}
+
+.lusiadas .alternar-diferencas[aria-pressed="true"] {
+  background: var(--cor-tinta);
+  border-color: var(--cor-tinta);
+  color: #fff;
+}
+
+.lusiadas .alternar-diferencas:focus-visible {
+  outline: 2px solid var(--cor-acento-ui);
+  outline-offset: 2px;
+}
+
+.lusiadas .alternar-diferencas__contagem {
+  opacity: 0.75;
+}
+
+.lusiadas .legenda-diferencas {
+  display: none;
+  gap: 6px 20px;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.lusiadas .layout.mostrar-diferencas .legenda-diferencas {
+  display: flex;
+}
+
+.lusiadas .layout.mostrar-diferencas .dif {
+  background-color: var(--cor-dif);
+  border-radius: 2px;
+  text-decoration: underline wavy var(--cor-dif-linha);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.lusiadas .layout.mostrar-diferencas .dif.dif--leve {
+  background-color: transparent;
+  text-decoration: underline dotted var(--cor-dif-linha);
+}
+
+.legenda-diferencas .dif {
+  /* na legenda os exemplos sempre aparecem formatados */
+  background-color: var(--cor-dif);
+  border-radius: 2px;
+  text-decoration: underline wavy var(--cor-dif-linha);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.legenda-diferencas .dif.dif--leve {
+  background-color: transparent;
+  text-decoration: underline dotted var(--cor-dif-linha);
+}
+
+/* ============================= */
 /*            COLUNAS            */
 /* ============================= */
 
 .lusiadas .coluna {
   max-width: 520px;
   margin: 0 auto;
+  min-width: 0;
+  width: 100%;
 }
 
 /* ============================= */
@@ -284,30 +542,48 @@ body.lusiadas {
 /* ============================= */
 
 .lusiadas .abas {
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 }
 
 .lusiadas .abas ul {
   display: flex;
-  gap: 30px;
+  flex-wrap: wrap;
+  gap: 8px;
   list-style: none;
-  padding: 0;
-  margin: 0 0 20px 0;
+  padding: 0 0 16px 0;
+  margin: 0;
   border-bottom: 1px solid #ddd;
 }
 
 .lusiadas .abas a {
+  display: block;
+  font-family: var(--fonte-corpo);
   text-decoration: none;
-  font-size: 13px;
-  letter-spacing: 1px;
-  color: #666;
-  padding-bottom: 6px;
+  font-size: 11.5px;
+  letter-spacing: 0.8px;
+  line-height: 1;
+  color: var(--cor-tinta-suave);
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 999px;
   text-transform: uppercase;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.lusiadas .abas a:hover {
+  border-color: var(--cor-tinta);
+  color: var(--cor-tinta);
 }
 
 .lusiadas .abas a.ativa {
-  border-bottom: 2px solid #000;
-  color: #000;
+  background: var(--cor-tinta);
+  border-color: var(--cor-tinta);
+  color: #fff;
+}
+
+.lusiadas .abas a:focus-visible {
+  outline: 2px solid var(--cor-acento-ui);
+  outline-offset: 2px;
 }
 
 /* ============================= */
@@ -315,8 +591,9 @@ body.lusiadas {
 /* ============================= */
 
 .lusiadas .conteudo {
-  line-height: 1.8;
-  font-size: 16px;
+  line-height: 1.85;
+  /* --escala-fonte vem do controle "Tamanho da letra" (leitura.js) */
+  font-size: calc(15.5px * var(--escala-fonte, 1));
 }
 
 /* ============================= */
@@ -324,29 +601,85 @@ body.lusiadas {
 /* ============================= */
 
 .lusiadas h3 {
+  font-family: var(--fonte-titulo);
   text-align: center;
   margin-bottom: 40px;
-  font-weight: normal;
+  font-weight: 400;
+  font-size: 1.25rem;
   letter-spacing: 1px;
 }
 
-.lusiadas .estrofe {
-  margin-bottom: 30px;
+/* Margem onde ficam os números de estrofe e de verso */
+.lusiadas .layout {
+  --margem-verso: clamp(32px, 5vw, 60px);
 }
 
-/* Destaque temporário ao chegar numa estrofe pela aba "selecionar
-   estrofes" (ver base.html + barra-estrofes.js). Removida via JS depois
-   de alguns segundos. */
-.lusiadas .estrofe.estrofe--destacada {
-  background-color: #fef3c7;
+.lusiadas .estrofe {
+  position: relative;
+  counter-reset: verso;
+  margin-bottom: 30px;
   border-radius: 6px;
-  box-shadow: 0 0 0 4px #fef3c7;
-  transition: background-color 0.4s ease, box-shadow 0.4s ease;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Realce: estrofe sob o mouse/foco + a estrofe de mesmo número na outra
+   coluna (ver leitura.js), e o destaque temporário ao chegar pela barra
+   "selecionar estrofe" (ver base.html + barra-estrofes.js). */
+.lusiadas .estrofe.estrofe--par,
+.lusiadas .estrofe.estrofe--destacada {
+  background-color: var(--cor-realce);
+  box-shadow: 0 0 0 6px var(--cor-realce);
+}
+
+.lusiadas .estrofe:focus-visible {
+  outline: 2px solid var(--cor-acento-ui);
+  outline-offset: 6px;
+}
+
+/* Numeração: número da estrofe na margem (em destaque, na 1ª linha) e número
+   do verso a cada 5 versos, como nas edições impressas. */
+.lusiadas .estrofe[data-estrofe]::before,
+.lusiadas .verso:nth-child(5n)::before {
+  position: absolute;
+  left: 0;
+  box-sizing: border-box;
+  width: var(--margem-verso);
+  padding-right: 10px;
+  text-align: right;
+  font-family: var(--fonte-corpo);
+  font-size: 0.75em;
+  line-height: 2.467; /* 1.85 / 0.75: mesma altura de linha do verso */
+  user-select: none;
+}
+
+.lusiadas .estrofe[data-estrofe]::before {
+  content: attr(data-estrofe);
+  top: 0;
+  font-weight: 700;
+  color: var(--cor-acento-ui);
 }
 
 .lusiadas .verso {
-  margin-left: 60px;
+  position: relative;
+  counter-increment: verso;
+  margin-left: var(--margem-verso);
   margin-bottom: 6px;
+  border-radius: 3px;
+  transition: background-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.lusiadas .verso:nth-child(5n)::before {
+  content: counter(verso);
+  left: calc(-1 * var(--margem-verso));
+  color: var(--cor-tinta-suave);
+}
+
+/* Realce do verso (ver leitura.js): amarelo bem claro, por cima do realce
+   azulado da estrofe. O box-shadow dá folga ao redor do texto sem mexer no
+   layout. */
+.lusiadas .verso.verso--par {
+  background-color: var(--cor-realce-linha);
+  box-shadow: 0 0 0 3px var(--cor-realce-linha);
 }
 
 /* Cada verso em bloco */
@@ -382,37 +715,170 @@ pc:last-child::after {
 
 /* imagem */
 .poema-img {
+  display: block;
   width: 100%;
+  height: auto;
+}
+
+.lusiadas .pagina-imagem figcaption {
+  font-family: var(--fonte-corpo);
+  font-size: 0.8125rem;
+  color: var(--cor-tinta-suave);
+  margin-top: 0.5rem;
+}
+
+/* ============================= */
+/*     ÍNDICE DE PÁGINAS DO CANTO */
+/* ============================= */
+
+/* nesta tela o conteúdo ocupa tudo à direita do menu de cantos */
+.lusiadas .layout:has(.indice-canto) .container-simples {
+  grid-column: 2 / -1;
+  min-width: 0;
+}
+
+.lusiadas .indice-canto a {
+  color: var(--cor-acento-ui);
+}
+
+.lusiadas .indice-canto > p {
+  font-family: var(--fonte-corpo);
+  margin-bottom: 2rem;
+}
+
+.grid-miniaturas {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 28px 24px;
+}
+
+.grid-miniaturas .thumb {
+  display: block;
+  text-decoration: none;
+  color: var(--cor-tinta-suave);
+  font-family: var(--fonte-corpo);
+  font-size: 0.8125rem;
+}
+
+.grid-miniaturas .thumb:hover {
+  color: var(--cor-tinta);
+}
+
+.grid-miniaturas .thumb img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-bottom: 8px;
+  border: 1px solid #ddd;
 }
 
 .poema-img-min {
   width: 150px;
 }
+
 /* ============================= */
 /*          RESPONSIVO           */
 /* ============================= */
 
-@media (max-width: 1200px) {
-  .lusiadas .layout {
-    column-gap: 80px;
-    padding: 60px 60px;
-  }
-}
-
 @media (max-width: 900px) {
   .lusiadas .layout {
-    grid-template-columns: 1fr;
-    padding: 40px 30px;
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 0;
   }
 
-  .lusiadas .menu-cantos {
-    border-right: none;
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 20px;
-    margin-bottom: 40px;
+  /* tudo numa coluna só, na ordem do HTML */
+  .lusiadas .menu-cantos,
+  .lusiadas .topo-leitura,
+  .lusiadas .nav-paginas,
+  .lusiadas .coluna-esquerda,
+  .lusiadas .coluna-direita,
+  .lusiadas .layout:has(.indice-canto) .container-simples {
+    grid-column: 1;
+    grid-row: auto;
   }
 
   .lusiadas .coluna {
     max-width: 100%;
+  }
+
+  .lusiadas .coluna + .coluna {
+    margin-top: 56px;
+  }
+
+  /* menu de cantos vira uma faixa horizontal no topo */
+  .lusiadas .menu-cantos {
+    border-right: none;
+    border-bottom: 1px solid #ddd;
+    padding: 0 0 16px;
+    margin-bottom: 32px;
+    text-align: left;
+  }
+
+  .lusiadas .menu-cantos ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 20px;
+  }
+
+  .lusiadas .menu-cantos li,
+  .lusiadas .menu-cantos li:first-child {
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+
+  .lusiadas .menu-cantos li:first-child {
+    flex-basis: 100%;
+    margin-bottom: 6px;
+  }
+
+  .lusiadas .menu-cantos a {
+    display: inline-block;
+    padding: 6px 2px; /* área de toque maior */
+  }
+
+  .lusiadas .menu-cantos a.item-pretextuais {
+    font-size: 13px;
+  }
+
+  .lusiadas .topo-leitura {
+    margin-bottom: 28px;
+  }
+}
+
+@media (max-width: 560px) {
+  .lusiadas .estrofe[data-estrofe]::before,
+  .lusiadas .verso:nth-child(5n)::before {
+    padding-right: 6px;
+  }
+
+  /* botões em cima, campo "Página n de N" embaixo, centralizado */
+  .lusiadas .nav-paginas {
+    justify-content: space-between;
+  }
+
+  .lusiadas .nav-paginas__ir {
+    order: 3;
+    flex-basis: 100%;
+    justify-content: center;
+  }
+
+  .lusiadas .nav-paginas__botao {
+    padding: 12px 16px; /* alvo de toque ≥ 44px */
+  }
+
+  .lusiadas .abas a {
+    padding: 10px 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lusiadas .estrofe,
+  .lusiadas .verso,
+  .lusiadas .abas a,
+  .lusiadas .alternar-diferencas,
+  .lusiadas .tamanho-letra__botao,
+  .lusiadas .nav-paginas__botao {
+    transition: none;
   }
 }

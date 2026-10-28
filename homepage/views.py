@@ -1,10 +1,11 @@
 from django.shortcuts import render
+from django.db.models import Max
 from django.http import Http404, JsonResponse
 from django.conf import settings
 from lxml import etree
 import os
 from .models import Canto, PaginaImagem, PaginaTexto
-from .utils.tei import tei_para_html, pretextual_para_html
+from .utils.tei import tei_para_html, tei_para_html_comparado, pretextual_para_html
 from .utils.indice_estrofes import construir_indice_estrofes
 
 def homepage(request):
@@ -57,81 +58,125 @@ def pretextuais(request):
         "erro": erro,
     })
 
+# Opções de leitura disponíveis nas abas de cada coluna (slug, rótulo).
+# O slug é o que vai na URL; o rótulo é o que aparece para o leitor.
+ABAS_LEITURA = [
+    ("modernizado", "Versão modernizada"),
+    ("original_a", "Versão original A"),
+    ("original_b", "Versão original B"),
+    ("imagem_a", "Imagem A"),
+    ("imagem_b", "Imagem B"),
+]
+OPCOES_VALIDAS = [slug for slug, _ in ABAS_LEITURA]
+
+# URLs antigas (/leitura/original/..., /imagem/...) continuam funcionando
+ALIASES_LEGADOS = {"original": "original_a", "imagem": "imagem_a"}
+PADRAO_ESQ = "modernizado"
+PADRAO_DIR = "original_a"
+
+
+def _normalizar(valor, padrao):
+    valor = ALIASES_LEGADOS.get(valor, valor)
+    if valor in OPCOES_VALIDAS:
+        return valor
+    return padrao
+
+
+def _montar_coluna(canto, pagina_num, opcao):
+    """Devolve (tei_xml, pagina_imagem) de uma coluna, conforme a opção escolhida."""
+    if opcao.startswith("imagem_"):
+        edicao = opcao.split("_")[1].upper()
+        imagem = PaginaImagem.objects.filter(
+            canto__numero=canto, numero=pagina_num, edicao=edicao
+        ).first()
+        return "", imagem
+    texto = PaginaTexto.objects.filter(
+        canto__numero=canto, numero=pagina_num, versao=opcao
+    ).first()
+    return (texto.tei_xml if texto else ""), None
+
+
+def _total_paginas(canto):
+    """Maior número de página cadastrado para o canto (texto ou imagem)."""
+    maior_imagem = PaginaImagem.objects.filter(canto__numero=canto).aggregate(m=Max("numero"))["m"] or 0
+    maior_texto = PaginaTexto.objects.filter(canto__numero=canto).aggregate(m=Max("numero"))["m"] or 0
+    return max(maior_imagem, maior_texto)
+
+
+def _renderizar_leitura(request, canto, esq, dir, pagina=None):
+    # a página vem da URL (/leitura/.../<pagina>/) ou, se não houver, de ?p=
+    try:
+        pagina_num = int(pagina if pagina is not None else request.GET.get("p", 1))
+    except (TypeError, ValueError):
+        pagina_num = 1
+
+    total = _total_paginas(canto)
+    pagina_num = max(1, min(pagina_num, total)) if total else 1
+    estrofe_alvo = request.GET.get("estrofe")
+
+    tei_esq, imagem_esq = _montar_coluna(canto, pagina_num, esq)
+    tei_dir, imagem_dir = _montar_coluna(canto, pagina_num, dir)
+
+    # Duas versões de texto diferentes lado a lado: dá para comparar palavra
+    # a palavra (o leitor liga o realce com o botão "Realçar diferenças").
+    pode_comparar = not esq.startswith("imagem_") and not dir.startswith("imagem_") and esq != dir
+    if pode_comparar:
+        html_esq, html_dir, total_diferencas = tei_para_html_comparado(tei_esq, tei_dir)
+    else:
+        html_esq = tei_para_html(tei_esq) if tei_esq else ""
+        html_dir = tei_para_html(tei_dir) if tei_dir else ""
+        total_diferencas = 0
+
+    contexto = {
+        "canto": canto,
+        "pagina_num": pagina_num,
+        "total_paginas": total,
+        "pagina_anterior": pagina_num - 1 if pagina_num > 1 else None,
+        "pagina_seguinte": pagina_num + 1 if pagina_num < total else None,
+        "abas": ABAS_LEITURA,
+        "esq": esq,
+        "dir": dir,
+        "html_esq": html_esq,
+        "html_dir": html_dir,
+        "pode_comparar": pode_comparar,
+        "tem_texto": not (esq.startswith("imagem_") and dir.startswith("imagem_")),
+        "total_diferencas": total_diferencas,
+        "imagem_esq": imagem_esq,
+        "imagem_dir": imagem_dir,
+        "estrofe_alvo": estrofe_alvo,
+    }
+    return render(request, "poema/canto.html", contexto)
+
+
 def canto_index(request, canto):
-    paginas = PaginaImagem.objects.filter(canto__numero=canto).order_by("numero")
+    paginas = PaginaImagem.objects.filter(canto__numero=canto, edicao="A").order_by("numero")
     return render(request, "poema/canto_index.html", {
         "canto": canto,
         "paginas": paginas
     })
 
+
 def canto(request, canto):
-    pagina_num = int(request.GET.get("p", 1))
-    estrofe_alvo = request.GET.get("estrofe")
+    return _renderizar_leitura(request, canto, PADRAO_ESQ, PADRAO_DIR)
 
-    imagem = PaginaImagem.objects.filter(canto__numero=canto, numero=pagina_num).first()
-    texto_esq = PaginaTexto.objects.filter(canto__numero=canto, numero=pagina_num, versao="modernizado").first()
-    texto_dir = PaginaTexto.objects.filter(canto__numero=canto, numero=pagina_num, versao="original").first()
-
-    html_esq = tei_para_html(texto_esq.tei_xml) if texto_esq else ""
-    html_dir = tei_para_html(texto_dir.tei_xml) if texto_dir else ""
-    paginas = PaginaImagem.objects.filter(canto__numero=canto).order_by("numero")
-
-    contexto = {
-        "canto": canto,
-        "esq": "modernizado",
-        "dir": "original",
-        "pagina": imagem,
-        "pagina_num": pagina_num,
-        "paginas": paginas,
-        "html_esq": html_esq,
-        "html_dir": html_dir,
-        "estrofe_alvo": estrofe_alvo,
-    }
-    return render(request, "poema/canto.html", contexto)
 
 def leitura(request, canto, conteudo, coluna, pagina=None):
-    opcoes_validas = ["original", "modernizado", "imagem"]
-    if coluna not in ["esq", "dir"] or conteudo not in opcoes_validas:
+    conteudo = ALIASES_LEGADOS.get(conteudo, conteudo)
+    if coluna not in ["esq", "dir"] or conteudo not in OPCOES_VALIDAS:
         raise Http404("Parâmetros de leitura inválidos ou página não encontrada.")
 
     # ponto de partida: o que a OUTRA coluna já estava mostrando (vem na
-    # querystring, preservado pelos links das abas em base.html) -- sem
-    # isso, trocar a aba de uma coluna resetava a outra pro padrão.
-    esq = request.GET.get("esq", "modernizado")
-    dir = request.GET.get("dir", "original")
-    if esq not in opcoes_validas:
-        esq = "modernizado"
-    if dir not in opcoes_validas:
-        dir = "original"
+    # querystring, preservado pelos links das abas em base.html)
+    esq = _normalizar(request.GET.get("esq"), PADRAO_ESQ)
+    dir = _normalizar(request.GET.get("dir"), PADRAO_DIR)
 
     if coluna == "esq":
         esq = conteudo
-    elif coluna == "dir":
+    else:
         dir = conteudo
 
-    pagina_num = int(request.GET.get("p", 1))
-    estrofe_alvo = request.GET.get("estrofe")
+    return _renderizar_leitura(request, canto, esq, dir, pagina)
 
-    imagem = PaginaImagem.objects.filter(canto__numero=canto, numero=pagina_num).first()
-    texto_esq = PaginaTexto.objects.filter(canto__numero=canto, numero=pagina_num, versao=esq).first()
-    texto_dir = PaginaTexto.objects.filter(canto__numero=canto, numero=pagina_num, versao=dir).first()
-
-    html_esq = tei_para_html(texto_esq.tei_xml) if texto_esq else ""
-    html_dir = tei_para_html(texto_dir.tei_xml) if texto_dir else ""
-    paginas = PaginaImagem.objects.filter(canto__numero=canto).order_by("numero")
-
-    contexto = {
-        "canto": canto,
-        "pagina_num": pagina_num,
-        "imagem": imagem,
-        "paginas": paginas,
-        "esq": esq,
-        "dir": dir,
-        "html_esq": html_esq,
-        "html_dir": html_dir,
-        "estrofe_alvo": estrofe_alvo,
-    }
-    return render(request, "poema/canto.html", contexto)
 
 def indice_estrofes_view(request, canto):
     """

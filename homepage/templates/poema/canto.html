@@ -1,16 +1,16 @@
 {% extends "base.html" %}
 
 {% block conteudo_esquerda %}
-{% if esq == "imagem" %}
-  {% include "poema/partials/imagem_paginada.html" %}
+{% if esq == "imagem_a" or esq == "imagem_b" %}
+  {% include "poema/partials/imagem_paginada.html" with imagem=imagem_esq %}
 {% else %}
   {% include "poema/partials/texto.html" with html_texto=html_esq %}
 {% endif %}
 {% endblock %}
 
 {% block conteudo_direita %}
-{% if dir == "imagem" %}
-  {% include "poema/partials/imagem_paginada.html" %}
+{% if dir == "imagem_a" or dir == "imagem_b" %}
+  {% include "poema/partials/imagem_paginada.html" with imagem=imagem_dir %}
 {% else %}
   {% include "poema/partials/texto.html" with html_texto=html_dir %}
 {% endif %}

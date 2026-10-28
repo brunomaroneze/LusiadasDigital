@@ -1,21 +1,22 @@
-{% extends "base_simples.html" %}
-{% load roman %}
-{% block title %}Canto {{ canto|romano }}{% endblock %}
-
-{% block conteudo %}
+{% extends "base_simples.html" %} {% load roman %} {% block title %}Canto {{
+canto|romano }}{% endblock %} {% block conteudo %}
+<div class="indice-canto">
 <h1>Canto {{ canto|romano }}</h1>
 
 <p>
-    <a href="{% url 'canto' canto %}">Abrir leitura em colunas</a>
+  <a href="{% url 'canto' canto %}">Abrir leitura em colunas</a>
 </p>
 
 <div class="grid-miniaturas">
-    {% for pagina in paginas %}
-        <a href="{% url 'leitura_paginada' canto 'modernizado' 'esq' pagina.numero %}" class="thumb">
-            <img src="{{ pagina.imagem.url }}" class="poema-img-min"/>
-            <br />
-            <span>Página {{ pagina.numero }}</span>
-        </a>
-    {% endfor %}
+  {% for pagina in paginas %}
+  <a
+    href="{% url 'leitura_paginada' canto 'modernizado' 'esq' pagina.numero %}"
+    class="thumb"
+  >
+    <img src="{{ pagina.imagem.url }}" class="poema-img-min" alt="Canto {{ canto|romano }}, página {{ pagina.numero }}" loading="lazy" decoding="async" />
+    <span>Página {{ pagina.numero }}</span>
+  </a>
+  {% endfor %}
+</div>
 </div>
 {% endblock %}

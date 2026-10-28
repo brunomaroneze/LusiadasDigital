@@ -11,6 +11,7 @@
   <!-- MENU LATERAL: CANTOS -->
   <nav class="menu-cantos" aria-label="Cantos do poema">
     <ul>
+      <li><a href="{% url 'pretextuais' %}" class="item-pretextuais">Elementos pré-textuais</a></li>
       {% load roman %}
 
       {% for i in "123456789"|make_list %}
@@ -21,15 +22,42 @@
     </ul>
   </nav>
 
+  <!-- TOPO DA LEITURA: navegação entre páginas + ferramentas -->
+  <div class="topo-leitura">
+    {% include "poema/partials/navegacao_paginas.html" with posicao="topo" %}
+
+    {% if tem_texto %}
+    <div class="ferramentas-leitura">
+      <div class="tamanho-letra" role="group" aria-label="Tamanho da letra">
+        <span class="tamanho-letra__rotulo">Tamanho da letra</span>
+        <button type="button" class="tamanho-letra__botao" data-acao="diminuir" aria-label="Diminuir a letra">A&minus;</button>
+        <button type="button" class="tamanho-letra__valor" data-acao="padrao" aria-label="Voltar ao tamanho padrão da letra" aria-live="polite">100%</button>
+        <button type="button" class="tamanho-letra__botao" data-acao="aumentar" aria-label="Aumentar a letra">A+</button>
+      </div>
+
+      {% if pode_comparar %}
+      <button type="button" class="alternar-diferencas" aria-pressed="false">
+        Realçar diferenças entre as versões
+        <span class="alternar-diferencas__contagem">({{ total_diferencas }} nesta página)</span>
+      </button>
+      <ul class="legenda-diferencas" aria-label="Legenda do realce">
+        <li><span class="dif">palavra</span> palavras diferentes</li>
+        <li><span class="dif dif--leve">palavra</span> só pontuação ou hifenização</li>
+      </ul>
+      {% endif %}
+    </div>
+    {% endif %}
+  </div>
+
   <!-- COLUNA ESQUERDA (SLOT A) -->
   <section class="coluna coluna-esquerda" aria-label="Coluna esquerda">
 
     <header class="abas">
       <nav aria-label="Abas coluna esquerda">
         <ul>
-          <li><a href="{% url 'leitura' canto 'original' 'esq' %}" class="{% if esq == 'original' %}ativa{% endif %}">ORIGINAL</a></li>
-          <li><a href="{% url 'leitura' canto 'modernizado' 'esq' %}" class="{% if esq == 'modernizado' %}ativa{% endif %}">MODERNIZADO</a></li>
-          <li><a href="{% url 'leitura' canto 'imagem' 'esq' %}" class="{% if esq == 'imagem' %}ativa{% endif %}">IMAGEM</a></li>
+          {% for slug, rotulo in abas %}
+          <li><a href="{% url 'leitura' canto slug 'esq' %}?p={{ pagina_num }}&dir={{ dir }}" class="{% if esq == slug %}ativa{% endif %}">{{ rotulo }}</a></li>
+          {% endfor %}
         </ul>
       </nav>
     </header>
@@ -46,9 +74,9 @@
     <header class="abas">
       <nav aria-label="Abas coluna direita">
         <ul>
-          <li><a href="{% url 'leitura' canto 'original' 'dir' %}" class="{% if dir == 'original' %}ativa{% endif %}">ORIGINAL</a></li>         
-          <li><a href="{% url 'leitura' canto 'modernizado' 'dir' %}" class="{% if dir == 'modernizado' %}ativa{% endif %}">MODERNIZADO</a></li>
-          <li><a href="{% url 'leitura' canto 'imagem' 'dir' %}" class="{% if dir == 'imagem' %}ativa{% endif %}">IMAGEM</a></li>
+          {% for slug, rotulo in abas %}
+          <li><a href="{% url 'leitura' canto slug 'dir' %}?p={{ pagina_num }}&esq={{ esq }}" class="{% if dir == slug %}ativa{% endif %}">{{ rotulo }}</a></li>
+          {% endfor %}
         </ul>
       </nav>
     </header>
@@ -59,7 +87,30 @@
 
   </section>
 
+  <!-- NAVEGAÇÃO ENTRE PÁGINAS (rodapé da leitura) -->
+  {% include "poema/partials/navegacao_paginas.html" with posicao="rodape" %}
+
 </div>
+{% include 'blocos/footer.html' %}
+<script src="{% static 'js/leitura.js' %}" defer></script>
+
+{% if estrofe_alvo %}
+<script>
+  // Rola até a estrofe pedida (chegou aqui pela aba "selecionar estrofes")
+  // e a destaca por alguns segundos. Se a estrofe não existir nas colunas
+  // renderizadas (ex: coluna mostrando a imagem em vez de texto), não faz
+  // nada — falha silenciosa, sem quebrar a página.
+  (function () {
+    var alvo = document.querySelector('.estrofe[data-estrofe="{{ estrofe_alvo|escapejs }}"]');
+    if (!alvo) return;
+    alvo.scrollIntoView({ behavior: "smooth", block: "center" });
+    alvo.classList.add("estrofe--destacada");
+    window.setTimeout(function () {
+      alvo.classList.remove("estrofe--destacada");
+    }, 4000);
+  })();
+</script>
+{% endif %}
 
 </body>
 </html>

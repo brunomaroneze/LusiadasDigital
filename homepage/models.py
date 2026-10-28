@@ -17,24 +17,38 @@ class PaginaImagem(models.Model):
         on_delete=models.CASCADE,
         related_name="paginas"
     )
+    EDICOES = [
+        ("A", "Imagem A"),
+        ("B", "Imagem B"),
+    ]
+
     numero = models.PositiveIntegerField()
+    edicao = models.CharField(
+        max_length=1,
+        choices=EDICOES,
+        default="A",
+        help_text="A ou B: de qual das duas edições é este fac-símile",
+    )
     imagem = models.ImageField(upload_to="poema/")
 
     class Meta:
         verbose_name = "Página de imagem"
         verbose_name_plural = "Páginas de imagens"
-        ordering = ["numero"]
-        unique_together = ("canto", "numero")
+        ordering = ["numero", "edicao"]
+        unique_together = ("canto", "numero", "edicao")
 
     def __str__(self):
-        return f"Canto {self.canto.numero} – pág. {self.numero}"
+        return f"Canto {self.canto.numero} – pág. {self.numero} (imagem {self.edicao})"
 
 
 ## TEXTO
 class PaginaTexto(models.Model):
     VERSOES = [
-        ("original", "Original"),
-        ("modernizado", "Modernizado"),
+        ("modernizado", "Versão modernizada"),
+        ("original_a", "Versão original A"),
+        ("original_b", "Versão original B"),
+        # legado (não aparece nas abas de leitura)
+        ("original", "Original (legado)"),
     ]
 
     canto = models.ForeignKey(

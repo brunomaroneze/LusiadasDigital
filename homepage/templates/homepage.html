@@ -1,9 +1,6 @@
 {% load static %}
     <!-- Head -->
-        {% include 'blocos/head.html' %}
-    <head>
-        <link href="{% static 'css/homepage.css' %}" rel="stylesheet" >  
-    </head>
+        {% include 'blocos/head.html' with titulo='Início' css_extra='css/homepage.css' %}
 <body>
     <div class="main-container">
         <!-- Imagem -->

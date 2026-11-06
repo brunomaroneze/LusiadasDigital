@@ -551,7 +551,7 @@
           <l>O claro descendente de Abraão</l>
           <l>Que agora tem do mundo o senhorio,</l>
           <l>A mãe Hebréia teve, e o pai Gentio.</l>
-          <l>Informações. A Ilha de Moçambique.</l>
+          <!-->Informações. A Ilha de Moçambique.-->
         </lg>
         <lg type="estrofe" n="54">
           <l>"Esta ilha pequena, que habitamos,</l>
@@ -2419,7 +2419,7 @@
           <l>Deitando-o de si fora, e lá na ardente</l>
           <l>África estar quieto o não consente.</l>
         </lg>
-        <lg type="estrofe" n="22">
+        <lg type="estrofe" n="21">
           <l>"Esta é a ditosa pátria minha amada,</l>
           <l>A qual se o Céu me dá que eu sem perigo</l>
           <l>Torne, com esta empresa já acabada,</l>
@@ -3510,7 +3510,7 @@
           <l>Que refrigério sejam da mãe triste."--</l>
         </lg>
         <lg type="estrofe" n="130">
-          <l>--Morte de Inês de Castro</l>
+          <!--Morte de Inês de Castro-->
           <l>"Queria perdoar-lhe o Rei benino,</l>
           <l>Movido das palavras que o magoam;</l>
           <l>Mas o pertinaz povo, e seu destino</l>
@@ -6839,6 +6839,7 @@
           <l>O furor vão dos ventos repugnantes:</l>
           <l>Depois que a larga terra lhe aparece,</l>
           <l>Fim de suas porfias tão constantes,</l>
+          <l>Onde vêm semear de Cristo a lei,</l>
           <l>E dar novo costume e novo Rei.</l>
         </lg>
         <lg type="estrofe" n="16">
@@ -8165,7 +8166,7 @@
           <l>Perdão alcançarás da culpa tua.</l>
         </lg>
         <lg type="estrofe" n="61">
-          <l>Fala do Samorim ao Gama</l>
+          <!--Fala do Samorim ao Gama-->
           <l>"Eu sou bem informado que a embaixada</l>
           <l>Que de teu Rei me deste, que é fingida;</l>
           <l>Porque nem tu tens Rei, nem pátria amada,</l>

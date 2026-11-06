@@ -10,8 +10,7 @@ env/
 
 # Configurações locais / segredos
 .env
-.env.local
-.env.prod
+.env.*
 
 # Banco de dados local
 db.sqlite3

@@ -11,6 +11,7 @@ env/
 # Configurações locais / segredos
 .env
 .env.*
+!.env.example
 
 # Banco de dados local
 db.sqlite3

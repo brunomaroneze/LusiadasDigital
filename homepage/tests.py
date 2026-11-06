@@ -194,6 +194,11 @@ class ImportarTudoTests(TestCase):
         call_command("importar_tudo", "--pasta", self.pasta.name, "--cantos", "1", "2", *extra, stdout=saida)
         return saida.getvalue()
 
+    def rodar_todos(self, *extra):
+        saida = StringIO()
+        call_command("importar_tudo", "--pasta", self.pasta.name, *extra, stdout=saida)
+        return saida.getvalue()
+
     def test_importa_as_tres_versoes_usando_a_posicao_do_canto(self):
         saida = self.rodar()
         self.assertEqual(Canto.objects.count(), 2)
@@ -214,6 +219,55 @@ class ImportarTudoTests(TestCase):
         total = PaginaTexto.objects.count()
         self.rodar()
         self.assertEqual(PaginaTexto.objects.count(), total)
+
+    def test_remove_paginas_que_deixaram_de_existir_no_xml(self):
+        self.rodar()
+        arquivo_tei(
+            self.pasta.name,
+            "LusiadasModernizado.xml",
+            [("1", [estrofe_xml(1)]), ("2", [estrofe_xml(1), estrofe_xml(2)])],
+        )
+
+        self.rodar()
+
+        self.assertEqual(
+            PaginaTexto.objects.filter(canto__numero=1, versao="modernizado").count(),
+            1,
+        )
+        self.assertEqual(
+            PaginaTexto.objects.filter(canto__numero=2, versao="modernizado").count(),
+            1,
+        )
+
+    def test_remove_canto_ausente_de_todos_os_xmls(self):
+        self.rodar()
+        for nome in (
+            "LusiadasModernizado.xml",
+            "LusiadasEsquerda.xml",
+            "LusiadasDireita.xml",
+        ):
+            arquivo_tei(self.pasta.name, nome, [("1", [estrofe_xml(1)])])
+
+        self.rodar_todos()
+
+        self.assertFalse(Canto.objects.filter(numero=2).exists())
+        self.assertFalse(PaginaTexto.objects.filter(canto__numero=2).exists())
+
+    def test_filtro_de_cantos_preserva_registros_fora_do_escopo(self):
+        self.rodar()
+        canto = Canto.objects.create(numero=3, titulo="Canto fora do escopo")
+        PaginaTexto.objects.create(
+            canto=canto,
+            numero=1,
+            versao="modernizado",
+            tei_xml=tei((1, ["texto preservado"])),
+        )
+
+        self.rodar()
+
+        self.assertTrue(
+            PaginaTexto.objects.filter(canto=canto, versao="modernizado").exists()
+        )
 
     def test_relatorio_pode_ser_salvo_em_arquivo(self):
         destino = Path(self.pasta.name) / "relatorio.txt"

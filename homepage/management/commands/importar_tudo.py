@@ -19,7 +19,8 @@ aparece no relatório.
 
 Como no importar_canto, a divisão em páginas é sintética (N estrofes por
 página) e NÃO corresponde à paginação do fac-símile. O comando é idempotente:
-rodar de novo atualiza as páginas em vez de duplicá-las.
+rodar de novo atualiza as páginas em vez de duplicá-las e remove páginas que
+deixaram de existir nos XMLs, dentro do escopo importado.
 """
 
 from pathlib import Path
@@ -28,6 +29,7 @@ from django.conf import settings
 from django.core.management.base import BaseCommand, CommandError
 from django.db import transaction
 
+from homepage.models import Canto, PaginaTexto
 from homepage.utils.importacao import (
     ESTROFES_ESPERADAS, FONTES, ErroDeArquivo,
     carregar_xml, divs_de_canto, gravar_canto, verificar_integridade,
@@ -85,20 +87,44 @@ class Command(BaseCommand):
 
         # 2) grava (modernizado primeiro: é ele que dá o título ao Canto)
         total_criadas = total_atualizadas = 0
+        total_removidas = 0
+        cantos_para_sincronizar = filtro if filtro is not None else set(ESTROFES_ESPERADAS)
         self.stdout.write(self.style.MIGRATE_HEADING("Importando..."))
         with transaction.atomic():
             for versao, nome, root in arquivos:
+                paginas_importadas = {}
                 for posicao, div in enumerate(divs_de_canto(root), start=1):
                     if posicao not in ESTROFES_ESPERADAS or (filtro and posicao not in filtro):
                         continue
                     r = gravar_canto(div, posicao, versao, opcoes["por_pagina"])
+                    paginas_importadas[posicao] = r["paginas"]
                     total_criadas += r["criadas"]
                     total_atualizadas += r["atualizadas"]
                     self.stdout.write(
                         f"  canto {posicao:>2} [{versao:<11}] {r['estrofes']:>3} estrofes -> {r['paginas']:>3} páginas")
 
+                for numero_canto in cantos_para_sincronizar:
+                    paginas = PaginaTexto.objects.filter(
+                        canto__numero=numero_canto,
+                        versao=versao,
+                    )
+                    total_paginas = paginas_importadas.get(numero_canto, 0)
+                    if total_paginas:
+                        removidas, _ = paginas.exclude(
+                            numero__range=(1, total_paginas)
+                        ).delete()
+                    else:
+                        removidas, _ = paginas.delete()
+                    total_removidas += removidas
+
+            for numero_canto in cantos_para_sincronizar:
+                canto = Canto.objects.filter(numero=numero_canto).first()
+                if canto and not canto.textos.exists() and not canto.paginas.exists():
+                    canto.delete()
+
         self.stdout.write(self.style.SUCCESS(
-            f"Concluído: {total_criadas} página(s) criada(s), {total_atualizadas} atualizada(s)."))
+            f"Concluído: {total_criadas} página(s) criada(s), "
+            f"{total_atualizadas} atualizada(s), {total_removidas} removida(s)."))
         self.stdout.write(self.style.WARNING(
             "Lembrete: a divisão em páginas é artificial e não corresponde ao fac-símile."))
 

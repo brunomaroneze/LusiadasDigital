@@ -29,3 +29,6 @@ Thumbs.db
 
 # Logs
 *.log
+
+# Pasta com as imagens
+imagens/

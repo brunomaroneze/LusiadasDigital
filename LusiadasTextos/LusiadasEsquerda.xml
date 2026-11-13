@@ -19,7 +19,7 @@
     </teiHeader>
     <text>
         <front>
-            <titlePage>
+            <titlePage facs="../imagens/pelicanoEsquerda/VEsq001.jpg">
                 <docTitle>
                     <titlePart>OS <lb/>LVSIADAS</titlePart>
                 </docTitle>
@@ -29,7 +29,8 @@
                     Ordina- <lb break="no"/>rio: em casa de <name>Antonio <lb/>Gõçaluez</name>
                     Impressor. <lb/><date>1572</date> .</docImprint>
             </titlePage>
-            <pb/>
+            <pb facs="../imagens/pelicanoEsquerda/VEsq002.jpg"/>
+            <pb facs="../imagens/pelicanoEsquerda/VEsq003.jpg"/>
             <div type="AlvaraRegio">
                 <p>EV el Rey faço saber aos que este Aluara virem <lb/>que eu ey por bem &amp; me
                     praz dar licença <lb/>a Luis de Camoẽs pera que possa fazer im- <lb break="no"
@@ -63,8 +64,8 @@
                     em Lisboa, a.xxiiij: <lb/>de Setembro, de M. D. LXXI. <name>Iorge da
                         Costa</name> o fiz escreuer.</p>
             </div>
-            <pb/>
             <div type="LicencaSantoOficio">
+                <pb facs="../imagens/pelicanoEsquerda/VEsq004.jpg"/>
                 <p>VI por mandado da santa &amp; geral inquisição estes dez <lb/>Cantos dos Lusiadas
                     de Luis de Camões, dos valero-<lb break="no"/>sos feitos em armas que os
                     Portugueses fizerão em Asia &amp; <lb/>Europa, &amp; não achey nelles cousa
@@ -83,9 +84,9 @@
                         <lb break="no"/>dição nas sciencias humanas. Em fe do qual assiney aqui.
                         <lb/><name>Frey Bertholameu <lb/>Ferreira</name>.</p>
             </div>
-            <pb/>
         </front>
         <body>
+            <pb facs="../imagens/pelicanoEsquerda/VEsq005.jpg"/>
             <div type="canto" n="1">
                 <head>OS LVSIADAS <lb/>DE LVIS DE <lb/>CAMÕES.</head>
                 <lb/>
@@ -112,7 +113,7 @@
                 </lg>
                 <fw type="sig" place="bottom">A</fw>
                 <fw type="catch" place="bottom">Cessem</fw>
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq006.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="3">
                     <l>Cessem do sabio Grego, &amp; do Troyano,</l>
@@ -145,7 +146,7 @@
                     <l>Se tam sublime preço cabe em verso.</l>
                 </lg>
                 <fw type="catch" place="bottom">E vos</fw>
-                <pb n="2"/>
+                <pb n="2" facs="../imagens/pelicanoEsquerda/VEsq007.jpg"/>
                 <fw type="header" place="top">CANTO PRIMEIRO.</fw>
                 <lg type="estrofe" n="6">
                     <l>E vos ò bem nascida segurança</l>
@@ -179,7 +180,7 @@
                 </lg>
                 <fw type="sig" place="bottom">A 2</fw>
                 <fw type="catch" place="bottom">Inclinay</fw>
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq008.jpg"/>
 
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="9">
@@ -213,7 +214,7 @@
                     <l>E Orlando, inda que fora verdadeiro.</l>
                 </lg>
                 <fw type="catch" place="bottom">Por</fw>
-                <pb n="3"/>
+                <pb n="3" facs="../imagens/pelicanoEsquerda/VEsq009.jpg"/>
                 <fw type="header" place="top">CANTO PRIMEIRO.</fw>
                 <lg type="estrofe" n="12">
                     <l>Por estes vos darey hum Nuno fero,</l>
@@ -247,7 +248,7 @@
                 </lg>
                 <fw type="sig" place="bottom">A 3</fw>
                 <fw type="catch" place="bottom">E em</fw>
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq010.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="15">
                     <l>E em quanto eu estes canto, &amp; a vos nam posso</l>
@@ -280,7 +281,7 @@
                     <l>No templo da suprema eternidade.</l>
                 </lg>
                 <fw type="catch" place="bottom">Mas</fw>
-                <pb n="4"/>
+                <pb n="4" facs="../imagens/pelicanoEsquerda/VEsq011.jpg"/>
                 <fw type="header" place="top">CANTO PRIMEIRO.</fw>
                 <lg type="estrofe" n="18">
                     <l>Mas em quanto este tempo passa lento,</l>
@@ -314,7 +315,7 @@
                 </lg>
                 <fw type="sig" place="bottom">A 4</fw>
                 <fw type="catch" place="bottom">Deixão</fw>
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq012.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="21">
                     <l>Deixão dos sete Ceos o regimento,</l>
@@ -347,7 +348,7 @@
                     <l>Cum tom de voz começa, graue &amp; horrendo.</l>
                 </lg>
                 <fw type="catch" place="bottom">Eternos</fw>
-                <pb n="5"/>
+                <pb n="5" facs="../imagens/pelicanoEsquerda/VEsq013.jpg"/>
                 <fw type="header" place="top">CANTO PRIMEIRO.</fw>
                 <lg type="estrofe" n="24">
                     <l>Eternos moradores do luzente</l>
@@ -380,7 +381,7 @@
                     <l>Fingio na Cerua espirito diuino.</l>
                 </lg>
                 <fw type="catch" place="bottom">Agora</fw>
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq014.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="27">
                     <l>Agora vedes bem, que cometendo,</l>
@@ -413,7 +414,7 @@
                     <l>Tornarão a seguir sua longa rata:</l>
                 </lg>
                 <fw type="catch" place="bottom">Estas</fw>
-                <pb n="6"/>
+                <pb n="6" facs="../imagens/pelicanoEsquerda/VEsq015.jpg"/>
                 <fw type="header" place="top">CANTO PRIMEIRO.</fw>
                 <lg type="estrofe" n="30">
                     <l>Estas palauras Iupiter dezia,</l>
@@ -446,7 +447,7 @@
                     <l>Os fortes Portugueses, que nauegão,</l>
                 </lg>
                 <fw type="catch" place="bottom">Sustentaua</fw>
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq016.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="33">
                     <l>Sustentaua contra elle Venus bella</l>
@@ -479,7 +480,7 @@
                     <l>Entre os Deoses no Olimpo consagrado.</l>
                 </lg>
                 <fw type="catch" place="bottom">Mas</fw>
-                <pb n="7"/>
+                <pb n="7" facs="../imagens/pelicanoEsquerda/VEsq017.jpg"/>
                 <fw type="header" place="top">CANTO PRIMEIRO.</fw>
                 <lg type="estrofe" n="36">
                     <l>Mas Marte que da Deosa sustentaua,</l>
@@ -512,7 +513,7 @@
                     <l>Razões de quem parece que he sospeito.</l>
                 </lg>
                 <fw type="catch" place="bottom">Que</fw>
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq018.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="39">
                     <l>Que se aqui a razão se não mostrasse</l>
@@ -545,7 +546,7 @@
                     <l>Pera os determinados apousentos.</l>
                 </lg>
                 <fw type="catch" place="bottom">Em</fw>
-                <pb n="8"/>
+                <pb n="8" facs="../imagens/pelicanoEsquerda/VEsq019.jpg"/>
                 <fw type="header" place="top">CANTO PRIMEIRO.</fw>
                 <lg type="estrofe" n="42">
                     <l>Em quanto isto se passa, na fermosa</l>
@@ -578,7 +579,7 @@
                     <l>Mas nam lhe soccedeo como cuydaua.</l>
                 </lg>
                 <fw type="catch" place="bottom">E eis</fw>
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq020.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="45">
                     <l>Eis aparecem logo em companhia,</l>
@@ -611,7 +612,7 @@
                     <l>Anafis sonorosos vão tocando.</l>
                 </lg>
                 <fw type="catch" place="bottom">Cos</fw>
-                <pb n="9"/>
+                <pb n="9" facs="../imagens/pelicanoEsquerda/VEsq021.jpg"/>
                 <fw type="header" place="top">CANTO PRIMEIRO.</fw>
                 <lg type="estrofe" n="48">
                     <l>Cos panos, &amp; cos braços açenauão,</l>
@@ -645,7 +646,7 @@
                 </lg>
                 <fw type="sig" place="bottom">B</fw>
                 <fw type="catch" place="bottom">Do</fw>
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq022.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="51">
                     <l>Do mar temos corrido, &amp; nauegado</l>
@@ -678,7 +679,7 @@
                     <l>A mãy Hebrea teue, &amp; o pay Gentio.</l>
                 </lg>
                 <fw type="catch" place="bottom">Esta</fw>
-                <pb n="10"/>
+                <pb n="10" facs="../imagens/pelicanoEsquerda/VEsq023.jpg"/>
                 <fw type="header" place="top">CANTO PRIMEIRO.</fw>
                 <lg type="estrofe" n="54">
                     <l>Esta Ilha pequena que habitamos,</l>
@@ -712,7 +713,7 @@
                 </lg>
                 <fw type="sig" place="bottom">B 2</fw>
                 <fw type="catch" place="bottom">A noite</fw>
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq024.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="57">
                     <l>A noyte se passou na lassa frota,</l>
@@ -745,7 +746,7 @@
                     <l>O Regedor das Ilhas que partia.</l>
                 </lg>
                 <fw type="catch" place="bottom">Partia</fw>
-                <pb n="11"/>
+                <pb n="11" facs="../imagens/pelicanoEsquerda/VEsq025.jpg"/>
                 <fw type="header" place="top">CANTO PRIMEIRO.</fw>
                 <lg type="estrofe" n="60">
                     <l>Partia alegremente nauegando,</l>
@@ -779,7 +780,7 @@
                 </lg>
                 <fw type="sig" place="bottom">B 3</fw>
                 <fw type="catch" place="bottom">E mais</fw>
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq026.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="63">
                     <l>E mais lhe diz tambem, que ver deseja</l>
@@ -812,7 +813,7 @@
                     <l>Por subir os mortais da terra ao ceo.</l>
                 </lg>
                 <fw type="catch" place="bottom">Deste</fw>
-                <pb n="12"/>
+                <pb n="12" facs="../imagens/pelicanoEsquerda/VEsq027.jpg"/>
                 <fw type="header" place="top">CANTO PRIMEIRO.</fw>
                 <lg type="estrofe" n="66">
                     <l>Deste Deos homem, alto, &amp; infinito,</l>
@@ -846,7 +847,7 @@
                 </lg>
                 <fw type="sig" place="bottom">B 4</fw>
                 <fw type="catch" place="bottom">Porem</fw>
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq028.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="69">
                     <l>Porem disto que o Mouro aqui notou,</l>
@@ -879,7 +880,7 @@
                     <l>A aquelles de quem foste tanto amigo?</l>
                 </lg>
                 <fw type="catch" place="bottom">Partiose</fw>
-                <pb n="13 - erroneamente grafado 15"/>
+                <pb n="13 - erroneamente grafado 15" facs="../imagens/pelicanoEsquerda/VEsq029.jpg"/>
                 <fw type="header" place="top">CANTO PRIMEIRO.</fw>
                 <lg type="estrofe" n="72">
                     <l>Partiose nisto em fim co a companhia,</l>
@@ -912,7 +913,7 @@
                     <l>Outrem, por quem meu nome se escureça?</l>
                 </lg>
                 <fw type="catch" place="bottom">Ia quiserão</fw>
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq030.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="75">
                     <l>Ia quiseram os Deoses que tiuesse,</l>
@@ -945,7 +946,7 @@
                     <l>Velho, sabio, &amp; co Xeque muy valido.</l>
                 </lg>
                 <fw type="catch" place="bottom">E entrando</fw>
-                <pb n="14"/>
+                <pb n="14" facs="../imagens/pelicanoEsquerda/VEsq031.jpg"/>
                 <fw type="header" place="top">CANTO PRIMEIRO.</fw>
                 <lg type="estrofe" n="78">
                     <l>E entrando assy a falarlhe, a tempo &amp; horas,</l>
@@ -978,7 +979,7 @@
                     <l>Cairão facilmente na cilada.</l>
                 </lg>
                 <fw type="catch" place="bottom">E se inda</fw>
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq032.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="81">
                     <l>E se inda não ficarem deste geito,</l>
@@ -1011,7 +1012,7 @@
                     <l>Va cair onde nunca se aleuante.</l>
                 </lg>
                 <fw type="catch" place="bottom">Ia o</fw>
-                <pb n="15"/>
+                <pb n="15" facs="../imagens/pelicanoEsquerda/VEsq033.jpg"/>
                 <fw type="header" place="top">CANTO PRIMEIRO.</fw>
                 <lg type="estrofe" n="84">
                     <l>Ia o rayo Apolineo visitaua,</l>
@@ -1044,7 +1045,7 @@
                     <l>Poem hũs poucos diante por negaça.</l>
                 </lg>
                 <fw type="catch" place="bottom">Andão</fw>
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq034.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="87">
                     <l>Andão pela ribeira alua arenosa,</l>
@@ -1077,7 +1078,7 @@
                     <l>E morre o descuberto auenturoso.</l>
                 </lg>
                 <fw type="catch" place="bottom">Não</fw>
-                <pb n="16"/>
+                <pb n="16" facs="../imagens/pelicanoEsquerda/VEsq035.jpg"/>
                 <fw type="header" place="top">CANTO PRIMEIRO.</fw>
                 <lg type="estrofe" n="90">
                     <l>Não se contenta a gente Portuguesa:</l>
@@ -1110,7 +1111,7 @@
                     <l>A vil malicia, perfida, inimiga.</l>
                 </lg>
                 <fw type="catch" place="bottom">Tornão</fw>
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq036.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="93">
                     <l>Tornão victoriosos pera a armada,</l>
@@ -1143,7 +1144,7 @@
                     <l>Aas vellas manda dar ao largo vento.</l>
                 </lg>
                 <fw type="catch" place="bottom">Desta</fw>
-                <pb n="17"/>
+                <pb n="17" facs="../imagens/pelicanoEsquerda/VEsq037.jpg"/>
                 <fw type="header" place="top">CANTO PRIMEIRO.</fw>
                 <lg type="estrofe" n="96">
                     <l>Desta arte despedida a forte armada,</l>
@@ -1177,7 +1178,7 @@
                 </lg>
                 <fw type="sig" place="bottom">C</fw>
                 <fw type="catch" place="bottom">Ho</fw>
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq038.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="99">
                     <l>Ho mesmo o falso Mouro determina,</l>
@@ -1210,7 +1211,7 @@
                     <l>Erão Christãos com Mouros juntamente.</l>
                 </lg>
                 <fw type="catch" place="bottom">Tambem</fw>
-                <pb n="18"/>
+                <pb n="18" facs="../imagens/pelicanoEsquerda/VEsq039.jpg"/>
                 <fw type="header" place="top">CANTO PRIMEIRO.</fw>
                 <lg type="estrofe" n="102">
                     <l>Tambem nestas palauras lhe mentia,</l>
@@ -1244,7 +1245,7 @@
                 </lg>
                 <fw type="sig" place="bottom">C 2</fw>
                 <fw type="catch" place="bottom">O recado</fw>
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq040.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="105">
                     <l>O recado que trazem he de amigos:</l>
@@ -1269,7 +1270,7 @@
                 <trailer>Fim.</trailer>
             </div>
             <div type="canto" n="2">
-                <pb n="19"/>
+                <pb n="19" facs="../imagens/pelicanoEsquerda/VEsq041.jpg"/>
                 <fw type="header" place="top">CANTO SEGVNDO.</fw>
                 <head>Canto Segundo.</head>
                 <lg type="estrofe" n="1">
@@ -1294,7 +1295,7 @@
                 </lg>
                 <fw type="sig" place="bottom">C3</fw>
                 <fw type="catch" place="bottom">E porque</fw>
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq042.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="3">
                     <l>E porque està em estremo desejoso</l>
@@ -1327,7 +1328,7 @@
                     <l>Que a mais por tal senhor está obrigado.</l>
                 </lg>
                 <fw type="catch" place="bottom">Perguntalhe</fw>
-                <pb n="20"/>
+                <pb n="20" facs="../imagens/pelicanoEsquerda/VEsq043.jpg"/>
                 <fw type="header" place="top">CANTO SEGVNDO.</fw>
                 <lg type="estrofe" n="6">
                     <l>Perguntalhe despois, se estão na terra</l>
@@ -1361,7 +1362,7 @@
                 </lg>
                 <fw type="sig" place="bottom">C4</fw>
                 <fw type="catch" place="bottom">E despois</fw>
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq044.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="9">
                     <l>E despois que ao Rei apresentàrão,</l>
@@ -1394,7 +1395,7 @@
                     <l>De fogo, varias lingoas referirão.</l>
                 </lg>
                 <fw type="catch" place="bottom">Aqui</fw>
-                <pb n="21"/>
+                <pb n="21" facs="../imagens/pelicanoEsquerda/VEsq045.jpg"/>
                 <fw type="header" place="top">CANTO SEGVNDO.</fw>
                 <lg type="estrofe" n="12">
                     <l>Aqui os dous companheiros conduzidos,</l>
@@ -1427,7 +1428,7 @@
                     <l>Dentro no salso rio entrar queria.</l>
                 </lg>
                 <fw type="catch" place="bottom">Dizem</fw>
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq046.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="15">
                     <l>Dizem lhe os que mandou, que em terra vîrão,</l>
@@ -1460,7 +1461,7 @@
                     <l>O mal que em Moçambique tinhão feito.</l>
                 </lg>
                 <fw type="catch" place="bottom">As</fw>
-                <pb n="22"/>
+                <pb n="22" facs="../imagens/pelicanoEsquerda/VEsq047.jpg"/>
                 <fw type="header" place="top">CANTO SEGVNDO.</fw>
                 <lg type="estrofe" n="18">
                     <l>As ancoras tenaces vão leuando,</l>
@@ -1493,7 +1494,7 @@
                     <l>De temor das Nereidas apressadas.</l>
                 </lg>
                 <fw type="catch" place="bottom">Nos</fw>
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq048.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="21">
                     <l>Nos hombros de hum Tritão com gesto aceso,</l>
@@ -1527,7 +1528,7 @@
                 </lg>
                 <fw type="catch" place="bottom">Torna</fw>
 
-                <pb n="23"/>
+                <pb n="23" facs="../imagens/pelicanoEsquerda/VEsq049.jpg"/>
                 <fw type="header" place="top">CANTO SEGVNDO.</fw>
                 <lg type="estrofe" n="24">
                     <l>Torna pera detras a Nao forçada,</l>
@@ -1562,7 +1563,7 @@
                 <fw type="catch" place="bottom">Assi</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq050.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="27">
                     <l>Assi como em seluatica alagoa,</l>
@@ -1597,7 +1598,7 @@
                 <fw type="catch" place="bottom">O caso</fw>
 
 
-                <pb n="24"/>
+                <pb n="24" facs="../imagens/pelicanoEsquerda/VEsq051.jpg"/>
                 <fw type="header" place="top">CANTO SEGVNDO.</fw>
                 <lg type="estrofe" n="30">
                     <l>O caso grande, estranho, &amp; não cuydado,</l>
@@ -1632,7 +1633,7 @@
                 <fw type="catch" place="bottom">Ouuiolhe</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq052.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="33">
                     <l>Ouuiolhe estas palauras piadosas,</l>
@@ -1668,7 +1669,7 @@
 
 
 
-                <pb n="25"/>
+                <pb n="25" facs="../imagens/pelicanoEsquerda/VEsq053.jpg"/>
                 <fw type="header" place="top">CANTO SEGVNDO.</fw>
                 <lg type="estrofe" n="36">
                     <l>Os crespos fios douro se esparzião</l>
@@ -1704,7 +1705,7 @@
                 <fw type="catch" place="bottom">Sempre</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq054.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="39">
                     <l>Sempre eu cuidey, ô Padre poderoso,</l>
@@ -1739,7 +1740,7 @@
                 <fw type="catch" place="bottom">E destas</fw>
 
 
-                <pb n="26"/>
+                <pb n="26" facs="../imagens/pelicanoEsquerda/VEsq055.jpg"/>
                 <fw type="header" place="top">CANTO SEGVNDO.</fw>
                 <lg type="estrofe" n="42">
                     <l>E destas brandas mostras comouido,</l>
@@ -1774,7 +1775,7 @@
                 <fw type="sig" place="bottom">D2</fw>
                 <fw type="catch" place="bottom">Que</fw>
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq056.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="45">
                     <l>Que se o facundo Vlisses escapou,</l>
@@ -1809,7 +1810,7 @@
                 <fw type="catch" place="bottom">Vereis</fw>
 
 
-                <pb n="27"/>
+                <pb n="27" facs="../imagens/pelicanoEsquerda/VEsq057.jpg"/>
                 <fw type="header" place="top">CANTO SEGVNDO.</fw>
                 <lg type="estrofe" n="48">
                     <l>Vereis a terra que a agoa lhe tolhia,</l>
@@ -1845,7 +1846,7 @@
                 <fw type="sig" place="bottom">D3</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq058.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="51">
                     <l>Goa vereis aos Mouros ser tomada,</l>
@@ -1881,7 +1882,7 @@
 
 
 
-                <pb n="28"/>
+                <pb n="28" facs="../imagens/pelicanoEsquerda/VEsq059.jpg"/>
                 <fw type="header" place="top">CANTO SEGVNDO.</fw>
                 <lg type="estrofe" n="54">
                     <l>Como vereis o mar feruendo aceso,</l>
@@ -1917,7 +1918,7 @@
                 <fw type="catch" place="bottom">Ia</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq060.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="57">
                     <l>Ia pelo ar o Cylenêo voaua,</l>
@@ -1952,7 +1953,7 @@
                 <fw type="catch" place="bottom">Meyo</fw>
 
 
-                <pb n="29"/>
+                <pb n="29" facs="../imagens/pelicanoEsquerda/VEsq061.jpg"/>
                 <fw type="header" place="top">CANTO SEGVNDO.</fw>
                 <lg type="estrofe" n="60">
                     <l>Meyo caminho a noite tinha andado,</l>
@@ -1987,7 +1988,7 @@
                 <fw type="catch" place="bottom">Vaite</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq062.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="63">
                     <l>Vaite ao longo da costa discorrendo,</l>
@@ -2022,7 +2023,7 @@
                 <fw type="catch" place="bottom">Neste</fw>
 
 
-                <pb n="30"/>
+                <pb n="30" facs="../imagens/pelicanoEsquerda/VEsq063.jpg"/>
                 <fw type="header" place="top">CANTO SEGVNDO.</fw>
                 <lg type="estrofe" n="66">
                     <l>Neste tempo, que as ancoras leuauão,</l>
@@ -2057,7 +2058,7 @@
                 <fw type="catch" place="bottom">Não</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq064.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="69">
                     <l>Não he o outro que fica tão manhoso:</l>
@@ -2092,7 +2093,7 @@
                 <fw type="catch" place="bottom">Era</fw>
 
 
-                <pb n="31"/>
+                <pb n="31" facs="../imagens/pelicanoEsquerda/VEsq065.jpg"/>
                 <fw type="header" place="top">CANTO SEGVNDO.</fw>
                 <lg type="estrofe" n="72">
                     <l>Era no tempo alegre quando entraua,</l>
@@ -2127,7 +2128,7 @@
                 <fw type="catch" place="bottom">O Rei</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq066.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="75">
                     <l>O Rei que ja sabia da nobreza</l>
@@ -2162,7 +2163,7 @@
                 <fw type="catch" place="bottom">E manda</fw>
 
 
-                <pb n="32"/>
+                <pb n="32" facs="../imagens/pelicanoEsquerda/VEsq067.jpg"/>
                 <fw type="header" place="top">CANTO SEGVNDO.</fw>
                 <lg type="estrofe" n="78">
                     <l>Manda mais hum na pratica elegante,</l>
@@ -2197,7 +2198,7 @@
                 <fw type="catch" place="bottom">Que</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq068.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA</fw>
                 <lg type="estrofe" n="81">
                     <l>Que geração tam dura ahi de gente?</l>
@@ -2232,7 +2233,7 @@
                 <fw type="catch" place="bottom">E porque</fw>
 
 
-                <pb n="33"/>
+                <pb n="33" facs="../imagens/pelicanoEsquerda/VEsq069.jpg"/>
                 <fw type="header" place="top">CANTO SEGVNDO.</fw>
                 <lg type="estrofe" n="84">
                     <l>E porque he de vassalos, o exercicio,</l>
@@ -2268,7 +2269,7 @@
                 <fw type="catch" place="bottom">De</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq070.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="87">
                     <l>De não sair em lerra toda a gente,</l>
@@ -2304,7 +2305,7 @@
 
 
 
-                <pb n="34"/>
+                <pb n="34" facs="../imagens/pelicanoEsquerda/VEsq071.jpg"/>
                 <fw type="header" place="top">CANTO SEGVNDO.</fw>
                 <lg type="estrofe" n="90">
                     <l>Não faltão ali os rayos de arteficio,</l>
@@ -2340,7 +2341,7 @@
                 <fw type="catch" place="bottom">Vião se</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq072.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="93">
                     <l>Vião se em derredor feruer as prayas</l>
@@ -2375,7 +2376,7 @@
                 <fw type="catch" place="bottom">Com</fw>
 
 
-                <pb n="35"/>
+                <pb n="35" facs="../imagens/pelicanoEsquerda/VEsq073.jpg"/>
                 <fw type="header" place="top">CANTO SEGVNDO.</fw>
                 <lg type="estrofe" n="96">
                     <l>Com hum redondo emparo alto de seda,</l>
@@ -2411,7 +2412,7 @@
                 <fw type="catch" place="bottom">Nos</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq074.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="99">
                     <l>Nos de sua companhia se mostraua,</l>
@@ -2446,7 +2447,7 @@
                 <fw type="catch" place="bottom">E com</fw>
 
 
-                <pb n="36"/>
+                <pb n="36" facs="../imagens/pelicanoEsquerda/VEsq075.jpg"/>
                 <fw type="header" place="top">CANTO SEGVNDO.</fw>
                 <lg type="estrofe" n="102">
                     <l>E com grandes palauras lhe offereçe,</l>
@@ -2484,7 +2485,7 @@
 
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq076.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="105">
                     <l>Tu so de todos quantos queima Apolo,</l>
@@ -2519,7 +2520,7 @@
                 <fw type="catch" place="bottom">Em</fw>
 
 
-                <pb n="37"/>
+                <pb n="37" facs="../imagens/pelicanoEsquerda/VEsq077.jpg"/>
                 <fw type="header" place="top">CANTO SEGVNDO.</fw>
                 <lg type="estrofe" n="108">
                     <l>Em praticas o Mouro diferentes,</l>
@@ -2554,7 +2555,7 @@
                 <fw type="catch" place="bottom">E não</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq078.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="111">
                     <l>E não menos co tempo se pareçe,</l>
@@ -2589,7 +2590,7 @@
                 <trailer>Fim.</trailer>
             </div>
             <div type="canto" n="3">
-                <pb n="38"/>
+                <pb n="38" facs="../imagens/pelicanoEsquerda/VEsq079.jpg"/>
                 <fw type="header" place="top">CANTO TERCEIRO.</fw>
                 <head>Canto Terceiro.</head>
                 <lg type="estrofe" n="1">
@@ -2615,7 +2616,7 @@
                 <fw type="catch" place="bottom">Promptos</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq080.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="3">
                     <l>Promptos estauão todos escuitando,</l>
@@ -2650,7 +2651,7 @@
                 <fw type="catch" place="bottom">Entre</fw>
 
 
-                <pb n="39"/>
+                <pb n="39" facs="../imagens/pelicanoEsquerda/VEsq081.jpg"/>
                 <fw type="header" place="top">CANTO TERCEIRO</fw>
                 <lg type="estrofe" n="6">
                     <l>Entre a Zona que o Cancro senhorea,</l>
@@ -2685,7 +2686,7 @@
                 <fw type="catch" place="bottom">Aqui</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq082.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="9">
                     <l>Aqui dos Cytas, grande quantidade</l>
@@ -2720,7 +2721,7 @@
                 <fw type="catch" place="bottom">Entre</fw>
 
 
-                <pb n="40"/>
+                <pb n="40" facs="../imagens/pelicanoEsquerda/VEsq083.jpg"/>
                 <fw type="header" place="top">CANTO TERCEIRO.</fw>
                 <lg type="estrofe" n="12">
                     <l>Entre o remoto Istro, &amp; o claro estreito,</l>
@@ -2755,7 +2756,7 @@
                 <fw type="catch" place="bottom">Em torno</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq084.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="15">
                     <l>Em torno o cerca o Reino Neptunino,</l>
@@ -2791,7 +2792,7 @@
 
 
 
-                <pb n="41"/>
+                <pb n="41" facs="../imagens/pelicanoEsquerda/VEsq085.jpg"/>
                 <fw type="header" place="top">CANTO TERCEIRO</fw>
                 <lg type="estrofe" n="18">
                     <l>Com Tingitania entesta, &amp; ali parece</l>
@@ -2827,7 +2828,7 @@
                 <fw type="catch" place="bottom">Esta he</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq086.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="21">
                     <l>Esta he a ditosa patria minha amada,</l>
@@ -2863,7 +2864,7 @@
 
 
 
-                <pb n="42"/>
+                <pb n="42" facs="../imagens/pelicanoEsquerda/VEsq087.jpg"/>
                 <fw type="header" place="top">CANTO TERCEIRO.</fw>
                 <lg type="estrofe" n="24">
                     <l>E com hum amor intrinseco acendidos</l>
@@ -2899,7 +2900,7 @@
                 <fw type="catch" place="bottom">Ia</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq088.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="27">
                     <l>Ia tinha vindo Anrique da conquista,</l>
@@ -2934,7 +2935,7 @@
                 <fw type="catch" place="bottom">Mas</fw>
 
 
-                <pb n="43"/>
+                <pb n="43" facs="../imagens/pelicanoEsquerda/VEsq089.jpg"/>
                 <fw type="header" place="top">CANTO TERCEIRO</fw>
                 <lg type="estrofe" n="30">
                     <l>Mas o Principe Affonso, que desta arte</l>
@@ -2970,7 +2971,7 @@
                 <fw type="catch" place="bottom">Mas</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq090.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="33">
                     <l>Mas ja o Principe claro, o vencimento,</l>
@@ -3005,7 +3006,7 @@
                 <fw type="catch" place="bottom">Mas</fw>
 
 
-                <pb n="44"/>
+                <pb n="44" facs="../imagens/pelicanoEsquerda/VEsq091.jpg"/>
                 <fw type="header" place="top">CANTO TERCEIRO.</fw>
                 <lg type="estrofe" n="36">
                     <l>Mas o leal vassallo conhecendo,</l>
@@ -3041,7 +3042,7 @@
                 <fw type="sig" place="bottom">F4</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq092.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="39">
                     <l>Ves aqui trago as vidas inocentes,</l>
@@ -3077,7 +3078,7 @@
 
 
 
-                <pb n="45"/>
+                <pb n="45" facs="../imagens/pelicanoEsquerda/VEsq093.jpg"/>
                 <fw type="header" place="top">CANTO TERCEIRO.</fw>
                 <lg type="estrofe" n="42">
                     <l>Mas ja o Principe Affonso aparelhaua,</l>
@@ -3112,7 +3113,7 @@
                 <fw type="catch" place="bottom">A matutina</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq094.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="45">
                     <l>A matutina luz serena, &amp; fria,</l>
@@ -3147,7 +3148,7 @@
                 <fw type="catch" place="bottom">Tal</fw>
 
 
-                <pb n="46"/>
+                <pb n="46" facs="../imagens/pelicanoEsquerda/VEsq095.jpg"/>
                 <fw type="header" place="top">CANTO TERCEIRO.</fw>
                 <lg type="estrofe" n="48">
                     <l>Tal do Rei nouo, o estamago acendido,</l>
@@ -3182,7 +3183,7 @@
                 <fw type="catch" place="bottom">Ali</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq096.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="51">
                     <l>Ali se vem encontros temerosos,</l>
@@ -3217,7 +3218,7 @@
                 <fw type="catch" place="bottom">E nestes</fw>
 
 
-                <pb n="47"/>
+                <pb n="47" facs="../imagens/pelicanoEsquerda/VEsq097.jpg"/>
                 <fw type="header" place="top">CANTO TERCEIRO.</fw>
                 <lg type="estrofe" n="54">
                     <l>E nestes cinco escudos pinta os trinta,</l>
@@ -3252,7 +3253,7 @@
                 <fw type="catch" place="bottom">E tu</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq098.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="57">
                     <l>E tu nobre Lisboa, que no Mundo,</l>
@@ -3287,7 +3288,7 @@
                 <fw type="catch" place="bottom">Desta</fw>
 
 
-                <pb n="48"/>
+                <pb n="48" facs="../imagens/pelicanoEsquerda/VEsq099.jpg"/>
                 <fw type="header" place="top">CANTO TERCEIRO.</fw>
                 <lg type="estrofe" n="60">
                     <l>Desta arte em fim tomada se rendeo,</l>
@@ -3322,7 +3323,7 @@
                 <fw type="catch" place="bottom">Eis</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq100.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="63">
                     <l>Eis a nobre Cidade, certo assento,</l>
@@ -3357,7 +3358,7 @@
                 <fw type="catch" place="bottom">O Rei</fw>
 
 
-                <pb n="49"/>
+                <pb n="49" facs="../imagens/pelicanoEsquerda/VEsq101.jpg"/>
                 <fw type="header" place="top">CANTO TERCEIRO</fw>
                 <lg type="estrofe" n="66">
                     <l>O Rei de Badajoz era alto Mouro,</l>
@@ -3393,7 +3394,7 @@
                 <fw type="catch" place="bottom">Mas</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq102.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="69">
                     <l>Mas o alto Deos, que pera longe guarda,</l>
@@ -3428,7 +3429,7 @@
                 <fw type="catch" place="bottom">Posto</fw>
 
 
-                <pb n="50"/>
+                <pb n="50" facs="../imagens/pelicanoEsquerda/VEsq103.jpg"/>
                 <fw type="header" place="top">CANTO TERCEIRO.</fw>
                 <lg type="estrofe" n="72">
                     <l>Posto que a rica Arabia, &amp; que os feroces</l>
@@ -3464,7 +3465,7 @@
                 <fw type="catch" place="bottom">Porq̃</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq104.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="75">
                     <l>Porque leuasse auante seu desejo,</l>
@@ -3499,7 +3500,7 @@
                 <fw type="catch" place="bottom">Entraua</fw>
 
 
-                <pb n="51"/>
+                <pb n="51" facs="../imagens/pelicanoEsquerda/VEsq105.jpg"/>
                 <fw type="header" place="top">CANTO TERCEIRO.</fw>
                 <lg type="estrofe" n="78">
                     <l>Entraua com toda esta companhia,</l>
@@ -3535,7 +3536,7 @@
                 <fw type="sig" place="bottom">G 3</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq106.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="81">
                     <l>E co a famosa gente â guerra vsada,</l>
@@ -3570,7 +3571,7 @@
                 <fw type="catch" place="bottom">Os altos</fw>
 
 
-                <pb n="52"/>
+                <pb n="52" facs="../imagens/pelicanoEsquerda/VEsq107.jpg"/>
                 <fw type="header" place="top">CANTO TERCEIRO.</fw>
                 <lg type="estrofe" n="84">
                     <l>Os altos promontorios o chorarão,</l>
@@ -3606,7 +3607,7 @@
                 <fw type="sig" place="bottom">G 4</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq108.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="87">
                     <l>Passauão a ajudar na sancta empresa,</l>
@@ -3641,7 +3642,7 @@
                 <fw type="catch" place="bottom">Mas</fw>
 
 
-                <pb n="53"/>
+                <pb n="53" facs="../imagens/pelicanoEsquerda/VEsq109.jpg"/>
                 <fw type="header" place="top">CANTO TERCEIRO</fw>
                 <lg type="estrofe" n="90">
                     <l>Mas entre tantas palmas salteado</l>
@@ -3676,7 +3677,7 @@
                 <fw type="catch" place="bottom">Nem</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq110.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="93">
                     <l>Nem era o pouo seu tiranizado,</l>
@@ -3711,7 +3712,7 @@
                 <fw type="catch" place="bottom">Eis</fw>
 
 
-                <pb n="54"/>
+                <pb n="54" facs="../imagens/pelicanoEsquerda/VEsq111.jpg"/>
                 <fw type="header" place="top">CANTO TERCEIRO.</fw>
                 <lg type="estrofe" n="96">
                     <l>Eis despois vem Dinis, que bem pareçe,</l>
@@ -3746,7 +3747,7 @@
                 <fw type="catch" place="bottom">Este</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq112.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="99">
                     <l>Este sempre as soberbas Castelhanas,</l>
@@ -3782,7 +3783,7 @@
 
 
 
-                <pb n="55"/>
+                <pb n="55" facs="../imagens/pelicanoEsquerda/VEsq113.jpg"/>
                 <fw type="header" place="top">CANTO TERCEIRO.</fw>
                 <lg type="estrofe" n="102">
                     <l>Entraua a fermosissima Maria,</l>
@@ -3817,7 +3818,7 @@
                 <fw type="catch" place="bottom">Por tanto</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq114.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="105">
                     <l>Por tanto, ô Rei, de quem com puro medo,</l>
@@ -3853,7 +3854,7 @@
 
 
 
-                <pb n="56"/>
+                <pb n="56" facs="../imagens/pelicanoEsquerda/VEsq115.jpg"/>
                 <fw type="header" place="top">CANTO TERCEIRO.</fw>
                 <lg type="estrofe" n="108">
                     <l>Entre todos no meio se sublima,</l>
@@ -3888,7 +3889,7 @@
                 <fw type="catch" place="bottom">Qual</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq116.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="111">
                     <l>Qual o membrudo &amp; barbaro Gigante,</l>
@@ -3923,7 +3924,7 @@
                 <fw type="catch" place="bottom">Com</fw>
 
 
-                <pb n="57"/>
+                <pb n="57" facs="../imagens/pelicanoEsquerda/VEsq117.jpg"/>
                 <fw type="header" place="top">CANTO TERCEIRO</fw>
                 <lg type="estrofe" n="114">
                     <l>Com esforço tamanho estrue &amp; mata,</l>
@@ -3959,7 +3960,7 @@
                 <fw type="catch" place="bottom">E se</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq118.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="117">
                     <l>E se tu tantas almas so podeste,</l>
@@ -3995,7 +3996,7 @@
 
 
 
-                <pb n="58"/>
+                <pb n="58" facs="../imagens/pelicanoEsquerda/VEsq119.jpg"/>
                 <fw type="header" place="top">CANTO TERCEIRO.</fw>
                 <lg type="estrofe" n="120">
                     <l>Estauas linda Ines posta em sosego</l>
@@ -4031,7 +4032,7 @@
                 <fw type="catch" place="bottom">Tirar</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq120.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="123">
                     <l>Tirar Ines ao mundo determina,</l>
@@ -4067,7 +4068,7 @@
 
 
 
-                <pb n="59"/>
+                <pb n="59" facs="../imagens/pelicanoEsquerda/VEsq121.jpg"/>
                 <fw type="header" place="top">CANTO TERCEIRO.</fw>
                 <lg type="estrofe" n="126">
                     <l>Se ja nas brutas feras, cuja mente</l>
@@ -4103,7 +4104,7 @@
                 <fw type="catch" place="bottom">Poem</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq122.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="129">
                     <l>Poem me onde se vse toda a feridade,</l>
@@ -4138,7 +4139,7 @@
                 <fw type="catch" place="bottom">Tais</fw>
 
 
-                <pb n="60"/>
+                <pb n="60" facs="../imagens/pelicanoEsquerda/VEsq123.jpg"/>
                 <fw type="header" place="top">CANTO TERCEIRO.</fw>
                 <lg type="estrofe" n="132">
                     <l>Tais contra Inès os brutos matadores,</l>
@@ -4174,7 +4175,7 @@
                 <fw type="catch" place="bottom">As</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq124.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE. L. DE CA.</fw>
                 <lg type="estrofe" n="135">
                     <l>As filhas do Mondego, a morte escura</l>
@@ -4209,7 +4210,7 @@
                 <fw type="catch" place="bottom">Do justo</fw>
 
 
-                <pb n="61"/>
+                <pb n="61" facs="../imagens/pelicanoEsquerda/VEsq125.jpg"/>
                 <fw type="header" place="top">CANTO TERCEIRO.</fw>
                 <lg type="estrofe" n="138">
                     <l>Do justo &amp; duro Pedro nasce o brando</l>
@@ -4244,7 +4245,7 @@
                 <fw type="catch" place="bottom">E pois</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq126.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="141">
                     <l>E pois se os peitos fortes enfraqueçe,</l>
@@ -4279,7 +4280,7 @@
                 <trailer>Fim.</trailer>
             </div>
             <div type="canto" n="4">
-                <pb n="62"/>
+                <pb n="62" facs="../imagens/pelicanoEsquerda/VEsq127.jpg"/>
                 <fw type="header" place="top">CANTO QVARTO</fw>
                 <head>Canto Quarto.</head>
                 <lg type="estrofe" n="1">
@@ -4305,7 +4306,7 @@
                 <fw type="catch" place="bottom">Ser isto</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq128.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE. L. DE CA.</fw>
                 <lg type="estrofe" n="3">
                     <l>Ser isto ordenação dos ceos diuina,</l>
@@ -4340,7 +4341,7 @@
                 <fw type="catch" place="bottom">Podese</fw>
 
 
-                <pb n="63"/>
+                <pb n="63" facs="../imagens/pelicanoEsquerda/VEsq129.jpg"/>
                 <fw type="header" place="top">CANTO QVARTO</fw>
                 <lg type="estrofe" n="6">
                     <l>Podẽse por em longo esquecimento,</l>
@@ -4375,7 +4376,7 @@
                 <fw type="catch" place="bottom">Os</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq130.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="9">
                     <l>Os Vandalos, na antiga valentia</l>
@@ -4410,7 +4411,7 @@
                 <fw type="catch" place="bottom">Ioane</fw>
 
 
-                <pb n="64"/>
+                <pb n="64" facs="../imagens/pelicanoEsquerda/VEsq131.jpg"/>
                 <fw type="header" place="top">CANTO QVARTO</fw>
                 <lg type="estrofe" n="12">
                     <l>Ioane, a quem do peito o esforço creçe,</l>
@@ -4445,7 +4446,7 @@
                 <fw type="catch" place="bottom">Como</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq132.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="15">
                     <l>Como da gente illustre Portuguesa,</l>
@@ -4481,7 +4482,7 @@
 
 
 
-                <pb n="65"/>
+                <pb n="65" facs="../imagens/pelicanoEsquerda/VEsq133.jpg"/>
                 <fw type="header" place="top">CANTO TERCEIRO.</fw>
                 <lg type="estrofe" n="18">
                     <l>Rei tendes tal, que se o valor tiuerdes</l>
@@ -4517,7 +4518,7 @@
                 <fw type="sig" place="bottom">I</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq134.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE. L. DE CA.</fw>
                 <lg type="estrofe" n="21">
                     <l>Destarte a gente força, &amp; esforça Nuno,</l>
@@ -4552,7 +4553,7 @@
                 <fw type="catch" place="bottom">Dom</fw>
 
 
-                <pb n="66"/>
+                <pb n="66" facs="../imagens/pelicanoEsquerda/VEsq135.jpg"/>
                 <fw type="header" place="top">CANTO QVARTO</fw>
                 <lg type="estrofe" n="24">
                     <l>Dom Nuno Alueres digo, verdadeiro</l>
@@ -4588,7 +4589,7 @@
                 <fw type="catch" place="bottom">Recebem</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq136.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE. L. DE CA.</fw>
                 <lg type="estrofe" n="27">
                     <l>Respondem as trombetas mensageiras,</l>
@@ -4623,7 +4624,7 @@
                 <fw type="catch" place="bottom">Começase</fw>
 
 
-                <pb n="67"/>
+                <pb n="67" facs="../imagens/pelicanoEsquerda/VEsq137.jpg"/>
                 <fw type="header" place="top">CANTO QVARTO.</fw>
                 <lg type="estrofe" n="30">
                     <l>Começase a trauar a incerta guerra,</l>
@@ -4659,7 +4660,7 @@
                 <fw type="catch" place="bottom">O tu</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq138.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="33">
                     <l>O tu Sertorio, o nobre Coriolano</l>
@@ -4694,7 +4695,7 @@
                 <fw type="catch" place="bottom">Sentio</fw>
 
 
-                <pb n="68"/>
+                <pb n="68" facs="../imagens/pelicanoEsquerda/VEsq139.jpg"/>
                 <fw type="header" place="top">CANTO QVARTO.</fw>
                 <lg type="estrofe" n="36">
                     <l>Sentio Ioane a afronta que passaua</l>
@@ -4730,7 +4731,7 @@
                 <fw type="catch" place="bottom">Porque</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq140.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE. L. DE CA.</fw>
                 <lg type="estrofe" n="39">
                     <l>Porque eis os seus acesos nouamente</l>
@@ -4765,7 +4766,7 @@
                 <fw type="catch" place="bottom">Aqui</fw>
 
 
-                <pb n="69"/>
+                <pb n="69" facs="../imagens/pelicanoEsquerda/VEsq141.jpg"/>
                 <fw type="header" place="top">CANTO QVARTO.</fw>
                 <lg type="estrofe" n="42">
                     <l>Aqui a fera batalha se encruece</l>
@@ -4800,7 +4801,7 @@
                 <fw type="catch" place="bottom">Ho</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq142.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE. L. DE CA.</fw>
                 <lg type="estrofe" n="45">
                     <l>O vencedor Ioanne esteue os dias</l>
@@ -4836,7 +4837,7 @@
 
 
 
-                <pb n="70"/>
+                <pb n="70" facs="../imagens/pelicanoEsquerda/VEsq143.jpg"/>
                 <fw type="header" place="top">CANTO QVARTO</fw>
                 <lg type="estrofe" n="48">
                     <l>Não sofre o peito forte vsado aa guerra</l>
@@ -4871,7 +4872,7 @@
                 <fw type="catch" place="bottom">Não</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq144.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="51">
                     <l>Não foy do Rey Duarte tão ditoso</l>
@@ -4906,7 +4907,7 @@
                 <fw type="catch" place="bottom">Mas</fw>
 
 
-                <pb n="71"/>
+                <pb n="71" facs="../imagens/pelicanoEsquerda/VEsq145.jpg"/>
                 <fw type="header" place="top">CANTO QVARTO.</fw>
                 <lg type="estrofe" n="54">
                     <l>Mas Affonso do Reino vnico herdeiro,</l>
@@ -4941,7 +4942,7 @@
                 <fw type="catch" place="bottom">Porem</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq146.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="57">
                     <l>Porem despois tocado de ambição,</l>
@@ -4976,7 +4977,7 @@
                 <fw type="catch" place="bottom">Porem</fw>
 
 
-                <pb n="72"/>
+                <pb n="72" facs="../imagens/pelicanoEsquerda/VEsq147.jpg"/>
                 <fw type="header" place="top">CANTO QVARTO.</fw>
                 <lg type="estrofe" n="60">
                     <l>Porem despois que a escura noite eterna,</l>
@@ -5011,7 +5012,7 @@
                 <fw type="catch" place="bottom">Passam</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq148.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="63">
                     <l>Passam tambem as ondas Eritreas,</l>
@@ -5047,7 +5048,7 @@
 
 
 
-                <pb n="73"/>
+                <pb n="73" facs="../imagens/pelicanoEsquerda/VEsq149.jpg"/>
                 <fw type="header" place="top">CANTO QVARTO.</fw>
                 <lg type="estrofe" n="66">
                     <l>Paresce que guardaua o claro Ceo</l>
@@ -5083,7 +5084,7 @@
                 <fw type="catch" place="bottom">Aqui</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq150.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="69">
                     <l>Aqui se lhe apresenta que subia</l>
@@ -5118,7 +5119,7 @@
                 <fw type="catch" place="bottom">Dambos</fw>
 
 
-                <pb n="74"/>
+                <pb n="74" facs="../imagens/pelicanoEsquerda/VEsq151.jpg"/>
                 <fw type="header" place="top">CANTO QVARTO.</fw>
                 <lg type="estrofe" n="72">
                     <l>Dambos de dous a fronte coroada</l>
@@ -5154,7 +5155,7 @@
                 <fw type="catch" place="bottom">Não</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq152.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="75">
                     <l>Não disse mais o rio Illustre &amp; sancto,</l>
@@ -5189,7 +5190,7 @@
                 <fw type="catch" place="bottom">E com</fw>
 
 
-                <pb n="75"/>
+                <pb n="75" facs="../imagens/pelicanoEsquerda/VEsq153.jpg"/>
                 <fw type="header" place="top">CANTO QVARTO.</fw>
                 <lg type="estrofe" n="78">
                     <l>E com rogo &amp; palauras amorosas</l>
@@ -5225,7 +5226,7 @@
                 <fw type="catch" place="bottom">Com</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq154.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="81">
                     <l>Com merces sumptuosas me agardece</l>
@@ -5260,7 +5261,7 @@
                 <fw type="catch" place="bottom">E ia</fw>
 
 
-                <pb n="76"/>
+                <pb n="76" facs="../imagens/pelicanoEsquerda/VEsq155.jpg"/>
                 <fw type="header" place="top">CANTO QVARTO</fw>
                 <lg type="estrofe" n="84">
                     <l>E ja no porto da inclita Vlissea</l>
@@ -5296,7 +5297,7 @@
                 <fw type="sig" place="bottom">K 4</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq156.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE. L. DE CA.</fw>
                 <lg type="estrofe" n="87">
                     <l>Partimonos assi do sanċto templo</l>
@@ -5331,7 +5332,7 @@
                 <fw type="catch" place="bottom">Qual</fw>
 
 
-                <pb n="77"/>
+                <pb n="77" facs="../imagens/pelicanoEsquerda/VEsq157.jpg"/>
                 <fw type="header" place="top">CANTO QVARTO</fw>
                 <lg type="estrofe" n="90">
                     <l>Qual vay dizendo: O filho a quem eu tinha</l>
@@ -5366,7 +5367,7 @@
                 <fw type="catch" place="bottom">Nos</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq158.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="93">
                     <l>Nos outros sem a vista aleuantarmos</l>
@@ -5401,7 +5402,7 @@
                 <fw type="catch" place="bottom">Dura</fw>
 
 
-                <pb n="78"/>
+                <pb n="78" facs="../imagens/pelicanoEsquerda/VEsq159.jpg"/>
                 <fw type="header" place="top">CANTO QVARTO.</fw>
                 <lg type="estrofe" n="96">
                     <l>Dura inquietação dalma &amp; da vida</l>
@@ -5436,7 +5437,7 @@
                 <fw type="catch" place="bottom">Ia</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq160.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="99">
                     <l>Ia que nesta gostosa vaidade</l>
@@ -5471,7 +5472,7 @@
                 <fw type="catch" place="bottom">O maldito</fw>
 
 
-                <pb n="79"/>
+                <pb n="79" facs="../imagens/pelicanoEsquerda/VEsq161.jpg"/>
                 <fw type="header" place="top">CANTO QVARTO</fw>
                 <lg type="estrofe" n="102">
                     <l>O maldito o primeiro que no mundo</l>
@@ -5506,7 +5507,7 @@
                 <trailer>FIM.</trailer>
             </div>
             <div type="canto" n="5">
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq162.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <head>Canto Quinto.</head>
                 <lg type="estrofe" n="1">
@@ -5532,7 +5533,7 @@
                 <fw type="catch" place="bottom">Iaa</fw>
 
 
-                <pb n="80"/>
+                <pb n="80" facs="../imagens/pelicanoEsquerda/VEsq163.jpg"/>
                 <fw type="header" place="top">CANTO QVINTO.</fw>
                 <lg type="estrofe" n="3">
                     <l>Ia a vista pouco &amp; poucos se desterra</l>
@@ -5567,7 +5568,7 @@
                 <fw type="catch" place="bottom">Deixamos</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq164.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE. L. DE CA.</fw>
                 <lg type="estrofe" n="6">
                     <l>Deixamos de Massilia a esteril costa</l>
@@ -5602,7 +5603,7 @@
                 <fw type="catch" place="bottom">A aquella</fw>
 
 
-                <pb n="81"/>
+                <pb n="81" facs="../imagens/pelicanoEsquerda/VEsq165.jpg"/>
                 <fw type="header" place="top">CANTO QVINTO.</fw>
                 <lg type="estrofe" n="9">
                     <l>A aquella ilha aportamos, que tomou</l>
@@ -5638,7 +5639,7 @@
                 <fw type="catch" place="bottom">Sempre</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq166.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="12">
                     <l>Sempre em fim pera o Austro a aguda proa</l>
@@ -5673,7 +5674,7 @@
                 <fw type="catch" place="bottom">Assi</fw>
 
 
-                <pb n="82"/>
+                <pb n="82" facs="../imagens/pelicanoEsquerda/VEsq167.jpg"/>
                 <fw type="header" place="top">CANTO QVINTO.</fw>
                 <lg type="estrofe" n="15">
                     <l>Assi passando aquellas regioẽs</l>
@@ -5709,7 +5710,7 @@
                 <fw type="catch" place="bottom">Vi</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq168.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="18">
                     <l>Vi claramente visto o lume viuo</l>
@@ -5744,7 +5745,7 @@
                 <fw type="catch" place="bottom">Qual.</fw>
 
 
-                <pb n="83"/>
+                <pb n="83" facs="../imagens/pelicanoEsquerda/VEsq169.jpg"/>
                 <fw type="header" place="top">CANTO QVINTO.</fw>
                 <lg type="estrofe" n="21">
                     <l>Qual roxa Sanguesuga se veria</l>
@@ -5780,7 +5781,7 @@
                 <fw type="catch" place="bottom">Mas</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq170.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="24">
                     <l>Mas ja o Planeta que no ceo primeiro</l>
@@ -5816,7 +5817,7 @@
 
 
 
-                <pb n="84"/>
+                <pb n="84" facs="../imagens/pelicanoEsquerda/VEsq171.jpg"/>
                 <fw type="header" place="top">CANTO QVINTO.</fw>
                 <lg type="estrofe" n="27">
                     <l>Achamos ter de todo ja passado</l>
@@ -5852,7 +5853,7 @@
                 <fw type="catch" place="bottom">Mas</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq172.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="30">
                     <l>Mas logo ao outro dia seus parceiros</l>
@@ -5887,7 +5888,7 @@
                 <fw type="catch" place="bottom">Da</fw>
 
 
-                <pb n="85"/>
+                <pb n="85" facs="../imagens/pelicanoEsquerda/VEsq173.jpg"/>
                 <fw type="header" place="top">CANTO QVINTO.</fw>
                 <lg type="estrofe" n="33">
                     <l>Da espessa nuuem sêtas &amp; pedradas</l>
@@ -5922,7 +5923,7 @@
                 <fw type="catch" place="bottom">Contou</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq174.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="36">
                     <l>Contou então que tanto que passarão</l>
@@ -5957,7 +5958,7 @@
                 <fw type="catch" place="bottom">Não</fw>
 
 
-                <pb n="86"/>
+                <pb n="86" facs="../imagens/pelicanoEsquerda/VEsq175.jpg"/>
                 <fw type="header" place="top">CANTO QVINTO.</fw>
                 <lg type="estrofe" n="39">
                     <l>Não acabaua, quando hũa figura</l>
@@ -5992,7 +5993,7 @@
                 <fw type="catch" place="bottom">Pois</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq176.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="42">
                     <l>Pois vens ver os segredos escondidos</l>
@@ -6027,7 +6028,7 @@
                 <fw type="catch" place="bottom">E do</fw>
 
 
-                <pb n="87"/>
+                <pb n="87" facs="../imagens/pelicanoEsquerda/VEsq177.jpg"/>
                 <fw type="header" place="top">CANTO QVINTO</fw>
                 <lg type="estrofe" n="45">
                     <l>E do primeiro Illustre, que a ventura</l>
@@ -6062,7 +6063,7 @@
                 <fw type="catch" place="bottom">E verão</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq178.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="48">
                     <l>E verão mais os olhos que escaparem</l>
@@ -6097,7 +6098,7 @@
                 <fw type="catch" place="bottom">Fuy</fw>
 
 
-                <pb n="88"/>
+                <pb n="88" facs="../imagens/pelicanoEsquerda/VEsq179.jpg"/>
                 <fw type="header" place="top">CANTO QVINTO.</fw>
                 <lg type="estrofe" n="51">
                     <l>Fuy dos filhos asperrimos da terra</l>
@@ -6132,7 +6133,7 @@
                 <fw type="catch" place="bottom">Com</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq180.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="54">
                     <l>Com tudo por liurarmos o Occeano</l>
@@ -6167,7 +6168,7 @@
                 <fw type="catch" place="bottom">O nimpha</fw>
 
 
-                <pb n="89"/>
+                <pb n="89" facs="../imagens/pelicanoEsquerda/VEsq181.jpg"/>
                 <fw type="header" place="top">CANTO QVINTO.</fw>
                 <lg type="estrofe" n="57">
                     <l>O Nimpha a mais fermosa do Oceano</l>
@@ -6203,7 +6204,7 @@
                 <fw type="catch" place="bottom">Assi</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq182.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="60">
                     <l>Assi contaua &amp; cum medonho choro</l>
@@ -6238,7 +6239,7 @@
                 <fw type="catch" place="bottom">As</fw>
 
 
-                <pb n="90"/>
+                <pb n="90" facs="../imagens/pelicanoEsquerda/VEsq183.jpg"/>
                 <fw type="header" place="top">CANTO QVINTO.</fw>
                 <lg type="estrofe" n="63">
                     <l>As molheres queimadas vem encima</l>
@@ -6274,7 +6275,7 @@
                 <fw type="catch" place="bottom">Daqui</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq184.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="66">
                     <l>Daqui fomos cortando muitos dias</l>
@@ -6309,7 +6310,7 @@
                 <fw type="catch" place="bottom">Desta</fw>
 
 
-                <pb n="91"/>
+                <pb n="91" facs="../imagens/pelicanoEsquerda/VEsq185.jpg"/>
                 <fw type="header" place="top">CANTO QVINTO.</fw>
                 <lg type="estrofe" n="69">
                     <l>Desta gente refresco algum tomamos,</l>
@@ -6345,7 +6346,7 @@
                 <fw type="catch" place="bottom">Cres</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq186.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="72">
                     <l>Cres tu que ja não forão leuantados</l>
@@ -6380,7 +6381,7 @@
                 <fw type="catch" place="bottom">E foy</fw>
 
 
-                <pb n="92"/>
+                <pb n="92" facs="../imagens/pelicanoEsquerda/VEsq187.jpg"/>
                 <fw type="header" place="top">CANTO QVINTO.</fw>
                 <lg type="estrofe" n="75">
                     <l>E foy, que estando ja da costa perto</l>
@@ -6416,7 +6417,7 @@
                 <fw type="catch" place="bottom">Muy</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq188.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="78">
                     <l>Muy grandemente aqui nos alegramos</l>
@@ -6451,7 +6452,7 @@
                 <fw type="catch" place="bottom">E foy</fw>
 
 
-                <pb n="93"/>
+                <pb n="93" facs="../imagens/pelicanoEsquerda/VEsq189.jpg"/>
                 <fw type="header" place="top">CANTO QVINTO.</fw>
                 <lg type="estrofe" n="81">
                     <l>E foy que de doença crua &amp; feya</l>
@@ -6486,7 +6487,7 @@
                 <fw type="catch" place="bottom">Assi</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq190.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="84">
                     <l>Assi que deste porto nos partimos</l>
@@ -6521,7 +6522,7 @@
                 <fw type="catch" place="bottom">Esse</fw>
 
 
-                <pb n="94"/>
+                <pb n="94" facs="../imagens/pelicanoEsquerda/VEsq191.jpg"/>
                 <fw type="header" place="top">CANTO QVINTO.</fw>
                 <lg type="estrofe" n="87">
                     <l>Esse que bebeo tanto da agoa Aonia</l>
@@ -6556,7 +6557,7 @@
                 <fw type="catch" place="bottom">Da</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq192.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="90">
                     <l>Da boca do facundo capitão</l>
@@ -6591,7 +6592,7 @@
                 <fw type="catch" place="bottom">Não</fw>
 
 
-                <pb n="95"/>
+                <pb n="95" facs="../imagens/pelicanoEsquerda/VEsq193.jpg"/>
                 <fw type="header" place="top">CANTO QVINTO.</fw>
                 <lg type="estrofe" n="93">
                     <l>Não tinha em tanto os feitos gloriosos</l>
@@ -6626,7 +6627,7 @@
                 <fw type="catch" place="bottom">Vay</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq194.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="96">
                     <l>Vay Cesar sojugando toda França</l>
@@ -6659,7 +6660,7 @@
                     <l>Que a muitos lhe dâ pouco, ou nada disso.</l>
                 </lg>
                 <fw type="catch" place="bottom">Aas</fw>
-                <pb n="96"/>
+                <pb n="96" facs="../imagens/pelicanoEsquerda/VEsq195.jpg"/>
                 <fw type="header" place="top">CANTO QVINTO.</fw>
                 <lg type="estrofe" n="99">
                     <l>Aas Musas agardeça o nosso Gama</l>
@@ -6684,7 +6685,7 @@
                 <trailer>FIM.</trailer>
             </div>
             <div type="canto" n="6">
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq196.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <head>Canto Seisto.</head>
                 <lg type="estrofe" n="1">
@@ -6710,7 +6711,7 @@
                 <fw type="catch" place="bottom">Mas</fw>
 
 
-                <pb n="97"/>
+                <pb n="97" facs="../imagens/pelicanoEsquerda/VEsq197.jpg"/>
                 <fw type="header" place="top">CANTO QVINTO.</fw>
                 <lg type="estrofe" n="3">
                     <l>Mas vendo o Capitão que se detinha</l>
@@ -6746,7 +6747,7 @@
                 <fw type="catch" place="bottom">As</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq198.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="6">
                     <l>As ondas nauegauão do Oriente</l>
@@ -6781,7 +6782,7 @@
                 <fw type="catch" place="bottom">Dscobre</fw>
 
 
-                <pb n="98"/>
+                <pb n="98" facs="../imagens/pelicanoEsquerda/VEsq199.jpg"/>
                 <fw type="header" place="top">CANTO SEXTO.</fw>
                 <lg type="estrofe" n="9">
                     <l>Descobre o fundo nunca descuberto</l>
@@ -6817,7 +6818,7 @@
                 <fw type="catch" place="bottom">Estaua</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq200.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="12">
                     <l>Estaua a terra em montes reuestida</l>
@@ -6852,7 +6853,7 @@
                 <fw type="catch" place="bottom">O Neptuno</fw>
 
 
-                <pb n="99"/>
+                <pb n="99" facs="../imagens/pelicanoEsquerda/VEsq201.jpg"/>
                 <fw type="header" place="top">CANTO SEXTO.</fw>
                 <lg type="estrofe" n="15">
                     <l>O Neptuno, lhe disse, não te espantes.</l>
@@ -6888,7 +6889,7 @@
                 <fw type="catch" place="bottom">O corpo</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq202.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="18">
                     <l>O corpo nú, &amp; os membros genitais</l>
@@ -6923,7 +6924,7 @@
                 <fw type="catch" place="bottom">Vinha</fw>
 
 
-                <pb n="100"/>
+                <pb n="100" facs="../imagens/pelicanoEsquerda/VEsq203.jpg"/>
                 <fw type="header" place="top">CANTO SEXTO.</fw>
                 <lg type="estrofe" n="21">
                     <l>Vinha por outra parte a linda esposa</l>
@@ -6959,7 +6960,7 @@
                 <fw type="catch" place="bottom">Eo</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq204.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="24">
                     <l>Eo Deos que foy num tempo corpo humano,</l>
@@ -6994,7 +6995,7 @@
                 <fw type="catch" place="bottom">Princepe</fw>
 
 
-                <pb n="101"/>
+                <pb n="101" facs="../imagens/pelicanoEsquerda/VEsq205.jpg"/>
                 <fw type="header" place="top">CANTO SEXTO.</fw>
                 <lg type="estrofe" n="27">
                     <l>Princepe que de juro senhoreas</l>
@@ -7029,7 +7030,7 @@
                 <fw type="catch" place="bottom">Vedes</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq206.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="30">
                     <l>Vedes agora a fraca geração</l>
@@ -7064,7 +7065,7 @@
                 <fw type="catch" place="bottom">Que</fw>
 
 
-                <pb n="102"/>
+                <pb n="102" facs="../imagens/pelicanoEsquerda/VEsq207.jpg"/>
                 <fw type="header" place="top">CANTO SEXTO.</fw>
                 <lg type="estrofe" n="33">
                     <l>Que o gran Senhor &amp; fados que destinão,</l>
@@ -7099,7 +7100,7 @@
                 <fw type="catch" place="bottom">Bem</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq208.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="36">
                     <l>Bem quisera primeiro ali Protheo</l>
@@ -7134,7 +7135,7 @@
                 <fw type="catch" place="bottom">Vencidos</fw>
 
 
-                <pb n="103"/>
+                <pb n="103" facs="../imagens/pelicanoEsquerda/VEsq209.jpg"/>
                 <fw type="header" place="top">CANTO QVINTO.</fw>
                 <lg type="estrofe" n="39">
                     <l>Vencidos vem do sono, &amp; mal despertos</l>
@@ -7169,7 +7170,7 @@
                 <fw type="catch" place="bottom">Consente</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq210.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="42">
                     <l>Consentem nisto todos, &amp; encomendão</l>
@@ -7204,7 +7205,7 @@
                 <fw type="catch" place="bottom">E que</fw>
 
 
-                <pb n="104"/>
+                <pb n="104" facs="../imagens/pelicanoEsquerda/VEsq211.jpg"/>
                 <fw type="header" place="top">CANTO SEXTO.</fw>
                 <lg type="estrofe" n="45">
                     <l>E que se ouuer alguem com lança &amp; espada</l>
@@ -7239,7 +7240,7 @@
                 <fw type="catch" place="bottom">Este</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq212.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="48">
                     <l>Este que socorrer lhe não queria,</l>
@@ -7274,7 +7275,7 @@
                 <fw type="catch" place="bottom">Ia</fw>
 
 
-                <pb n="105"/>
+                <pb n="105" facs="../imagens/pelicanoEsquerda/VEsq213.jpg"/>
                 <fw type="header" place="top">CANTO SEXTO.</fw>
                 <lg type="estrofe" n="51">
                     <l>Ia chega a Portugal o mensageiro,</l>
@@ -7310,7 +7311,7 @@
                 <fw type="catch" place="bottom">Fortissimos</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq214.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="54">
                     <l>Fortissimos consocios, eu desejo</l>
@@ -7345,7 +7346,7 @@
                 <fw type="catch" place="bottom">Ali</fw>
 
 
-                <pb n="106"/>
+                <pb n="106" facs="../imagens/pelicanoEsquerda/VEsq215.jpg"/>
                 <fw type="header" place="top">CANTO SEXTO.</fw>
                 <lg type="estrofe" n="57">
                     <l>Ali chegado, ou fosse caso, ou manha,</l>
@@ -7381,7 +7382,7 @@
                 <fw type="catch" place="bottom">Ia</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq216.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="60">
                     <l>Ia num sublime &amp; pubrico theatro</l>
@@ -7416,7 +7417,7 @@
                 <fw type="catch" place="bottom">A dama</fw>
 
 
-                <pb n="107"/>
+                <pb n="107" facs="../imagens/pelicanoEsquerda/VEsq217.jpg"/>
                 <fw type="header" place="top">CANTO SEXTO.</fw>
                 <lg type="estrofe" n="63">
                     <l>A dama como ouuio, que este era aquelle,</l>
@@ -7452,7 +7453,7 @@
                 <fw type="catch" place="bottom">Gastar</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq218.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="66">
                     <l>Gastar palauras em contar estremos</l>
@@ -7487,7 +7488,7 @@
                 <fw type="catch" place="bottom">Outro</fw>
 
 
-                <pb n="108"/>
+                <pb n="108" facs="../imagens/pelicanoEsquerda/VEsq219.jpg"/>
                 <fw type="header" place="top">CANTO SEXTO</fw>
                 <lg type="estrofe" n="69">
                     <l>Outro tambem dos doze em Alemanha</l>
@@ -7523,7 +7524,7 @@
                 <fw type="catch" place="bottom">O ceo</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq220.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="72">
                     <l>Oceo fere com gritos nisto a gente,</l>
@@ -7558,7 +7559,7 @@
                 <fw type="catch" place="bottom">A nao</fw>
 
 
-                <pb n="109"/>
+                <pb n="109" facs="../imagens/pelicanoEsquerda/VEsq221.jpg"/>
                 <fw type="header" place="top">CANTO SEXTO.</fw>
                 <lg type="estrofe" n="75">
                     <l>A nao grande, em que vay Paulo da Gama,</l>
@@ -7593,7 +7594,7 @@
                 <fw type="catch" place="bottom">Nunca</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq222.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA:</fw>
                 <lg type="estrofe" n="78">
                     <l>Nunca tam viuos rayos fabricou</l>
@@ -7628,7 +7629,7 @@
                 <fw type="catch" place="bottom">Diuina</fw>
 
 
-                <pb n="110"/>
+                <pb n="110" facs="../imagens/pelicanoEsquerda/VEsq223.jpg"/>
                 <fw type="header" place="top">CANTO SEXTO.</fw>
                 <lg type="estrofe" n="81">
                     <l>Diuina guarda, angelica, celeste,</l>
@@ -7663,7 +7664,7 @@
                 <fw type="catch" place="bottom">Assi</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq224.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="84">
                     <l>Assi dizendo os ventos que lutauão,</l>
@@ -7698,7 +7699,7 @@
                 <fw type="catch" place="bottom">Grinaldas</fw>
 
 
-                <pb n="111"/>
+                <pb n="111" facs="../imagens/pelicanoEsquerda/VEsq225.jpg"/>
                 <fw type="header" place="top">CANTO SEXTO.</fw>
                 <lg type="estrofe" n="87">
                     <l>Grinaldas manda por de varias cores</l>
@@ -7733,7 +7734,7 @@
                 <fw type="catch" place="bottom">Assi</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq226.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="90">
                     <l>Assi mesmo a fermosa Galatea</l>
@@ -7768,7 +7769,7 @@
                 <fw type="catch" place="bottom">Esta</fw>
 
 
-                <pb n="112"/>
+                <pb n="112" facs="../imagens/pelicanoEsquerda/VEsq227.jpg"/>
                 <fw type="header" place="top">CANTO SEXTO.</fw>
                 <lg type="estrofe" n="93">
                     <l>Esta he por certo a terra que buscais</l>
@@ -7803,7 +7804,7 @@
                 <fw type="catch" place="bottom">Não</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq228.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="96">
                     <l>Não cos manjares nouos &amp; exquisitos,</l>
@@ -7838,7 +7839,7 @@
                 <fw type="catch" place="bottom">Destarte</fw>
 
 
-                <pb n="113"/>
+                <pb n="113" facs="../imagens/pelicanoEsquerda/VEsq229.jpg"/>
                 <fw type="header" place="top">CANTO SEPTIMO.</fw>
                 <lg type="estrofe" n="99">
                     <l>Destarte se esclarece o entendimento,</l>
@@ -7868,7 +7869,7 @@
                 <fw type="catch" place="bottom">A vos</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq230.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="2">
                     <l>A vos, ô geraçam de Luso digo,</l>
@@ -7903,7 +7904,7 @@
                 <fw type="catch" place="bottom">Vedelo</fw>
 
 
-                <pb n="114"/>
+                <pb n="114" facs="../imagens/pelicanoEsquerda/VEsq231.jpg"/>
                 <fw type="header" place="top">CANTO SEPTIMO.</fw>
                 <lg type="estrofe" n="5">
                     <l>Vedelo duro Ingles, que se nomea</l>
@@ -7939,7 +7940,7 @@
                 <fw type="catch" place="bottom">Poisq</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq232.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="8">
                     <l>Pois que direy daquelles que em delicias,</l>
@@ -7974,7 +7975,7 @@
                 <fw type="catch" place="bottom">Se cobiça</fw>
 
 
-                <pb n="115"/>
+                <pb n="115" facs="../imagens/pelicanoEsquerda/VEsq233.jpg"/>
                 <fw type="header" place="top">CANTO SEPTIMO.</fw>
                 <lg type="estrofe" n="11">
                     <l>Se cobiça de grandes senhorios</l>
@@ -8010,7 +8011,7 @@
                 <fw type="catch" place="bottom">Mas</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq234.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="14">
                     <l>Mas em tanto que cegos, &amp; sedentos</l>
@@ -8045,7 +8046,7 @@
                 <fw type="catch" place="bottom">Alem</fw>
 
 
-                <pb n="116"/>
+                <pb n="116" facs="../imagens/pelicanoEsquerda/VEsq235.jpg"/>
                 <fw type="header" place="top">CANTO SEPTIMO.</fw>
                 <lg type="estrofe" n="17">
                     <l>Alem do Indo jaz, &amp; âquem do Gange,</l>
@@ -8081,7 +8082,7 @@
                 <fw type="catch" place="bottom">Mas</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq236.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="20">
                     <l>Mas agora de nomes, &amp; de vsança,</l>
@@ -8116,7 +8117,7 @@
                 <fw type="catch" place="bottom">Chegada.</fw>
 
 
-                <pb n="117"/>
+                <pb n="117" facs="../imagens/pelicanoEsquerda/VEsq237.jpg"/>
                 <fw type="header" place="top">CANTO SEPTIMO.</fw>
                 <lg type="estrofe" n="23">
                     <l>Chegada a frota ao rico senhorio</l>
@@ -8151,7 +8152,7 @@
                 <fw type="catch" place="bottom">Espantado</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq238.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="26">
                     <l>Espantado ficou da gram viajem,</l>
@@ -8186,7 +8187,7 @@
                 <fw type="catch" place="bottom">O capitão</fw>
 
 
-                <pb n="118"/>
+                <pb n="118" facs="../imagens/pelicanoEsquerda/VEsq239.jpg"/>
                 <fw type="header" place="top">CANTO SEPTIMO.</fw>
                 <lg type="estrofe" n="29">
                     <l>O Capitão o abraça em cabo ledo,</l>
@@ -8221,7 +8222,7 @@
                 <fw type="catch" place="bottom">Esta</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq240.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="32">
                     <l>Esta prouincia, cujo porto agora</l>
@@ -8256,7 +8257,7 @@
                 <fw type="catch" place="bottom">A hum</fw>
 
 
-                <pb n="119"/>
+                <pb n="119" facs="../imagens/pelicanoEsquerda/VEsq241.jpg"/>
                 <fw type="header" place="top">CANTO SEPTIMO.</fw>
                 <lg type="estrofe" n="35">
                     <l>A hum Cochim, &amp; a outro Cananor,</l>
@@ -8291,7 +8292,7 @@
                 <fw type="catch" place="bottom">Porque</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq242.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="38">
                     <l>Porque os q̃ vsaram sempre hum mesmo officio,</l>
@@ -8326,7 +8327,7 @@
                 <fw type="catch" place="bottom">Gerais</fw>
 
 
-                <pb n="120"/>
+                <pb n="120" facs="../imagens/pelicanoEsquerda/VEsq243.jpg"/>
                 <fw type="header" place="top">CANTO SEPTIMO.</fw>
                 <lg type="estrofe" n="41">
                     <l>Gerais sam as molheres: mas somente</l>
@@ -8361,7 +8362,7 @@
                 <fw type="catch" place="bottom">Na</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq244.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="44">
                     <l>Na praia hum regedor do Reino estaua,</l>
@@ -8396,7 +8397,7 @@
                 <fw type="catch" place="bottom">Ali</fw>
 
 
-                <pb n="121"/>
+                <pb n="121" facs="../imagens/pelicanoEsquerda/VEsq245.jpg"/>
                 <fw type="header" place="top">CANTO SEPTIMO.</fw>
                 <lg type="estrofe" n="47">
                     <l>Ali estam das deidades as figuras</l>
@@ -8432,7 +8433,7 @@
                 <fw type="catch" place="bottom">Ia</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq246.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="50">
                     <l>Ia chegão perto, &amp; não passos lentos,</l>
@@ -8467,7 +8468,7 @@
                 <fw type="catch" place="bottom">Mais</fw>
 
 
-                <pb n="122"/>
+                <pb n="122" facs="../imagens/pelicanoEsquerda/VEsq247.jpg"/>
                 <fw type="header" place="top">CANTO SEPTIMO.</fw>
                 <lg type="estrofe" n="53">
                     <l>Mais auante bebendo seca o rio,</l>
@@ -8503,7 +8504,7 @@
                 <fw type="catch" place="bottom">E dizlhe</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq248.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="56">
                     <l>E diz lhe mais a magica sciencia,</l>
@@ -8538,7 +8539,7 @@
                 <fw type="catch" place="bottom">Sentado</fw>
 
 
-                <pb n="123"/>
+                <pb n="123" facs="../imagens/pelicanoEsquerda/VEsq249.jpg"/>
                 <fw type="header" place="top">CANTO SEPTIMO.</fw>
                 <lg type="estrofe" n="59">
                     <l>Sentado o Gama junto ao rico leito,</l>
@@ -8574,7 +8575,7 @@
                 <fw type="catch" place="bottom">E se</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq250.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="62">
                     <l>E se queres com pactos, &amp; lianças</l>
@@ -8609,7 +8610,7 @@
                 <fw type="catch" place="bottom">E que</fw>
 
 
-                <pb n="124"/>
+                <pb n="124" facs="../imagens/pelicanoEsquerda/VEsq251.jpg"/>
                 <fw type="header" place="top">CANTO SEPTIMO</fw>
                 <lg type="estrofe" n="65">
                     <l>E que em tanto podia do trabalho</l>
@@ -8645,7 +8646,7 @@
                 <fw type="catch" place="bottom">Que</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq252.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="68">
                     <l>Que particularmente ali lhe desse</l>
@@ -8680,7 +8681,7 @@
                 <fw type="catch" place="bottom">Não</fw>
 
 
-                <pb n="125"/>
+                <pb n="125" facs="../imagens/pelicanoEsquerda/VEsq253.jpg"/>
                 <fw type="header" place="top">CANTO SEPTIMO.</fw>
                 <lg type="estrofe" n="71">
                     <l>Nam menos tem mostrado esforço, &amp; manha,</l>
@@ -8715,7 +8716,7 @@
                 <fw type="catch" place="bottom">Purpureos:</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq254.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="74">
                     <l>Purpureos sam os toldos, &amp; as bandeiras</l>
@@ -8750,7 +8751,7 @@
                 <fw type="catch" place="bottom">Alçase</fw>
 
 
-                <pb n="126"/>
+                <pb n="126" facs="../imagens/pelicanoEsquerda/VEsq255.jpg"/>
                 <fw type="header" place="top">CANTO SEPTIMO.</fw>
                 <lg type="estrofe" n="77">
                     <l>Alçase em pê, co elle os Gamas junto</l>
@@ -8785,7 +8786,7 @@
                 <fw type="catch" place="bottom">Agora</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq256.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="80">
                     <l>Agora com pobreza auorrecida,</l>
@@ -8821,7 +8822,7 @@
 
 
 
-                <pb n="127"/>
+                <pb n="127" facs="../imagens/pelicanoEsquerda/VEsq257.jpg"/>
                 <fw type="header" place="top">CANTO SEPTIMO.</fw>
                 <lg type="estrofe" n="83">
                     <l>Pois logo em tantos males he forçado</l>
@@ -8856,7 +8857,7 @@
                 <fw type="catch" place="bottom">Nem</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq258.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="86">
                     <l>Nem quem acha que he justo &amp; que he dereito</l>
@@ -8881,7 +8882,7 @@
                 <trailer>FIM.</trailer>
             </div>
             <div type="canto" n="8">
-                <pb n="128"/>
+                <pb n="128" facs="../imagens/pelicanoEsquerda/VEsq259.jpg"/>
                 <fw type="header" place="top">CANTO OCTAVO.</fw>
                 <head>Canto Octauo.</head>
                 <lg type="estrofe" n="1">
@@ -8907,7 +8908,7 @@
                 <fw type="catch" place="bottom">Foi</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq260.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="3">
                     <l>Foy filho &amp; companheiro do Thebano,</l>
@@ -8941,7 +8942,7 @@
                 </lg>
 
 
-                <pb n="129"/>
+                <pb n="129" facs="../imagens/pelicanoEsquerda/VEsq261.jpg"/>
                 <fw type="header" place="top">CANTO OCTAVO.</fw>
                 <lg type="estrofe" n="6">
                     <l>Assi o Gentio diz, responde o Gama,</l>
@@ -8977,7 +8978,7 @@
                 <fw type="catch" place="bottom">Olha</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq262.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA:</fw>
                 <lg type="estrofe" n="9">
                     <l>Olha estoutra bandeira &amp; ve pintado,</l>
@@ -9012,7 +9013,7 @@
                 <fw type="catch" place="bottom">Se</fw>
 
 
-                <pb n="130"/>
+                <pb n="130" facs="../imagens/pelicanoEsquerda/VEsq263.jpg"/>
                 <fw type="header" place="top">CANTO OCTAVO:</fw>
                 <lg type="estrofe" n="12">
                     <l>Se Cesar, se Alexandre Rei tiuerão,</l>
@@ -9048,7 +9049,7 @@
                 <fw type="catch" place="bottom">Nam</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq264.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="15">
                     <l>Nam fez o Consul tanto que cercado</l>
@@ -9083,7 +9084,7 @@
                 <fw type="catch" place="bottom">Não</fw>
 
 
-                <pb n="131"/>
+                <pb n="131" facs="../imagens/pelicanoEsquerda/VEsq265.jpg"/>
                 <fw type="header" place="top">CANTO OCTAVO.</fw>
                 <lg type="estrofe" n="18">
                     <l>Nam ves hum ajuntamento de estrangeiro</l>
@@ -9119,7 +9120,7 @@
                 <fw type="sig" place="bottom">R 3</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq266.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="21">
                     <l>Olha aquelle que deçe pela lança,</l>
@@ -9154,7 +9155,7 @@
                 <fw type="catch" place="bottom">Vês</fw>
 
 
-                <pb n="132"/>
+                <pb n="132" facs="../imagens/pelicanoEsquerda/VEsq267.jpg"/>
                 <fw type="header" place="top">CANTO OCTAVO</fw>
                 <lg type="estrofe" n="24">
                     <l>Vês vão os Reis de Cordoua &amp; Seuilha,</l>
@@ -9190,7 +9191,7 @@
                 <fw type="sig" place="bottom">R 4</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq268.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="27">
                     <l>Vellos co nome vem de auentureiros,</l>
@@ -9225,7 +9226,7 @@
                 <fw type="catch" place="bottom">Mas</fw>
 
 
-                <pb n="133"/>
+                <pb n="133" facs="../imagens/pelicanoEsquerda/VEsq269.jpg"/>
                 <fw type="header" place="top">CANTO OCTAVO.</fw>
                 <lg type="estrofe" n="30">
                     <l>Mas não vees quasi ja desbaratado,</l>
@@ -9260,7 +9261,7 @@
                 <fw type="catch" place="bottom">Na</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq270.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="33">
                     <l>Na mesma guerra vê que presas ganha,</l>
@@ -9295,7 +9296,7 @@
                 <fw type="catch" place="bottom">Sabese</fw>
 
 
-                <pb n="134"/>
+                <pb n="134" facs="../imagens/pelicanoEsquerda/VEsq271.jpg"/>
                 <fw type="header" place="top">CANTO OCTAVO.</fw>
                 <lg type="estrofe" n="36">
                     <l>Sabese antigamente que trezentos</l>
@@ -9330,7 +9331,7 @@
                 <fw type="catch" place="bottom">Outros</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq272.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="39">
                     <l>Outros muitos verias que os pintores</l>
@@ -9365,7 +9366,7 @@
                 <fw type="catch" place="bottom">Não</fw>
 
 
-                <pb n="135"/>
+                <pb n="135" facs="../imagens/pelicanoEsquerda/VEsq273.jpg"/>
                 <fw type="header" place="top">CANTO OCTAVO.</fw>
                 <lg type="estrofe" n="42">
                     <l>Não nego que â com tudo descendentes</l>
@@ -9400,7 +9401,7 @@
                 <fw type="catch" place="bottom">Entre:</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq274.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="45">
                     <l>Entre tanto os Aruspices famosos</l>
@@ -9435,7 +9436,7 @@
                 <fw type="catch" place="bottom">E diz</fw>
 
 
-                <pb n="136"/>
+                <pb n="136" facs="../imagens/pelicanoEsquerda/VEsq275.jpg"/>
                 <fw type="header" place="top">CANTO OCTAVO.</fw>
                 <lg type="estrofe" n="48">
                     <l>E diz lhe assi, guardaiuos gente minha,</l>
@@ -9470,7 +9471,7 @@
                 <fw type="catch" place="bottom">Isto dito</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq276.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="51">
                     <l>Isto dito, elle &amp; o sono se despede,</l>
@@ -9505,7 +9506,7 @@
                 <fw type="catch" place="bottom">O quanto</fw>
 
 
-                <pb n="137"/>
+                <pb n="137" facs="../imagens/pelicanoEsquerda/VEsq277.jpg"/>
                 <fw type="header" place="top">CANTO OCTAVO.</fw>
                 <lg type="estrofe" n="54">
                     <l>O quanto deue o Rei que bem gouerna,</l>
@@ -9541,7 +9542,7 @@
                 <fw type="catch" place="bottom">Nisto</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq278.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="57">
                     <l>Nisto trabalha so, quem bem sabia</l>
@@ -9576,7 +9577,7 @@
                 <fw type="catch" place="bottom">Sobre</fw>
 
 
-                <pb n="138"/>
+                <pb n="138" facs="../imagens/pelicanoEsquerda/VEsq279.jpg"/>
                 <fw type="header" place="top">CANTO OCTAVO.</fw>
                 <lg type="estrofe" n="60">
                     <l>Sobre isto nos conselhos que tomaua,</l>
@@ -9612,7 +9613,7 @@
                 <fw type="catch" place="bottom">Se</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq280.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="63">
                     <l>Se por ventura vindes desterrados,</l>
@@ -9647,7 +9648,7 @@
                 <fw type="catch" place="bottom">Mas</fw>
 
 
-                <pb n="139"/>
+                <pb n="139" facs="../imagens/pelicanoEsquerda/VEsq281.jpg"/>
                 <fw type="header" place="top">CANTO OCTAVO.</fw>
                 <lg type="estrofe" n="66">
                     <l>Mas porque nenhum grande bem se alcança</l>
@@ -9683,7 +9684,7 @@
                 <fw type="catch" place="bottom">Sete</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq282.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="69">
                     <l>Se te pareçe inopinado feito,</l>
@@ -9718,7 +9719,7 @@
                 <fw type="catch" place="bottom">Crecendo</fw>
 
 
-                <pb n="140"/>
+                <pb n="140" facs="../imagens/pelicanoEsquerda/VEsq283.jpg"/>
                 <fw type="header" place="top">CANTO OCTAVO.</fw>
                 <lg type="estrofe" n="72">
                     <l>Crescendo cos successos bons primeyros</l>
@@ -9754,7 +9755,7 @@
                 <fw type="catch" place="bottom">Assi que</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq284.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="75">
                     <l>Assi que ô Rey, se minha grão verdade</l>
@@ -9789,7 +9790,7 @@
                 <fw type="catch" place="bottom">Que</fw>
 
 
-                <pb n="141"/>
+                <pb n="141" facs="../imagens/pelicanoEsquerda/VEsq285.jpg"/>
                 <fw type="header" place="top">CANTO OCTAVO.</fw>
                 <lg type="estrofe" n="78">
                     <l>Que mande da fazenda enfim lhe manda,</l>
@@ -9824,7 +9825,7 @@
                 <fw type="catch" place="bottom">Era</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq286.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="81">
                     <l>Era este Catual, hum dos que estauão</l>
@@ -9859,7 +9860,7 @@
                 <fw type="catch" place="bottom">Que</fw>
 
 
-                <pb n="142"/>
+                <pb n="142" facs="../imagens/pelicanoEsquerda/VEsq287.jpg"/>
                 <fw type="header" place="top">CANTO OCTAVO.</fw>
                 <lg type="estrofe" n="84">
                     <l>Que nenhum torne aa patria so pretende</l>
@@ -9894,7 +9895,7 @@
                 <fw type="catch" place="bottom">Qual</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq288.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="87">
                     <l>Qual o reflexo lume do polido</l>
@@ -9929,7 +9930,7 @@
                 <fw type="catch" place="bottom">Insiste</fw>
 
 
-                <pb n="143"/>
+                <pb n="143" facs="../imagens/pelicanoEsquerda/VEsq289.jpg"/>
                 <fw type="header" place="top">CANTO OCTAVO.</fw>
                 <lg type="estrofe" n="90">
                     <l>Insiste o Malabar em telo preso,</l>
@@ -9964,7 +9965,7 @@
                 <fw type="catch" place="bottom">Concertãse</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq290.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="93">
                     <l>Concertã se que o negro mande dar,</l>
@@ -9999,7 +10000,7 @@
                 <fw type="catch" place="bottom">Nas</fw>
 
 
-                <pb n="144"/>
+                <pb n="144" facs="../imagens/pelicanoEsquerda/VEsq291.jpg"/>
                 <fw type="header" place="top">CANTO OCTAVO.</fw>
                 <lg type="estrofe" n="96">
                     <l>Nas naos estar se deyxa vagaroso,</l>
@@ -10034,7 +10035,7 @@
                 <fw type="catch" place="bottom">Este</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq292.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="99">
                     <l>Este interpreta mais que sutilmente</l>
@@ -10063,7 +10064,7 @@
                 <fw type="catch" place="bottom">La no</fw>
 
 
-                <pb n="145"/>
+                <pb n="145" facs="../imagens/pelicanoEsquerda/VEsq293.jpg"/>
                 <fw type="header" place="top">CANTO NONO</fw>
                 <lg type="estrofe" n="2">
                     <l>La no seio Eritreo, onde fundada</l>
@@ -10099,7 +10100,7 @@
                 <fw type="catch" place="bottom">Mas</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq294.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="5">
                     <l>Mas o Gouernador dos ceos, &amp; gentes,</l>
@@ -10134,7 +10135,7 @@
                 <fw type="catch" place="bottom">O Gama</fw>
 
 
-                <pb n="146"/>
+                <pb n="146" facs="../imagens/pelicanoEsquerda/VEsq295.jpg"/>
                 <fw type="header" place="top">CANTO NONO.</fw>
                 <lg type="estrofe" n="8">
                     <l>O Gama que tambem consideraua</l>
@@ -10170,7 +10171,7 @@
                 <fw type="catch" place="bottom">Outros</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq296.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="11">
                     <l>Outros pendem da verga, &amp; ja desatão</l>
@@ -10205,7 +10206,7 @@
                 <fw type="catch" place="bottom">Leua</fw>
 
 
-                <pb n="147"/>
+                <pb n="147" facs="../imagens/pelicanoEsquerda/VEsq297.jpg"/>
                 <fw type="header" place="top">CANTO NONO.</fw>
                 <lg type="estrofe" n="14">
                     <l>Leua algũs Malabares, que tomou</l>
@@ -10241,7 +10242,7 @@
                 <fw type="catch" place="bottom">O prazer</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq298.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="17">
                     <l>O prazer de chegar aa patria cara,</l>
@@ -10276,7 +10277,7 @@
                 <fw type="catch" place="bottom">Algum</fw>
 
 
-                <pb n="148"/>
+                <pb n="148" facs="../imagens/pelicanoEsquerda/VEsq299.jpg"/>
                 <fw type="header" place="top">CANTO OCTAVO.</fw>
                 <lg type="estrofe" n="20">
                     <l>Algum repouso em fim, com que podesse</l>
@@ -10312,7 +10313,7 @@
                 <fw type="catch" place="bottom">Tal</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq300.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="23">
                     <l>Tal manha buscou ja, pera que aquelle</l>
@@ -10347,7 +10348,7 @@
                 <fw type="catch" place="bottom">Via</fw>
 
 
-                <pb n="149"/>
+                <pb n="149" facs="../imagens/pelicanoEsquerda/VEsq301.jpg"/>
                 <fw type="header" place="top">CANTO NONO</fw>
                 <lg type="estrofe" n="26">
                     <l>Via Acteon na caça, tam austero,</l>
@@ -10382,7 +10383,7 @@
                 <fw type="catch" place="bottom">Ve em</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq302.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="29">
                     <l>Vê em fim que ninguem ama o que deue,</l>
@@ -10417,7 +10418,7 @@
                 <fw type="catch" place="bottom">Algũs</fw>
 
 
-                <pb n="150"/>
+                <pb n="150" facs="../imagens/pelicanoEsquerda/VEsq303.jpg"/>
                 <fw type="header" place="top">CANTO NONO.</fw>
                 <lg type="estrofe" n="32">
                     <l>Algũs exercitando a mão andauão,</l>
@@ -10452,7 +10453,7 @@
                 <fw type="catch" place="bottom">E vos</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq304.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="35">
                     <l>E vos ô poderosos por pastoras</l>
@@ -10487,7 +10488,7 @@
                 <fw type="catch" place="bottom">Bem</fw>
 
 
-                <pb n="151"/>
+                <pb n="151" facs="../imagens/pelicanoEsquerda/VEsq305.jpg"/>
                 <fw type="header" place="top">CANTO NONO.</fw>
                 <lg type="estrofe" n="38">
                     <l>Bem ves as Lusitanicas fadigas,</l>
@@ -10522,7 +10523,7 @@
                 <fw type="catch" place="bottom">Ali</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq306.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="41">
                     <l>Ali com mil refrescos, &amp; manjares,</l>
@@ -10557,7 +10558,7 @@
                 <fw type="catch" place="bottom">Mas</fw>
 
 
-                <pb n="152"/>
+                <pb n="152" facs="../imagens/pelicanoEsquerda/VEsq307.jpg"/>
                 <fw type="header" place="top">CANTO OCTAVO.</fw>
                 <lg type="estrofe" n="44">
                     <l>Mas diz Cupido, que era necessaria</l>
@@ -10592,7 +10593,7 @@
                 <fw type="catch" place="bottom">Despede</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq308.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="47">
                     <l>Despede nisto o fero moço as setas</l>
@@ -10627,7 +10628,7 @@
                 <fw type="catch" place="bottom">Ia</fw>
 
 
-                <pb n="153"/>
+                <pb n="153" facs="../imagens/pelicanoEsquerda/VEsq309.jpg"/>
                 <fw type="header" place="top">CANTO NONO</fw>
                 <lg type="estrofe" n="50">
                     <l>Ia todo o bello coro se aparelha</l>
@@ -10663,7 +10664,7 @@
                 <fw type="catch" place="bottom">Mas</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq310.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="53">
                     <l>Mas firme a fez &amp; imobil, como vio</l>
@@ -10698,7 +10699,7 @@
                 <fw type="catch" place="bottom">Mil</fw>
 
 
-                <pb n="154"/>
+                <pb n="154" facs="../imagens/pelicanoEsquerda/VEsq311.jpg"/>
                 <fw type="header" place="top">CANTO NONO.</fw>
                 <lg type="estrofe" n="56">
                     <l>Mil aruores estão ao çeo subindo,</l>
@@ -10734,7 +10735,7 @@
                 <fw type="catch" place="bottom">Abre</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq312.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="59">
                     <l>Abre a Romã, mostrando a rubicunda</l>
@@ -10769,7 +10770,7 @@
                 <fw type="catch" place="bottom">A can-</fw>
 
 
-                <pb n="155"/>
+                <pb n="155" facs="../imagens/pelicanoEsquerda/VEsq313.jpg"/>
                 <fw type="header" place="top">CANTO NONO.</fw>
                 <lg type="estrofe" n="62">
                     <l>A candida Cecêm das Matutinas</l>
@@ -10805,7 +10806,7 @@
                 <fw type="catch" place="bottom">Assi</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq314.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="65">
                     <l>Assi lho aconselhàra a mestra experta,</l>
@@ -10840,7 +10841,7 @@
                 <fw type="catch" place="bottom">Começão</fw>
 
 
-                <pb n="156"/>
+                <pb n="156" facs="../imagens/pelicanoEsquerda/VEsq315.jpg"/>
                 <fw type="header" place="top">CANTO NONO.</fw>
                 <lg type="estrofe" n="68">
                     <l>Começão de enxergar subitamente</l>
@@ -10876,7 +10877,7 @@
                 <fw type="catch" place="bottom">De</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq316.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="71">
                     <l>De hũa os cabellos de ouro o vento leua</l>
@@ -10911,7 +10912,7 @@
                 <fw type="catch" place="bottom">Qual</fw>
 
 
-                <pb n="157"/>
+                <pb n="157" facs="../imagens/pelicanoEsquerda/VEsq317.jpg"/>
                 <fw type="header" place="top">CANTO NONO</fw>
                 <lg type="estrofe" n="74">
                     <l>Qual tão de caçador sagaz, &amp; ardido,</l>
@@ -10946,7 +10947,7 @@
                 <fw type="catch" place="bottom">Todos</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq318.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="77">
                     <l>Todas de correr cansam, Nimpha pura,</l>
@@ -10981,7 +10982,7 @@
                 <fw type="catch" place="bottom">Pois</fw>
 
 
-                <pb n="158"/>
+                <pb n="158" facs="../imagens/pelicanoEsquerda/VEsq319.jpg"/>
                 <fw type="header" place="top">CANTO NONO.</fw>
                 <lg type="estrofe" n="80">
                     <l>Põeste da parte da desdita minha?</l>
@@ -11016,7 +11017,7 @@
                 <fw type="catch" place="bottom">O que</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq320.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="83">
                     <l>O que famintos beijos na floresta,</l>
@@ -11051,7 +11052,7 @@
                 <fw type="catch" place="bottom">Que</fw>
 
 
-                <pb n="159"/>
+                <pb n="159" facs="../imagens/pelicanoEsquerda/VEsq321.jpg"/>
                 <fw type="header" place="top">CANTO NONO.</fw>
                 <lg type="estrofe" n="86">
                     <l>Que despois de lhe ter dito quem era,</l>
@@ -11086,7 +11087,7 @@
                 <fw type="catch" place="bottom">Que</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq322.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA:</fw>
                 <lg type="estrofe" n="89">
                     <l>Que as Nimphas do Occeano tam fermosas,</l>
@@ -11121,7 +11122,7 @@
                 <fw type="catch" place="bottom">Mas</fw>
 
 
-                <pb n="160"/>
+                <pb n="160" facs="../imagens/pelicanoEsquerda/VEsq323.jpg"/>
                 <fw type="header" place="top">CANTO OCTAVO.</fw>
                 <lg type="estrofe" n="92">
                     <l>Mas a fama, trombeta de obras tais,</l>
@@ -11156,7 +11157,7 @@
                 <fw type="catch" place="bottom">E fareis</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq324.jpg"/>
                 <fw type="header" place="top">S LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="95">
                     <l>E fareis claro o Rei, que tanto amais,</l>
@@ -11185,7 +11186,7 @@
                 <fw type="catch" place="bottom">Quando</fw>
 
 
-                <pb n="161"/>
+                <pb n="161" facs="../imagens/pelicanoEsquerda/VEsq325.jpg"/>
                 <fw type="header" place="top">CANTO DECIMO.</fw>
                 <lg type="estrofe" n="2">
                     <l>Quando as fermosas Ninfas cos amantes</l>
@@ -11221,7 +11222,7 @@
                 <fw type="catch" place="bottom">Mil</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq326.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="5">
                     <l>Mil praticas alegres se tocauão,</l>
@@ -11256,7 +11257,7 @@
                 <fw type="catch" place="bottom">Materia</fw>
 
 
-                <pb n="162"/>
+                <pb n="162" facs="../imagens/pelicanoEsquerda/VEsq327.jpg"/>
                 <fw type="header" place="top">CANTO DECIMO.</fw>
                 <lg type="estrofe" n="8">
                     <l>Materia he de Coturno, &amp; não de Soco</l>
@@ -11292,7 +11293,7 @@
                 <fw type="catch" place="bottom">Cantaua</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq328.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="11">
                     <l>Cantaua dhum que tem nos Malabares</l>
@@ -11327,7 +11328,7 @@
                 <fw type="catch" place="bottom">Chamarâ</fw>
 
 
-                <pb n="163"/>
+                <pb n="163" facs="../imagens/pelicanoEsquerda/VEsq329.jpg"/>
                 <fw type="header" place="top">CANTO DECIMO.</fw>
                 <lg type="estrofe" n="14">
                     <l>Chãmarâ o Samorim mais gente noua:</l>
@@ -11363,7 +11364,7 @@
                 <fw type="catch" place="bottom">Virâ</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq330.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="17">
                     <l>Virâ alio Samorim, porque em pessoa</l>
@@ -11398,7 +11399,7 @@
                 <fw type="catch" place="bottom">Porque</fw>
 
 
-                <pb n="164"/>
+                <pb n="164" facs="../imagens/pelicanoEsquerda/VEsq331.jpg"/>
                 <fw type="header" place="top">CANTO DECIMO.</fw>
                 <lg type="estrofe" n="20">
                     <l>Porque tantas batalhas sostentadas</l>
@@ -11434,7 +11435,7 @@
                 <fw type="catch" place="bottom">Aquî</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq332.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="23">
                     <l>Aqui tens companheiro assi nos feitos</l>
@@ -11469,7 +11470,7 @@
                 <fw type="catch" place="bottom">Mas</fw>
 
 
-                <pb n="165"/>
+                <pb n="165" facs="../imagens/pelicanoEsquerda/VEsq333.jpg"/>
                 <fw type="header" place="top">CANTO DECIMO.</fw>
                 <lg type="estrofe" n="26">
                     <l>Mas eis outro, cantaua, intitulado</l>
@@ -11504,7 +11505,7 @@
                 <fw type="catch" place="bottom">Mas</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq334.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA:</fw>
                 <lg type="estrofe" n="29">
                     <l>Mas de Deos a escondida prouidencia,</l>
@@ -11539,7 +11540,7 @@
                 <fw type="catch" place="bottom">Vayte</fw>
 
 
-                <pb n="166"/>
+                <pb n="166" facs="../imagens/pelicanoEsquerda/VEsq335.jpg"/>
                 <fw type="header" place="top">CANTO DECIMO.</fw>
                 <lg type="estrofe" n="32">
                     <l>Vâyte alma em paz da guerra turbulenta,</l>
@@ -11574,7 +11575,7 @@
                 <fw type="catch" place="bottom">E logo</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq336.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="35">
                     <l>E logo entrando fero na enseada</l>
@@ -11609,7 +11610,7 @@
                 <fw type="catch" place="bottom">Ali</fw>
 
 
-                <pb n="167"/>
+                <pb n="167" facs="../imagens/pelicanoEsquerda/VEsq337.jpg"/>
                 <fw type="header" place="top">CANTO DECIMO.</fw>
                 <lg type="estrofe" n="38">
                     <l>Ali Cafres Seluagens poderão,</l>
@@ -11644,7 +11645,7 @@
                 <fw type="catch" place="bottom">Ali</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq338.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA:</fw>
                 <lg type="estrofe" n="41">
                     <l>Ali do sal os montes não defendem</l>
@@ -11679,7 +11680,7 @@
                 <fw type="catch" place="bottom">Nem</fw>
 
 
-                <pb n="168"/>
+                <pb n="168" facs="../imagens/pelicanoEsquerda/VEsq339.jpg"/>
                 <fw type="header" place="top">CANTO DECIMO.</fw>
                 <lg type="estrofe" n="44">
                     <l>Nem tu menos fugir poderas deste,</l>
@@ -11714,7 +11715,7 @@
                 <fw type="catch" place="bottom">Não</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq340.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="47">
                     <l>Não serâ a culpa abominoso incesto,</l>
@@ -11749,7 +11750,7 @@
                 <fw type="catch" place="bottom">Mas</fw>
 
 
-                <pb n="169"/>
+                <pb n="169" facs="../imagens/pelicanoEsquerda/VEsq341.jpg"/>
                 <fw type="header" place="top">CANTO DECIMO.</fw>
                 <lg type="estrofe" n="50">
                     <l>Mas proseguindo a Nimpha o longo canto,</l>
@@ -11785,7 +11786,7 @@
                 <fw type="catch" place="bottom">Virâ</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq342.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="53">
                     <l>Virâ despois Meneses, cujo ferro</l>
@@ -11820,7 +11821,7 @@
                 <fw type="catch" place="bottom">Mas</fw>
 
 
-                <pb n="170"/>
+                <pb n="170" facs="../imagens/pelicanoEsquerda/VEsq343.jpg"/>
                 <fw type="header" place="top">CANTO DECIMO.</fw>
                 <lg type="estrofe" n="56">
                     <l>Mas despois que as estrellas o chamarem,</l>
@@ -11856,7 +11857,7 @@
                 <fw type="catch" place="bottom">Mas</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq344.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="59">
                     <l>Mas com tudo não nego que Sampayo</l>
@@ -11891,7 +11892,7 @@
                 <fw type="catch" place="bottom">Tras</fw>
 
 
-                <pb n="171"/>
+                <pb n="171" facs="../imagens/pelicanoEsquerda/VEsq345.jpg"/>
                 <fw type="header" place="top">CANTO DECIMO.</fw>
                 <lg type="estrofe" n="62">
                     <l>Tras este vem Noronha, cujo Auspicio</l>
@@ -11927,7 +11928,7 @@
                 <fw type="catch" place="bottom">Destroirâ</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq346.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="65">
                     <l>Destroirâ a cidade Repelim,</l>
@@ -11962,7 +11963,7 @@
                 <fw type="catch" place="bottom">Persas</fw>
 
 
-                <pb n="172"/>
+                <pb n="172" facs="../imagens/pelicanoEsquerda/VEsq347.jpg"/>
                 <fw type="header" place="top">CANTO DECIMO</fw>
                 <lg type="estrofe" n="68">
                     <l>Persas feroces, Abassis &amp; Rumes</l>
@@ -11998,7 +11999,7 @@
                 <fw type="catch" place="bottom">Eis</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq348.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="71">
                     <l>Eis vem despois, o pay, que as ondas corta</l>
@@ -12033,7 +12034,7 @@
                 <fw type="catch" place="bottom">Assi</fw>
 
 
-                <pb n="173"/>
+                <pb n="173" facs="../imagens/pelicanoEsquerda/VEsq349.jpg"/>
                 <fw type="header" place="top">CANTO DECIMO.</fw>
                 <lg type="estrofe" n="74">
                     <l>Assi cantaua a Nimpha &amp; as outras todas</l>
@@ -12068,7 +12069,7 @@
                 <fw type="catch" place="bottom">Não</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq350.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="77">
                     <l>Não andão muito que no erguido cume</l>
@@ -12103,7 +12104,7 @@
                 <fw type="catch" place="bottom">Ves</fw>
 
 
-                <pb n="174"/>
+                <pb n="174" facs="../imagens/pelicanoEsquerda/VEsq351.jpg"/>
                 <fw type="header" place="top">CANTO DECIMO.</fw>
                 <lg type="estrofe" n="80">
                     <l>Ves aqui a grande machina do mundo,</l>
@@ -12138,7 +12139,7 @@
                 <fw type="catch" place="bottom">E tambem</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq352.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="83">
                     <l>E tambem porque a santa prouidencia,</l>
@@ -12173,7 +12174,7 @@
                 <fw type="catch" place="bottom">Com</fw>
 
 
-                <pb n="175"/>
+                <pb n="175" facs="../imagens/pelicanoEsquerda/VEsq353.jpg"/>
                 <fw type="header" place="top">CANTO DECIMO.</fw>
                 <lg type="estrofe" n="86">
                     <l>Com este rapto, &amp; grande mouimento,</l>
@@ -12208,7 +12209,7 @@
                 <fw type="catch" place="bottom">Debaxo</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq354.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="89">
                     <l>Debaxo deste grande firmamento,</l>
@@ -12243,7 +12244,7 @@
                 <fw type="catch" place="bottom">Ves</fw>
 
 
-                <pb n="176"/>
+                <pb n="176" facs="../imagens/pelicanoEsquerda/VEsq355.jpg"/>
                 <fw type="header" place="top">CANTO DECIMO.</fw>
                 <lg type="estrofe" n="92">
                     <l>Ves Europa Christaā mais alta &amp; clara</l>
@@ -12278,7 +12279,7 @@
                 <fw type="catch" place="bottom">Olha</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq356.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="95">
                     <l>Olha la as alagoas, donde o Nilo</l>
@@ -12313,7 +12314,7 @@
                 <fw type="catch" place="bottom">Ves</fw>
 
 
-                <pb n="177"/>
+                <pb n="177" facs="../imagens/pelicanoEsquerda/VEsq357.jpg"/>
                 <fw type="header" place="top">CANTO DECIMO.</fw>
                 <lg type="estrofe" n="98">
                     <l>Ves o extremo Suez, que antigamente</l>
@@ -12349,7 +12350,7 @@
                 <fw type="catch" place="bottom">Olha</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq358.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="101">
                     <l>Olha Dofar insigne, porque manda</l>
@@ -12384,7 +12385,7 @@
                 <fw type="catch" place="bottom">Aqui</fw>
 
 
-                <pb n="178"/>
+                <pb n="178" facs="../imagens/pelicanoEsquerda/VEsq359.jpg"/>
                 <fw type="header" place="top">CANTO DECIMO.</fw>
                 <lg type="estrofe" n="104">
                     <l>Aqui de dom Felipe de Meneses</l>
@@ -12420,7 +12421,7 @@
                 <fw type="catch" place="bottom">Ves</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq360.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="107">
                     <l>Ves corre a costa cèlebre Indiana</l>
@@ -12455,7 +12456,7 @@
                 <fw type="catch" place="bottom">Chegado</fw>
 
 
-                <pb n="179"/>
+                <pb n="179" facs="../imagens/pelicanoEsquerda/VEsq361.jpg"/>
                 <fw type="header" place="top">CANTO DECIMO.</fw>
                 <lg type="estrofe" n="110">
                     <l>Chegado aqui pregando, &amp; junto dando</l>
@@ -12491,7 +12492,7 @@
                 <fw type="catch" place="bottom">Sam</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq362.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="113">
                     <l>Sam estes sacerdotes dos Gentios,</l>
@@ -12526,7 +12527,7 @@
                 <fw type="catch" place="bottom">Este</fw>
 
 
-                <pb n="180"/>
+                <pb n="180" facs="../imagens/pelicanoEsquerda/VEsq363.jpg"/>
                 <fw type="header" place="top">CANTO DECIMO</fw>
                 <lg type="estrofe" n="116">
                     <l>Este milagre fez tamanho espanto,</l>
@@ -12562,7 +12563,7 @@
                 <fw type="sig" place="bottom">Z 4</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq364.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="119">
                     <l>E vosoutros que os nomes vsurpais</l>
@@ -12597,7 +12598,7 @@
                 <fw type="catch" place="bottom">Olha</fw>
 
 
-                <pb n="181"/>
+                <pb n="181" facs="../imagens/pelicanoEsquerda/VEsq365.jpg"/>
                 <fw type="header" place="top">CANTO DECIMO.</fw>
                 <lg type="estrofe" n="122">
                     <l>Olha o reyno Arracão, olha o assento</l>
@@ -12632,8 +12633,7 @@
                 <fw type="sig" place="bottom">Z 5</fw>
                 <fw type="catch" place="bottom">Mas</fw>
 
-
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq366.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="125">
                     <l>Mas na ponta da terra Cingapura</l>
@@ -12668,7 +12668,7 @@
                 <fw type="catch" place="bottom">Este</fw>
 
 
-                <pb n="182"/>
+                <pb n="182" facs="../imagens/pelicanoEsquerda/VEsq367.jpg"/>
                 <fw type="header" place="top">CANTO DECIMO.</fw>
                 <lg type="estrofe" n="128">
                     <l>Este receberâ placido &amp; brando,</l>
@@ -12703,7 +12703,7 @@
                 <fw type="catch" place="bottom">Inda</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq368.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="131">
                     <l>Inda outra muita terra se te esconde,</l>
@@ -12738,7 +12738,7 @@
                 <fw type="catch" place="bottom">Ali</fw>
 
 
-                <pb n="183"/>
+                <pb n="183" facs="../imagens/pelicanoEsquerda/VEsq369.jpg"/>
                 <fw type="header" place="top">CANTO DECIMO.</fw>
                 <lg type="estrofe" n="134">
                     <l>Ali tambem Timor, que o lenho manda</l>
@@ -12773,7 +12773,7 @@
                 <fw type="catch" place="bottom">Verâs</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq370.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="137">
                     <l>Verás de fronte estar do roxo estreito</l>
@@ -12808,7 +12808,7 @@
                 <fw type="catch" place="bottom">Mas</fw>
 
 
-                <pb n="184"/>
+                <pb n="184" facs="../imagens/pelicanoEsquerda/VEsq371.jpg"/>
                 <fw type="header" place="top">CANTO DECIMO.</fw>
                 <lg type="estrofe" n="140">
                     <l>Mas ca onde mais se alarga, ali tereis</l>
@@ -12843,7 +12843,7 @@
                 <fw type="catch" place="bottom">Podeis</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq372.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="143">
                     <l>Podeis vos embarcar, que tendes vento</l>
@@ -12878,7 +12878,7 @@
                 <fw type="catch" place="bottom">E não</fw>
 
 
-                <pb n="185"/>
+                <pb n="185" facs="../imagens/pelicanoEsquerda/VEsq373.jpg"/>
                 <fw type="header" place="top">CANTO DECIMO.</fw>
                 <lg type="estrofe" n="146">
                     <l>E não sey porque influxo de destino</l>
@@ -12913,7 +12913,7 @@
                 <fw type="catch" place="bottom">Fauoreceyos</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq374.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="149">
                     <l>Fauoreceyos logo, &amp; alegrayos</l>
@@ -12948,7 +12948,7 @@
                 <fw type="catch" place="bottom">Fazey</fw>
 
 
-                <pb n="186"/>
+                <pb n="186" facs="../imagens/pelicanoEsquerda/VEsq375.jpg"/>
                 <fw type="header" place="top">CANTO DECIMO.</fw>
                 <lg type="estrofe" n="152">
                     <l>Fazey senhor que nunca os admirados</l>
@@ -12983,7 +12983,7 @@
                 <fw type="catch" place="bottom">Pera</fw>
 
 
-                <pb/>
+                <pb facs="../imagens/pelicanoEsquerda/VEsq376.jpg"/>
                 <fw type="header" place="top">OS LVSIADAS DE L. DE CA.</fw>
                 <lg type="estrofe" n="155">
                     <l>Pera seruiruos braço aas armas feito,</l>

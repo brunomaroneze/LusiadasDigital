@@ -1,30 +1,84 @@
-## ALTERAÇÕES 08/02/2025
+# Lusíadas Digital
 
-- Primeira etapa de integração TEI-XML → HTML. Ainda exploratório, sem impacto no fluxo atual
-- A ideia é que os textos possam ser inseridos por meio de Editor no Django Admin
-- Para saber melhor: https://github.com/Suthiery/LusiadasDigital/tree/feature/tei-editor
+**Versão 0.1.0**
 
-## ALTERAÇÕES 20/12/2025
+O Lusíadas Digital é uma plataforma de leitura e estudo de *Os Lusíadas*, de Luís de Camões. O projeto desenvolve uma interface digital para a edição filológica da obra, aproximando textos, imagens e recursos de comparação.
 
-## CSS
+## Funcionalidades
 
-- o CSS das páginas foi migrado para arquivos .css dentro do diretório static > css
-- cada página tem seu .css, porém, quando o estilo era igual em todas as páginas eu coloquei em style.css pra não ficar repetido
+- Leitura dos cantos em duas colunas, com seleção independente do conteúdo de cada uma.
+- Exibição das versões modernizada, original A e original B, além de espaços para imagens das duas edições.
+- Comparação entre versões textuais, com opção de realçar diferenças.
+- Navegação por canto, página e estrofe.
+- Visualização dos elementos pré-textuais da edição de 1572.
+- Administração de cantos, páginas de texto TEI-XML e imagens pelo Django Admin.
+- Importação de textos TEI-XML para o banco de dados, com relatório de integridade.
 
-## BLOCOS HTML
+As imagens dependem de arquivos e registros cadastrados. A paginação dos textos importados é sintética: ela agrupa estrofes e **não corresponde à paginação dos fac-símiles**.
 
-- substitui partes do código html que são iguais em todas as páginas por template tags (essas marcações {%})
-- São estes: Head (cabeçalho), Header (ou hero), Nav (menu de navegação do topo da página) e Footer (rodapé)
-- Para propósito de edição, o html se encontra no diretório templates > blocos
+## Tecnologias e estrutura
 
-## IMAGENS
+O site utiliza Python, Django, SQLite, lxml e Pillow. As dependências estão listadas em [requirements.txt](requirements.txt).
 
-- as imagens foram migradas para o diretório images em seus respectivos diretório
+- `lusiadas/`: configurações e rotas principais do Django.
+- `homepage/`: aplicação, modelos, páginas, testes e comandos de importação.
+- `LusiadasTextos/`: arquivos XML e outros materiais textuais.
+- `static/`: CSS, JavaScript e imagens estáticas.
+- `media/`: arquivos de mídia, incluindo imagens cadastradas no Admin.
 
-## ALTERAÇÕES 19/08/2026
+## Execução local
 
-### Correções Recentes
+É necessário Python 3.12 ou superior. Na raiz do projeto:
 
-- **Bug de Troca de Colunas:** Resolvido o problema onde a alteração de versão em uma coluna afetava a outra. Os arquivos isolados foram substituídos por um template unificado (`partials/texto.html`) que recebe o conteúdo dinamicamente por parâmetro.
-- **Prevenção de Erro 500 (TEI-XML):** Implementado tratamento de erro (`try/except`) no parser do XML. Agora, em vez de derrubar a aplicação, um XML malformado no banco de dados exibe um aviso amigável na interface.
-- **Tratamento de Erro 404 (URLs):** Adicionada validação estrita de parâmetros na _view_ de leitura. O sistema agora retorna corretamente um erro 404 (Página Não Encontrada) caso receba atributos inválidos na URL.
+1. Crie e ative um ambiente virtual:
+
+   ```sh
+   python -m venv .venv
+   ```
+
+   No Windows, use `.venv\Scripts\activate`; no Linux ou macOS, use `source .venv/bin/activate`.
+
+2. Instale as dependências:
+
+   ```sh
+   python -m pip install -r requirements.txt
+   ```
+
+3. Crie um arquivo `.env` a partir de [`.env.example`](.env.example). Para desenvolvimento, defina `DEBUG=True`, inclua `localhost,127.0.0.1` em `ALLOWED_HOSTS` e gere uma chave própria para `SECRET_KEY`:
+
+   ```sh
+   python -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())"
+   ```
+
+4. Prepare o banco e importe os textos:
+
+   ```sh
+   python manage.py migrate
+   python manage.py importar_tudo
+   ```
+
+5. Inicie o servidor de desenvolvimento:
+
+   ```sh
+   python manage.py runserver
+   ```
+
+   Acesse `http://127.0.0.1:8000/`. Para usar o Admin em `/admin/`, crie um usuário com `python manage.py createsuperuser`.
+
+## Importação dos textos
+
+O comando `importar_tudo` utiliza os arquivos `LusiadasModernizado.xml`, `LusiadasEsquerda.xml` e `LusiadasDireita.xml`, na pasta `LusiadasTextos/`. Ele identifica os cantos pela posição no arquivo, não pelo atributo `n`.
+
+Para verificar os XMLs sem alterar o banco:
+
+```sh
+python manage.py importar_tudo --so-relatorio
+```
+
+O relatório aponta erros e avisos de integridade; sua apresentação não impede automaticamente a importação. Na importação, o comando atualiza ou cria páginas e remove páginas das versões importadas que deixaram de existir nos XMLs, respeitando o filtro `--cantos` quando informado. Ele também remove cantos sem textos nem imagens. **Faça backup do banco antes de importar sobre dados existentes.** As opções estão documentadas em [importar_tudo.py](homepage/management/commands/importar_tudo.py).
+
+## Dados e produção
+
+O banco local `db.sqlite3` e os arquivos `.env` e `.env.prod` são ignorados pelo Git. Portanto, o banco e os segredos não acompanham o push. Na VPS, configure um `.env` próprio com `DEBUG=False`, uma chave secreta exclusiva, os hosts permitidos e as origens CSRF necessárias; não publique esse arquivo.
+
+Em produção, use um servidor WSGI apropriado, configure HTTPS e a entrega dos arquivos estáticos e de mídia, execute as migrations e `collectstatic` e mantenha backups do banco e da mídia. O servidor de desenvolvimento `runserver` não deve ser usado em produção.

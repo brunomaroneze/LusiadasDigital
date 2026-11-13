@@ -29,3 +29,8 @@ Thumbs.db
 
 # Logs
 *.log
+
+# Pasta com as imagens
+imagens/
+# Arquivos enviados / copiados pelo importar_tudo (fac-símile)
+media/

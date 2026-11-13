@@ -17,7 +17,7 @@ Uso futuro (quando a UI da aba lateral for construída):
 from lxml import etree
 
 
-def extrair_numeros_estrofes(tei_xml):
+def extrair_numeros_estrofes(tei_xml, canto=None):
     """
     Recebe uma string de TEI-XML (o mesmo conteúdo salvo em
     PaginaTexto.tei_xml) e devolve a lista de números de estrofe
@@ -28,6 +28,10 @@ def extrair_numeros_estrofes(tei_xml):
     devolve lista vazia — o chamador decide o que fazer (no índice,
     isso simplesmente significa "nenhuma estrofe identificada nesta
     página", sem quebrar a página inteira).
+
+    Com `canto`, ignora as estrofes que estão dentro de um
+    <div type="canto"> de outro número (páginas do fac-símile que têm o
+    fim de um canto e o começo do seguinte).
     """
     if not tei_xml:
         return []
@@ -47,11 +51,21 @@ def extrair_numeros_estrofes(tei_xml):
         tag = etree.QName(lg).localname if isinstance(lg.tag, str) else None
         if tag != "lg":
             continue
+        if canto is not None and not _pertence_ao_canto(lg, canto):
+            continue
         n = lg.attrib.get("n")
         if n is not None:
             numeros.append(n)
 
     return numeros
+
+
+def _pertence_ao_canto(lg, canto):
+    for ancestral in lg.iterancestors():
+        tag = etree.QName(ancestral).localname if isinstance(ancestral.tag, str) else None
+        if tag == "div" and ancestral.get("type") == "canto":
+            return ancestral.get("n") in (None, str(canto))
+    return True
 
 
 def construir_indice_estrofes(canto_numero, versao="modernizado"):
@@ -79,7 +93,7 @@ def construir_indice_estrofes(canto_numero, versao="modernizado"):
 
     indice = {}
     for numero_pagina, tei_xml in paginas:
-        for n in extrair_numeros_estrofes(tei_xml):
+        for n in extrair_numeros_estrofes(tei_xml, canto=canto_numero):
             try:
                 chave = int(n)
             except (TypeError, ValueError):

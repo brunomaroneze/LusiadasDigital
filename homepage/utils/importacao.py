@@ -3,6 +3,7 @@ importar_tudo): leitura do TEI-XML, gravação de um canto no banco e
 verificação de integridade dos arquivos de origem."""
 
 from collections import Counter
+from copy import deepcopy
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -92,6 +93,155 @@ def gravar_canto(div_canto, numero_canto, versao, por_pagina):
         "titulo": titulo, "estrofes": len(estrofes), "paginas": len(grupos),
         "criadas": criadas, "atualizadas": atualizadas, "canto_criado": canto_criado,
     }
+
+
+# ---------------------------------------------------------------------------
+# Paginação real (alinhada ao fac-símile)
+# ---------------------------------------------------------------------------
+#
+# Nos originais (LusiadasEsquerda/Direita.xml) cada <pb facs="..."/> marca o
+# início de uma página do fac-símile. As <pb> nunca caem dentro de uma <lg>,
+# então cada página tem estrofes inteiras. Três páginas têm o fim de um canto
+# e o começo do seguinte (cantos 7, 9 e 10 começam no meio da página): essas
+# páginas são gravadas nos DOIS cantos, inteiras, para que o texto ao lado
+# da imagem corresponda exatamente ao que se vê nela.
+#
+# O texto modernizado não tem <pb>; ele é paginado pelas mesmas estrofes da
+# edição de referência (canto + número da estrofe).
+
+# elementos de um <div type="canto"> que vão para a página; <fw> (cabeço,
+# reclamo, assinatura) e <lb> soltos ficam de fora, como antes.
+ELEMENTOS_DA_PAGINA = {"head", "lg"}
+
+
+@dataclass
+class PaginaReal:
+    facs: str = ""          # caminho da imagem, como está no atributo facs
+    n: str = ""             # número impresso da folha, quando houver
+    partes: list = None     # [(posição do canto, [elementos])], na ordem
+
+    def __post_init__(self):
+        if self.partes is None:
+            self.partes = []
+
+    def adicionar(self, canto, elemento):
+        if not self.partes or self.partes[-1][0] != canto:
+            self.partes.append((canto, []))
+        self.partes[-1][1].append(elemento)
+
+    @property
+    def cantos(self):
+        return [c for c, _ in self.partes]
+
+    def estrofes(self):
+        """[(canto, n)] das estrofes desta página."""
+        return [(c, el.get("n")) for c, els in self.partes for el in els if el.tag == "lg"]
+
+    def tei(self):
+        """TEI da página inteira: um <div type="canto"> por canto presente."""
+        pagina = etree.Element("div")
+        pagina.set("type", "pagina")
+        if self.facs:
+            pagina.set("facs", self.facs)
+        for canto, elementos in self.partes:
+            div = etree.SubElement(pagina, "div")
+            div.set("type", "canto")
+            div.set("n", str(canto))
+            for el in elementos:
+                div.append(deepcopy(el))
+        return etree.tostring(pagina, encoding="unicode")
+
+
+def tem_paginacao(root):
+    body = root.find(".//body")
+    return body is not None and body.find(".//pb") is not None
+
+
+def paginas_por_pb(root):
+    """Divide o <body> em páginas pelas <pb>. Cantos identificados pela posição."""
+    paginas = []
+    atual = None
+    body = root.find(".//body")
+    posicao = 0
+
+    def nova(pb):
+        paginas.append(PaginaReal(facs=pb.get("facs", ""), n=pb.get("n", "")))
+        return paginas[-1]
+
+    for filho in body:
+        if filho.tag == "pb":
+            atual = nova(filho)
+        elif filho.tag == "div" and filho.get("type") == "canto":
+            posicao += 1
+            for el in filho:
+                if el.tag == "pb":
+                    atual = nova(el)
+                elif el.tag in ELEMENTOS_DA_PAGINA:
+                    if atual is None:
+                        atual = nova(etree.Element("pb"))
+                    atual.adicionar(posicao, el)
+    return [p for p in paginas if p.partes]
+
+
+def paginas_por_referencia(root, referencia):
+    """Pagina um texto sem <pb> (o modernizado) seguindo as estrofes de `referencia`.
+
+    Os <head> vão para a página da estrofe seguinte. Estrofes que não existem
+    na referência ficam na página da estrofe anterior.
+    """
+    onde = {}
+    for i, pagina in enumerate(referencia):
+        for chave in pagina.estrofes():
+            onde.setdefault(chave, i)
+
+    paginas = [PaginaReal(facs=p.facs, n=p.n) for p in referencia]
+    ultima = 0
+    for posicao, div in enumerate(divs_de_canto(root), start=1):
+        pendentes = []
+        for el in div:
+            if el.tag not in ELEMENTOS_DA_PAGINA:
+                continue
+            if el.tag != "lg":
+                pendentes.append(el)
+                continue
+            ultima = onde.get((posicao, el.get("n")), ultima)
+            for p in pendentes + [el]:
+                paginas[ultima].adicionar(posicao, p)
+            pendentes = []
+        for p in pendentes:
+            paginas[ultima].adicionar(posicao, p)
+    return paginas
+
+
+def paginas_de_cada_canto(paginas):
+    """{canto: [índices das páginas em que ele aparece]}, na ordem."""
+    resultado = {}
+    for i, pagina in enumerate(paginas):
+        for canto in pagina.cantos:
+            resultado.setdefault(canto, []).append(i)
+    return resultado
+
+
+def gravar_paginas_reais(paginas, indices, numero_canto, versao, titulo=None):
+    """Grava em PaginaTexto as páginas `indices` (globais) como 1..N do canto."""
+    canto_obj, canto_criado = Canto.objects.get_or_create(
+        numero=numero_canto, defaults={"titulo": titulo or f"Canto {numero_canto}"})
+    criadas = atualizadas = 0
+    for local, i in enumerate(indices, start=1):
+        _, criado = PaginaTexto.objects.update_or_create(
+            canto=canto_obj, numero=local, versao=versao,
+            defaults={"tei_xml": paginas[i].tei()},
+        )
+        criadas += criado
+        atualizadas += not criado
+    return {"paginas": len(indices), "criadas": criadas, "atualizadas": atualizadas,
+            "canto_criado": canto_criado}
+
+
+def titulo_do_canto(div_canto, numero_canto):
+    head = div_canto.find("head")
+    texto = _texto(head) if head is not None else ""
+    return texto or f"Canto {numero_canto}"
 
 
 # ---------------------------------------------------------------------------

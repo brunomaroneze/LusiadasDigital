@@ -278,3 +278,97 @@ class ImportarTudoTests(TestCase):
         caminho = Path(self.pasta.name) / "LusiadasModernizado.xml"
         call_command("importar_canto", "1", str(caminho), "--versao", "modernizado", stdout=StringIO())
         self.assertEqual(PaginaTexto.objects.filter(canto__numero=1, versao="modernizado").count(), 2)
+
+
+# ---------------------------------------------------------------------------
+# Paginação real, pelas <pb facs="..."> dos originais
+# ---------------------------------------------------------------------------
+from django.test import override_settings
+
+from .models import PaginaImagem
+from .utils.indice_estrofes import construir_indice_estrofes
+
+
+def arquivo_paginado(pasta, nome, prefixo):
+    """2 cantos; a 2ª página tem o fim do canto 1 e o começo do canto 2.
+
+    pág. 1: canto 1, estrofes 1-2 | pág. 2: c1 e3 + c2 e1 | pág. 3: c2 e2
+    """
+    pb = lambda i: f'<pb facs="../img/{prefixo}{i:03d}.jpg"/>'
+    corpo = (
+        pb(1)
+        + f'<div type="canto" n="1"><head>Canto 1</head>{estrofe_xml(1)}{estrofe_xml(2)}'
+        + f'<fw type="catch">x</fw>{pb(2)}{estrofe_xml(3)}</div>'
+        + f'<div type="canto" n="2"><head>Canto 2</head>{estrofe_xml(1)}{pb(3)}{estrofe_xml(2)}</div>'
+    )
+    caminho = Path(pasta) / nome
+    caminho.write_text(f'<TEI xmlns="http://www.tei-c.org/ns/1.0"><text><body>{corpo}</body></text></TEI>', encoding="utf-8")
+
+
+class PaginacaoRealTests(TestCase):
+    def setUp(self):
+        self.raiz = tempfile.TemporaryDirectory()
+        self.addCleanup(self.raiz.cleanup)
+        raiz = Path(self.raiz.name)
+        self.pasta = raiz / "textos"
+        self.pasta.mkdir()
+        (raiz / "img").mkdir()
+        self.media = raiz / "media"
+        tres = [estrofe_xml(1), estrofe_xml(2), estrofe_xml(3)]
+        arquivo_tei(self.pasta, "LusiadasModernizado.xml", [("1", tres), ("2", tres[:2])])
+        arquivo_paginado(self.pasta, "LusiadasEsquerda.xml", "E")
+        arquivo_paginado(self.pasta, "LusiadasDireita.xml", "D")
+        for i in (1, 2, 3):
+            (raiz / "img" / f"E{i:03d}.jpg").write_bytes(b"jpg")
+        for i in (1, 2):  # falta a D003
+            (raiz / "img" / f"D{i:03d}.jpg").write_bytes(b"jpg")
+
+    def rodar(self, *extra):
+        saida = StringIO()
+        with override_settings(MEDIA_ROOT=str(self.media)):
+            call_command("importar_tudo", "--pasta", str(self.pasta), *extra, stdout=saida)
+        return saida.getvalue()
+
+    def estrofes(self, canto, numero, versao):
+        tei = PaginaTexto.objects.get(canto__numero=canto, numero=numero, versao=versao).tei_xml
+        raiz = etree.fromstring(tei)
+        return [(int(lg.getparent().get("n")), int(lg.get("n"))) for lg in raiz.iter("lg")]
+
+    def test_paginas_seguem_as_pb_e_a_pagina_compartilhada_vai_para_os_dois_cantos(self):
+        self.rodar()
+        for versao in ("original_a", "original_b", "modernizado"):
+            self.assertEqual(PaginaTexto.objects.filter(canto__numero=1, versao=versao).count(), 2)
+            self.assertEqual(PaginaTexto.objects.filter(canto__numero=2, versao=versao).count(), 2)
+            self.assertEqual(self.estrofes(1, 1, versao), [(1, 1), (1, 2)])
+            self.assertEqual(self.estrofes(1, 2, versao), [(1, 3), (2, 1)])
+            self.assertEqual(self.estrofes(2, 1, versao), [(1, 3), (2, 1)])
+            self.assertEqual(self.estrofes(2, 2, versao), [(2, 2)])
+
+    def test_imagens_sao_copiadas_e_associadas(self):
+        saida = self.rodar()
+        img = PaginaImagem.objects.get(canto__numero=2, numero=1, edicao="A")
+        self.assertEqual(img.imagem.name, "facsimile/img/E002.jpg")
+        self.assertTrue((self.media / "facsimile" / "img" / "E002.jpg").exists())
+        self.assertEqual(PaginaImagem.objects.filter(edicao="A").count(), 4)
+        # D003 não existe: a página fica sem imagem B e o comando avisa
+        self.assertFalse(PaginaImagem.objects.filter(canto__numero=2, numero=2, edicao="B").exists())
+        self.assertIn("D003.jpg", saida)
+
+    def test_sem_imagens(self):
+        self.rodar("--sem-imagens")
+        self.assertEqual(PaginaImagem.objects.count(), 0)
+
+    def test_por_pagina_forca_paginacao_sintetica(self):
+        self.rodar("--por-pagina", "1", "--sem-imagens")
+        self.assertEqual(PaginaTexto.objects.filter(canto__numero=1, versao="original_a").count(), 3)
+
+    def test_indice_de_estrofes_ignora_o_outro_canto_da_pagina(self):
+        self.rodar("--sem-imagens")
+        self.assertEqual(construir_indice_estrofes(1, "original_a"), {1: 1, 2: 1, 3: 2})
+        self.assertEqual(construir_indice_estrofes(2, "original_a"), {1: 1, 2: 2})
+
+    def test_leitura_mostra_texto_ao_lado_da_imagem(self):
+        self.rodar()
+        r = self.client.get(reverse("leitura", args=[2, "original_a", "esq"]) + "?p=1&dir=imagem_a")
+        self.assertContains(r, "facsimile/img/E002.jpg")
+        self.assertContains(r, 'data-estrofe="3"')

@@ -32,3 +32,5 @@ Thumbs.db
 
 # Pasta com as imagens
 imagens/
+# Arquivos enviados / copiados pelo importar_tudo (fac-símile)
+media/

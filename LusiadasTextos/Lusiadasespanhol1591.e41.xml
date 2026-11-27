@@ -1,0 +1,705 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+    <teiHeader>
+        <fileDesc>
+             <titleStmt>
+                    <title>LOS LVSIADAS</title> 
+                            <author>Luys de Camoes</author>
+                                </titleStmt>
+                                    <publicationStmt>
+                                    <publisher>Guillermo Drouy</publisher>
+                                    <pubPlace>Madrid</pubPlace>
+                                    <date>1591</date>
+                                    </publicationStmt>
+                                    <sourceDesc>
+                                         <p>Traduzidos de Portugues en Castellano por Henrique Garces.</p>
+                                    </sourceDesc>
+                            </fileDesc>          
+                            </teiHeader>
+                        <text>
+                            <front>
+                        <titlePage>
+                            <docTitle>LOS LVSIADAS</docTitle>
+                            <docAuthor>DE LVYS DE CAMOES,</docAuthor>
+                            <docImprint>
+                                <lb/>Traduzidos de Portugues en Castellano <lb/>por <name>Henrique Garces</name>.
+                                <div type="dedication">
+                                    <lb/>DIRIGIDOS A <name>PHILIPPO</name> <lb/>Monarcha primero de las Españas, <lb/>y de las Indias. <lb/>EN <pubPlace>MADRID</pubPlace>. <lb/>Impresso
+                                    con licencia en casa de <name>Guillermo Drouy</name> <lb/>impressor de libros. Año <date>1591</date>.
+                                </div>
+                            </docImprint>
+                        </titlePage>
+                        <pb/>
+                        <div type="taxation">
+                            <p>
+                                YO <name>Miguel Ondarça Çauala</name> escriuano de Camara de su <lb/>Magestad delos
+                                q̄ en su Consejo residen, doy fe q̄ auiẽdo <lb/>se visto por los señores del vn libro
+                                intitulado <title>Los Lusiadas</title> de <lb/><name>Luys Camoes</name>, traduzido de
+                                Portugues en Castellano por En<lb/>rique Garces, que con su licencia hizo imprimir, tassaron
+                                a tres <lb/>marauedis cada pliego de los del dicho libro en papel. Y man-<lb break="no"/>daron 
+                                q̄ antes que se venda se imprima en la primera oja de <lb/>cada vno dellos este 
+                                testimonio y tassa. Y para que dello cõste <lb/>de mandamiento de los dichos señores 
+                                del Consejo de su Ma-<lb break="no"/>gestcd y de pedimiento del dicho <name>Enrique Garces</name> 
+                                di la pre-<lb break="no"/>sente fee. Que es fecha en <pubPlace>Madrid</pubPlace> a <date>cinco
+                                de Septiembre, de <lb/>mil y quinientos y nouenta y vn años</date>. <lb/><name>Miguel de
+                                Ondarça <lb/>Çauala</name>.
+                            </p>
+                        </div>
+                        <pb/>
+                        <div type="CedulaReal">
+                            <head>EL REY.</head>
+                            <p>POR quanto por parte de vos Henrique <lb/>Garces, vezino de Lima en el Peru nos, <lb/>fue fecha relacion que vos auiades tradu-<lb break="no"/>zido de lengua Portuguesa en lengua Cas-<lb break="no"/>tesllana los Lusiades del Camoẽs, que eran muy vti-<lb break="no"/>les y prouechosos. Y nos suplicastes os mādassemos <lb/>dar licencia para le imprimir, y priuilegio por veyn-<lb break="no"/>te años, atento que era muy conueniente y necessa-<lb break="no"/>ria, y os hauia costado mucho trabaso: o que sobre <lb/>ello proueyessemos como la nuestra merced fuesse. <lb/>Lo qual visto por los del nuestro Consejo, como por <lb/>su mandado se hizieron las diligencias que la prema-<lb break="no"/>tica por nos fecha sobre la impression de los libros<lb/>dispone, fue acordado que deuiamos mandar dar es-<lb break="no"/>ta nuestra cedula para vos en la dicha razon: y nos <lb/>tuuimos lo por bien. Por la qual os damos licencia y <lb/>facultad, para que por tiempo de diez años prime-<lb break="no"/>ros siguientes, que corren y se cuentan desde el dia <lb/>de la data desta nuestra cedula podays imprimir el <lb/>dicho libro de los Lusiades de Camoẽs que de suso <lb/>se haze mencion por el original que en el nuestro <lb/>Consejo se vio, rubricado y firmado al cabo de Mi-<lb break="no"/>guel de Ondarça Cauala nuestro escriuano de cama-<lb break="no"/>ra de los que residon en el nuestro Consejo, con que <lb/>antes que se venda le traygays ante ellos, juntamen-<lb break="no"/>te con el dicho original, para que se vea si la dicha im-<lb break="no"/>presión esta conforme a el, y si no lo estuviere se corrija, y <lb/>se tasen los pliegos de el dicho libro, y se ponga en <lb/>la primera oja de cada vno dellos este testimonio y <lb/>tassa, y que no se pueda vender ni dar a persona al-<lb break="no"/>guna, hasta que primero se vea si la dicha im-<lb break="no"/>
+                            <pb/> 
+                            <lb/>pression esta conforme a el, o traygays fe en publi-<lb break="no"/>ca forma en como por corrector nombrado por nue-<lb break="no"/>stro mãdado se vio y corrigio la dicha impressiō por <lb/>el original: Y mandamos al impressor q̃ imprimiere <lb/>el dicho libro no imprima el principio y primer <lb/>pliego, ni entregue mas de vn solo libro con el ori-<lb break="no"/>ginal al autor o persona a cuya costa le imprimiere, <lb/>ni otra alguna para efecto de la correccion y tassa, <lb/>hasta que primero el dicho libro estè corrigido y tas-<lb break="no"/>sado por los del nuestro Consejo. Y estando ansi y <lb/>no de otra manera pueda imprimir el dicho princi-<lb break="no"/>pio y primer pliego: en el qual siguidamente ponga <lb/>esta nuestra licencia, y priuilegio, y la aprobacion, <lb/>tassa, y erratas, so pena de caer è incurrir en las penas <lb/>contenidas en la dicha prematica y leyes de nuestros <lb/>Reynos. Y manda nos que durante el dicho tiem-<lb break="no"/>po persona alguna sin vuestra licencia no lo pueda <lb/>imprimir ni vender, so pena que el que lo imprimie-<lb break="no"/>re aya perdido y pierda todos y qualesquier libros, <lb/>moldes, y aparejos que de los dichos libros tuuiere, <lb/>y mas incurrã en pena de cinquenta mil marauedis <lb/>por cada vez q̄ lo cõtrario hiziere: la qual dicha pena <lb/>sea la tercia parte para la persona q̄ lo sentenciare, y <lb/>la otra tercia parte para la persona q̄ denunciare, y la <lb/>otra tercia parte para la nr̄a camara. Y mãdamos alos <lb/>del nuestro Cōsejo, Presidēte, y Oydores de las nr̄as <lb/>audiēcias, Alcaldes, Alguaziles dela nr̄a casa y corte, <lb/>y chan-<lb break="no"/>
+                            <pb/>
+                            <lb/>cillerias y a todos los Corregidores Assisten-<lb break="no"/>te, Gouernadores, Alcaldes mayores y ordinarios, y <lb/>otros juezes y justicias qualesquier de todas las ciu-<lb break="no"/>dades, villas, y lugares destos nuestros Reynos y se-<lb break="no"/>ñorios, assi a los que agora son, como a los que se-<lb break="no"/>ran de aqui adelante, os guarden y cumplan esta nues-<lb break="no"/>tra cedula y merced que ansi os hazemos, y contra <lb/>el tenor y forma della, y de lo en ella contenido, no <lb/>vayan ni passen ni consientan yr ni passar por algu-<lb break="no"/>na manera. So pena de la nuestra merced, y de diez <lb/>mil marauedis para la nuestra camara. Fecha en Ma-<lb break="no"/>drid a vltimo dia del mes de Henero, de mil y qui-<lb break="no"/>nientos y nouenta y vn años. <lb/>VO EL REY. <lb/>Por mandado del Rey nuestro señor. <lb/>Iuan Vazques.</p>
+                        </div>
+                        <div type="Aprobacion"> 
+                            <p><lb/>POr mandado de los señores del Consejo Real he visto este libro, in-<lb break="no"/>titulado Lusiadas del Camoes, traduzido por Enrique Garces: y <lb/>no ay en el cosa que sea contra la Fe ni las buenas costumbres, sino <lb/>mucha erudicion y variedad de cosas vtilissimas, en muy buen estilo <lb/>muy elegante y proprio traduzidas de la lẽngua Portuguesa en la nue-<lb break="no"/>stra Castellana: Y ansi es mi parecer que V. Alteza podra hazer a su <lb/>autor la merced que pide. Dada en este Conuento de nuestra Señora <lb/>del Carmen desta villa de Madrid en veynte dias del mes de Octu-<lb break="no"/>bre de 1590 años. <lb/>Fray Pedro <lb/>de Padilla. <lb/>A PHI-</p>
+                        </div>
+                        <pb/>
+                        <div type="dedication">
+                        <head> <lb/>A PHILIPPO SEGVNDO DESTE <lb/>Nombre. Monarcha primero de las Españas, è <lb/>Indias, Oriental, y Occidental.</head>
+                            <lg type="sonnet">
+                                <lg type="cuarteto">
+                                        <l><lb/>EL Soberano autor de lo criado</l>
+                                        <l><lb/>En vuestro pecho vna alma ha infundido</l>
+                                        <l><lb/>Qual el latuuo de antes escogido</l>
+                                        <l><lb/>Por quien su querer fuesse executado:</l>
+                                    </lg>
+                                    <lg type="cuarteto">
+                                        <l><lb/>Ansi Señor andays siempre ocupado</l>
+                                        <l><lb/>En amparar la Fe que la han corrido</l>
+                                        <l><lb/>De mil partes, y vos la haueys tenido</l>
+                                        <l><lb/>En pie, sin della vn point hauer faltado:</l>
+                                    </lg>
+                                        <lg type="terceto">
+                                        <l><lb/>El mundo claro vè lo que se os deue,</l>
+                                        <l><lb/>Mas tambien vê que no puede pagaros</l>
+                                        <l><lb/>Ny con se os dar, o mas si mas pudiesse:</l>
+                                    </lg>
+                                        <lg type="terceto">
+                                        <l><lb/>Ansi sale detino el que se atreue</l>
+                                        <l><lb/>Querer de vos tratar por mas honraros,</l>
+                                        <l><lb/>Si no es que altar, o encienço os offresciesse.</l>
+                                        </lg>
+                                        </lg>
+                        <div type="poem">
+                        <head><lb/>Al mismo.</head>
+                                <lg type="sonnet">
+                                        <l><lb/>HAuiendo la experiencia bien mostrado</l>
+                                        <l><lb/>Y la que con mil lenguas lo pregona</l>
+                                        <l><lb/>El augmento que a tu Real corona</l>
+                                        <l><lb/>Es por industria mia acumulado:</l>
+                                        <l><lb/>Viendo</l>
+                                </lg>
+                                <pb/><lg type= "cuarteto">
+                                        <l><lb/>Viendo tambien el robo denodado</l>
+                                        <l><lb/>De la que a cosa biua no perdona</l>
+                                        <l><lb/>Y que los dias passan ya de nona</l>
+                                        <l><lb/>En ambos, sin me ver remunerado.</l>
+                                </lg>
+                                <lg type="terceto">
+                                        <l><lb/>No scè como poder auenturarme</l>
+                                        <l><lb/>En otras muchas cosas que he traydo</l>
+                                        <l><lb/>Sin que se aya acudido a lo primero</l>
+                                </lg>
+                                <lg type="terceto">
+                                        <l><lb/>Mas ya veo que quieres alentarme</l>
+                                        <l><lb/>Haziendo me merced de lo pedido</l>
+                                        <l><lb/>Que es facil y sin daño de tercero.</l>
+                                </lg>
+                                </div>
+                                <div type="poem">
+                                    <head><lb/>Soneto De Diego de Aguilar.</head>
+                                        <lg type="sonnet">
+                                        <lg type="cuarteto">
+                                            <l><lb/>GArça en el alto Olympo remontada,</l>
+                                            <l><lb/>Cuyo nido de lauro se guarnesce</l>
+                                            <l><lb/>A quien su dulce lyra Apollo offresce</l>
+                                            <l><lb/>Por verla, y con razon mas celebrada:</l>
+                                        </lg>
+                                        <lg type="cuarteto">
+                                            <l><lb/>Honor, y lustre de la patria amada</l>
+                                            <l><lb/>Por quien tanto el de Lusos engrandesce</l>
+                                            <l><lb/>Que del claro Meletes escuresce</l>
+                                            <l><lb/>La dichosa corriente de susada.</l>
+                                        </lg>
+                                        <lg type="terceto">
+                                            <l><lb/>çi mi rustica tuba no os offende</l>
+                                            <l><lb/>Rara serà de oy mas pues que celebra</l>
+                                            <l><lb/>De vuestra Musa el admirable Canto:</l>
+                                        </lg>
+                                        <lg type="terceto">
+                                            <l><lb/>Y do el famoso Mincio el braço tiende</l>
+                                            <l><lb/>Hasta donde el Caistro el hilo quiebra</l>
+                                            <l><lb/>Vuestro nombre pondra terror y espanto.</l>
+                                        </lg>
+                                        </lg>
+                                <fw type="catchwords"><lb/>Respuesta</fw>
+                                </div>
+                                    <pb/>
+                                <div type="poem">
+                                    <head><lb/>Respuesta.</head>
+                                    <lg type="sonnet">
+                                        <lg type="cuarteto">
+                                            <l><lb/>A Garça tan sin orden desmandada</l>
+                                            <l><lb/>Faltar no puede lo que bien meresce,</l>
+                                            <l><lb/>Mas l'Aguila Real que os ennoblesce</l>
+                                            <l><lb/>Acude a serle guia en tal jornada:</l>
+                                        </lg>
+                                        <lg type="cuarteto">
+                                            <l><lb/>Y aun por mas regalarle de passada</l>
+                                            <l><lb/>Le muestra las dos lyras con que cresce</l>
+                                            <l><lb/>De Smyrna, y Mantua el nombre, y l'enriquesce</l>
+                                            <l><lb/>De la quen Phrygia fue mal prouocada.</l>
+                                        </lg>
+                                        <lg type="terceto">
+                                            <l><lb/>Y pues a sombra della el aire hiende</l>
+                                            <l><lb/>Colgada de vna corta y debil hebra</l>
+                                            <l><lb/>Procurad que la aliente tanto, o quanto:</l>
+                                        </lg>
+                                        <lg type="terceto">
+                                            <l><lb/>Mirad que si vna vez el hilo quiebra,</l>
+                                            <l><lb/>No ay ñudo, o empalmadura que lo emmiende</l>
+                                            <l><lb/>No buelua el alto buelo en triste llanto.</l>
+                                        </lg>
+                                    </lg>
+                                </div>
+                                <p><lb/>FIN.</p>
+                                <fw type="catchwords"><lb/>LOS LV-</fw>
+                                <pb/> 
+                                <div type="canto" n="1">
+                                        <head>
+                                            <lb/>LOS LVSIADAS
+                                            <lb/>DE LVYS DE CAMOES,
+                                            <lb/>acomodados a la lengua Castella-<lb break="no"/>na por Henrique Garces.
+                                            <lb/>CANTO PRIMERO.
+                                        </head>
+
+                                        <lg type="estrofe" n="1">
+                                            <l><lb/>LAS Armas y varones señalados</l>
+                                            <l><lb/>de l'Occidental playa Lusitana,</l>
+                                            <l><lb/>que por los mares nunca nauegados</l>
+                                            <l><lb/>pasaron mas allà de Taprobana:</l>
+                                            <l><lb/>En peligros y guerras esforçados</l>
+                                            <l><lb/>mas q̃ prometer puede fuerça huma-<lb break="no"/>(na,</l>
+                                            <l><lb/>determino esparzir en toda parte</l>
+                                            <l><lb/>si a tanto me ayudare ingenio y arte.</l>
+                                        </lg>
+
+                                        <lg type="estrofe" n="2">
+                                            <l><lb/>Y abueltas las memorias gloriosas</l>
+                                            <l><lb/>de aquellos Reyes que yuan dilatando</l>
+                                            <l><lb/>imperio y Fè, y las tierras populosas</l>
+                                            <l><lb/>de l'Africa, y de l'Asia deuastando:</l>
+                                            <l><lb/>Y aquellos que por obras valerosas</l>
+                                            <l><lb/>se van de oluido eterno libertando,</l>
+                                            <l><lb/>y entre remotas gentes conquistaron</l>
+                                            <l><lb/>insignes Reynos que los sublimaron.</l>
+                                        </lg>
+
+                                        <fw type="sig"><lb/>Gessen</fw>
+                                        <fw type="signature"><lb/>A</fw>
+
+                                        <pb/>
+                                        <fw type="header"><lb/>Canto primero de los</fw>
+
+                                        <lg type="estrofe" n="3">
+                                            <l><lb/>Cessen del sabio Griego, y del Troyano</l>
+                                            <l><lb/>las peregrinaciones que hizieron,</l>
+                                            <l><lb/>calle del Macedoniò, y de Traiano</l>
+                                            <l><lb/>la fama las victorias que tuuieron:</l>
+                                            <l><lb/>Quel pecho illustre canto Lusitano</l>
+                                            <l><lb/>a quien Neptuno, y Marte se rindieron,</l>
+                                            <l><lb/>cesse quanto la musa antigua canta</l>
+                                            <l><lb/>que otro valor mas alto se leuanta.</l>
+                                        </lg>
+
+                                        <lg type="estrofe" n="4">
+                                            <l><lb/>Y vos Tagides mias que criado</l>
+                                            <l><lb/>vn nueuo ingenio en mi teneis ardiente,</l>
+                                            <l><lb/>pues vuestro Rio fue por mi cantado,</l>
+                                            <l><lb/>aunquen humilde verso alegremente:</l>
+                                            <l><lb/>Dad me vn son alto agora è sublimado</l>
+                                            <l><lb/>y vn estylo grandiloco y corriente,</l>
+                                            <l><lb/>de suerte quen dulçura Phebo ordene</l>
+                                            <l><lb/>que no tengais embidia a Hippocrene.</l>
+                                        </lg>
+
+                                        <lg type="estrofe" n="5">
+                                            <l><lb/>Dad me vna furia grande y sonorosa</l>
+                                            <l><lb/>no de çampoña aggreste, o flauta ruda:</l>
+                                            <l><lb/>mas de tuba canora bellicosa,</l>
+                                            <l><lb/>que aqui enciende el color, ally le muda,</l>
+                                            <l><lb/>Ygual canto me dad a la famosa</l>
+                                            <l><lb/>gente vuestra que a Marte tanto ayuda,</l>
+                                            <l><lb/>para que suene en todo el vniuerso</l>
+                                            <l><lb/>si tan alta materia cabe en verso,</l>
+                                        </lg>
+
+                                        <fw type="catchwords"><lb/>Y vos</fw>
+
+                                        <pb/>
+                                            <fw type="header"><lb/>Lusiades de Camoẽs.</fw>
+
+                                            <lg type="estrofe" n="6">
+                                                <l><lb/>Y vos o bien nascida confiança</l>
+                                                <l><lb/>de la libertad alta Lusitana,</l>
+                                                <l><lb/>y no menos certissima sperança</l>
+                                                <l><lb/>de augmento de la chica grey Christiana:</l>
+                                                <l><lb/>Terror nueuo, y fatal contra la lança</l>
+                                                <l><lb/>ligera, de la gente Mauritana:</l>
+                                                <l><lb/>dado de Dios acâ para que mande</l>
+                                                <l><lb/>al mundo, y del le atraya parte grande.</l>
+                                            </lg>
+
+                                            <lg type="estrofe" n="7">
+                                                <l><lb/>Vos tierno y nueuo ramo floresciente</l>
+                                                <l><lb/>de vna planta de Christo mas amada,</l>
+                                                <l><lb/>que otra alguna de todo el occidente</l>
+                                                <l><lb/>Cesarea o Christianissima llamada:</l>
+                                                <l><lb/>Lo qual prucua el escudo que presente</l>
+                                                <l><lb/>os muestra la victoria tan mentada,</l>
+                                                <l><lb/>en la qual por blason os ha dexado</l>
+                                                <l><lb/>las armas quen la Cruz hauia tomado.</l>
+                                            </lg>
+
+                                            <lg type="estrofe" n="8">
+                                                <l><lb/>Vos poderoso Rey cuyo alto imperio</l>
+                                                <l><lb/>el gran planeta ve luego en saliendo,</l>
+                                                <l><lb/>y del medio tambien del hemispherio,</l>
+                                                <l><lb/>y al cabo quando ya se va escondiendo:</l>
+                                                <l><lb/>Vos a quien para affrenta è vituperio</l>
+                                                <l><lb/>del Esmaelita estamos atendiendo,</l>
+                                                <l><lb/>y para yugo y freno de la gente</l>
+                                                <l><lb/>que goza del Iordan y su corriente.</l>
+                                            </lg>
+
+                                            <fw type="signature"><lb/>A2</fw>
+                                            <fw type="catchwords"><lb/>Algun</fw>
+
+                                            <pb/>
+                                            <fw type="header"><lb/>Canto primero de los</fw>
+
+                                            <lg type="estrofe" n="9">
+                                                <l><lb/>Algun tanto inclinad del rostro tierno</l>
+                                                <l><lb/>la magestad que desde aqui contemplo,</l>
+                                                <l><lb/>que ya clara se vè (si bien discierno)</l>
+                                                <l><lb/>la que terneis en el Sydereo templo:</l>
+                                                <l><lb/>Dexad vn rato el peso del gouierno</l>
+                                                <l><lb/>y podreis aqui ver vn nueuo exemplo</l>
+                                                <l><lb/>de amor y d'hechos patrios valerosos</l>
+                                                <l><lb/>en versos decantado numerosos.</l>
+                                            </lg>
+
+                                            <lg type="estrofe" n="10">
+                                                <l><lb/>De la patria el amor vereis mouido</l>
+                                                <l><lb/>no de vil premio, mas de quasi eterno,</l>
+                                                <l><lb/>que no es vil premio ser yo conoscido</l>
+                                                <l><lb/>por trompeta del nido mio paterno:</l>
+                                                <l><lb/>Oyd vereis el nombre engrandescido</l>
+                                                <l><lb/>de aquellos de quien sois señor superno,</l>
+                                                <l><lb/>y juzgareis qual es mas excelente</l>
+                                                <l><lb/>o ser del mundo Rey, o de tal gente.</l>
+                                            </lg>
+
+                                            <lg type="estrofe" n="11">
+                                                <l><lb/>Oyd y entendereis que no de hazañas</l>
+                                                <l><lb/>fantasticas, fingidas mentirosas,</l>
+                                                <l><lb/>loan los vuestros, como las estrañas</l>
+                                                <l><lb/>musas, dengrandescerse desseosas:</l>
+                                                <l><lb/>Las vuestras verdaderas son tamañas</l>
+                                                <l><lb/>que exceden las soñadas fabulosas,</l>
+                                                <l><lb/>del brauo Rhodomonte, y de Rugiero,</l>
+                                                <l><lb/>y de Orlando aunque fuera verdadero.</l>
+                                            </lg>
+
+                                            <fw type="catchwords"><lb/>Qué</fw>
+
+                                            <pb/>
+                                            <fw type="header"><lb/>Lusiades de Camoẽs.</fw>
+
+                                            <lg type="estrofe" n="12">
+                                                <l><lb/>Que por estos darè a vn Nuño fiero</l>
+                                                <l><lb/>que al Rey, y al reyno ha hecho gran seruicio,</l>
+                                                <l><lb/>y un Egas, y un don Fuas que de Homero</l>
+                                                <l><lb/>solo por el la citara cobdicio:</l>
+                                                <l><lb/>Pues por los doze pares dar os quiero</l>
+                                                <l><lb/>los doze de Inglaterra con Magricio,</l>
+                                                <l><lb/>y a bueltas podéis ver tambien vn Gama,</l>
+                                                <l><lb/>que al pio Eneas priua de su fama.</l>
+                                            </lg>
+
+                                            <lg type="estrofe" n="13">
+                                                <l><lb/>Y si de Carlos Magno verpresente,</l>
+                                                <l><lb/>o del Cesar quereis igual memoria,</l>
+                                                <l><lb/>al primo Alfonso os doy, cuya excelente</l>
+                                                <l><lb/>lança, ha dexado atras toda otra gloria:</l>
+                                                <l><lb/>Y aquel que assegurò su amada gente,</l>
+                                                <l><lb/>con la sublime y prospera victoria:</l>
+                                                <l><lb/>y al outro Iuan que fue tras el primero,</l>
+                                                <l><lb/>y al quinto, y quarto Alfonsos, y al tercero.</l>
+                                            </lg>
+
+                                            <lg type="estrofe" n="14">
+                                                <l><lb/>Ny justo es que se queden en oluido</l>
+                                                <l><lb/>aquellos que en los Reynos de l'Aurora,</l>
+                                                <l><lb/>sus nombres con las armas han subido</l>
+                                                <l><lb/>vuestra vandera haziendo vencedora:</l>
+                                                <l><lb/>Vn Pacheco fortissimo y temido</l>
+                                                <l><lb/>y los Almeidas, que oy el Tajo llora,</l>
+                                                <l><lb/>y vn terrible Albuquerque, y Castro el fuerte</l>
+                                                <l><lb/>en quien poco poder tuuo la muerte.</l>
+                                            </lg>
+
+                                            <fw type="signature"><lb/>A</fw>
+                                            <fw type="catchwords"><lb/>Y mien</fw>
+
+                                            <pb/>
+                                            <fw type="header"><lb/>Canto primero de los</fw>
+
+                                            <lg type="estrofe" n="15">
+                                                <l><lb/>Y mientras destos canto (que no oso</l>
+                                                <l><lb/>de vos sublime Rey, ny valgo tanto)</l>
+                                                <l><lb/>tomad la rienda al Reyno venturoso</l>
+                                                <l><lb/>dareis materia a nunca oydo canto:</l>
+                                                <l><lb/>Comiencen a sentir el bellicoso</l>
+                                                <l><lb/>peso (que al mundo todo cause espanto)</l>
+                                                <l><lb/>de exercitos y hazañas singulares</l>
+                                                <l><lb/>las Orientales tierras, y sus mares.</l>
+                                            </lg>
+
+                                            <lg type="estrofe" n="16">
+                                                <l><lb/>En vos los ojos tiene el moro frio</l>
+                                                <l><lb/>en quien su sin ya vee figurado:</l>
+                                                <l><lb/>el barbaro idolatra pierde el brío</l>
+                                                <l><lb/>mostrando al yugo el cuello ya inclinado:</l>
+                                                <l><lb/>Thetis todo el ceruleo señorio</l>
+                                                <l><lb/>os tiene para dote aparejado</l>
+                                                <l><lb/>que enamorada desse rostro tierno</l>
+                                                <l><lb/>os dessea y pretende para yerno.</l>
+                                            </lg>
+
+                                            <lg type="estrofe" n="17">
+                                                <l><lb/>En vos al biuo veo retratadas</l>
+                                                <l><lb/>é infusas, las dos almas venturosas,</l>
+                                                <l><lb/>de dos abuelos vuestros, celebradas</l>
+                                                <l><lb/>en paz vna, otra en guerras sanguinosas:</l>
+                                                <l><lb/>Que ver por vos esperan renouadas</l>
+                                                <l><lb/>sus obras y memorias hazañolas,</l>
+                                                <l><lb/>y aun veo deser aca junto a su lado</l>
+                                                <l><lb/>el buen lugar que os han aparejado.</l>
+                                            </lg>
+
+                                            <fw type="catchwords"><lb/>Mai</fw>
+
+                                            <pb/>
+                                            <fw type="header"><lb/>Lusiades de Camoẽs.</fw>
+
+                                            <lg type="estrofe" n="18">
+                                                <l><lb/>Mas mientras passa aqueste tiempo lento</l>
+                                                <l><lb/>de los pueblos regir, que lo dessean,</l>
+                                                <l><lb/>fauoresced al nueuo atreuimiento</l>
+                                                <l><lb/>de suerte que estos versos vuestros lean:</l>
+                                                <l><lb/>Vereis hender la mar con ardimiento</l>
+                                                <l><lb/>los nueuos Argonautas como crean</l>
+                                                <l><lb/>que de vos vistos son nel mar ayrado</l>
+                                                <l><lb/>y acostumbraos ya ser inuocado.</l>
+                                            </lg>
+
+                                            <lg type="estrofe" n="19">
+                                                <l><lb/>Ya por el gran Oceano nauegauan</l>
+                                                <l><lb/>las inquietas ondas apartando,</l>
+                                                <l><lb/>los vientos blandamente respirauan</l>
+                                                <l><lb/>las velas de las naos todas hinchando:</l>
+                                                <l><lb/>Ya las mares despuma blanqueauan</l>
+                                                <l><lb/>ya las proas en fin iuan cortando</l>
+                                                <l><lb/>las cristalinas aguas consagradas</l>
+                                                <l><lb/>de Proteo y de sus Phocas habitadas.</l>
+                                            </lg>
+
+                                            <lg type="estrofe" n="20">
+                                                <l><lb/>Quando allá nelolympo luminoso,</l>
+                                                <l><lb/>do se consulta de la humana gente,</l>
+                                                <l><lb/>se juntan a concilio glorioso</l>
+                                                <l><lb/>los dioses sobre cosas del Oriente:</l>
+                                                <l><lb/>Pisando el cielo diaphano y hermoso</l>
+                                                <l><lb/>vienen por la via lactea junctamente</l>
+                                                <l><lb/>conuocados de parte del tonante</l>
+                                                <l><lb/>por el nieto gentil del viejo Atlante.</l>
+                                            </lg>
+
+                                            <fw type="catchwords"><lb/>De</fw>
+
+                                            <pb/>
+                                            <fw type="header"><lb/>Canto primero de los</fw>
+
+                                            <lg type="estrofe" n="21">
+                                                <l><lb/>De sus orbes dexando el regimiento</l>
+                                                <l><lb/>que del poder supremo les fue dado,</l>
+                                                <l><lb/>poder que solo con el pensamiento</l>
+                                                <l><lb/>rige y sostiene todo lo criado:</l>
+                                                <l><lb/>Ally juntos se hallaron al momento</l>
+                                                <l><lb/>los del Austro, y los del Arcturo elado,</l>
+                                                <l><lb/>y los que aquellas partes pueblan, donde</l>
+                                                <l><lb/>la rosea Aurora nasce, y el sol se asconde,</l>
+                                            </lg>
+
+                                            <lg type="estrofe" n="22">
+                                                <l><lb/>De los dioses el padre muy clemente</l>
+                                                <l><lb/>desarmado del rayo de Vulcano,</l>
+                                                <l><lb/>en assiento destrellas refulgente,</l>
+                                                <l><lb/>estaua con vn ayre soberano:</l>
+                                                <l><lb/>Vn no scè que en el rostro tan decente</l>
+                                                <l><lb/>que no puede explicar lo ingenio humano,</l>
+                                                <l><lb/>con sceptro, y con corona rutilante</l>
+                                                <l><lb/>de otra mas clara piedra que diamante.</l>
+                                            </lg>
+
+                                            <lg type="estrofe" n="23">
+                                                <l><lb/>En lucidos assientos variados</l>
+                                                <l><lb/>con oro y perlas, mas abaxo estauan</l>
+                                                <l><lb/>los otros dioses todos assentados</l>
+                                                <l><lb/>segun sus dignidades demandauan:</l>
+                                                <l><lb/>Preceden los antiguos mas honrados,</l>
+                                                <l><lb/>tras ellos los menores se aconchauan,</l>
+                                                <l><lb/>los rostros hazia Iupiter boluiendo,</l>
+                                                <l><lb/>y el comiença en boz graue ansi diziendo.</l>
+                                            </lg>
+
+                                            <fw type="catchwords"><lb/>Eterno,</fw>
+
+                                            <pb/>
+                                            <fw type="header"><lb/>Lusiadas de Camoẽs.</fw>
+
+                                            <lg type="estrofe" n="24">
+                                                <l><lb/>Eternos moradores del assiento</l>
+                                                <l><lb/>stellifero que aqui sois ayuntados,</l>
+                                                <l><lb/>si recorreis en vuestro pensamiento</l>
+                                                <l><lb/>los antiguos decretos de los Hados:</l>
+                                                <l><lb/>Hallareis que tuuieron siempre intento</l>
+                                                <l><lb/>de a los de Luso hazer tan sublimados,</l>
+                                                <l><lb/>que con sus hechos nueuos, mas que humanos</l>
+                                                <l><lb/>se oluiden Persas, Griegos, y Romanos:</l>
+                                            </lg>
+
+                                            <lg type="estrofe" n="25">
+                                                <l><lb/>Y a les fue (bien lo vistes) concedido</l>
+                                                <l><lb/>con tan senzillas fuerças poner freno</l>
+                                                <l><lb/>al fuerte Mauro assàs apercebido</l>
+                                                <l><lb/>è priuarle del rico Tajo ameno:</l>
+                                                <l><lb/>Y aun contra su vezino tan temido</l>
+                                                <l><lb/>se le ha mostrado el hado muy sereno</l>
+                                                <l><lb/>ansi que siempre con famosa gloria</l>
+                                                <l><lb/>diez mil tropheos colgaron de victoria.</l>
+                                            </lg>
+
+                                            <lg type="estrofe" n="26">
+                                                <l><lb/>Y para que del todo no prosiga</l>
+                                                <l><lb/>dexo de referir lo que alcançaron</l>
+                                                <l><lb/>debaxo de Viriato, en la enemiga</l>
+                                                <l><lb/>con Roma donde tanto se estremarom</l>
+                                                <l><lb/>Y lo otro, que no menos los obliga</l>
+                                                <l><lb/>a grande nombre, quando leuantaron</l>
+                                                <l><lb/>a uno por capitan, que de ladino</l>
+                                                <l><lb/>fingiò en la cierua spiritu diuino.</l>
+                                            </lg>
+
+                                            <fw type="signature"><lb/>A 5</fw>
+                                            <fw type="catchwords"><lb/>Agora</fw>
+
+                                            <pb/>
+                                            <fw type="header"><lb/>Canto primero de los</fw>
+
+                                            <lg type="estrofe" n="27">
+                                                <l><lb/>Agora tambien veis que acometiendo</l>
+                                                <l><lb/>el mar incierto como cosa leue,</l>
+                                                <l><lb/>por vias nunca vsadas, no temiendo</l>
+                                                <l><lb/>de los vientos la fuerça, a mas se atreue:</l>
+                                                <l><lb/>Que mucho antes de agora visto hauiendo</l>
+                                                <l><lb/>donde es el dia mas largo, yadó es mas breue,</l>
+                                                <l><lb/>proponen descubrir con gran porfia</l>
+                                                <l><lb/>las cunas mismas donde nasce el dia.</l>
+                                            </lg>
+
+                                            <lg type="estrofe" n="28">
+                                                <l><lb/>Prometido les es del hado eterno,</l>
+                                                <l><lb/>cuya alta ley no puede ser quebrada,</l>
+                                                <l><lb/>que tengan largos tiempos el gouierno</l>
+                                                <l><lb/>del mar que ve del sol la roxa entrada:</l>
+                                                <l><lb/>Passado han en la mar el duro hiuierno,</l>
+                                                <l><lb/>la gente va perdida y fatigada,</l>
+                                                <l><lb/>ansi paresce justo que les sean</l>
+                                                <l><lb/>mostradas ya las tierras que dessean.</l>
+                                            </lg>
+
+                                            <lg type="estrofe" n="29">
+                                                <l><lb/>Y pues tantos peligros son passados</l>
+                                                <l><lb/>por ellos, de que todos sois testigos,</l>
+                                                <l><lb/>tantos cielos è climas destemplados,</l>
+                                                <l><lb/>tanto furor de vientos enemigos:</l>
+                                                <l><lb/>Determino que sean hospedados</l>
+                                                <l><lb/>en l'Africana costa como amigos,</l>
+                                                <l><lb/>luego en reparando ally la flota</l>
+                                                <l><lb/>continuen y prosigan su derrota.</l>
+                                            </lg>
+
+                                            <fw type="catchwords"><lb/>Ansi</fw>
+
+                                            <pb/>
+                                            <fw type="header"><lb/>Lusiadas de Camoẽs.</fw>
+
+                                            <lg type="estrofe" n="30">
+                                                <l><lb/>Ansi dezia quando respondiendo</l>
+                                                <l><lb/>los dioses cada qual dellos seguia</l>
+                                                <l><lb/>sus proprios paresceres refiriendo</l>
+                                                <l><lb/>con toda reuerencia y cortesia:</l>
+                                                <l><lb/>Solo Baccho se oppone, conosciendo</l>
+                                                <l><lb/>el daño manifiesto que corria</l>
+                                                <l><lb/>de se oluidar sus hechos en Oriente</l>
+                                                <l><lb/>passando allâ la Lusitana gente.</l>
+                                            </lg>
+
+                                            <lg type="estrofe" n="31">
+                                                <l><lb/>Oydo hauia a los Hados que saldria</l>
+                                                <l><lb/>vna gente fortissima de España</l>
+                                                <l><lb/>por la mar alta, y que conquistaria</l>
+                                                <l><lb/>en l'India, todo quanto Doris baña:</l>
+                                                <l><lb/>Y con nuevas hazañas venceria</l>
+                                                <l><lb/>l'antigua fama, o suya, o fuesse estraña:</l>
+                                                <l><lb/>siente en estremo verse sin la gloria</l>
+                                                <l><lb/>de que aun celebran Nysios la memoria.</l>
+                                            </lg>
+
+                                            <lg type="estrofe" n="32">
+                                                <l><lb/>Y ve que hauia del Indo ya triumfado,</l>
+                                                <l><lb/>sin que fortuna alguna, o nueuo caso</l>
+                                                <l><lb/>le pudiesse impedir ser decantado</l>
+                                                <l><lb/>de quantos beuen agua del Parnaso:</l>
+                                                <l><lb/>Agora teme no sea sepultado</l>
+                                                <l><lb/>su tan celebre nombre en negro vaso:</l>
+                                                <l><lb/>del agua del oluido, si allá llegan</l>
+                                                <l><lb/>los fuertes Portugueses que nauegan.</l>
+                                            </lg>
+
+                                            <fw type="catchwords"><lb/>Por</fw>
+
+                                            <pb/>
+                                            <fw type="header"><lb/>Canto primero de los</fw>
+
+                                            <lg type="estrofe" n="33">
+                                                <l><lb/>Por la contraria parte se mouia</l>
+                                                <l><lb/>inclina da a la gente Lusitana</l>
+                                                <l><lb/>la linda Venus, porque en ella via</l>
+                                                <l><lb/>correspondencia en todo a la Romana:</l>
+                                                <l><lb/>Y mucho mas en ver como tenia</l>
+                                                <l><lb/>a raya la enemiga Tingitana:</l>
+                                                <l><lb/>y aun la lengua le ayuda que imagina</l>
+                                                <l><lb/>oyendo hablarla que oyè la Latina.</l>
+                                            </lg>
+
+                                            <lg type="estrofe" n="34">
+                                                <l><lb/>Esto es lo que ha mouido a Cytherea,</l>
+                                                <l><lb/>y lo que de los hados claro entiende,</l>
+                                                <l><lb/>que celebre ha de ser como dessea</l>
+                                                <l><lb/>en todo lo de aquende, y lo de allende:</l>
+                                                <l><lb/>Ansi Baccho temiendo cosa fea,</l>
+                                                <l><lb/>y Venus por las honras que pretende,</l>
+                                                <l><lb/>debaten, y en porfia permanescen</l>
+                                                <l><lb/>a entrambos sus amigos fauorescen.</l>
+                                            </lg>
+
+                                            <lg type="estrofe" n="35">
+                                                <l><lb/>Qual Boreas fiero, o Austro en espessura</l>
+                                                <l><lb/>de Syluestre arboleda bastescida,</l>
+                                                <l><lb/>que rompiendo los ramos de la escura</l>
+                                                <l><lb/>Selua, con su braueza desmedida:</l>
+                                                <l><lb/>Resuena la montaña, el sol murmura,</l>
+                                                <l><lb/>y tanto mas quanto ella es mas subida:</l>
+                                                <l><lb/>vn tal murmurio andaua alborotado</l>
+                                                <l><lb/>entre los mismos dioses levantado.</l>
+                                            </lg>
+
+                                            <fw type="catchwords"><lb/>Marte</fw>
+
+                                            <pb/>
+                                            <fw type="header"><lb/>Lusiadas da Camoẽs.</fw>
+
+                                            <lg type="estrofe" n="36">
+                                                <l><lb/>Marte que de la diosa sustentaua</l>
+                                                <l><lb/>entre todos la parte con porfía,</l>
+                                                <l><lb/>o porque amor antiguo le obligaua,</l>
+                                                <l><lb/>o viendo la justicia que tenia:</l>
+                                                <l><lb/>Con furia del escaño adonde estaua</l>
+                                                <l><lb/>se alçò, y el fuerte escudo que traia</l>
+                                                <l><lb/>al cuello, a las espaldas lo ha echado</l>
+                                                <l><lb/>con vn semblante fiero y denodado.</l>
+                                            </lg>
+
+                                            <lg type="estrofe" n="37">
+                                                <l><lb/>Y la visera alçando de diamante</l>
+                                                <l><lb/>del yelmo, que era tal por ser mas duro,</l>
+                                                <l><lb/>se hizo quatro passos adelante</l>
+                                                <l><lb/>como quien iua armado y bien seguro:</l>
+                                                <l><lb/>Y vn golpe dyo tan grande y resonante</l>
+                                                <l><lb/>con el cuento en el suelo (cristal puro)</l>
+                                                <l><lb/>que temblò todo el cielo, y del espanto</l>
+                                                <l><lb/>perdio Phebo el color por algun tanto.</l>
+                                            </lg>
+
+                                            <lg type="estrofe" n="38">
+                                                <l><lb/>Y dixo: Summo padre a cuyo imperio</l>
+                                                <l><lb/>todo aquello obedesce que criaste,</l>
+                                                <l><lb/>si esta gente que busca otro hemispherio</l>
+                                                <l><lb/>(cuyas hazañas y hechos tanto amaste:)</l>
+                                                <l><lb/>Pretendes no padezcan vituperio</l>
+                                                <l><lb/>(como entiendo que ha mucho lo ordenaste)</l>
+                                                <l><lb/>no deues escuchar con tan buen pecho</l>
+                                                <l><lb/>a quien no mira mas que a su prouecho.</l>
+                                            </lg>
+
+                                            <fw type="catchwords"><lb/>Que</fw>
+
+                                            <pb/>
+                                            <fw type="header"><lb/>Canto primero de los</fw>
+
+                                            <lg type="estrofe" n="39">
+                                                <l><lb/>Que si aqui la razon no se mostrasse</l>
+                                                <l><lb/>sometida al temor demasiado,</l>
+                                                <l><lb/>razon era que Baccho no negasse</l>
+                                                <l><lb/>fauor a los de Luso su priuado:</l>
+                                                <l><lb/>Però esta su porfia agora passe</l>
+                                                <l><lb/>quen fin ella es de estomago dañado</l>
+                                                <l><lb/>y parte no ha de ser embidia agena</l>
+                                                <l><lb/>para impedir, lo quel gran hado ordena.</l>
+                                            </lg>
+
+                                            <lg type="estrofe" n="40">
+                                                <l><lb/>Y tu padre de immensa fortaleza</l>
+                                                <l><lb/>de lo que hazer en esto has acordado,</l>
+                                                <l><lb/>no has de boluer atras, ques gran flaqueza</l>
+                                                <l><lb/>dexar de proseguir lo començado:</l>
+                                                <l><lb/>Y pues Mercurio excede en ligereza</l>
+                                                <l><lb/>al viento, sea luego despachado</l>
+                                                <l><lb/>a mostrarles la tierra a dò se informen,</l>
+                                                <l><lb/>y del passado daño se reformen.</l>
+                                            </lg>
+
+                                            <lg type="estrofe" n="41">
+                                                <l><lb/>El padre ethereo como muy piadoso</l>
+                                                <l><lb/>la cabeça inclinó, claro mostrando</l>
+                                                <l><lb/>quel parescer de Marte bellicoso</l>
+                                                <l><lb/>era el mejor, en todo lo approuando:</l>
+                                                <l><lb/>Y dissuelto el concilio glorioso</l>
+                                                <l><lb/>la buelta a sus moradas iuandando,</l>
+                                                <l><lb/>teniendo al despedir sus cumplimientos,</l>
+                                                <l><lb/>y al cabo todos fueron muy contentos.</l>
+                                            </lg>
+                                            <fw type="catchwords"><lb/>En</fw>
+
+                                 </div>
+                                </div>
+                                </front>
+    </text>
+    </TEI> 

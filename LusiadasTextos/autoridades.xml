@@ -1,0 +1,828 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Autoridades da edição modernizada de Os Lusíadas</title>
+      </titleStmt>
+      <publicationStmt>
+        <p>Projeto Lusíadas Digital</p>
+      </publicationStmt>
+      <sourceDesc>
+        <p>Catálogo elaborado para a dissertação de Adriane Maria de Oliveira Queiroz.</p>
+      </sourceDesc>
+    </fileDesc>
+  </teiHeader>
+  <standOff>
+    <listPerson>
+      <!-- DIVINDADES (Mitos) -->
+      <person xml:id="jupiter" sameAs="https://www.wikidata.org/wiki/Q4649">
+        <persName>Júpiter</persName>
+        <note type="peixoto">Mit., pai dos deuses, ou dos dias, conforme se infere do exame do vocabulo; Jupiter-Amon, adorado rios areiais africanos ou líbicos (7.48); o planeta Jupiter (10.89):</note>
+        <note type="barreto"> Filho de Saturno e Opis, nacido em a Ilha de Creta juntamente com Juno de um parto, e criado em o monte Ida pelos Curetes, as escondidas de seu pay, perque polo pacto que com seu irmam Titam tinha feyto, comia todos os filhos: mas chegando ja a idade de mancebo, sabendo que seu pay lhe procurava
+a morte a traygcam, o lansou do Reyno, e repartio per sortes o imperio do mundo com seus irmaos Neptuno e Plutam, Coube lhe a elle o imperio do Ceo e da Terra, a Neptuno o do mar, e a Plutam dos Infernos; daqui contam os poetas um milheyro de fabulas; e fingem que elle faz os trovOes, e arroja os rayos, os quaes lhe fabricam em Sicilia os Gigantes / 229 / Cyclopes, ministros de
+Vulcano, per onde o nosso poeta em o C, 1, est. 22 diz </note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/2/25/0_Jupiter_-_Louvre_MR_254_-_Louvre-Lens_%282%29.JPG"/>
+        </note>
+      </person>
+      <person xml:id="venus" sameAs="https://www.wikidata.org/wiki/Q47652">
+        <persName>Vénus</persName>
+        <note type="peixoto">Venus, deusa da beleza e do amor, que protege os Portugueses, como na "Eneida" a Enéas, tronco dos latinos</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/6/68/Venus_Arles.jpg"/>
+        </note>
+      </person>
+      <person xml:id="baco" sameAs="https://www.wikidata.org/wiki/Q645312">
+        <persName>Baco</persName>
+        <note type="peixoto">Mitol., filho de Jupiter e de Semele, tambem chamada Tiône. Segundo a lenda, foi pai ou companheiro de Luso, ou Lisias, personagens fabulosos, que ligaram seus nomes á Lusitania:</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/9/96/Baco%2C_por_Caravaggio.jpg"/>
+        </note>
+      </person>
+      <person xml:id="marte" sameAs="https://www.wikidata.org/wiki/Q112">
+        <persName>Marte</persName>
+        <note type="peixoto">fabuloso deus da guerra</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/6/68/Berlin_-_Brandenburger_Tor_-_Mars_cropped.jpg"/>
+        </note>
+      </person>
+      <person xml:id="mercúrio" sameAs="https://www.wikidata.org/wiki/Q1150">
+        <persName>Mercúrio</persName>
+        <note type="peixoto">deus fabuloso, filho de Júpiter e de Maia, neto de Atlas ou Atlante</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/c/c2/Mercure_by_Augustin_Pajou.jpg"/>
+        </note>
+      </person>
+      <person xml:id="neptuno" sameAs="https://www.wikidata.org/wiki/Q3954">
+        <persName>Neptuno</persName>
+        <note type="peixoto">fabuloso deus do mar</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/5/5e/Neptune%2C_1er_si%C3%A8cle_apr%C3%A8s_J.-C.jpg"/>
+        </note>
+      </person>
+      <person xml:id="adamastor" sameAs="https://www.wikidata.org/wiki/Q2657005">
+        <persName>Adamastor</persName>
+        <note type="peixoto">Mit., um dos gigantes, filho da terra</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/9/96/Palace_Hotel_do_Bu%C3%A7aco_-_Azulejo.jpg"/>
+        </note>
+      </person>
+      <person xml:id="tetis" sameAs="https://www.wikidata.org/wiki/Q184216">
+        <persName>Tétis (Nereida)</persName>
+        <note type="peixoto">Thetis, deusa fabulosa do mar, filha do Céu e da Terra e que o Poeta confunde com uma neta do mesmo nome, filha de Doris e espôsa de Peleu (5.52) (J. M. Rodrigues)</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/5/50/Tethys_%28%C5%98eck%C3%A1_mytologie%29.jpg"/>
+        </note>
+      </person>
+      <person xml:id="musa" sameAs="https://www.wikidata.org/wiki/Q66016">
+        <persName>Musa</persName>
+        <note type="peixoto">ou Musas, filhas de Jupiter e de Memoria, inspiradoras dos artistas e sábios; a Poesia, a Inspiração.</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/8/8a/Jacopo_Tintoretto_-_The_Muses%2C_1578.jpg"/>
+        </note>
+      </person>
+      <person xml:id="tagides" sameAs="https://www.wikidata.org/wiki/Q10385807">
+        <persName>Tagides</persName>
+        <note type="peixoto">ninfas, filhas do Tejo (5.99), que o Poeta invoca para sua inspiração</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/2/2f/Cam%C3%B5es_e_as_T%C3%A1gides_%281894%29_-_Columbano_Bordalo_Pinheiro_%28Museu_Nacional_Gr%C3%A3o_Vasco%29.png"/>
+        </note>
+      </person>
+      <person xml:id="apolo" sameAs="https://www.wikidata.org/wiki/Q37340">
+        <persName>Apolo</persName>
+        <note type="peixoto">Mit., Sol ou Fébo, deus das artes</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/1/19/Apollo_of_the_Belvedere.jpg"/>
+        </note>
+      </person>
+      <person xml:id="rodamonte" sameAs="https://www.wikidata.org/wiki/Q1116690">
+        <persName>Rodamonte</persName>
+        <note type="peixoto">Rodomonte, personagem do “Orlando furioso”, de Ariosto</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/0/05/Buste_van_Rodomonte_Rodomonte_%28titel_op_object%29_Karakters_uit_%27Orlando_Furioso%27_%28serietitel%29%2C_RP-P-H-H-1418.jpg"/>
+        </note>
+      </person>
+      <person xml:id="rugeiro" sameAs="https://www.wikidata.org/wiki/Q1163476">
+        <persName>Rugeiro</persName>
+        <note type="peixoto">Rogerio, personagem do “Orlando furioso”, de Ariosto</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/9/93/Il_Valoroso_Ruggiero_%28Antonio_Tempesta%29.jpg"/>
+        </note>
+      </person>
+      <person xml:id="orlando" sameAs="https://www.wikidata.org/wiki/Q207535">
+        <persName>Orlando</persName>
+        <note type="peixoto">Orlando, ou Rolando, ou Roldão, cavalheiro andante, do ciclo de Carlos Magno, que inspirou muitos romances medievaes, e o poema de Ariosto</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/0/02/HB_2016-0607_photo03_Bremer_Roland.jpg"/>
+        </note>
+      </person>
+      <person xml:id="proteu" sameAs="https://www.wikidata.org/wiki/Q191481">
+        <persName>Próteo</persName>
+        <note type="peixoto">Próteo, Protêu, Proteio, fabuloso deus marinho, guardador de peixes e baleias, que possuia o dom da profecia e das metamorfoses:</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/1/1a/Proteus-Alciato.gif"/>
+        </note>
+      </person>
+      <person xml:id="atlante" sameAs="https://www.wikidata.org/wiki/Q130818">
+        <persName>Atlante</persName>
+        <note type="peixoto">Atlante, Mit., filho de Jupiter e avô de Mercurio. Foi conver- tido em cordilheira do Atlas ou Atlante</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/8/8c/MAN_Atlante_fronte_1040572.JPG"/>
+        </note>
+      </person>
+      <person xml:id="vulcano" sameAs="https://www.wikidata.org/wiki/Q4640">
+        <persName>Vulcano</persName>
+        <note type="peixoto">Vulcano, deus fabuloso, que fabricava os raios para o tonante Júpiter; marido da infiel Vênus</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/5/5f/Vulcan_by_Bertel_Thorvaldsen.jpg"/>
+        </note>
+      </person>
+      <person xml:id="romulo" sameAs="https://www.wikidata.org/wiki/Q2186">
+        <persName>Romulo</persName>
+        <note type="peixoto">Rómulo, fundador de Roma, com seu irmão Remo; os Romanos, gente de Rómulo</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/9/95/Brogi%2C_Carlo_%281850-1925%29_-_n._8226_-_Certosa_di_Pavia_-_Medaglione_sullo_zoccolo_della_facciata.jpg"/>
+        </note>
+      </person>
+      <person xml:id="africo" sameAs="https://www.wikidata.org/wiki/Q5733340">
+        <persName>Áfrico</persName>
+        <note type="peixoto">Africo, vento sudoéste:</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/f/fe/William-Adolphe_Bouguereau_%281825-1905%29_-_Flora_And_Zephyr_%281875%29.jpg"/>
+        </note>
+      </person>
+      <person xml:id="noto" sameAs="https://www.wikidata.org/wiki/Q903273">
+        <persName>Noto</persName>
+        <note type="peixoto">Noto (2), vento sul</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/7/75/VarsaviaPalazzo4VentiVento1.jpg"/>
+        </note>
+      </person>
+      <person xml:id="fado" sameAs="https://www.wikidata.org/wiki/Q61415823">
+        <persName>Fado</persName>
+        <note type="peixoto">Fado, destino, fatalidade</note>
+      </person>
+      <person xml:id="doris" sameAs="https://www.wikidata.org/wiki/Q726279">
+        <persName>Dóris</persName>
+        <note type="peixoto">Dóris, Mitol., filha do Oceano e de Tetis, mar:</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/e/e6/Sea_thiasos_Doris_Glyptothek_Munich_239_front_n2.jpg"/>
+        </note>
+      </person>
+      <person xml:id="fortuna" sameAs="https://www.wikidata.org/wiki/Q4654">
+        <persName>Fortuna</persName>
+        <note type="peixoto">Fortuna, o que sucede por acaso, sorte</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/f/f5/Charles_Samuel%2C_La_Fortune_%281894%29%2C_KBS-FRB_03.jpg"/>
+        </note>
+      </person>
+      <person xml:id="parcas" sameAs="https://www.wikidata.org/wiki/Q370547">
+        <persName>Parcas</persName>
+        <note type="peixoto">Parca, divindade fabulosa; eram tres, que teciam e cortavam o fio da vida</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/4/43/Bernardo_Strozzi_Le_tre_Parche.jpg"/>
+        </note>
+      </person>
+      <person xml:id="tifeu" sameAs="https://www.wikidata.org/wiki/Q180237">
+        <persName>Tifeu</persName>
+        <note type="peixoto">Tifeu, a, relativo a Tifêu, gigante fulminado por Júpiter; suas armas seriam os raios do Tonante</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/b/b6/Etruscan_mural_typhon2.jpg"/>
+        </note>
+      </person>
+      <person xml:id="faeton" sameAs="https://www.wikidata.org/wiki/Q203480">
+        <persName>Faeton</persName>
+        <note type="peixoto">Mit., filho do sol e de Climene</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/1/17/GustaveMoreau04.jpg"/>
+        </note>
+      </person>
+      <person xml:id="lampetusa" sameAs="https://www.wikidata.org/wiki/Q1638536">
+        <persName>Lampetusa</persName>
+        <note type="peixoto">Lampetusa, outra irmã de Faeton, que tambem lhe deplorou a morte, quando fulminado, porque mal guiára o carro paterno, do Sol:</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/c/cb/Santi_di_Tito_001.jpg"/>
+        </note>
+      </person>
+      <person xml:id="calisto" sameAs="https://www.wikidata.org/wiki/Q203673">
+        <persName>Calisto</persName>
+        <note type="peixoto">Calisto, outro nome da constelação dita Ursa Maior ou Carreta</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/d/db/%28Venice%29_Diana_and_Callisto_by_Sebastiano_Ricci_-_Gallerie_Accademia.jpg"/>
+        </note>
+      </person>
+      <person xml:id="aurora" sameAs="https://www.wikidata.org/wiki/Q178831">
+        <persName>Aurora</persName>
+        <note type="peixoto">Aurora, Mit., à deusa da manhã que abre ao sol as portas do Orienté, Oriente, antemanhã</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/f/fb/William-Adolphe_Bouguereau_%281825-1905%29_-_Dawn_%281881%29.jpg"/>
+        </note>
+      </person>
+      <person xml:id="hiperiao" sameAs="https://www.wikidata.org/wiki/Q179209">
+        <persName>Hiperiónio</persName>
+        <note type="peixoto">Hiperionio, Mit., o mesmo que Titáno, filho de Celo</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/0/0c/Hyperion_sculpture_02.jpg"/>
+        </note>
+      </person>
+      <person xml:id="anfitrite" sameAs="https://www.wikidata.org/wiki/Q180222">
+        <persName>Anfitrite</persName>
+        <note type="peixoto">Anfitrite, Mit., deusa do mar, espõôsa de Neptuno</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/0/0a/Amphitrite_Devaulx_cour_Carree_Louvre.jpg"/>
+        </note>
+      </person>
+      <person xml:id="nereu" sameAs="https://www.wikidata.org/wiki/Q189527">
+        <persName>Nereu</persName>
+        <note type="peixoto">Nereu, divindade maritima, marido de Doris, paes das Nereidas</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/f/f6/Museo_Delta_Antico_%28Comacchio%29_03_Eracle_e_Nereo.jpg"/>
+        </note>
+      </person>
+      <person xml:id="nereidas" sameAs="https://www.wikidata.org/wiki/Q54230">
+        <persName>Nereidas</persName>
+        <note type="peixoto">filhas de Nereu; divindade marinha</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/6/69/Sea_thiasos_Nereis_Glyptothek_Munich_239_front_n1.jpg"/>
+        </note>
+      </person>
+      <person xml:id="sinon" sameAs="https://www.wikidata.org/wiki/Q663792">
+        <persName>Sinon</persName>
+        <note type="peixoto">Sinon, guerreiro grego que persuadiu os Troianos de deixarem entrar na cidade o famoso caválo de pau, em cujo bôjo iam os mais fortes guerreiros Helenos:</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/b/bb/Pieter_Goddyn_-_The_Greek_Sinon_before_Priam.jpg"/>
+        </note>
+      </person>
+      <person xml:id="deus" sameAs="https://www.wikidata.org/wiki/Q825">
+        <persName>Deus</persName>
+        <note type="peixoto">principio supremo que as religiões consideram superior à natureza (Figueiredo)</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/e/ee/By_Dore%2C_Gustave%3B_La_Sainte_Trinite.jpg"/>
+        </note>
+      </person>
+      <!-- FIGURAS HISTÓRICAS -->
+      <person xml:id="v_gama" sameAs="http://www.wikidata.org/entity/Q7328">
+        <persName>Vasco da Gama</persName>
+        <note type="peixoto">nome próprio; Vasco da Gama, o almirante da primeira expedição ás Indias</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/2/2e/Ignoto_portoghese%2C_ritratto_di_un_cavaliere_dell%27ordine_di_cristo%2C_1525-50_ca._02.jpg"/>
+        </note>
+      </person>
+      <person xml:id="d_sebastiao" sameAs="https://www.wikidata.org/wiki/Q272899">
+        <persName>D. Sebastião I</persName>
+        <note type="peixoto">não há informações em Peixoto(1924)</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/c/cb/Sebasti%C3%A3o_de_Portugal%2C_c._1571-1574_-_Crist%C3%B3v%C3%A3o_de_Morais_%28Google_Art_Project%29.jpg"/>
+        </note>
+      </person>
+      <person xml:id="afonso_henriques" sameAs="https://www.wikidata.org/wiki/Q587697">
+        <persName>D. Afonso Henriques</persName>
+        <note type="peixoto">Afonso nome de vários reis portugueses e espanhões:</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/e/ee/D._Afonso_Henriques_-_The_Portuguese_Genealogy_%28Genealogia_dos_Reis_de_Portugal%29.png"/>
+        </note>
+      </person>
+      <person xml:id="nuno_alvares" sameAs="https://www.wikidata.org/wiki/Q374056">
+        <persName>Nuno Álvares Pereira</persName>
+        <note type="peixoto">nome próprio; aqui é Nuno Alvares Pereira, condestavel de D. João I</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/b/b2/S%C3%A3o_nun%27alvares_pereira.jpg"/>
+        </note>
+      </person>
+      <personGrp xml:id="reis_portugueses">
+        <persName> Reis de Portugal (Dinastias expansionistas)</persName>
+        <note source="#peixoto"> não há informações em Peixoto(1924) </note>
+        <linkGrp>
+          <ptr target="https://www.wikidata.org/wiki/Q587697"/>
+          <!-- Afonso Henriques -->
+          <ptr target="https://www.wikidata.org/wiki/Q201575"/>
+          <!-- João I -->
+          <ptr target="https://www.wikidata.org/wiki/Q191231"/>
+          <!-- Manuel I -->
+        </linkGrp>
+      </personGrp>
+      <person xml:id="ulisses" sameAs="https://www.wikidata.org/wiki/Q47231">
+        <persName>Ulisses</persName>
+        <note type="peixoto">Ulisses, heróe grego, fertil em discursos e manhas, que se diz fundou Lisbôa, Ulissipo, Ulisséa</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/d/d0/%28Venice%29_Ancient_Roman_statues_in_the_Museo_archeologico_nazionale_-_Ulysses.jpg"/>
+        </note>
+      </person>
+      <person xml:id="eneias" sameAs="https://www.wikidata.org/wiki/Q82732">
+        <persName>Eneias</persName>
+        <note type="peixoto">Enéas, principe troiano, filho de Anquises:</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/2/2f/B._PINELLI%2C_Enea_e_il_Tevere.jpg"/>
+        </note>
+      </person>
+      <person xml:id="alexandro" sameAs="https://www.wikidata.org/wiki/Q8409">
+        <persName>Alexandro Magno</persName>
+        <note type="peixoto">"Alexandre, filho de Filipe da Macedônia</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/8/84/Alexander_the_Great_mosaic_%28cropped%29.jpg"/>
+        </note>
+      </person>
+      <person xml:id="trajano" sameAs="https://www.wikidata.org/wiki/Q1425">
+        <persName>Trajano</persName>
+        <note type="peixoto">Trajano, imperador romano, que venceu os Dácios e Pérsas, e se aventurava mesmo ás Indias, o que não realizou</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/9/9d/Traianus_Glyptothek_Munich_336.jpg"/>
+        </note>
+      </person>
+      <person xml:id="jesus_cristo" sameAs="https://www.wikidata.org/wiki/Q302">
+        <persName>Jesus Cristo</persName>
+        <note type="peixoto">Cristo, para os catolicos é o fundador de sua religião:</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/3/3b/Spas_vsederzhitel_sinay_%28cropped1%29.jpg"/>
+        </note>
+      </person>
+      <person xml:id="egas" sameAs="https://www.wikidata.org/wiki/Q1296765">
+        <persName>Egas Moniz</persName>
+        <note type="peixoto">Egas, Egas Moniz</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/8/89/Unesco_World_Heritage_Site_-_Walking_around_Beautiful_Oporto_%2823240064254%29.jpg"/>
+        </note>
+      </person>
+      <person xml:id="d._fuas" sameAs="https://www.wikidata.org/wiki/Q10286138">
+        <persName>D. Fuas Roupinho</persName>
+        <note type="peixoto">Fuas, D. Fuas Roupinho, talvez o primeiro português que dirigiu uma batalha naval</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/d/da/Legend_of_Nazar%C3%A9_%285669344542%29.jpg"/>
+        </note>
+      </person>
+      <person xml:id="homero" sameAs="https://www.wikidata.org/wiki/Q6691">
+        <persName>Homero</persName>
+        <note type="peixoto">Homéro, o maior poéta da antiguidade, autor da Iliade e da Odisséa</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/3/3a/Homer_bust%2C_Farnese_collection_%28Naples%29.jpg"/>
+        </note>
+      </person>
+      <person xml:id="magriço" sameAs="https://www.wikidata.org/wiki/Q10395802">
+        <persName>Álvaro Gonçalves Coutinho (O Magriço)</persName>
+        <note source="#peixoto"> Magriço, cognome de Alvaro Gonçalves Coutinho, filho de Goncalo Vaz Coutinho, primeiro marechal de Portugal.</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/a/a7/%C3%81lvaro_Gon%C3%A7alves_Coutinho%2C_o_Magri%C3%A7o.png"/>
+        </note>
+      </person>
+      <personGrp xml:id="doze_inglaterra" sameAs="https://www.wikidata.org/wiki/Q3774650">
+        <persName>Os Doze de Inglaterra</persName>
+        <note source="#peixoto"> não há informações em Peixoto(1924)</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/e/e1/Magri%C3%A7o_-_Jorge_Cola%C3%A7o_%28Pal%C3%A1cio_Hotel_do_Bu%C3%A7aco%29.png"/>
+        </note>
+      </personGrp>
+      <person xml:id="carlos_magno" sameAs="http://www.wikidata.org/entity/Q3044">
+        <persName>Carlos Magno</persName>
+        <note source="#peixoto">Carlos Magno</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/d/d0/Charlemagne_Agostino_Cornacchini_Vatican_2.jpg"/>
+        </note>
+      </person>
+      <person xml:id="julio_cesar" sameAs="http://www.wikidata.org/entity/Q1048">
+        <persName>Júlio César</persName>
+        <note source="#peixoto">Cesar, Julio:</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/6/62/Retrato_de_Julio_C%C3%A9sar_%2826724093101%29_%28cropped%29.jpg"/>
+        </note>
+      </person>
+      <person xml:id="d_joao_i" sameAs="https://www.wikidata.org/wiki/Q201575">
+        <persName>D. João I</persName>
+        <note source="#peixoto">Joane, n. p., forma alatinada de João, D. João I, o Mestre de Aviz</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/5/54/Anoniem_-_Koning_Johan_I_van_Portugal_%281450-1500%29_-_Lissabon_Museu_Nacional_de_Arte_Antiga_19-10-2010_16-12-61.jpg"/>
+        </note>
+      </person>
+      <person xml:id="d_joao_ii" sameAs="https://www.wikidata.org/wiki/Q217637">
+        <persName>D. João II</persName>
+        <note source="#peixoto">não há informações em Peixoto(1924)</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/5/5b/IOANNES_QVARTVS_PORTVGALIAE_REX_%28Kunsthistorisches_Museum%29.png"/>
+        </note>
+      </person>
+      <person xml:id="afonso_iii" sameAs="https://www.wikidata.org/wiki/Q295850">
+        <persName>D. Afonso III</persName>
+        <note source="#peixoto">não há informações em Peixoto(1924)</note>
+        <note type="imagem">
+          <graphic url="https://commons.wikimedia.org/wiki/File:EstatuaDAfonsoIIIFaro.JPG"/>
+        </note>
+      </person>
+      <person xml:id="afonso_iv" sameAs="https://www.wikidata.org/wiki/Q272903">
+        <persName>D. Afonso IV</persName>
+        <note source="#peixoto">não há informações em Peixoto(1924)</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/f/fd/AfonsoIV-P.jpg"/>
+        </note>
+      </person>
+      <person xml:id="afonso_v" sameAs="https://www.wikidata.org/wiki/Q299119">
+        <persName>D. Afonso V</persName>
+        <note source="#peixoto">não há informações em Peixoto(1924)</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/1/1b/Domafonsov.jpg"/>
+        </note>
+      </person>
+      <person xml:id="pacheco" sameAs="https://www.wikidata.org/wiki/Q686754">
+        <persName>Duarte Pacheco Pereira</persName>
+        <note source="#peixoto">Pacheco, apelido de familia; Duarte Coelho Pacheco, heróe português das Indias.</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/0/04/Duarte_Pacheco_Pereira.jpg"/>
+        </note>
+      </person>
+      <personGrp xml:id="almeidas" sameAs="https://www.wikidata.org/wiki/Q337066">
+        <persName> Almeidas. D. Francisco e D.Lourenço </persName>
+        <note source="#peixoto">D. Francisco e seu filho D. Lourenço.</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/8/88/Retrato_de_D._Francisco_de_Almeida_%28ap%C3%B3s_1545%29_-_Autor_desconhecido.png"/>
+        </note>
+      </personGrp>
+      <person xml:id="afonso_albuquerque" sameAs="https://www.wikidata.org/wiki/Q204397">
+        <persName>Afonso de Albuquerque</persName>
+        <note source="#peixoto">Albuquerque, Afonso de....</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/b/bf/Afonso_de_Albuquerque_%28with_Santiago_cloak%29.jpg"/>
+        </note>
+      </person>
+      <person xml:id="joao_castro" sameAs="https://www.wikidata.org/wiki/Q1621235">
+        <persName>D. João de Castro</persName>
+        <note source="#peixoto">Castro, D. João de Castro:.</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/0/01/D._Jo%C3%A3o_de_Portugal%2C_Duque_de_Val%C3%AAncia_de_Campos_%281352-1387%29_-_Genealogia_de_D._Manuel_Pereira%2C_3.%C2%BA_conde_da_Feira_%281534%29.png"/>
+        </note>
+      </person>
+      <person xml:id="viriato" sameAs="https://www.wikidata.org/wiki/Q331889">
+        <persName>Viriato</persName>
+        <note source="#peixoto">Viriato, nome próprio; pastor hispano, do monte Herminio (serra da Estrela) que derrotou vários generaes romanos, até que, atraiçoado, o assassinaram (140 A. €.).</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/f/f6/Viriato.JPG"/>
+        </note>
+      </person>
+      <person xml:id="sertorio" sameAs="https://www.wikidata.org/wiki/Q296238">
+        <persName>Sertório</persName>
+        <note source="#peixoto">Sertório, general romano, rebelde contra Sila e que na Lusitania venceu muitos fieis deste.</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/c/c8/L%C3%A9on_Palli%C3%A8re_-_Sert%C3%B3rio_e_sua_cor%C3%A7a%2C_1849.jpg"/>
+        </note>
+      </person>
+      <person xml:id="abraao" sameAs="https://www.wikidata.org/wiki/Q9181">
+        <persName>Abraão</persName>
+        <note source="#peixoto">Abraão, o patriarca dos hebrêus.</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/a/af/Guercino_Abramo_ripudia_Agar_%28cropped%29.jpg"/>
+        </note>
+      </person>
+      <person xml:id="d_manuel_i" sameAs="https://www.wikidata.org/wiki/Q191231">
+        <persName>D. Manuel I</persName>
+        <note source="#peixoto">não há informações em Peixoto(1924).</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/2/2e/Fons_Vitae_%28c._1515-1517%29_-_Colijn_de_Coter_%28attributed%29_%28cropped%29.png"/>
+        </note>
+      </person>
+      <person xml:id="constantino" sameAs="https://www.wikidata.org/wiki/Q37142">
+        <persName>Constantino</persName>
+        <note source="#peixoto">Costantino, imperador romano do Oriente, filho de Santa Helêna.</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/b/b6/Konstantinos_XI_Palaiologos_fresco_%28less_edited%29.jpg"/>
+        </note>
+      </person>
+      <person xml:id="david" sameAs="https://www.wikidata.org/wiki/Q41370">
+        <persName>David</persName>
+        <note source="#peixoto"> David, rei judaico. Foi condenado por ter cometido crime adulterio com Betsabé, cujo marido mandou matar</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/9/94/King_David%2C_the_King_of_Israel.jpg"/>
+        </note>
+      </person>
+      <person xml:id="filipo" sameAs="https://www.wikidata.org/wiki/Q130650">
+        <persName>Filipo</persName>
+        <note source="#peixoto"> Filipo, pai de Alexandre</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/e/e5/Filip_II_Macedonia.jpg"/>
+        </note>
+      </person>
+      <person xml:id="maome" sameAs="https://www.wikidata.org/wiki/Q9458">
+        <persName>Maomé</persName>
+        <note source="#peixoto">Mahamede, Mafamede, Mohammed ou Mahomet: Mafamede, Mohammed ou Mahomet, profeta pa fundador do Islamismo</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/b/bf/Muslim_depiction_of_Muhammad_-_17th_century_Ottoman_copy_from_the_%22Edinburgh_codex%22.jpg"/>
+        </note>
+      </person>
+      <person xml:id="mouro_porta_voz">
+        <persName>Mouro (interlocutor dos portugueses)</persName>
+        <note type="editorial">Personagem designada por “o Mouro” na estrofe 56; identificador editorial para distinguir esta ocorrência de outros participantes assim designados.</note>
+      </person>
+      <person xml:id="mouro_regedor_ilhas">
+        <persName>Mouro (regedor das ilhas)</persName>
+        <note type="editorial">Personagem identificada no Canto I pelas designações “Regedor” e “Mouro” nas estrofes 59 e 61; identificador editorial.</note>
+      </person>
+    </listPerson>
+    <listPlace>
+      <place xml:id="portugal" sameAs="http://www.wikidata.org/entity/Q45">
+        <placeName>Portugal</placeName>
+        <location>
+          <geo>39.0 -9.0</geo>
+        </location>
+        <note type="peixoto">Portugal, a parte mais ocidental da Ibéria, Lusitania</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/b/bf/Muslim_depiction_of_Muhammad_-_17th_century_Ottoman_copy_from_the_%22Edinburgh_codex%22.jpg"/>
+        </note>
+      </place>
+      <place xml:id="lisboa" sameAs="http://www.wikidata.org/entity/Q597">
+        <placeName>Lisboa</placeName>
+        <location>
+          <geo>39.0 -9.0</geo>
+        </location>
+        <note type="peixoto">Lisbôa, cidade principal da Lusitania, capital de Portugal:</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/4/43/Lisboa837.png"/>
+        </note>
+      </place>
+      <place xml:id="tejo" sameAs="https://www.wikidata.org/wiki/Q14294">
+        <placeName>Rio Tejo</placeName>
+        <location>
+          <geo>40.3197 -1.6975</geo>
+        </location>
+        <note type="peixoto">Tejo, rio de Espanha e Portugal, que desagua nó Atlantico, junto de Lisbôa</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/5/55/Castelo_de_Rodao.jpg"/>
+        </note>
+      </place>
+      <place xml:id="índia" sameAs="http://www.wikidata.org/entity/Q668">
+        <placeName>Índia</placeName>
+        <location>
+          <geo>22.8 83.0</geo>
+        </location>
+        <note type="peixoto">Índia, região meridional da Asia:</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/e/e7/India_Montage.jpg"/>
+        </note>
+      </place>
+      <place xml:id="mocambique" sameAs="http://www.wikidata.org/entity/Q1029">
+        <placeName>Moçambique</placeName>
+        <location>
+          <geo>-19.0 35.0</geo>
+        </location>
+        <note type="peixoto">Moçambique, região da costa oriental de Africa</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/0/05/Mozambique_-_Location_Map_%282013%29_-_MOZ_-_UNOCHA.svg"/>
+        </note>
+      </place>
+      <place xml:id="taprobana" sameAs="https://www.wikidata.org/wiki/Q854">
+        <placeName>Taprobana (Sri Lanka)</placeName>
+        <location>
+          <geo>7.0 81.0</geo>
+        </location>
+        <note type="peixoto">Taprobana, Ceilão, a grande ilha do Oceano Indico, assim chamada pelos geógrafos, do nome sanscrito "Tamraparna"</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/b/b6/Topography_Sri_Lanka.jpg"/>
+        </note>
+      </place>
+      <place xml:id="olimpo" sameAs="https://www.wikidata.org/wiki/Q70054479">
+        <placeName>Monte Olimpo</placeName>
+        <note type="peixoto">Olimpo, monte na Tessália, em cujo alto tinham morada os deuses fabulosos</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/2/2e/Olymp_01.jpg"/>
+        </note>
+      </place>
+      <place xml:id="hipocrene" sameAs="https://www.wikidata.org/wiki/Q195848">
+        <placeName>Hipocrene</placeName>
+        <location>
+          <geo>38.32 23.03</geo>
+        </location>
+        <note type="peixoto">Mit., fonte na Beócia, proxima do monte Hélicon:</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/2/24/Hippocrenesource.jpg"/>
+        </note>
+      </place>
+      <place xml:id="rio_ganges" sameAs="https://www.wikidata.org/wiki/Q5089">
+        <placeName>Rio Ganges</placeName>
+        <location>
+          <geo>30.9833 78.9167</geo>
+        </location>
+        <note type="peixoto">Gange, o mais notavel rio da India, tambem chamado Pischon, tido como sagrado pelos naturais</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/2/29/View_of_Ghats_across_the_Ganges%2C_Varanasi.jpg"/>
+        </note>
+      </place>
+      <place xml:id="inglaterra" sameAs="https://www.wikidata.org/wiki/Q21">
+        <placeName>Inglaterra</placeName>
+        <location>
+          <geo>53.0 -1.0</geo>
+        </location>
+        <note type="peixoto">Inglaterra, país da Europa, tambem chamado Gram Bretanha</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/b/b1/England_satellite_image.png"/>
+        </note>
+      </place>
+      <place xml:id="franca" sameAs="http://www.wikidata.org/entity/Q142">
+        <placeName>França</placeName>
+        <location>
+          <geo>47.0 2.0</geo>
+        </location>
+        <note type="peixoto">França, país do sul da Europa, que tem por capital Paris</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg"/>
+        </note>
+      </place>
+      <place xml:id="espanha" sameAs="https://www.wikidata.org/wiki/Q29">
+        <placeName>Espanha</placeName>
+        <location>
+          <geo>40.2 -3.5</geo>
+        </location>
+        <note type="peixoto">Espanha, Nação que, com Portugal, forma a Peninsula Iberica. Antigamente designava o termo Espanha toda a Peninsula Iberica, que compreendia muitos reinos, como Castela, Oviêdo...:</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/8/89/Bandera_de_Espa%C3%B1a.svg"/>
+        </note>
+      </place>
+      <place xml:id="nisa" sameAs="https://www.wikidata.org/wiki/Q1238530">
+        <placeName>Nisa</placeName>
+        <note type="peixoto">Nisa, cidade mencionada na lenda fabulosa de Baco: Camões a sitúa junto do Hidaspe</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/e/ef/Nysa_is_given_the_infant_Dionysus_by_Hermes%2C_relief_400s_BC%2C_Archaeological_Museum_of_Piraeus_01.jpg"/>
+        </note>
+      </place>
+      <place xml:id="indo" sameAs="https://www.wikidata.org/wiki/Q7348">
+        <placeName>Indo</placeName>
+        <location>
+          <geo>32.4983 79.6911</geo>
+        </location>
+        <note type="peixoto">Indo, grande rio de Asia, que nasce no Tibé e desagúa no mar de Oman, depois de atravessar o Indostão</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/d/d2/Indus_near_Skardu.jpg"/>
+        </note>
+      </place>
+      <place xml:id="parnaso" sameAs="https://www.wikidata.org/wiki/Q105261">
+        <placeName>Parnaso</placeName>
+        <location>
+          <geo>38.533 22.6167</geo>
+        </location>
+        <note type="peixoto">Parnaso, monte na Beócia, onde havia a fonte Castália, consagrada a Apolo e as Musas que davam o dom da poesia</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/a/a0/Parnassos2.jpg"/>
+        </note>
+      </place>
+      <place xml:id="lete" sameAs="https://www.wikidata.org/wiki/Q161096">
+        <placeName>Rio Lete&gt;</placeName>
+        <note type="peixoto">Leteu, a, de Letes, rio fabuloso do esquecimento</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/e/ea/Gustove_Dore%2C_The_Divine_Comedy%2C_Paradise%2C_plate_115%2C_Dante_and_the_River_of_Lethe.jpg"/>
+        </note>
+      </place>
+      <place xml:id="tingitana" sameAs="https://www.wikidata.org/wiki/Q1244742">
+        <placeName>Tingitana</placeName>
+        <location>
+          <geo>35.8903 -5.48</geo>
+        </location>
+        <note type="peixoto">Tingitania, de Tinge, hoje Tanger, nome antigo da Mauritania:</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/5/51/Mauretania_Tingitana_SPQR.png"/>
+        </note>
+      </place>
+      <place xml:id="etiopia" sameAs="https://www.wikidata.org/wiki/Q115">
+        <placeName>Etiópia</placeName>
+        <location>
+          <geo>9.0 40.0</geo>
+        </location>
+        <note type="peixoto">Etiopia, abessinia</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/c/c4/Ethiopia_in_its_region.svg"/>
+        </note>
+      </place>
+      <place xml:id="rio_pado" sameAs="https://www.wikidata.org/wiki/Q643">
+        <placeName>Rio Pado</placeName>
+        <location>
+          <geo>44.9697 12.5467</geo>
+        </location>
+        <note type="peixoto">Pado, rio da Itália, o Pó (Padus) onde caiu precipitado do céu fulminado por Jupiter, Faetonte, filho de Apólo, que inexperto guiára o carro do Sol; as irmãs, entre as quais Lampetusa, 0) choraram amargamente</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/e/e8/Po_bei_Mantova.jpg"/>
+        </note>
+      </place>
+      <place xml:id="aqueronte" sameAs="https://www.wikidata.org/wiki/Q12626619">
+        <placeName>Aqueronte</placeName>
+        <note type="peixoto">Aqueronte, Mit., lago ou rio do inferno, região da morte</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/7/72/Acheron_river_2.jpg"/>
+        </note>
+      </place>
+      <place xml:id="quiloa" sameAs="https://www.wikidata.org/wiki/Q1741475">
+        <placeName>Quíloa</placeName>
+        <location>
+          <geo>-8.9817 39.5172</geo>
+        </location>
+        <note type="peixoto">Quíloa, cidade da costa oriental de Africa</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/d/dc/GreatMosque.jpg"/>
+        </note>
+      </place>
+      <place xml:id="mombaca" sameAs="https://www.wikidata.org/wiki/Q225641">
+        <placeName>Mombaca</placeName>
+        <location>
+          <geo>-4.05 39.6667</geo>
+        </location>
+        <note type="peixoto">Mombaça, cidade africana, da costa oriental, entre Quíloa e Melinde</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/2/21/Downtown_Mombasa.jpg"/>
+        </note>
+      </place>
+      <place xml:id="sofala" sameAs="https://www.wikidata.org/wiki/Q622801">
+        <placeName>Sofala</placeName>
+        <location>
+          <geo>-19.0 34.75</geo>
+        </location>
+        <note type="peixoto">Sofala, porto e povoação na costa d'África, em Moçambique</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/9/95/Gorongosa_-_Gogogo_peak._%284403966914%29.jpg"/>
+        </note>
+      </place>
+      <place xml:id="idaspe" sameAs="https://www.wikidata.org/wiki/Q214874">
+        <placeName>Idaspe</placeName>
+        <location>
+          <geo>33.5347 75.2497</geo>
+        </location>
+        <note type="peixoto">Hidáspe, Geogr., nome antigo do rio hoje dito Yelum, afluente do Indo e limite oriental das expedições de Alexandre</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/c/c7/Jhelum_River-Pakistan.jpg"/>
+        </note>
+      </place>
+      <place xml:id="turquia" sameAs="https://www.wikidata.org/wiki/Q43">
+        <placeName>Turquia</placeName>
+        <location>
+          <geo>39.0 36.0</geo>
+        </location>
+        <note type="peixoto">Turquia, país da Europa e da Asia Menor:</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/a/aa/Europe_location_Turkey.svg"/>
+        </note>
+      </place>
+      <place xml:id="europa" sameAs="https://www.wikidata.org/wiki/Q46">
+        <placeName>Europa</placeName>
+        <location>
+          <geo>48.6909 9.1406</geo>
+        </location>
+        <note type="peixoto">Europa (2), uma das tres grandes divisões do mundo, conhecido pelos antigos</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/1/1b/Europe_satellite_orthographic.jpg"/>
+        </note>
+      </place>
+      <place xml:id="prasso_promontorio" sameAs="https://www.wikidata.org/wiki/Q466538">
+        <placeName>Promontório do Prasso</placeName>
+        <location>
+          <geo>-12.75 39.5</geo>
+        </location>
+        <note type="peixoto">Prasso, cabo ou promontorio, limite meridional da costa de África, segundo geografos antigos; talvez o Cabo Delgado</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/9/93/Bridge_over_Rio_Lurio_EN1_road_%283911465523%29.jpg"/>
+        </note>
+      </place>
+      <place xml:id="nabateia" sameAs="https://www.wikidata.org/wiki/Q11029653">
+        <placeName>Nabateia</placeName>
+        <location>
+          <geo>30.3286 35.4419</geo>
+        </location>
+        <note type="peixoto">Nabateu, de Nabath, filho de Ismael, filho de Agar, de quem descendem os Arabes ou Agarenos</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/0/0b/Al-Khazneh%2C_Petra%2C_Jordan.jpg"/>
+        </note>
+      </place>
+      <place xml:id="citera" sameAs="https://www.wikidata.org/wiki/Q207239">
+        <placeName>Citere</placeName>
+        <location>
+          <geo>36.2575 22.9975</geo>
+        </location>
+        <note type="peixoto">Citera, ilha do Mediterraneo, consagrada a Venus:</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/9/9b/Kythira_-_Kapsali.jpg"/>
+        </note>
+      </place>
+      <place xml:id="africa" sameAs="https://www.wikidata.org/wiki/Q15">
+        <placeName>África</placeName>
+        <location>
+          <geo>-7.455425189682856, 34.40834322591169</geo>
+        </location>
+        <note type="peixoto">Africa, a terceira parte da terra, na ordem comum de enumeração:</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/2/21/Africa_satellite_orthographic.jpg"/>
+        </note>
+      </place>
+      <place xml:id="asia" sameAs="https://www.wikidata.org/wiki/Q48">
+        <placeName>Ásia</placeName>
+        <location>
+          <geo>35.52516041564837, 100.40441255830005</geo>
+        </location>
+        <note type="peixoto">Ásia, a maior e mais oriental das tres divisões do antigo continente</note>
+        <note type="imagem">
+          <graphic url="https://upload.wikimedia.org/wikipedia/commons/2/2a/Asia_satellite_orthographic.jpg"/>
+        </note>
+      </place>
+      <place xml:id="madagascar" sameAs="https://www.wikidata.org/wiki/Q1019">
+        <placeName>Ilha de São Lourenço</placeName>
+        <location>
+          <geo>-20.0, 47.0 </geo>
+        </location>
+        <note type="peixoto">Lourenço (São), nome antigo de Madagáscar</note>
+        <note type="imagem">
+          <graphic url="https://www.wikidata.org/wiki/Q1019#/media/File:Satellite_image_of_Madagascar_in_September_2003.jpg"/>
+        </note>
+      </place>
+    </listPlace>
+  </standOff>
+</TEI>

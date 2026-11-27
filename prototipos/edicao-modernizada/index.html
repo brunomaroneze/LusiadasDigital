@@ -1,0 +1,2295 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Os Lusíadas - Edição Digital</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        body { margin: 0; font-family: 'Georgia', serif; background: #f4ecd8; color: #2c2c2c; }
+        header { text-align: center; padding: 25px; background: #e8dab2; border-bottom: 2px solid #c2b280; }
+        #mapa-container { width: 90%; margin: 20px auto; position: relative; }
+        #mapa { height: 450px; width: 100%; border: 3px solid #c2b280; border-radius: 8px; transition: 0.5s; z-index: 1; background: #aad3df; }
+        .expandido { position: fixed !important; top:0; left:0; width:100% !important; height:100vh !important; z-index: 9999 !important; border: none !important; border-radius: 0 !important; }
+        #btn-mapa { position: absolute; top: 10px; right: 10px; z-index: 10000; padding: 10px 15px; cursor: pointer; background: white; border: 2px solid #c2b280; font-weight: bold; border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+        #texto-poema { padding: 40px; max-width: 850px; margin: 0 auto; background: #fffcf5; box-shadow: 0 0 30px rgba(0,0,0,0.05); }
+        .titulo-canto { text-align: center; color: #8b0000; font-variant: small-caps; font-size: 2em; margin-bottom: 40px; }
+        .estrofe { margin-bottom: 35px; padding-left: 60px; position: relative; }
+        .num-estrofe { position: absolute; left: 0; color: #c2b280; font-weight: bold; font-size: 1em; }
+        .verso { display: block; line-height: 1.7; font-size: 1.2em; }
+        .entidade { cursor: pointer; border-bottom: 1.5px solid rgba(0,0,0,0.1); transition: 0.2s; }
+        .entidade:hover { background: rgba(194, 178, 128, 0.25); border-bottom-color: #8b0000; }
+        .entidade.hist, .entidade.person { color: #3b5b6b; }
+        .entidade.myth { color: #8b4c5a; }
+        .entidade.real { color: #4f6b4a; }
+        #overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.75); z-index: 20000; }
+        #painel { display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 90%; max-width: 480px; background: #fdf6e3; padding: 30px; border: 3px solid #c2b280; z-index: 20001; border-radius: 12px; text-align: center; box-shadow: 0 10px 40px rgba(0,0,0,0.5); }
+        #painel img { max-width: 100%; max-height: 320px; border-radius: 6px; margin-bottom: 15px; border: 1px solid #c2b280; display: none; margin-left: auto; margin-right: auto; }
+        .fechar { position: absolute; top: 10px; right: 15px; cursor: pointer; font-size: 28px; border: none; background: none; color: #8b0000; font-weight: bold; }
+    
+/* Visualização das autoridades ao passar o mouse */
+#overlay {
+    display: none !important;
+}
+
+#painel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: none;
+    width: 310px;
+    max-width: calc(100vw - 32px);
+    max-height: min(75vh, 520px);
+    overflow-y: auto;
+    box-sizing: border-box;
+    padding: 16px;
+    border-width: 2px;
+    z-index: 20001;
+    text-align: left;
+    box-shadow: 0 5px 22px rgba(0,0,0,.22);
+}
+
+#painel img {
+    max-height: 160px;
+    object-fit: contain;
+    margin-bottom: 8px;
+}
+
+#painel h2 {
+    font-size: 1.15em;
+    margin: 5px 0 10px;
+}
+
+#painel p {
+    font-size: .9em;
+    margin: 8px 0;
+}
+
+#painel .fechar {
+    display: none;
+}
+
+    </style>
+</head>
+<body>
+<header>
+    <h1>Os Lusíadas</h1>
+    <p>Edição Semântica Interativa - Baseada em Afrânio Peixoto</p>
+</header>
+<div id="mapa-container">
+    <button id="btn-mapa" onclick="toggleMapa()">⤢ Expandir Mapa</button>
+    <div id="mapa"></div>
+</div>
+<div id="texto-poema">
+    
+      
+        <h3 class="titulo-canto">Canto Primeiro</h3>
+        <div class="estrofe"><span class="num-estrofe">1</span>
+          <span class="verso">As armas e os barões assinalados,</span>
+          <span class="verso">Que da <span class="entidade place" onclick="mostrarEntidade('portugal')">ocidental praia Lusitana</span>,</span>
+          <span class="verso">Por mares nunca de antes navegados,</span>
+          <span class="verso">Passaram ainda além da <span class="entidade real" onclick="mostrarEntidade('taprobana')">Taprobana</span>,</span>
+          <span class="verso">Em perigos e guerras esforçados,</span>
+          <span class="verso">Mais do que prometia a força humana,</span>
+          <span class="verso">E entre gente remota edificaram</span>
+          <span class="verso"><span class="entidade real" onclick="mostrarEntidade('imperio_portugues_oriente')">Novo Reino</span>, que tanto sublimaram;</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">2</span>
+          <span class="verso">E também as memórias gloriosas</span>
+          <span class="verso">Daqueles Reis, que foram dilatando</span>
+          <span class="verso">A Fé, o Império, e as terras viciosas</span>
+          <span class="verso">De <span class="entidade real" onclick="mostrarEntidade('africa')">África</span> e de <span class="entidade real" onclick="mostrarEntidade('asia')">Ásia</span> andaram devastando;</span>
+          <span class="verso">E aqueles, que por obras valerosas</span>
+          <span class="verso">Se vão da lei da morte libertando;</span>
+          <span class="verso">Cantando espalharei por toda parte,</span>
+          <span class="verso">Se a tanto me ajudar o engenho e arte.</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">3</span>
+          <span class="verso">Cessem do sábio <span class="entidade person" onclick="mostrarEntidade('ulisses')">Grego</span> e do <span class="entidade person" onclick="mostrarEntidade('eneias')">Troiano</span></span>
+          <span class="verso">As navegações grandes que fizeram;</span>
+          <span class="verso">Cale-se de <span class="entidade hist" onclick="mostrarEntidade('alexandro')">Alexandro</span> e de <span class="entidade hist" onclick="mostrarEntidade('trajano')">Trajano</span></span>
+          <span class="verso">A fama das vitórias que tiveram;</span>
+          <span class="verso">Que eu canto o peito ilustre Lusitano,</span>
+          <span class="verso">A quem <span class="entidade myth" onclick="mostrarEntidade('neptuno')">Neptuno</span> e <span class="entidade myth" onclick="mostrarEntidade('marte')">Marte</span> obedeceram:</span>
+          <span class="verso">Cesse tudo o que a <span class="entidade myth" onclick="mostrarEntidade('musa')">Musa</span> antígua canta,</span>
+          <span class="verso">Que outro valor mais alto se alevanta.</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">4</span>
+          <span class="verso">E vós, <span class="entidade myth" onclick="mostrarEntidade('tagides')">Tágides</span> minhas, pois criado</span>
+          <span class="verso">Tendes em mim um novo engenho ardente,</span>
+          <span class="verso">Se sempre em verso humilde celebrado</span>
+          <span class="verso">Foi de mim vosso rio alegremente,</span>
+          <span class="verso">Dai-me agora um som alto e sublimado,</span>
+          <span class="verso">Um estilo grandíloquo e corrente,</span>
+          <span class="verso">Porque de vossas águas, <span class="entidade person" onclick="mostrarEntidade('apolo')">Febo</span> ordene</span>
+          <span class="verso">Que não tenham inveja às de <span class="entidade myth" onclick="mostrarEntidade('hipocrene')">Hipoerene</span>.</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">5</span>
+          <span class="verso">Dai-me uma fúria grande e sonorosa,</span>
+          <span class="verso">E não de agreste avena ou frauta ruda,</span>
+          <span class="verso">Mas de tuba canora e belicosa,</span>
+          <span class="verso">Que o peito acende e a cor ao gesto muda;</span>
+          <span class="verso">Dai-me igual canto aos feitos da famosa</span>
+          <span class="verso">Gente vossa, que a <span class="entidade myth" onclick="mostrarEntidade('marte')">Marte</span> tanto ajuda;</span>
+          <span class="verso">Que se espalhe e se cante no universo,</span>
+          <span class="verso">Se tão sublime preço cabe em verso.</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">6</span>
+          <span class="verso">E vós, ó bem nascida segurança</span>
+          <span class="verso">Da Lusitana antígua liberdade,</span>
+          <span class="verso">E não menos certíssima esperança</span>
+          <span class="verso">De aumento da pequena Cristandade;</span>
+          <span class="verso">Vós, ó novo temor da Maura lança,</span>
+          <span class="verso">Maravilha fatal da nossa idade,</span>
+          <span class="verso">Dada ao mundo por <span class="entidade myth" onclick="mostrarEntidade('deus')">Deus</span>, que todo o mande,</span>
+          <span class="verso">Para do mundo a <span class="entidade myth" onclick="mostrarEntidade('deus')">Deus</span> dar parte grande;</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">7</span>
+          <span class="verso">Vós, tenro e novo ramo florescente</span>
+          <span class="verso">De uma árvore de <span class="entidade hist" onclick="mostrarEntidade('jesus_cristo')">Cristo</span> mais amada</span>
+          <span class="verso">Que nenhuma nascida no Ocidente,</span>
+          <span class="verso">Cesárea ou Cristianíssima chamada;</span>
+          <span class="verso">(Vede-o no vosso escudo, que presente</span>
+          <span class="verso">Vos amostra a vitória já passada,</span>
+          <span class="verso">Na qual vos deu por armas, e deixou</span>
+          <span class="verso">As que Ele para si na Cruz tomou)</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">8</span>
+          <span class="verso">Vós, <span class="entidade person" onclick="mostrarEntidade('d_sebastiao')">poderoso Rei</span>, cujo alto <span class="entidade place" onclick="mostrarEntidade('portugal')">Império</span></span>
+          <span class="verso">O Sol, logo em nascendo, vê primeiro;</span>
+          <span class="verso">Vê-o também no meio do Hemisfério,</span>
+          <span class="verso">E quando desce o deixa derradeiro;</span>
+          <span class="verso">Vós, que esperamos jugo e vitupério</span>
+          <span class="verso">Do torpe Ismaelita cavaleiro,</span>
+          <span class="verso">Do Turco oriental, e do Gentio,</span>
+          <span class="verso">Que inda bebe o licor do <span class="entidade place" onclick="mostrarEntidade('rio_ganges')">santo rio</span>;</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">9</span>
+          <span class="verso">Inclinai por um pouco a majestade,</span>
+          <span class="verso">Que nesse tenro gesto vos contemplo,</span>
+          <span class="verso">Que já se mostra qual na inteira idade,</span>
+          <span class="verso">Quando subindo ireis ao eterno templo;</span>
+          <span class="verso">Os olhos da real benignidade</span>
+          <span class="verso">Ponde no chão: vereis um novo exemplo</span>
+          <span class="verso">De amor dos pátrios feitos valerosos,</span>
+          <span class="verso">Em versos divulgado numerosos.</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">10</span>
+          <span class="verso">Vereis amor da pátria, não movido</span>
+          <span class="verso">De prémio vil, mas alto e quase eterno:</span>
+          <span class="verso">Que não é prémio vil ser conhecido</span>
+          <span class="verso">Por um pregão do ninho meu paterno.</span>
+          <span class="verso">Ouvi: vereis o nome engrandecido</span>
+          <span class="verso">Daqueles de quem sois senhor superno,</span>
+          <span class="verso">E julgareis qual é mais excelente,</span>
+          <span class="verso">Se ser do mundo Rei, se de til gente.</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">11</span>
+          <span class="verso">Ouvi, que não vereis com vãs façanhas,</span>
+          <span class="verso">Fantásticas, fingidas, mentirosas,</span>
+          <span class="verso">Louvar os vossos, como nas estranhas</span>
+          <span class="verso"><span class="entidade myth" onclick="mostrarEntidade('musa')">Musas</span>, de engrandecer-se desejosas:</span>
+          <span class="verso">As verdadeiras vossas são tamanhas,</span>
+          <span class="verso">Que excedem as sonhadas, fabulosas;</span>
+          <span class="verso">Que excedem <span class="entidade myth" onclick="mostrarEntidade('rodamonte')">Rodamonte</span>, e o vão <span class="entidade myth" onclick="mostrarEntidade('rugeiro')">Rugeiro</span>,</span>
+          <span class="verso">E <span class="entidade myth" onclick="mostrarEntidade('orlando')">Orlando</span>, inda que fora verdadeiro,</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">12</span>
+          <span class="verso">Por estes vos darei um <span class="entidade hist" onclick="mostrarEntidade('nuno_alvares')">Nuno</span> fero,</span>
+          <span class="verso">Que fez ao Rei o ao Reino tal serviço, </span>
+          <span class="verso">Um <span class="entidade hist" onclick="mostrarEntidade('egas')">Egas</span>, e um <span class="entidade hist" onclick="mostrarEntidade('d._fuas')">D. Fuas</span>, que de <span class="entidade hist" onclick="mostrarEntidade('homero')">Homero</span></span>
+          <span class="verso">A cítara para eles só cobiço.</span>
+          <span class="verso">Pois pelos doze Pares dar-vos quero</span>
+          <span class="verso"><span class="entidade person" onclick="mostrarEntidade('doze_inglaterra')">Os doze de <span class="entidade real" onclick="mostrarEntidade('inglaterra')">Inglaterra</span></span>, e o seu <span class="entidade hist" onclick="mostrarEntidade('magriço')">Magriço</span>;</span>
+          <span class="verso">Dou-vos também aquele ilustre <span class="entidade hist" onclick="mostrarEntidade('v_gama')">Gama</span>,</span>
+          <span class="verso">Que para si de <span class="entidade hist" onclick="mostrarEntidade('eneias')">Eneias</span> toma a fama.</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">13</span>
+          <span class="verso">Pois se a troco de <span class="entidade hist" onclick="mostrarEntidade('carlos_magno')">Carlos</span>, Rei de <span class="entidade real" onclick="mostrarEntidade('franca')">França</span>,</span>
+          <span class="verso">Ou de <span class="entidade hist" onclick="mostrarEntidade('julio_césar')">César</span>, quereis igual memória,</span>
+          <span class="verso">Vede o <span class="entidade person" onclick="mostrarEntidade('afonso_henriques')">primeiro <span class="entidade hist" onclick="mostrarEntidade('')">Afonso</span></span>, cuja lança</span>
+          <span class="verso">Escura faz qualquer estranha glória;</span>
+          <span class="verso">E <span class="entidade person" onclick="mostrarEntidade('d_joao_i')">aquele</span> que a seu <span class="entidade place" onclick="mostrarEntidade('portugal')">Reino</span> a segurança</span>
+          <span class="verso">Deixou com a grande e próspera vitória;</span>
+          <span class="verso"><span class="entidade person" onclick="mostrarEntidade('d_joao_ii')">Outro <span class="entidade hist" onclick="mostrarEntidade('')">Joane</span></span>, invicto cavaleiro,</span>
+          <span class="verso">O <span class="entidade person" onclick="mostrarEntidade('afonso_iv')">quarto</span> e <span class="entidade person" onclick="mostrarEntidade('afonso_v')">quinto</span> <span class="entidade hist" onclick="mostrarEntidade('')">Afonsos</span>, e o <span class="entidade person" onclick="mostrarEntidade('afonso_iii')">terceiro</span>.</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">14</span>
+          <span class="verso">Nem deixarão meus versos esquecidos</span>
+          <span class="verso">Aqueles que nos Reinos lá da Aurora</span>
+          <span class="verso">Fizeram, só por armas tão subidos,</span>
+          <span class="verso">Vossa bandeira sempre vencedora:</span>
+          <span class="verso">Um <span class="entidade hist" onclick="mostrarEntidade('pacheco')">Pacheco</span> fortíssimo, e os temidos</span>
+          <span class="verso"><span class="entidade hist" onclick="mostrarEntidade('almeidas')">Almeidas</span>, por quem sempre o <span class="entidade real" onclick="mostrarEntidade('tejo')">Tejo</span> chora;</span>
+          <span class="verso"><span class="entidade person" onclick="mostrarEntidade('afonso_albuquerque')"> <span class="entidade hist" onclick="mostrarEntidade('')">Albuquerque</span> terríbil</span>, <span class="entidade hist" onclick="mostrarEntidade('castro')">Castro</span> forte,</span>
+          <span class="verso">E outros em quem poder não teve a morte.</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">15</span>
+          <span class="verso">E enquanto eu estes canto, e a vós não posso,</span>
+          <span class="verso"><span class="entidade person" onclick="mostrarEntidade('d_sebastiao')">Sublime Rei</span>, que não me atrevo a tanto,</span>
+          <span class="verso">Tomai as rédeas vós do <span class="entidade real" onclick="mostrarEntidade('portugal')">Reino</span> vosso:</span>
+          <span class="verso">Dareis matéria a nunca ouvido canto.</span>
+          <span class="verso">Comecem a sentir o peso grosso</span>
+          <span class="verso">(Que pelo mundo todo faça espanto)</span>
+          <span class="verso">De exércitos e feitos singulares,</span>
+          <span class="verso">De <span class="entidade real" onclick="mostrarEntidade('africa')">África</span> as terras, e do Oriente os marços,</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">16</span>
+          <span class="verso">Em vós os olhos tem o Mouro frio,</span>
+          <span class="verso">Em quem vê seu exício afigurado;</span>
+          <span class="verso">Só com vos ver o bárbaro Gentio</span>
+          <span class="verso">Mostra o pescoço ao jugo já inclinado;</span>
+          <span class="verso"><span class="entidade myth" onclick="mostrarEntidade('tetis')">Tethys</span> todo o cerúleo senhorio</span>
+          <span class="verso">Tem para vós por dote aparelhado;</span>
+          <span class="verso">Que afeiçoada ao gesto belo e tenro,</span>
+          <span class="verso">Deseja de comprar-vos para genro.</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">17</span>
+          <span class="verso">Em vós se vêm da <span class="entidade place" onclick="mostrarEntidade('olimpo')">olímpica morada</span></span>
+          <span class="verso">Dos dois avós as almas cá famosas,</span>
+          <span class="verso">Uma na paz angélica dourada,</span>
+          <span class="verso">Outra pelas batalhas sanguinosas;</span>
+          <span class="verso">Em vós esperam ver-se renovada</span>
+          <span class="verso">Sua memória e obras valerosas;</span>
+          <span class="verso">E lá vos tem lugar, no fim da idade,</span>
+          <span class="verso">No templo da suprema Eternidade.</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">18</span>
+          <span class="verso">Mas enquanto este tempo passa lento</span>
+          <span class="verso">De regerdes os povos, que o desejam,</span>
+          <span class="verso">Dai vós favor ao novo atrevimento,</span>
+          <span class="verso">Para que estes meus versos vossos sejam;</span>
+          <span class="verso">E vereis ir cortando o salso argento</span>
+          <span class="verso">Os vossos Argonautas, por que vejam</span>
+          <span class="verso">Que são vistos de vós no mar irado,</span>
+          <span class="verso">E costumai-vos já a ser invocado.</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">19</span>
+          <span class="verso">Já no largo Oceano navegavam,</span>
+          <span class="verso">As inquietas ondas apartando;</span>
+          <span class="verso">Os ventos brandamente respiravam,</span>
+          <span class="verso">Das naus as velas côncavas inchando;</span>
+          <span class="verso">Da branca escuma os mares se mostravam</span>
+          <span class="verso">Cobertos, onde as proas vão cortando</span>
+          <span class="verso">As marítimas águas consagradas,</span>
+          <span class="verso">Que do gado de <span class="entidade myth" onclick="mostrarEntidade('proteu')">Próteo</span> são cortadas</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">20</span>
+          <span class="verso">Quando os Deuses no <span class="entidade real" onclick="mostrarEntidade('olimpo')">Olimpo</span> luminoso,</span>
+          <span class="verso">Onde o governo está da humana gente,</span>
+          <span class="verso">Se ajuntam em concílio glorioso</span>
+          <span class="verso">Sobre as cousas futuras do Oriente.</span>
+          <span class="verso">Pisando o cristalino Céu formoso,</span>
+          <span class="verso">Vêm pela Via-Láctea juntamente,</span>
+          <span class="verso">Convocados da parte do <span class="entidade myth" onclick="mostrarEntidade('jupiter')">Tonante</span>,</span>
+          <span class="verso">Pelo neto gentil do velho <span class="entidade myth" onclick="mostrarEntidade('atlante')">Atlante</span>.</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">21</span>
+          <span class="verso">Deixam dos sete Céus o regimento,</span>
+          <span class="verso">Que do poder mais alto lhe foi dado,</span>
+          <span class="verso">Alto poder, que só co'o pensamento</span>
+          <span class="verso">Governa o Céu, a Terra, e o Mar irado.</span>
+          <span class="verso">Ali se acharam juntos num momento</span>
+          <span class="verso">Os que habitam o Arcturo congelado,</span>
+          <span class="verso">E os que o Austro tem, e as partes onde</span>
+          <span class="verso">A Aurora nasce, e o claro Sol se esconde.</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">22</span>
+          <span class="verso">Estava o <span class="entidade person" onclick="mostrarEntidade('jupiter')">Padre</span> ali sublime e dino,</span>
+          <span class="verso">Que vibra os feros raios de <span class="entidade myth" onclick="mostrarEntidade('vulcano')">Vulcano</span>,</span>
+          <span class="verso">Num assento de estrelas cristalino,</span>
+          <span class="verso">Com gesto alto, severo e soberano.</span>
+          <span class="verso">Do rosto respirava um ar divino,</span>
+          <span class="verso">Que divino tornara um corpo humano;</span>
+          <span class="verso">Com uma coroa e ceptro rutilante,</span>
+          <span class="verso">De outra pedra mais clara que diamante.</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">23</span>
+          <span class="verso">Em luzentes assentos, marchetados</span>
+          <span class="verso">De ouro e de perlas, mais abaixo estavam</span>
+          <span class="verso">Os outros Deuses todos assentados,</span>
+          <span class="verso">Como a razão e a ordem concertavam:</span>
+          <span class="verso">Precedem os antíguos mais honrados;</span>
+          <span class="verso">Mais abaixo os menores se assentavam;</span>
+          <span class="verso">Quando <span class="entidade myth" onclick="mostrarEntidade('jupiter')">Júpiter</span> alto, assim dizendo,</span>
+          <span class="verso">C'um tom de voz começa, grave e horrendo:</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">24</span>
+          <span class="verso">"Eternos moradores do luzente</span>
+          <span class="verso">Estelífero pólo, e claro assento,</span>
+          <span class="verso">Se do grande valor da forte gente</span>
+          <span class="verso">De Luso não perdeis o pensamento,</span>
+          <span class="verso">Deveis de ter sabido claramente,</span>
+          <span class="verso">Como é dos fados grandes certo intento,</span>
+          <span class="verso">Que por ela se esqueçam os humanos</span>
+          <span class="verso">De Assírios, Persas, Gregos e Romanos.</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">25</span>
+          <span class="verso">"Já lhe foi (bem o vistes) concedido</span>
+          <span class="verso">C'um poder tão singelo e tão pequeno,</span>
+          <span class="verso">Tomar ao Mouro forte e guarnecido</span>
+          <span class="verso">Toda a terra, que rega o <span class="entidade real" onclick="mostrarEntidade('tejo')">Tejo</span> ameno:</span>
+          <span class="verso">Pois contra o Castelhano tão temido,</span>
+          <span class="verso">Sempre alcançou favor do Céu sereno.</span>
+          <span class="verso">Assim que sempre, enfim, com fama e glória,</span>
+          <span class="verso">Teve os troféus pendentes da vitória.</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">26</span>
+          <span class="verso">"Deixo, Deuses, atrás a fama antiga,</span>
+          <span class="verso">Que coa gente de <span class="entidade hist" onclick="mostrarEntidade('romulo')">Rómulo</span> alcançaram,</span>
+          <span class="verso">Quando com <span class="entidade hist" onclick="mostrarEntidade('viriato')">Viriato</span>, na inimiga</span>
+          <span class="verso">Guerra romana tanto se afamaram;</span>
+          <span class="verso">Também deixo a memória, que os obriga</span>
+          <span class="verso">A grande nome, quando alevantaram</span>
+          <span class="verso"><span class="entidade person" onclick="mostrarEntidade('sertorio')">Um por seu capitão</span>, que peregrino</span>
+          <span class="verso">Fingiu na cerva espírito divino.</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">27</span>
+          <span class="verso">"Agora vedes bem que, cometendo</span>
+          <span class="verso">O duvidoso mar num lenho leve,</span>
+          <span class="verso">Por vias nunca usadas, não temendo</span>
+          <span class="verso">De <span class="entidade myth" onclick="mostrarEntidade('africo')">Áfrico</span> e <span class="entidade myth" onclick="mostrarEntidade('noto')">Noto</span> a força, a mais se atreve:</span>
+          <span class="verso">Que havendo tanto já que as partes vendo</span>
+          <span class="verso">Onde o dia é comprido e onde breve,</span>
+          <span class="verso">Inclinam seu propósito e porfia</span>
+          <span class="verso">A ver os berços onde nasce o dia.</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">28</span>
+          <span class="verso">"Prometido lhe está do <span class="entidade myth" onclick="mostrarEntidade('fado')">Fado</span> eterno,</span>
+          <span class="verso">Cuja alta Lei não pode ser quebrada,</span>
+          <span class="verso">Que tenham longos tempos o governo</span>
+          <span class="verso">Do mar, que vê do sol a roxa entrada.</span>
+          <span class="verso">Nas águas têm passado o duro inverno;</span>
+          <span class="verso">A gente vem perdida e trabalhada;</span>
+          <span class="verso">Já parece bem feito que lhe seja</span>
+          <span class="verso">Mostrada a nova terra, que deseja.</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">29</span>
+          <span class="verso">"E porque, como vistes, têm passados</span>
+          <span class="verso">Na viagem tão ásperos perigos,</span>
+          <span class="verso">Tantos climas e céus experimentados,</span>
+          <span class="verso">Tanto furor de ventos inimigos,</span>
+          <span class="verso">Que sejam, determino, agasalhados</span>
+          <span class="verso">Nesta costa africana, como amigos.</span>
+          <span class="verso">E tendo guarnecida a lassa frota,</span>
+          <span class="verso">Tornarão a seguir sua longa rota."</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">30</span>
+          <span class="verso">Estas palavras <span class="entidade myth" onclick="mostrarEntidade('jupiter')">Júpiter</span> dizia,</span>
+          <span class="verso">Quando os Deuses por ordem respondendo,</span>
+          <span class="verso">Na sentença um do outro diferia,</span>
+          <span class="verso">Razões diversas dando e recebendo.</span>
+          <span class="verso">O padre <span class="entidade myth" onclick="mostrarEntidade('baco')">Baco</span> ali não consentia</span>
+          <span class="verso">No que <span class="entidade myth" onclick="mostrarEntidade('jupiter')">Júpiter</span> disse, conhecendo</span>
+          <span class="verso">Que esquecerão seus feitos no Oriente,</span>
+          <span class="verso">Se lá passar a Lusitana gente.</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">31</span>
+          <span class="verso">Ouvido tinha aos <span class="entidade person" onclick="mostrarEntidade('fado')">Fados</span> que viria</span>
+          <span class="verso">Uma gente fortíssima de <span class="entidade real" onclick="mostrarEntidade('espanha')">Espanha</span></span>
+          <span class="verso">Pelo mar alto, a qual sujeitaria</span>
+          <span class="verso">Da <span class="entidade real" onclick="mostrarEntidade('índia')">índia</span> tudo quanto <span class="entidade myth" onclick="mostrarEntidade('doris')">Dóris</span> banha,</span>
+          <span class="verso">E com novas vitórias venceria</span>
+          <span class="verso">A fama antiga, ou sua, ou fosse estranha.</span>
+          <span class="verso">Altamente lhe dói perder a glória,</span>
+          <span class="verso">De que <span class="entidade myth" onclick="mostrarEntidade('nisa')">Nisa</span> celebra inda a memória.</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">32</span>
+          <span class="verso">Vê que já teve o <span class="entidade real" onclick="mostrarEntidade('indo')">Indo</span> sojugado,</span>
+          <span class="verso">E nunca lhe tirou <span class="entidade myth" onclick="mostrarEntidade('fortuna')">Fortuna</span>, ou caso,</span>
+          <span class="verso">Por vencedor da <span class="entidade real" onclick="mostrarEntidade('india')">Índia</span> ser cantado</span>
+          <span class="verso">De quantos bebem a água de <span class="entidade real" onclick="mostrarEntidade('parnaso')">Parnaso</span>.</span>
+          <span class="verso">Teme agora que seja sepultado</span>
+          <span class="verso">Seu tão célebre nome em negro vaso</span>
+          <span class="verso"><span class="entidade place" onclick="mostrarEntidade('lete')">D'água do esquecimento</span>, se lá chegam</span>
+          <span class="verso">Os fortes Portugueses, que navegam.</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">33</span>
+          <span class="verso">Sustentava contra ele <span class="entidade myth" onclick="mostrarEntidade('venus')">Vénus</span> bela,</span>
+          <span class="verso">Afeiçoada à gente Lusitana,</span>
+          <span class="verso">Por quantas qualidades via nela</span>
+          <span class="verso">Da antiga tão amada sua Romana;</span>
+          <span class="verso">Nos fortes corações, na grande estrela,</span>
+          <span class="verso">Que mostraram na terra <span class="entidade real" onclick="mostrarEntidade('tingitana')">Tingitana</span>,</span>
+          <span class="verso">E na língua, na qual quando imagina,</span>
+          <span class="verso">Com pouca corrupção crê que é a Latina.</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">34</span>
+          <span class="verso">Estas causas moviam <span class="entidade myth" onclick="mostrarEntidade('venus')">Citereia</span>,</span>
+          <span class="verso">E mais, porque das <span class="entidade myth" onclick="mostrarEntidade('parcas')">Parcas</span> claro entende</span>
+          <span class="verso">Que há de ser celebrada a <span class="entidade myth" onclick="mostrarEntidade('venus')">clara Deia</span>,</span>
+          <span class="verso">Onde a gente belígera se estende.</span>
+          <span class="verso">Assim que, um pela infâmia, que arreceia,</span>
+          <span class="verso">E o outro pelas honras, que pretende,</span>
+          <span class="verso">Debatem, e na porfia permanecem;</span>
+          <span class="verso">A qualquer seus amigos favorecem.</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">35</span>
+          <span class="verso">Qual Austro fero, ou Bóreas na espessura</span>
+          <span class="verso">De silvestre arvoredo abastecida,</span>
+          <span class="verso">Rompendo os ramos vão da mata escura,</span>
+          <span class="verso">Com ímpeto e braveza desmedida;</span>
+          <span class="verso">Brama toda a montanha, o som murmura,</span>
+          <span class="verso">Rompem-se as folhas, ferve a serra erguida:</span>
+          <span class="verso">Tal andava o tumulto levantado,</span>
+          <span class="verso">Entre os Deuses, no <span class="entidade myth" onclick="mostrarEntidade('olimpo')">Olimpo</span> consagrado.</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">36</span>
+          <span class="verso">Mas <span class="entidade myth" onclick="mostrarEntidade('marte')">Marte</span>, que da <span class="entidade myth" onclick="mostrarEntidade('venus')">Deusa</span> sustentava</span>
+          <span class="verso">Entre todos as partes em porfia,</span>
+          <span class="verso">Ou porque o amor antigo o obrigava,</span>
+          <span class="verso">Ou porque a gente forte o merecia,</span>
+          <span class="verso">De entre os Deuses em pé se levantava:</span>
+          <span class="verso">Merencório no gesto parecia;</span>
+          <span class="verso">O forte escudo ao colo pendurado</span>
+          <span class="verso">Deitando para trás, medonho e irado,</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">37</span>
+          <span class="verso">A viseira do elmo de diamante</span>
+          <span class="verso">Alevantando um pouco, mui seguro,</span>
+          <span class="verso">Por dar seu parecer, se pôs diante</span>
+          <span class="verso">De <span class="entidade myth" onclick="mostrarEntidade('jupiter')">Júpiter</span>, armado, forte e duro:</span>
+          <span class="verso">E dando uma pancada penetrante,</span>
+          <span class="verso">Com o conto do bastão no sólio puro,</span>
+          <span class="verso">O Céu tremeu, e <span class="entidade myth" onclick="mostrarEntidade('apolo')">Apolo</span>, de torvado,</span>
+          <span class="verso">Um pouco a luz perdeu, como enfiado.</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">38</span>
+          <span class="verso">E disse assim: "<span class="entidade person" onclick="mostrarEntidade('jupiter')">Ó Padre</span>, a cujo império</span>
+          <span class="verso">Tudo aquilo obedece, que criaste,</span>
+          <span class="verso">Se esta gente, que busca outro hemisfério,</span>
+          <span class="verso">Cuja valia, e obras tanto amaste,</span>
+          <span class="verso">Não queres que padeçam vitupério,</span>
+          <span class="verso">Como há já tanto tempo que ordenaste,</span>
+          <span class="verso">Não onças mais, pois és juiz direito,</span>
+          <span class="verso">Razões de quem parece que é suspeito.</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">39</span>
+          <span class="verso">"Que, se aqui a razão se não mostrasse</span>
+          <span class="verso">Vencida do temor demasiado,</span>
+          <span class="verso">Bem fora que aqui <span class="entidade myth" onclick="mostrarEntidade('baco')">Baco</span> os sustentasse,</span>
+          <span class="verso">Pois que de Luso vem, seu tão privado;</span>
+          <span class="verso">Mas esta tenção sua agora passe,</span>
+          <span class="verso">Porque enfim vem de estâmago danado;</span>
+          <span class="verso">Que nunca tirará alheia inveja</span>
+          <span class="verso">O bem, que outrem merece, e o Céu deseja.</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">40</span>
+          <span class="verso">"E tu, <span class="entidade person" onclick="mostrarEntidade('jupiter')">Padre</span> de grande fortaleza,</span>
+          <span class="verso">Da determinação, que tens tomada,</span>
+          <span class="verso">Não tornes por detrás, pois é fraqueza</span>
+          <span class="verso">Desistir-se da cousa começada.</span>
+          <span class="verso"><span class="entidade myth" onclick="mostrarEntidade('mercúrio')">Mercúrio</span>, pois excede em ligeireza</span>
+          <span class="verso">Ao vento leve, e à seta bem talhada,</span>
+          <span class="verso">Lhe vá mostrar a terra, onde se informe</span>
+          <span class="verso">Da <span class="entidade real" onclick="mostrarEntidade('índia')">índia</span>, e onde a gente se reforme."</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">41</span>
+          <span class="verso">Como isto disse, o <span class="entidade person" onclick="mostrarEntidade('jupiter')">Padre</span> poderoso,</span>
+          <span class="verso">A cabeça inclinando, consentiu</span>
+          <span class="verso">No que disse <span class="entidade myth" onclick="mostrarEntidade('marte')">Mavorte</span> valeroso,</span>
+          <span class="verso">E néctar sobre todos esparziu.</span>
+          <span class="verso">Pelo caminho Lácteo glorioso</span>
+          <span class="verso">Logo cada um dos Deuses se partiu,</span>
+          <span class="verso">Fazendo seus reais acatamentos,</span>
+          <span class="verso">Para os determinados aposentos.</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">42</span>
+          <span class="verso">Enquanto isto se passa na formosa</span>
+          <span class="verso">Casa etérea do <span class="entidade myth" onclick="mostrarEntidade('olimpo')">Olimpo</span> onipotente,</span>
+          <span class="verso">Cortava o mar a gente belicosa,</span>
+          <span class="verso">Já lá da banda do Austro e do Oriente,</span>
+          <span class="verso">Entre a costa <span class="entidade real" onclick="mostrarEntidade('etiopia')">Etiópica</span> e a famosa</span>
+          <span class="verso"><span class="entidade real" onclick="mostrarEntidade('ilha_de_são_lourenço')">Ilha de São Lourenço</span>; e o Sol ardente</span>
+          <span class="verso">Queimava então os Deuses, que <span class="entidade myth" onclick="mostrarEntidade('tifeu')">Tifeu</span></span>
+          <span class="verso">Com o temor grande em peixes converteu.</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">43</span>
+          <span class="verso">Tão brandamente os ventos os levavam,</span>
+          <span class="verso">Como quem o céu tinha por amigo:</span>
+          <span class="verso">Sereno o ar, e os tempos se mostravam</span>
+          <span class="verso">Sem nuvens, sem receio de perigo.</span>
+          <span class="verso">O promontório <span class="entidade real" onclick="mostrarEntidade('prasso')">Prasso</span> já passavam,</span>
+          <span class="verso">Na costa de <span class="entidade real" onclick="mostrarEntidade('etiopia')">Etiópia</span>, nome antigo,</span>
+          <span class="verso">Quando o mar descobrindo lhe mostrava</span>
+          <span class="verso">Novas ilhas, que em torno cerca e lava.</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">44</span>
+          <span class="verso"><span class="entidade hist" onclick="mostrarEntidade('v_gama')">Vasco da Gama</span>, o forte capitão,</span>
+          <span class="verso">Que a tamanhas empresas se oferece,</span>
+          <span class="verso">De soberbo e de altivo coração,</span>
+          <span class="verso">A quem <span class="entidade hist" onclick="mostrarEntidade('fortuna')">Fortuna</span> sempre favorece,</span>
+          <span class="verso">Para se aqui deter não vê razão,</span>
+          <span class="verso">Que inabitada a terra lhe parece:</span>
+          <span class="verso">Por diante passar determinava;</span>
+          <span class="verso">Mas não lhe sucedeu como cuidava.</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">45</span>
+          <span class="verso">Eis aparecem logo em companhia</span>
+          <span class="verso">Uns pequenos batéis, que vêm daquela</span>
+          <span class="verso">Que mais chegada à terra parecia,</span>
+          <span class="verso">Cortando o longo mar com larga vela.</span>
+          <span class="verso">A gente se alvoroça, e de alegria</span>
+          <span class="verso">Não sabe mais que olhar a causa dela.</span>
+          <span class="verso">Que gente será esta, em si diziam,</span>
+          <span class="verso">Que costumes, que Lei, que Rei teriam?</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">46</span>
+          <span class="verso">As embarcações eram, na maneira,</span>
+          <span class="verso">Mui veloces, estreitas e compridas:</span>
+          <span class="verso">As velas, com que, vêm, eram de esteira</span>
+          <span class="verso">Dumas folhas de palma, bem tecidas;</span>
+          <span class="verso">A gente da cor era verdadeira,</span>
+          <span class="verso">Que <span class="entidade myth" onclick="mostrarEntidade('faeton')">Faeton</span>, nas terras acendidas,</span>
+          <span class="verso">Ao mundo deu, de ousado, o não prudente:</span>
+          <span class="verso">O <span class="entidade real" onclick="mostrarEntidade('rio_pado')">Pado</span> o sabe, o <span class="entidade myth" onclick="mostrarEntidade('lampetusa')">Lampetusa</span> o sente.</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">47</span>
+          <span class="verso">De panos de algodão vinham vestidos,</span>
+          <span class="verso">De várias cores, brancos e listrados:</span>
+          <span class="verso">Uns trazem derredor de si cingidos,</span>
+          <span class="verso">Outros em modo airoso sobraçados:</span>
+          <span class="verso">Da cinta para cima vêm despidos;</span>
+          <span class="verso">Por armas têm adargas o terçados;</span>
+          <span class="verso">Com toucas na cabeça; e navegando,</span>
+          <span class="verso">Anafis sonoros vão tocando.</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">48</span>
+          <span class="verso">Co'os panos e co'os braços acenavam</span>
+          <span class="verso">As gentes Lusitanas, que esperassem;</span>
+          <span class="verso">Mas já as proas ligeiras se inclinavam</span>
+          <span class="verso">Para que junto às ilhas amainassem.</span>
+          <span class="verso">A gente e marinheiros trabalhavam,</span>
+          <span class="verso">Como se aqui os trabalhos se acabassem;</span>
+          <span class="verso">Tomam velas; amaina-se a verga alta;</span>
+          <span class="verso">Da âncora, o mar ferido, em cima salta.</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">49</span>
+          <span class="verso">Não eram ancorados, quando a gente</span>
+          <span class="verso">Estranha pelas cordas já subia.</span>
+          <span class="verso">No gesto ledos vêm, e humanamente</span>
+          <span class="verso">O <span class="entidade person" onclick="mostrarEntidade('v_gama')">Capitão</span> sublime os recebia:</span>
+          <span class="verso">As mesas manda pôr em continente;</span>
+          <span class="verso">Do licor que <span class="entidade myth" onclick="mostrarEntidade('baco')">Lieo</span> prantado havia</span>
+          <span class="verso">Enchem vasos de vidro, e do que deitam,</span>
+          <span class="verso">Os de <span class="entidade myth" onclick="mostrarEntidade('faeton')">Faeton</span> queimados nada enjeitam.</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">50</span>
+          <span class="verso">Comendo alegremente perguntavam,</span>
+          <span class="verso">Pela Arábica língua, donde vinham,</span>
+          <span class="verso">Quem eram, de que terra, que buscavam,</span>
+          <span class="verso">Ou que partes do mar corrido tinham?</span>
+          <span class="verso">Os fortes Lusitanos lhe tornavam</span>
+          <span class="verso">As discretas respostas, que convinham:</span>
+          <span class="verso">"Os Portugueses somos do Ocidente,</span>
+          <span class="verso">Imos buscando as terras do Oriente.</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">51</span>
+          <span class="verso">"Do mar temos corrido e navegado</span>
+          <span class="verso">Toda a parte do Antártico e <span class="entidade myth" onclick="mostrarEntidade('calisto')">Calisto</span>,</span>
+          <span class="verso">Toda a <span class="entidade place" onclick="mostrarEntidade('africa')">costa Africana</span> rodeado,</span>
+          <span class="verso">Diversos céus e terras temos visto;</span>
+          <span class="verso"><span class="entidade person" onclick="mostrarEntidade('d_manuel_i')">Dum Rei</span> potente somos, tão amado,</span>
+          <span class="verso">Tão querido de todos, e benquisto,</span>
+          <span class="verso">Que não no largo mar, com leda fronte,</span>
+          <span class="verso">Mas no lago entraremos de <span class="entidade myth" onclick="mostrarEntidade('aqueronte')">Aqueronte</span>.</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">52</span>
+          <span class="verso">"E por mandado seu, buscando andamos</span>
+          <span class="verso">A terra Oriental que o <span class="entidade real" onclick="mostrarEntidade('indo')">Indo</span> rega;</span>
+          <span class="verso">Por ele, o mar remoto navegamos,</span>
+          <span class="verso">Que só dos feios focas se navega.</span>
+          <span class="verso">Mas já razão parece que saibamos,</span>
+          <span class="verso">Se entre vós a verdade não se nega,</span>
+          <span class="verso">Quem sois, que terra é esta que habitais,</span>
+          <span class="verso">Ou se tendes da <span class="entidade real" onclick="mostrarEntidade('india')">Índia</span> alguns sinais?"</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">53</span>
+          <span class="verso">Somos Mouros, um dos das ilhas lhe tornou,</span>
+          <span class="verso">Estrangeiros na terra, Lei e nação;</span>
+          <span class="verso">Que os próprios são aqueles, que criou</span>
+          <span class="verso">A natura sem Lei e sem razão.</span>
+          <span class="verso">Nós temos a Lei certa, que ensinou</span>
+          <span class="verso">O claro descendente de <span class="entidade hist" onclick="mostrarEntidade('abraao')">Abraão</span></span>
+          <span class="verso">Que agora tem do mundo o senhorio,</span>
+          <span class="verso">A mãe Hebréia teve, e o pai Gentio.</span>
+          <span class="verso">Informações. A <span class="entidade real" onclick="mostrarEntidade('ilha_de_moçambique')">Ilha de Moçambique</span>.</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">54</span>
+          <span class="verso">"Esta ilha pequena, que habitamos,</span>
+          <span class="verso">em toda esta terra certa escala</span>
+          <span class="verso">De todos os que as ondas navegamos</span>
+          <span class="verso">De <span class="entidade real" onclick="mostrarEntidade('quiloa')">Quíloa</span>, de <span class="entidade real" onclick="mostrarEntidade('mombaca')">Mombaça</span> e de <span class="entidade real" onclick="mostrarEntidade('sofala')">Sofala</span>;</span>
+          <span class="verso">E, por ser necessária, procuramos,</span>
+          <span class="verso">Como próprios da terra, de habitá-la;</span>
+          <span class="verso">E por que tudo enfim vos notifique,</span>
+          <span class="verso">Chama-se a pequena <span class="entidade real" onclick="mostrarEntidade('ilha_moçambique')">ilha Moçambique</span>.</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">55</span>
+          <span class="verso">"E já que de tão longe navegais,</span>
+          <span class="verso">Buscando o <span class="entidade real" onclick="mostrarEntidade('rio_indo')">Indo</span> <span class="entidade real" onclick="mostrarEntidade('idaspe')">Idaspe</span> e terra ardente,</span>
+          <span class="verso">Piloto aqui tereis, por quem sejais</span>
+          <span class="verso">Guiados pelas ondas sabiamente.</span>
+          <span class="verso">Também será bem feito que tenhais</span>
+          <span class="verso">Da terra algum refresco, e que o Regente</span>
+          <span class="verso">Que esta terra governa, que vos veja,</span>
+          <span class="verso">E do mais necessário vos proveja."</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">56</span>
+          <span class="verso">Isto dizendo, o Mouro  se tornou</span>
+          <span class="verso">A seus batéis com toda a companhia;</span>
+          <span class="verso">Do <span class="entidade person" onclick="mostrarEntidade('v_gama')">Capitão</span> e gente se apartou</span>
+          <span class="verso">Com mostras de devida cortesia.</span>
+          <span class="verso">Nisto <span class="entidade myth" onclick="mostrarEntidade('apolo')">Febo</span> nas águas encerrou,</span>
+          <span class="verso">Co'o carro de cristal, o claro dia,</span>
+          <span class="verso">Dando cargo à irmã, que alumiasse</span>
+          <span class="verso">O largo mundo, enquanto repousasse.</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">57</span>
+          <span class="verso">A noite se passou na lassa frota</span>
+          <span class="verso">Com estranha alegria, e não cuidada,</span>
+          <span class="verso">Por acharem da terra tão remota</span>
+          <span class="verso">Nova de tanto tempo desejada.</span>
+          <span class="verso">Qualquer então consigo cuida e nota</span>
+          <span class="verso">Na gente e na maneira desusada,</span>
+          <span class="verso">E como os que na errada Seita creram,</span>
+          <span class="verso">Tanto por todo o mundo se estenderam,</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">58</span>
+          <span class="verso">Da Lua os claros raios rutilavam</span>
+          <span class="verso">Pelas argênteas ondas Neptuninas,</span>
+          <span class="verso">As estrelas os Céus acompanhavam,</span>
+          <span class="verso">Qual campo revestido de boninas;</span>
+          <span class="verso">Os furiosos ventos repousavam</span>
+          <span class="verso">Pelas covas escuras peregrinas;</span>
+          <span class="verso">Porém da armada a gente vigiava,</span>
+          <span class="verso">Como por longo tempo costumava.</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">59</span>
+          <span class="verso">Mas assim como a <span class="entidade myth" onclick="mostrarEntidade('aurora')">Aurora</span> marchetada</span>
+          <span class="verso">Os formosos cabelos espalhou</span>
+          <span class="verso">No Céu sereno, abrindo a roxa entrada</span>
+          <span class="verso">Ao claro <span class="entidade myth" onclick="mostrarEntidade('hiperiao')">Hiperiónio</span>, que acordou,</span>
+          <span class="verso">Começa a embandeirar-se toda a armada,</span>
+          <span class="verso">E de toldos alegres se adornou,</span>
+          <span class="verso">Por receber com festas e alegria</span>
+          <span class="verso">O Regedor das ilhas, que partia.</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">60</span>
+          <span class="verso">Partia alegremente navegando,</span>
+          <span class="verso">A ver as naus ligeiras Lusitanas,</span>
+          <span class="verso">Com refresco da terra, em si cuidando</span>
+          <span class="verso">Que são aquelas gentes inumanas,</span>
+          <span class="verso">Que, os aposentos cáspios habitando,</span>
+          <span class="verso">A conquistar as terras Asianas</span>
+          <span class="verso">Vieram; e por ordem do <span class="entidade myth" onclick="mostrarEntidade('fado')">Destino</span>,</span>
+          <span class="verso">O Império tomaram a <span class="entidade hist" onclick="mostrarEntidade('constantino')">Constantino</span>.</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">61</span>
+          <span class="verso">Recebe o <span class="entidade hist" onclick="mostrarEntidade('v_gama')">Capitão</span> alegremente</span>
+          <span class="verso">O Mouro, e toda a sua companhia;</span>
+          <span class="verso">Dá-lhe de ricas peças um presente,</span>
+          <span class="verso">Que só para este efeito já trazia;</span>
+          <span class="verso">Dá-lhe conserva doce, e dá-lhe o ardente</span>
+          <span class="verso">Não usado licor, que dá alegria.</span>
+          <span class="verso">Tudo o Mouro contente bem recebe;</span>
+          <span class="verso">E muito mais contente come e bebe.</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">62</span>
+          <span class="verso">Está a gente marítima de <span class="entidade real" onclick="mostrarEntidade('portugal')">Luso</span></span>
+          <span class="verso">Subida pela enxárcia, de admirada,</span>
+          <span class="verso">Notando o estrangeiro modo e uso,</span>
+          <span class="verso">E a linguagem tão bárbara e enleada.</span>
+          <span class="verso">Também o Mouro astuto está confuso,</span>
+          <span class="verso">Olhando a cor, o trajo, e a forte armada;</span>
+          <span class="verso">E perguntando tudo, lhe dizia</span>
+          <span class="verso">"Se por ventura vinham de <span class="entidade real" onclick="mostrarEntidade('turquia')">Turquia</span>?"</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">63</span>
+          <span class="verso">E mais lhe diz também, que ver deseja</span>
+          <span class="verso">Os livros de sua Lei, preceito eu fé,</span>
+          <span class="verso">Para ver se conforme à sua seja,</span>
+          <span class="verso">Ou se são dos de <span class="entidade hist" onclick="mostrarEntidade('jesus_cristo')">Cristo</span>, como Crê.</span>
+          <span class="verso">E porque tudo note e tudo veja,</span>
+          <span class="verso">Ao <span class="entidade person" onclick="mostrarEntidade('v_gama')">Capitão</span> pedia que lhe dê</span>
+          <span class="verso">Mostra das fortes armas de que usavam,</span>
+          <span class="verso">Quando co'os inimigos pelejavam.</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">64</span>
+          <span class="verso">Responde o valeroso <span class="entidade person" onclick="mostrarEntidade('v_gama')">Capitão</span></span>
+          <span class="verso">Por um, que a língua escura bem sabia:</span>
+          <span class="verso">"Dar-te-ei, Senhor ilustre, relação</span>
+          <span class="verso">De mim, da Lei, das armas que trazia.</span>
+          <span class="verso">Nem sou da terra, nem da geração</span>
+          <span class="verso">Das gentes enojosas de <span class="entidade real" onclick="mostrarEntidade('turquia')">Turquia</span>:</span>
+          <span class="verso">Mas sou da forte <span class="entidade real" onclick="mostrarEntidade('europa')">Europa</span> belicosa,</span>
+          <span class="verso">Busco as terras da <span class="entidade real" onclick="mostrarEntidade('índia')">índia</span> tão famosa.</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">65</span>
+          <span class="verso">A lei tenho daquele, a cujo império</span>
+          <span class="verso">Obedece o visíbil e ínvisíbil</span>
+          <span class="verso">Aquele que criou todo o Hemisfério,</span>
+          <span class="verso">Tudo o que sente, o todo o insensíbil;</span>
+          <span class="verso">Que padeceu desonra e vitupério,</span>
+          <span class="verso">Sofrendo morte injusta e insofríbil,</span>
+          <span class="verso">E que do Céu à Terra, enfim desceu,</span>
+          <span class="verso">Por subir os mortais da Terra ao Céu.</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">66</span>
+          <span class="verso">Deste <span class="entidade person" onclick="mostrarEntidade('jesus_cristo')">Deus-Homem</span>, alto e infinito,</span>
+          <span class="verso">Os livros, que tu pedes não trazia,</span>
+          <span class="verso">Que bem posso escusar trazer escrito</span>
+          <span class="verso">Em papel o que na alma andar devia.</span>
+          <span class="verso">Se as armas queres ver, como tens dito,</span>
+          <span class="verso">Cumprido esse desejo te seria;</span>
+          <span class="verso">Como amigo as verás; porque eu me obrigo,</span>
+          <span class="verso">Que nunca as queiras ver como inimigo."</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">67</span>
+          <span class="verso">Isto dizendo, manda os diligentes</span>
+          <span class="verso">Ministros amostrar as armaduras:</span>
+          <span class="verso">Vêm arneses, e peitos reluzentes,</span>
+          <span class="verso">Malhas finas, e lâminas seguras,</span>
+          <span class="verso">Escudos de pinturas diferentes,</span>
+          <span class="verso">Pelouros, espingardas de aço puras,</span>
+          <span class="verso">Arcos, e sagitíferas aljavas,</span>
+          <span class="verso">Partazanas agudas, chuças bravas:</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">68</span>
+          <span class="verso">As bombas vêm de fogo, e juntamente</span>
+          <span class="verso">As panelas sulfúreas, tão danosas;</span>
+          <span class="verso">Porém aos de <span class="entidade myth" onclick="mostrarEntidade('vulcano')">Vulcano</span> não consente</span>
+          <span class="verso">Que dêem fogo às bombardas temerosas;</span>
+          <span class="verso">Porque o generoso ânimo e valente,</span>
+          <span class="verso">Entre gentes tão poucas e medrosas,</span>
+          <span class="verso">Não mostra quanto pode, e com razão,</span>
+          <span class="verso">Que é fraqueza entre ovelhas ser leão.</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">69</span>
+          <span class="verso">Porém disto, que o Mouro aqui notou,</span>
+          <span class="verso">E de tudo o que viu com olho atento</span>
+          <span class="verso">Um ódio certo na alma lhe ficou,</span>
+          <span class="verso">Uma vontade má de pensamento.</span>
+          <span class="verso">Nas mostras e no gesto o não mostrou;</span>
+          <span class="verso">Mas com risonho e ledo fingimento</span>
+          <span class="verso">Tratá-los brandamente determina,</span>
+          <span class="verso">Até que mostrar possa o que imagina.</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">70</span>
+          <span class="verso">Pilotos lhe pedia o <span class="entidade person" onclick="mostrarEntidade('v_gama')">Capitão</span>,</span>
+          <span class="verso">Por quem pudesse à <span class="entidade real" onclick="mostrarEntidade('india')">Índia</span> ser levado;</span>
+          <span class="verso">Diz-lhe que o largo prémio levarão</span>
+          <span class="verso">Do trabalho que nisso for tomado.</span>
+          <span class="verso">Promete-lhos o Mouro, com tenção</span>
+          <span class="verso">De peito venenoso, e tão danado,</span>
+          <span class="verso">Que a morte, se pudesse, neste dia,</span>
+          <span class="verso">Em lugar de pilotos lhe daria.</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">71</span>
+          <span class="verso">Tamanho o ódio foi, e a má vontade,</span>
+          <span class="verso">Que aos estrangeiros súbito tomou,</span>
+          <span class="verso">Sabendo ser sequazes da verdade,</span>
+          <span class="verso">Que o <span class="entidade person" onclick="mostrarEntidade('jesus_cristo')">Filho de <span class="entidade hist" onclick="mostrarEntidade('david')">David</span></span> nos ensinou.</span>
+          <span class="verso">ó segredos daquela Eternidade,</span>
+          <span class="verso">A quem juízo algum nunca alcançou!</span>
+          <span class="verso">Que nunca falte um pérfido inimigo</span>
+          <span class="verso">Aqueles de quem foste tanto amigo!</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">72</span>
+          <span class="verso">Partiu-se Disto enfim coa companhia,</span>
+          <span class="verso">Das naus o falso Mouro despedido,</span>
+          <span class="verso">Com enganosa e grande cortesia,</span>
+          <span class="verso">Com gesto ledo a todos, e fingido.</span>
+          <span class="verso">Cortaram os batéis a curta via</span>
+          <span class="verso">Das águas de <span class="entidade myth" onclick="mostrarEntidade('neptuno')">Neptuno</span>, e recebido</span>
+          <span class="verso">Na terra do obsequente ajuntamento</span>
+          <span class="verso">Se foi o Mouro ao côgnito aposento.</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">73</span>
+          <span class="verso">Do claro assento etóreo o <span class="entidade myth" onclick="mostrarEntidade('baco')">grão Tebano</span>,</span>
+          <span class="verso">Que da paternal coxa foi nascido,</span>
+          <span class="verso">Olhando o ajuntamento Lusitano</span>
+          <span class="verso">Ao Mouro ser molesto e avorrecido,</span>
+          <span class="verso">No pensamento cuida um falso engano,</span>
+          <span class="verso">Com que seja de todo destruído.</span>
+          <span class="verso">E enquanto isto só na alma imaginava,</span>
+          <span class="verso">Consigo estas palavras praticava:</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">74</span>
+          <span class="verso">"Está do fado já determinado,</span>
+          <span class="verso">Que tamanhas vitórias, tão famosas,</span>
+          <span class="verso">Hajam os Portugueses alcançado</span>
+          <span class="verso">Das Indianas gentes belicosas.</span>
+          <span class="verso">E eu só, filho do <span class="entidade person" onclick="mostrarEntidade('jupiter')">Padre</span> sublimado,</span>
+          <span class="verso">Com tantas qualidades generosas,</span>
+          <span class="verso">Hei de sofrer que o fado favoreça</span>
+          <span class="verso">Outrem, por quem meu nome se escureça?</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">75</span>
+          <span class="verso">"Já quiseram os Deuses que tivesse</span>
+          <span class="verso">O <span class="entidade person" onclick="mostrarEntidade('alexandro')">filho de <span class="entidade hist" onclick="mostrarEntidade('filipo')">Filipo</span></span> nesta parte</span>
+          <span class="verso">Tanto poder, que tudo submetesse</span>
+          <span class="verso">Debaixo de seu jugo o fero <span class="entidade myth" onclick="mostrarEntidade('marte')">Marte</span>.</span>
+          <span class="verso">Mas há-se de sofrer que o fado desse</span>
+          <span class="verso">A tão poucos tamanho esforço e arte,</span>
+          <span class="verso">Que eu co'o <span class="entidade person" onclick="mostrarEntidade('alexandro')">grão Macedónio</span>, e o Romano,</span>
+          <span class="verso">Demos lugar ao nome Lusitano?</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">76</span>
+          <span class="verso">"Não será assim, porque antes que chegado</span>
+          <span class="verso">Seja este <span class="entidade person" onclick="mostrarEntidade('v_gama')">Capitão</span>, astutamente</span>
+          <span class="verso">Lhe será tanto engano fabricados</span>
+          <span class="verso">Que nunca veja as partes do Oriente.</span>
+          <span class="verso">Eu descerei à Terra, e o indignado</span>
+          <span class="verso">Peito revolverei da Maura gente;</span>
+          <span class="verso">Porque sempre por via irá direita</span>
+          <span class="verso">Quem do oportuno tempo se aproveita."</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">77</span>
+          <span class="verso">Isto dizendo, irado e quase insano,</span>
+          <span class="verso">Sobre a terra africana descendeu,</span>
+          <span class="verso">Do <span class="entidade real" onclick="mostrarEntidade('prasso_promontorio')">Prasso</span> sabido se moveu.</span>
+          <span class="verso">E por melhor tecer o astuto engano,</span>
+          <span class="verso">No gesto natural se converteu</span>
+          <span class="verso">Dum Mouro em <span class="entidade real" onclick="mostrarEntidade('moçambique')">Moçambique</span> conhecido</span>
+          <span class="verso">Velho, sábio, e co'o Xeque mui valido.</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">78</span>
+          <span class="verso">E entrando assim a falar-lhe a tempo e horas</span>
+          <span class="verso">A sua falsidade acomodadas,</span>
+          <span class="verso">Lhe diz como eram gentes roubadoras,</span>
+          <span class="verso">Estas que ora de novo são chegadas;</span>
+          <span class="verso">Que das nações na costa moradoras</span>
+          <span class="verso">Correndo a fama veio que roubadas</span>
+          <span class="verso">Foram por estes homens que passavam,</span>
+          <span class="verso">Que com pactos de paz sempre ancoravam.</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">79</span>
+          <span class="verso">E sabe mais, lhe diz, como entendido</span>
+          <span class="verso">Tenho destes cristãos sanguinolentos,</span>
+          <span class="verso">Que quase todo o mar têm destruído</span>
+          <span class="verso">Com roubos, com incêndios violentos;</span>
+          <span class="verso">E trazem já de longe engano urdido</span>
+          <span class="verso">Contra nós; e que todos seus intentos</span>
+          <span class="verso">São para nos matarem e roubarem,</span>
+          <span class="verso">E mulheres e filhos cativarem.</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">80</span>
+          <span class="verso">"E também sei que tem determinado</span>
+          <span class="verso">De vir por água a terra muito cedo</span>
+          <span class="verso">O <span class="entidade person" onclick="mostrarEntidade('v_gama')">Capitão</span> dos seus acompanhado,</span>
+          <span class="verso">Que da tensão danada nasce o medo.</span>
+          <span class="verso">Tu deves de ir também co'os teus armado</span>
+          <span class="verso">Esperá-lo em cilada, oculto e quedo;</span>
+          <span class="verso">Porque, saindo a gente descuidada,</span>
+          <span class="verso">Cairão facilmente na cilada.</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">81</span>
+          <span class="verso">"E se inda não ficarem deste jeito</span>
+          <span class="verso">Destruídos, ou mortos totalmente</span>
+          <span class="verso">Eu tenho imaginado no conceito</span>
+          <span class="verso">Outra manha e ardil, que te contente:</span>
+          <span class="verso">Manda-lhe dar piloto, que de jeito</span>
+          <span class="verso">Seja astuto no engano, e tão prudente,</span>
+          <span class="verso">Que os leve aonde sejam destruídos,</span>
+          <span class="verso">Desbaratados, mortos, ou perdidos."</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">82</span>
+          <span class="verso">Tanto que estas palavras acabou,</span>
+          <span class="verso">O Mouro, nos tais casos sábio e velho,</span>
+          <span class="verso">Os braços pelo colo lhe lançou,</span>
+          <span class="verso">Agradecendo muito o tal conselho;</span>
+          <span class="verso">E logo nesse instante concertou</span>
+          <span class="verso">Para a guerra o belígero aparelho,</span>
+          <span class="verso">Para que ao Português se lhe tornasse</span>
+          <span class="verso">Em roxo sangue a água, que buscasse.</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">83</span>
+          <span class="verso">E busca mais, para o cuidado engano,</span>
+          <span class="verso">Mouro, que por piloto à nau lhe mande,</span>
+          <span class="verso">Sagaz, astuto, e sábio em todo o dano,</span>
+          <span class="verso">De quem fiar-se possa um feito grande.</span>
+          <span class="verso">Diz-lhe que acompanhando o Lusitano,</span>
+          <span class="verso">Por tais costas e mares com ele ande,</span>
+          <span class="verso">Que, se daqui escapar, que lá diante</span>
+          <span class="verso">Vá cair onde nunca se alevante.</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">84</span>
+          <span class="verso">Já o raio Apolíneo visitava</span>
+          <span class="verso">Os <span class="entidade real" onclick="mostrarEntidade('nabateia')">montes Nabatêos</span> acendido,</span>
+          <span class="verso">Quando o <span class="entidade hist" onclick="mostrarEntidade('v_gama')">Gama</span>, co'os seus determinava</span>
+          <span class="verso">De vir por água a terra apercebido.</span>
+          <span class="verso">A gente nos batéis se concertava,</span>
+          <span class="verso">Como se fosse o engano já sabido:</span>
+          <span class="verso">Mas pode suspeitar-se facilmente,</span>
+          <span class="verso">Que o coração pressago nunca mente.</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">85</span>
+          <span class="verso">E mais também mandado tinha a terra,</span>
+          <span class="verso">De antes, pelo piloto necessário,</span>
+          <span class="verso">E foi-lhe respondido em som de guerra,</span>
+          <span class="verso">Caso do que cuidava mui contrário;</span>
+          <span class="verso">Por isto, e porque sabe quanto erra</span>
+          <span class="verso">Quem se crê de seu pérfido adversário,</span>
+          <span class="verso">Apercebido vai como podia,</span>
+          <span class="verso">Em três batéis somente que trazia.</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">86</span>
+          <span class="verso">Mas os Mouros que andavam pela praia,</span>
+          <span class="verso">Por lhe defender a água desejada,</span>
+          <span class="verso">Um de escudo embraçado e de azagaia,</span>
+          <span class="verso">Outro de arco encurvado e seta ervada,</span>
+          <span class="verso">Esperam que a guerreira gente saia,</span>
+          <span class="verso">Outros muitos já postos em cilada.</span>
+          <span class="verso">E, porque o caso leve se lhe faça,</span>
+          <span class="verso">Põem uns poucos diante por negaça,</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">87</span>
+          <span class="verso">Andam pela ribeira alva, arenosa,</span>
+          <span class="verso">Os belicosos Mouros acenando</span>
+          <span class="verso">Com a adarga e co'a hástia perigosa,</span>
+          <span class="verso">Os fortes Portugueses incitando.</span>
+          <span class="verso">Não sofre muito a gente generosa</span>
+          <span class="verso">Andar-lhe os cães os dentes amostrando.</span>
+          <span class="verso">Qualquer em terra salta tão ligeiro,</span>
+          <span class="verso">Que nenhum dizer pode que é primeiro.</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">88</span>
+          <span class="verso">Qual no corro sanguino o ledo amante,</span>
+          <span class="verso">Vendo a formosa dama desejada,</span>
+          <span class="verso">O touro busca, e pondo-se diante,</span>
+          <span class="verso">Salta, corre, sibila, acena, e brada,</span>
+          <span class="verso">Mas o animal atroce, nesse instante,</span>
+          <span class="verso">Com a fronte cornígera inclinada,</span>
+          <span class="verso">Bramando duro corre, e os olhos cerra,</span>
+          <span class="verso">Derriba, fere e mata, e põe por terra:</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">89</span>
+          <span class="verso">Eis nos batéis o fogo se levanta</span>
+          <span class="verso">Na furiosa e dura artilharia,</span>
+          <span class="verso">A plúmbea péla mata, o brado espanta,</span>
+          <span class="verso">Ferido o ar retumba e assovia:</span>
+          <span class="verso">O coração dos Mouros se quebranta,</span>
+          <span class="verso">O temor grande o sangue lhe resfria.</span>
+          <span class="verso">Já foge o escondido de medroso,</span>
+          <span class="verso">E morre o descoberto aventuroso.</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">90</span>
+          <span class="verso">Não se contenta a gente Portuguesa,</span>
+          <span class="verso">Mas seguindo a vitória estrui e mata;</span>
+          <span class="verso">A povoação, sem muro e sem defesa,</span>
+          <span class="verso">Esbombardeia, acende e desbarata.</span>
+          <span class="verso">Da cavalgada ao Mouro já lhe pesa,</span>
+          <span class="verso">Que bem cuidou comprá-la mais barata;</span>
+          <span class="verso">Já blasfema da guerra, e maldizia,</span>
+          <span class="verso">O velho inerte, e a mãe que o filho cria.</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">91</span>
+          <span class="verso">Fugindo, a seta o Mouro vai tirando</span>
+          <span class="verso">Sem força, de covarde e de apressado,</span>
+          <span class="verso">A pedra, o pau, e o canto arremessando;</span>
+          <span class="verso">Dá-lhe armas o furor desatinado.</span>
+          <span class="verso">Já a ilha e todo o mais desemparando,</span>
+          <span class="verso">A terra firme foge amedrontado;</span>
+          <span class="verso">Passa e corta do mar o estreito braço,</span>
+          <span class="verso">Que a ilha em torno cerca, em pouco espaço</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">92</span>
+          <span class="verso">Uns vão nas almadias carregadas,</span>
+          <span class="verso">Um corta o mar a nado diligente,</span>
+          <span class="verso">Quem se afoga nas ondas encurvadas,</span>
+          <span class="verso">Quem bebe o mar, e o deita juntamente.</span>
+          <span class="verso">Arrombam as miúdas bombardadas</span>
+          <span class="verso">Os pangaios subtis da bruta gente:</span>
+          <span class="verso">Desta arte o Português enfim castiga</span>
+          <span class="verso">A vil malícia, pérfida, inimiga.</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">93</span>
+          <span class="verso">Tornam vitoriosos para a armada,</span>
+          <span class="verso">Co'o despojo da guerra e rica presa,</span>
+          <span class="verso">E vão a seu prazer fazer aguada,</span>
+          <span class="verso">Sem achar resistência, nem defesa.</span>
+          <span class="verso">Ficava a Maura gente magoada,</span>
+          <span class="verso">No ódio antigo mais que nunca acesa;</span>
+          <span class="verso">E vendo sem vingança tanto dano,</span>
+          <span class="verso">Somente estriba no segundo engano.</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">94</span>
+          <span class="verso">Pazes cometer manda arrependido</span>
+          <span class="verso">O Regedor daquela iníqua terra,</span>
+          <span class="verso">Sem ser dos Lusitanos entendido,</span>
+          <span class="verso">Que em figura de paz lhe manda guerra;</span>
+          <span class="verso">Porque o piloto falso prometido,</span>
+          <span class="verso">Que toda a má tenção no peito encerra,</span>
+          <span class="verso">Para os guiar à morte lhe mandava,</span>
+          <span class="verso">Como em sinal das pazes que tratava.</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">95</span>
+          <span class="verso">O <span class="entidade person" onclick="mostrarEntidade('v_gama')">Capitão</span>, que já lhe então convinha</span>
+          <span class="verso">Tornar a seu caminho acostumado,</span>
+          <span class="verso">Que tempo concertado e ventos tinha</span>
+          <span class="verso">Para ir buscar o <span class="entidade real" onclick="mostrarEntidade('indo')">Indo</span> desejado,</span>
+          <span class="verso">Recebendo o piloto, que lhe vinha,</span>
+          <span class="verso">Foi dele alegremente agasalhado;</span>
+          <span class="verso">E respondendo ao mensageiro a tento,</span>
+          <span class="verso">As velas manda dar ao largo vento.</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">96</span>
+          <span class="verso">Desta arte despedida a forte armada,</span>
+          <span class="verso">As ondas de <span class="entidade myth" onclick="mostrarEntidade('anfitrite')">Anfitrite</span> dividia,</span>
+          <span class="verso">Das <span class="entidade person" onclick="mostrarEntidade('nereidas')">filhas de <span class="entidade myth" onclick="mostrarEntidade('nereu')">Nereu</span></span> acompanhada,</span>
+          <span class="verso">Fiel, alegre e doce companhia.</span>
+          <span class="verso">O <span class="entidade person" onclick="mostrarEntidade('v_gama')">Capitão</span>, que não caía em nada</span>
+          <span class="verso">Do enganoso ardil, que o Mouro urdia,</span>
+          <span class="verso">Dele mui largamente se informava</span>
+          <span class="verso">Da <span class="entidade real" onclick="mostrarEntidade('india')">Índia</span> toda, e costas que passava.</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">97</span>
+          <span class="verso">Mas o Mouro, instruído nos enganos</span>
+          <span class="verso">Que o malévolo <span class="entidade myth" onclick="mostrarEntidade('baco')">Baco</span> lhe ensinara,</span>
+          <span class="verso">De morte ou cativeiro novos danos,</span>
+          <span class="verso">Antes que à <span class="entidade real" onclick="mostrarEntidade('india')">Índia</span> chegue, lhe prepara:</span>
+          <span class="verso">Dando razões dos portos Indianos,</span>
+          <span class="verso">Também tudo o que pede lhe declara,</span>
+          <span class="verso">Que, havendo por verdade o que dizia,</span>
+          <span class="verso">De nada a forte gente se temia.</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">98</span>
+          <span class="verso">E diz-lhe mais, com o falso pensamento</span>
+          <span class="verso">Com que <span class="entidade myth" onclick="mostrarEntidade('sinon')">Sinon</span> os Frígios enganou:</span>
+          <span class="verso">Que perto está uma ilha, cujo assento</span>
+          <span class="verso">Povo antigo cristão sempre habitou.</span>
+          <span class="verso">O <span class="entidade person" onclick="mostrarEntidade('v_gama')">Capitão</span>, que a tudo estava a tento,</span>
+          <span class="verso">Tanto com estas novas se alegrou,</span>
+          <span class="verso">Que com dádivas grandes lhe rogava,</span>
+          <span class="verso">Que o leve à terra onde esta gente estava.</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">99</span>
+          <span class="verso">O mesmo o falso Mouro determina,</span>
+          <span class="verso">Que o seguro Cristão lhe manda e pede;</span>
+          <span class="verso">Que a ilha é possuída da malina</span>
+          <span class="verso">Gente que segue o torpe <span class="entidade hist" onclick="mostrarEntidade('maome')">Mahamede</span>.</span>
+          <span class="verso">Aqui o engano e morte lhe imagina,</span>
+          <span class="verso">Porque em poder e forças muito excede</span>
+          <span class="verso">A <span class="entidade real" onclick="mostrarEntidade('moçambique')">Moçambique</span> esta ilha, que se chama</span>
+          <span class="verso"><span class="entidade real" onclick="mostrarEntidade('quíloa')">Quíloa</span>, mui conhecida pela fama.</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">100</span>
+          <span class="verso">Para lá se inclinava a leda frota;</span>
+          <span class="verso">Mas a <span class="entidade person" onclick="mostrarEntidade('venus')">Deusa</span> em <span class="entidade real" onclick="mostrarEntidade('citera')">Citere</span> celebrada,</span>
+          <span class="verso">Vendo como deixava a certa rota</span>
+          <span class="verso">Por ir buscar a morte não cuidada,</span>
+          <span class="verso">Não consente que em terra tão remota</span>
+          <span class="verso">Se perca a gente dela tanto amada.</span>
+          <span class="verso">E com ventos contrários a desvia</span>
+          <span class="verso">Donde o piloto falso a leva e guia.</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">101</span>
+          <span class="verso">Mas o malvado Mouro, não podendo</span>
+          <span class="verso">Tal determinação levar avante,</span>
+          <span class="verso">Outra maldade iníqua cometendo,</span>
+          <span class="verso">Ainda em seu propósito constante,</span>
+          <span class="verso">Lhe diz que, pois as águas discorrendo</span>
+          <span class="verso">Os levaram por força por diante,</span>
+          <span class="verso">Que outra ilha tem perto, cuja gente</span>
+          <span class="verso">Eram Cristãos com Mouros juntamente.</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">102</span>
+          <span class="verso">Também nestas palavras lhe mentia,</span>
+          <span class="verso">Como por regimento enfim levava,</span>
+          <span class="verso">Que aqui gente de <span class="entidade hist" onclick="mostrarEntidade('jesus_cristo')">Cristo</span> não havia,</span>
+          <span class="verso">Mas a que a <span class="entidade hist" onclick="mostrarEntidade('maome')">Mahamede</span> celebrava.</span>
+          <span class="verso">O <span class="entidade person" onclick="mostrarEntidade('v_gama')">Capitão</span>, que em tudo o Mouro cria,</span>
+          <span class="verso">Virando as velas, a ilha demandava;</span>
+          <span class="verso">Mas, não querendo a <span class="entidade person" onclick="mostrarEntidade('venus')">Deusa</span> guardadora,</span>
+          <span class="verso">Não entra pela barra, e surge fora.</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">103</span>
+          <span class="verso">Estava a ilha à terra tão chegada,</span>
+          <span class="verso">Que um estreito pequeno a dividia;</span>
+          <span class="verso">Uma cidade nela situada,</span>
+          <span class="verso">Que na fronte do mar aparecia,</span>
+          <span class="verso">De nobres edifícios fabricada,</span>
+          <span class="verso">Como por fora ao longe descobria,</span>
+          <span class="verso">Regida por um Rei de antiga idade:</span>
+          <span class="verso"><span class="entidade real" onclick="mostrarEntidade('mombaça')">Mombaça</span> é o nome da ilha e da cidade.</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">104</span>
+          <span class="verso">E sendo a ela o <span class="entidade person" onclick="mostrarEntidade('v_gama')">Capitão</span> chegado,</span>
+          <span class="verso">Estranhamente ledo, porque espera</span>
+          <span class="verso">De poder ver o povo batizado,</span>
+          <span class="verso">Como o falso piloto lhe dissera,</span>
+          <span class="verso">Eis vêm batéis da terra com recado</span>
+          <span class="verso">Do Rei, que já sabia a gente que era:</span>
+          <span class="verso">Que <span class="entidade myth" onclick="mostrarEntidade('baco')">Baco</span> muito de antes o avisara,</span>
+          <span class="verso">Na forma doutro Mouro, que tomara.</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">105</span>
+          <span class="verso">O recado que trazem é de amigos,</span>
+          <span class="verso">Mas debaixo o veneno vem coberto;</span>
+          <span class="verso">Que os pensamentos eram de inimigos,</span>
+          <span class="verso">Segundo foi o engano descoberto.</span>
+          <span class="verso">Ó grandes e gravíssimos perigos!</span>
+          <span class="verso">Ó caminho de vida nunca certo:</span>
+          <span class="verso">Que aonde a gente põe sua esperança,</span>
+          <span class="verso">Tenha a vida tão pouca segurança!</span>
+        </div>
+        <div class="estrofe"><span class="num-estrofe">106</span>
+          <span class="verso">No mar tanta tormenta, e tanto dano,</span>
+          <span class="verso">Tantas vezes a morte apercebida!</span>
+          <span class="verso">Na terra tanta guerra, tanto engano,</span>
+          <span class="verso">Tanta necessidade avorrecida!</span>
+          <span class="verso">Onde pode acolher-se um fraco humano,</span>
+          <span class="verso">Onde terá segura a curta vida,</span>
+          <span class="verso">Que não se arme, e se indigne o Céu sereno</span>
+          <span class="verso">Contra um bicho da terra tão pequeno?</span>
+        </div>
+      
+    
+</div>
+<div id="overlay" onclick="fecharPainel()"></div>
+<div id="painel">
+    <button class="fechar" onclick="fecharPainel()">×</button>
+    <img id="modal-img" src="" alt="Imagem da autoridade">
+    <h2 id="modal-titulo"></h2>
+    <p id="modal-desc" style="text-align:justify; line-height:1.5;"></p>
+    <hr style="border:0; border-top:1px solid #c2b280; margin: 15px 0;">
+    <a id="modal-link" href="" target="_blank" style="color:#3b5b6b; font-weight:bold; text-decoration:none;">🔗 Ver no Wikidata</a>
+</div>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+    const autoridades = {
+    "jupiter": {
+        "nome": "J\u00fapiter",
+        "desc": "Mit., pai dos deuses, ou dos dias, conforme se infere do exame do vocabulo; Jupiter-Amon, adorado rios areiais africanos ou l\u00edbicos (7.48); o planeta Jupiter (10.89):",
+        "wiki": "https://www.wikidata.org/wiki/Q4649",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/2/25/0_Jupiter_-_Louvre_MR_254_-_Louvre-Lens_%282%29.JPG",
+        "tipo": "pessoa",
+        "lat": null,
+        "lon": null
+    },
+    "venus": {
+        "nome": "V\u00e9nus",
+        "desc": "Venus, deusa da beleza e do amor, que protege os Portugueses, como na \"Eneida\" a En\u00e9as, tronco dos latinos",
+        "wiki": "https://www.wikidata.org/wiki/Q47652",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/6/68/Venus_Arles.jpg",
+        "tipo": "pessoa",
+        "lat": null,
+        "lon": null
+    },
+    "baco": {
+        "nome": "Baco",
+        "desc": "Mitol., filho de Jupiter e de Semele, tambem chamada Ti\u00f4ne. Segundo a lenda, foi pai ou companheiro de Luso, ou Lisias, personagens fabulosos, que ligaram seus nomes \u00e1 Lusitania:",
+        "wiki": "https://www.wikidata.org/wiki/Q645312",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/9/96/Baco%2C_por_Caravaggio.jpg",
+        "tipo": "pessoa",
+        "lat": null,
+        "lon": null
+    },
+    "marte": {
+        "nome": "Marte",
+        "desc": "fabuloso deus da guerra",
+        "wiki": "https://www.wikidata.org/wiki/Q112",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/6/68/Berlin_-_Brandenburger_Tor_-_Mars_cropped.jpg",
+        "tipo": "pessoa",
+        "lat": null,
+        "lon": null
+    },
+    "mercurio": {
+        "nome": "Merc\u00fario",
+        "desc": "deus fabuloso, filho de J\u00fapiter e de Maia, neto de Atlas ou Atlante",
+        "wiki": "https://www.wikidata.org/wiki/Q1150",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Mercure_by_Augustin_Pajou.jpg",
+        "tipo": "pessoa",
+        "lat": null,
+        "lon": null
+    },
+    "neptuno": {
+        "nome": "Neptuno",
+        "desc": "fabuloso deus do mar",
+        "wiki": "https://www.wikidata.org/wiki/Q3954",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/5/5e/Neptune%2C_1er_si%C3%A8cle_apr%C3%A8s_J.-C.jpg",
+        "tipo": "pessoa",
+        "lat": null,
+        "lon": null
+    },
+    "adamastor": {
+        "nome": "Adamastor",
+        "desc": "Mit., um dos gigantes, filho da terra",
+        "wiki": "https://www.wikidata.org/wiki/Q2657005",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/9/96/Palace_Hotel_do_Bu%C3%A7aco_-_Azulejo.jpg",
+        "tipo": "pessoa",
+        "lat": null,
+        "lon": null
+    },
+    "tetis": {
+        "nome": "T\u00e9tis (Nereida)",
+        "desc": "Thetis, deusa fabulosa do mar, filha do C\u00e9u e da Terra e que o Poeta confunde com uma neta do mesmo nome, filha de Doris e esp\u00f4sa de Peleu (5.52) (J. M. Rodrigues)",
+        "wiki": "https://www.wikidata.org/wiki/Q184216",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/5/50/Tethys_%28%C5%98eck%C3%A1_mytologie%29.jpg",
+        "tipo": "pessoa",
+        "lat": null,
+        "lon": null
+    },
+    "musa": {
+        "nome": "Musa",
+        "desc": "ou Musas, filhas de Jupiter e de Memoria, inspiradoras dos artistas e s\u00e1bios; a Poesia, a Inspira\u00e7\u00e3o.",
+        "wiki": "https://www.wikidata.org/wiki/Q66016",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Jacopo_Tintoretto_-_The_Muses%2C_1578.jpg",
+        "tipo": "pessoa",
+        "lat": null,
+        "lon": null
+    },
+    "tagides": {
+        "nome": "Tagides",
+        "desc": "ninfas, filhas do Tejo (5.99), que o Poeta invoca para sua inspira\u00e7\u00e3o",
+        "wiki": "https://www.wikidata.org/wiki/Q10385807",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Cam%C3%B5es_e_as_T%C3%A1gides_%281894%29_-_Columbano_Bordalo_Pinheiro_%28Museu_Nacional_Gr%C3%A3o_Vasco%29.png",
+        "tipo": "pessoa",
+        "lat": null,
+        "lon": null
+    },
+    "apolo": {
+        "nome": "Apolo",
+        "desc": "Mit., Sol ou F\u00e9bo, deus das artes",
+        "wiki": "https://www.wikidata.org/wiki/Q37340",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/1/19/Apollo_of_the_Belvedere.jpg",
+        "tipo": "pessoa",
+        "lat": null,
+        "lon": null
+    },
+    "rodamonte": {
+        "nome": "Rodamonte",
+        "desc": "Rodomonte, personagem do \u201cOrlando furioso\u201d, de Ariosto",
+        "wiki": "https://www.wikidata.org/wiki/Q1116690",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/0/05/Buste_van_Rodomonte_Rodomonte_%28titel_op_object%29_Karakters_uit_%27Orlando_Furioso%27_%28serietitel%29%2C_RP-P-H-H-1418.jpg",
+        "tipo": "pessoa",
+        "lat": null,
+        "lon": null
+    },
+    "rugeiro": {
+        "nome": "Rugeiro",
+        "desc": "Rogerio, personagem do \u201cOrlando furioso\u201d, de Ariosto",
+        "wiki": "https://www.wikidata.org/wiki/Q1163476",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/9/93/Il_Valoroso_Ruggiero_%28Antonio_Tempesta%29.jpg",
+        "tipo": "pessoa",
+        "lat": null,
+        "lon": null
+    },
+    "orlando": {
+        "nome": "Orlando",
+        "desc": "Orlando, ou Rolando, ou Rold\u00e3o, cavalheiro andante, do ciclo de Carlos Magno, que inspirou muitos romances medievaes, e o poema de Ariosto",
+        "wiki": "https://www.wikidata.org/wiki/Q207535",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/0/02/HB_2016-0607_photo03_Bremer_Roland.jpg",
+        "tipo": "pessoa",
+        "lat": null,
+        "lon": null
+    },
+    "proteu": {
+        "nome": "Pr\u00f3teo",
+        "desc": "Pr\u00f3teo, Prot\u00eau, Proteio, fabuloso deus marinho, guardador de peixes e baleias, que possuia o dom da profecia e das metamorfoses:",
+        "wiki": "https://www.wikidata.org/wiki/Q191481",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Proteus-Alciato.gif",
+        "tipo": "pessoa",
+        "lat": null,
+        "lon": null
+    },
+    "atlante": {
+        "nome": "Atlante",
+        "desc": "Atlante, Mit., filho de Jupiter e av\u00f4 de Mercurio. Foi conver- tido em cordilheira do Atlas ou Atlante",
+        "wiki": "https://www.wikidata.org/wiki/Q130818",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/8/8c/MAN_Atlante_fronte_1040572.JPG",
+        "tipo": "pessoa",
+        "lat": null,
+        "lon": null
+    },
+    "vulcano": {
+        "nome": "Vulcano",
+        "desc": "Vulcano, deus fabuloso, que fabricava os raios para o tonante J\u00fapiter; marido da infiel V\u00eanus",
+        "wiki": "https://www.wikidata.org/wiki/Q4640",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/5/5f/Vulcan_by_Bertel_Thorvaldsen.jpg",
+        "tipo": "pessoa",
+        "lat": null,
+        "lon": null
+    },
+    "romulo": {
+        "nome": "Romulo",
+        "desc": "R\u00f3mulo, fundador de Roma, com seu irm\u00e3o Remo; os Romanos, gente de R\u00f3mulo",
+        "wiki": "https://www.wikidata.org/wiki/Q2186",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/9/95/Brogi%2C_Carlo_%281850-1925%29_-_n._8226_-_Certosa_di_Pavia_-_Medaglione_sullo_zoccolo_della_facciata.jpg",
+        "tipo": "pessoa",
+        "lat": null,
+        "lon": null
+    },
+    "africo": {
+        "nome": "\u00c1frico",
+        "desc": "Africo, vento sudo\u00e9ste:",
+        "wiki": "https://www.wikidata.org/wiki/Q5733340",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/f/fe/William-Adolphe_Bouguereau_%281825-1905%29_-_Flora_And_Zephyr_%281875%29.jpg",
+        "tipo": "pessoa",
+        "lat": null,
+        "lon": null
+    },
+    "noto": {
+        "nome": "Noto",
+        "desc": "Noto (2), vento sul",
+        "wiki": "https://www.wikidata.org/wiki/Q903273",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/7/75/VarsaviaPalazzo4VentiVento1.jpg",
+        "tipo": "pessoa",
+        "lat": null,
+        "lon": null
+    },
+    "fado": {
+        "nome": "Fado",
+        "desc": "Fado, destino, fatalidade",
+        "wiki": "https://www.wikidata.org/wiki/Q61415823",
+        "img": "",
+        "tipo": "pessoa",
+        "lat": null,
+        "lon": null
+    },
+    "doris": {
+        "nome": "D\u00f3ris",
+        "desc": "D\u00f3ris, Mitol., filha do Oceano e de Tetis, mar:",
+        "wiki": "https://www.wikidata.org/wiki/Q726279",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/e/e6/Sea_thiasos_Doris_Glyptothek_Munich_239_front_n2.jpg",
+        "tipo": "pessoa",
+        "lat": null,
+        "lon": null
+    },
+    "fortuna": {
+        "nome": "Fortuna",
+        "desc": "Fortuna, o que sucede por acaso, sorte",
+        "wiki": "https://www.wikidata.org/wiki/Q4654",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/f/f5/Charles_Samuel%2C_La_Fortune_%281894%29%2C_KBS-FRB_03.jpg",
+        "tipo": "pessoa",
+        "lat": null,
+        "lon": null
+    },
+    "parcas": {
+        "nome": "Parcas",
+        "desc": "Parca, divindade fabulosa; eram tres, que teciam e cortavam o fio da vida",
+        "wiki": "https://www.wikidata.org/wiki/Q370547",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/4/43/Bernardo_Strozzi_Le_tre_Parche.jpg",
+        "tipo": "pessoa",
+        "lat": null,
+        "lon": null
+    },
+    "tifeu": {
+        "nome": "Tifeu",
+        "desc": "Tifeu, a, relativo a Tif\u00eau, gigante fulminado por J\u00fapiter; suas armas seriam os raios do Tonante",
+        "wiki": "https://www.wikidata.org/wiki/Q180237",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/b/b6/Etruscan_mural_typhon2.jpg",
+        "tipo": "pessoa",
+        "lat": null,
+        "lon": null
+    },
+    "faeton": {
+        "nome": "Faeton",
+        "desc": "Mit., filho do sol e de Climene",
+        "wiki": "https://www.wikidata.org/wiki/Q203480",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/1/17/GustaveMoreau04.jpg",
+        "tipo": "pessoa",
+        "lat": null,
+        "lon": null
+    },
+    "lampetusa": {
+        "nome": "Lampetusa",
+        "desc": "Lampetusa, outra irm\u00e3 de Faeton, que tambem lhe deplorou a morte, quando fulminado, porque mal gui\u00e1ra o carro paterno, do Sol:",
+        "wiki": "https://www.wikidata.org/wiki/Q1638536",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/c/cb/Santi_di_Tito_001.jpg",
+        "tipo": "pessoa",
+        "lat": null,
+        "lon": null
+    },
+    "calisto": {
+        "nome": "Calisto",
+        "desc": "Calisto, outro nome da constela\u00e7\u00e3o dita Ursa Maior ou Carreta",
+        "wiki": "https://www.wikidata.org/wiki/Q203673",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/d/db/%28Venice%29_Diana_and_Callisto_by_Sebastiano_Ricci_-_Gallerie_Accademia.jpg",
+        "tipo": "pessoa",
+        "lat": null,
+        "lon": null
+    },
+    "aurora": {
+        "nome": "Aurora",
+        "desc": "Aurora, Mit., \u00e0 deusa da manh\u00e3 que abre ao sol as portas do Orient\u00e9, Oriente, antemanh\u00e3",
+        "wiki": "https://www.wikidata.org/wiki/Q178831",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/f/fb/William-Adolphe_Bouguereau_%281825-1905%29_-_Dawn_%281881%29.jpg",
+        "tipo": "pessoa",
+        "lat": null,
+        "lon": null
+    },
+    "hiperiao": {
+        "nome": "Hiperi\u00f3nio",
+        "desc": "Hiperionio, Mit., o mesmo que Tit\u00e1no, filho de Celo",
+        "wiki": "https://www.wikidata.org/wiki/Q179209",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Hyperion_sculpture_02.jpg",
+        "tipo": "pessoa",
+        "lat": null,
+        "lon": null
+    },
+    "anfitrite": {
+        "nome": "Anfitrite",
+        "desc": "Anfitrite, Mit., deusa do mar, esp\u00f5\u00f4sa de Neptuno",
+        "wiki": "https://www.wikidata.org/wiki/Q180222",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Amphitrite_Devaulx_cour_Carree_Louvre.jpg",
+        "tipo": "pessoa",
+        "lat": null,
+        "lon": null
+    },
+    "nereu": {
+        "nome": "Nereu",
+        "desc": "Nereu, divindade maritima, marido de Doris, paes das Nereidas",
+        "wiki": "https://www.wikidata.org/wiki/Q189527",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/f/f6/Museo_Delta_Antico_%28Comacchio%29_03_Eracle_e_Nereo.jpg",
+        "tipo": "pessoa",
+        "lat": null,
+        "lon": null
+    },
+    "nereidas": {
+        "nome": "Nereidas",
+        "desc": "filha de Nereu; divindade marinha",
+        "wiki": "https://www.wikidata.org/wiki/Q54230",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/6/69/Sea_thiasos_Nereis_Glyptothek_Munich_239_front_n1.jpg",
+        "tipo": "pessoa",
+        "lat": null,
+        "lon": null
+    },
+    "sinon": {
+        "nome": "Sinon",
+        "desc": "Sinon, guerreiro grego que persuadiu os Troianos de deixarem entrar na cidade o famoso cav\u00e1lo de pau, em cujo b\u00f4jo iam os mais fortes guerreiros Helenos:",
+        "wiki": "https://www.wikidata.org/wiki/Q663792",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/b/bb/Pieter_Goddyn_-_The_Greek_Sinon_before_Priam.jpg",
+        "tipo": "pessoa",
+        "lat": null,
+        "lon": null
+    },
+    "deus": {
+        "nome": "Deus",
+        "desc": "principio supremo que as religi\u00f5es consideram superior \u00e0 natureza (Figueiredo)",
+        "wiki": "https://www.wikidata.org/wiki/Q825",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/e/ee/By_Dore%2C_Gustave%3B_La_Sainte_Trinite.jpg",
+        "tipo": "pessoa",
+        "lat": null,
+        "lon": null
+    },
+    "v_gama": {
+        "nome": "Vasco da Gama",
+        "desc": "nome pr\u00f3prio; Vasco da Gama, o almirante da primeira expedi\u00e7\u00e3o \u00e1s Indias",
+        "wiki": "http://www.wikidata.org/entity/Q7328",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/2/2e/Ignoto_portoghese%2C_ritratto_di_un_cavaliere_dell%27ordine_di_cristo%2C_1525-50_ca._02.jpg",
+        "tipo": "pessoa",
+        "lat": null,
+        "lon": null
+    },
+    "d_sebastiao": {
+        "nome": "D. Sebasti\u00e3o I",
+        "desc": "n\u00e3o h\u00e1 informa\u00e7\u00f5es em Peixoto(1924)",
+        "wiki": "https://www.wikidata.org/wiki/Q272899",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/c/cb/Sebasti%C3%A3o_de_Portugal%2C_c._1571-1574_-_Crist%C3%B3v%C3%A3o_de_Morais_%28Google_Art_Project%29.jpg",
+        "tipo": "pessoa",
+        "lat": null,
+        "lon": null
+    },
+    "afonso_henriques": {
+        "nome": "D. Afonso Henriques",
+        "desc": "Afonso nome de v\u00e1rios reis portugueses e espanh\u00f5es:",
+        "wiki": "https://www.wikidata.org/wiki/Q587697",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/e/ee/D._Afonso_Henriques_-_The_Portuguese_Genealogy_%28Genealogia_dos_Reis_de_Portugal%29.png",
+        "tipo": "pessoa",
+        "lat": null,
+        "lon": null
+    },
+    "d_manuel_i": {
+        "nome": "D. Manuel I",
+        "desc": "n\u00e3o h\u00e1 informa\u00e7\u00f5es em Peixoto(1924).",
+        "wiki": "https://www.wikidata.org/wiki/Q191231",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/2/2e/Fons_Vitae_%28c._1515-1517%29_-_Colijn_de_Coter_%28attributed%29_%28cropped%29.png",
+        "tipo": "pessoa",
+        "lat": null,
+        "lon": null
+    },
+    "nuno_alvares": {
+        "nome": "Nuno \u00c1lvares Pereira",
+        "desc": "nome pr\u00f3prio; aqui \u00e9 Nuno Alvares Pereira, condestavel de D. Jo\u00e3o I",
+        "wiki": "https://www.wikidata.org/wiki/Q374056",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/b/b2/S%C3%A3o_nun%27alvares_pereira.jpg",
+        "tipo": "pessoa",
+        "lat": null,
+        "lon": null
+    },
+    "ulisses": {
+        "nome": "Ulisses",
+        "desc": "Ulisses, her\u00f3e grego, fertil em discursos e manhas, que se diz fundou Lisb\u00f4a, Ulissipo, Uliss\u00e9a",
+        "wiki": "https://www.wikidata.org/wiki/Q47231",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/d/d0/%28Venice%29_Ancient_Roman_statues_in_the_Museo_archeologico_nazionale_-_Ulysses.jpg",
+        "tipo": "pessoa",
+        "lat": null,
+        "lon": null
+    },
+    "eneias": {
+        "nome": "Eneias",
+        "desc": "En\u00e9as, principe troiano, filho de Anquises:",
+        "wiki": "https://www.wikidata.org/wiki/Q82732",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/2/2f/B._PINELLI%2C_Enea_e_il_Tevere.jpg",
+        "tipo": "pessoa",
+        "lat": null,
+        "lon": null
+    },
+    "alexandro": {
+        "nome": "Alexandro Magno",
+        "desc": "\"Alexandre, filho de Filipe da Maced\u00f4nia",
+        "wiki": "https://www.wikidata.org/wiki/Q8409",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/8/84/Alexander_the_Great_mosaic_%28cropped%29.jpg",
+        "tipo": "pessoa",
+        "lat": null,
+        "lon": null
+    },
+    "trajano": {
+        "nome": "Trajano",
+        "desc": "Trajano, imperador romano, que venceu os D\u00e1cios e P\u00e9rsas, e se aventurava mesmo \u00e1s Indias, o que n\u00e3o realizou",
+        "wiki": "https://www.wikidata.org/wiki/Q1425",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/9/9d/Traianus_Glyptothek_Munich_336.jpg",
+        "tipo": "pessoa",
+        "lat": null,
+        "lon": null
+    },
+    "jesus_cristo": {
+        "nome": "Jesus Cristo",
+        "desc": "Cristo, para os catolicos \u00e9 o fundador de sua religi\u00e3o:",
+        "wiki": "https://www.wikidata.org/wiki/Q302",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Spas_vsederzhitel_sinay_%28cropped1%29.jpg",
+        "tipo": "pessoa",
+        "lat": null,
+        "lon": null
+    },
+    "egas": {
+        "nome": "Egas Moniz",
+        "desc": "Egas, Egas Moniz",
+        "wiki": "https://www.wikidata.org/wiki/Q1296765",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/8/89/Unesco_World_Heritage_Site_-_Walking_around_Beautiful_Oporto_%2823240064254%29.jpg",
+        "tipo": "pessoa",
+        "lat": null,
+        "lon": null
+    },
+    "d._fuas": {
+        "nome": "D. Fuas Roupinho",
+        "desc": "Fuas, D. Fuas Roupinho, talvez o primeiro portugu\u00eas que dirigiu uma batalha naval",
+        "wiki": "https://www.wikidata.org/wiki/Q10286138",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/d/da/Legend_of_Nazar%C3%A9_%285669344542%29.jpg",
+        "tipo": "pessoa",
+        "lat": null,
+        "lon": null
+    },
+    "homero": {
+        "nome": "Homero",
+        "desc": "Hom\u00e9ro, o maior po\u00e9ta da antiguidade, autor da Iliade e da Odiss\u00e9a",
+        "wiki": "https://www.wikidata.org/wiki/Q6691",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/3/3a/Homer_bust%2C_Farnese_collection_%28Naples%29.jpg",
+        "tipo": "pessoa",
+        "lat": null,
+        "lon": null
+    },
+    "magrico": {
+        "nome": "\u00c1lvaro Gon\u00e7alves Coutinho (O Magri\u00e7o)",
+        "desc": " Magri\u00e7o, cognome de Alvaro Gon\u00e7alves Coutinho, filho de Goncalo Vaz Coutinho, primeiro marechal de Portugal.",
+        "wiki": "https://www.wikidata.org/wiki/Q10395802",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/a/a7/%C3%81lvaro_Gon%C3%A7alves_Coutinho%2C_o_Magri%C3%A7o.png",
+        "tipo": "pessoa",
+        "lat": null,
+        "lon": null
+    },
+    "carlos_magno": {
+        "nome": "Carlos Magno",
+        "desc": "Carlos Magno",
+        "wiki": "http://www.wikidata.org/entity/Q3044",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/d/d0/Charlemagne_Agostino_Cornacchini_Vatican_2.jpg",
+        "tipo": "pessoa",
+        "lat": null,
+        "lon": null
+    },
+    "julio_cesar": {
+        "nome": "J\u00falio C\u00e9sar",
+        "desc": "Cesar, Julio:",
+        "wiki": "http://www.wikidata.org/entity/Q1048",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/6/62/Retrato_de_Julio_C%C3%A9sar_%2826724093101%29_%28cropped%29.jpg",
+        "tipo": "pessoa",
+        "lat": null,
+        "lon": null
+    },
+    "d_joao_i": {
+        "nome": "D. Jo\u00e3o I",
+        "desc": "Joane, n. p., forma alatinada de Jo\u00e3o, D. Jo\u00e3o I, o Mestre de Aviz",
+        "wiki": "https://www.wikidata.org/wiki/Q201575",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/5/54/Anoniem_-_Koning_Johan_I_van_Portugal_%281450-1500%29_-_Lissabon_Museu_Nacional_de_Arte_Antiga_19-10-2010_16-12-61.jpg",
+        "tipo": "pessoa",
+        "lat": null,
+        "lon": null
+    },
+    "d_joao_ii": {
+        "nome": "D. Jo\u00e3o II",
+        "desc": "n\u00e3o h\u00e1 informa\u00e7\u00f5es em Peixoto(1924)",
+        "wiki": "https://www.wikidata.org/wiki/Q217637",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/5/5b/IOANNES_QVARTVS_PORTVGALIAE_REX_%28Kunsthistorisches_Museum%29.png",
+        "tipo": "pessoa",
+        "lat": null,
+        "lon": null
+    },
+    "afonso_iii": {
+        "nome": "D. Afonso III",
+        "desc": "n\u00e3o h\u00e1 informa\u00e7\u00f5es em Peixoto(1924)",
+        "wiki": "https://www.wikidata.org/wiki/Q295850",
+        "img": "https://commons.wikimedia.org/wiki/File:EstatuaDAfonsoIIIFaro.JPG",
+        "tipo": "pessoa",
+        "lat": null,
+        "lon": null
+    },
+    "afonso_iv": {
+        "nome": "D. Afonso IV",
+        "desc": "n\u00e3o h\u00e1 informa\u00e7\u00f5es em Peixoto(1924)",
+        "wiki": "https://www.wikidata.org/wiki/Q272903",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/f/fd/AfonsoIV-P.jpg",
+        "tipo": "pessoa",
+        "lat": null,
+        "lon": null
+    },
+    "afonso_v": {
+        "nome": "D. Afonso V",
+        "desc": "n\u00e3o h\u00e1 informa\u00e7\u00f5es em Peixoto(1924)",
+        "wiki": "https://www.wikidata.org/wiki/Q299119",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Domafonsov.jpg",
+        "tipo": "pessoa",
+        "lat": null,
+        "lon": null
+    },
+    "duarte_pacheco": {
+        "nome": "Duarte Pacheco Pereira",
+        "desc": "Pacheco, apelido de familia; Duarte Coelho Pacheco, her\u00f3e portugu\u00eas das Indias.",
+        "wiki": "https://www.wikidata.org/wiki/Q686754",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/0/04/Duarte_Pacheco_Pereira.jpg",
+        "tipo": "pessoa",
+        "lat": null,
+        "lon": null
+    },
+    "afonso_albuquerque": {
+        "nome": "Afonso de Albuquerque",
+        "desc": "Albuquerque, Afonso de....",
+        "wiki": "https://www.wikidata.org/wiki/Q204397",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/b/bf/Afonso_de_Albuquerque_%28with_Santiago_cloak%29.jpg",
+        "tipo": "pessoa",
+        "lat": null,
+        "lon": null
+    },
+    "joao_castro": {
+        "nome": "D. Jo\u00e3o de Castro",
+        "desc": "Castro, D. Jo\u00e3o de Castro:.",
+        "wiki": "https://www.wikidata.org/wiki/Q1621235",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/0/01/D._Jo%C3%A3o_de_Portugal%2C_Duque_de_Val%C3%AAncia_de_Campos_%281352-1387%29_-_Genealogia_de_D._Manuel_Pereira%2C_3.%C2%BA_conde_da_Feira_%281534%29.png",
+        "tipo": "pessoa",
+        "lat": null,
+        "lon": null
+    },
+    "viriato": {
+        "nome": "Viriato",
+        "desc": "Viriato, nome pr\u00f3prio; pastor hispano, do monte Herminio (serra da Estrela) que derrotou v\u00e1rios generaes romanos, at\u00e9 que, atrai\u00e7oado, o assassinaram (140 A. \u20ac.).",
+        "wiki": "https://www.wikidata.org/wiki/Q331889",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/f/f6/Viriato.JPG",
+        "tipo": "pessoa",
+        "lat": null,
+        "lon": null
+    },
+    "sertorio": {
+        "nome": "Sert\u00f3rio",
+        "desc": "Sert\u00f3rio, general romano, rebelde contra Sila e que na Lusitania venceu muitos fieis deste.",
+        "wiki": "https://www.wikidata.org/wiki/Q296238",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/c/c8/L%C3%A9on_Palli%C3%A8re_-_Sert%C3%B3rio_e_sua_cor%C3%A7a%2C_1849.jpg",
+        "tipo": "pessoa",
+        "lat": null,
+        "lon": null
+    },
+    "abraao": {
+        "nome": "Abra\u00e3o",
+        "desc": "Abra\u00e3o, o patriarca dos hebr\u00eaus.",
+        "wiki": "https://www.wikidata.org/wiki/Q9181",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/a/af/Guercino_Abramo_ripudia_Agar_%28cropped%29.jpg",
+        "tipo": "pessoa",
+        "lat": null,
+        "lon": null
+    },
+    "constantino": {
+        "nome": "Constantino",
+        "desc": "Costantino, imperador romano do Oriente, filho de Santa Hel\u00eana.",
+        "wiki": "https://www.wikidata.org/wiki/Q37142",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/b/b6/Konstantinos_XI_Palaiologos_fresco_%28less_edited%29.jpg",
+        "tipo": "pessoa",
+        "lat": null,
+        "lon": null
+    },
+    "david": {
+        "nome": "David",
+        "desc": " David, rei judaico. Foi condenado por ter cometido crime adulterio com Betsab\u00e9, cujo marido mandou matar",
+        "wiki": "https://www.wikidata.org/wiki/Q41370",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/9/94/King_David%2C_the_King_of_Israel.jpg",
+        "tipo": "pessoa",
+        "lat": null,
+        "lon": null
+    },
+    "filipo": {
+        "nome": "Filipo",
+        "desc": " Filipo, pai de Alexandre",
+        "wiki": "https://www.wikidata.org/wiki/Q130650",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/e/e5/Filip_II_Macedonia.jpg",
+        "tipo": "pessoa",
+        "lat": null,
+        "lon": null
+    },
+    "maome": {
+        "nome": "Maom\u00e9",
+        "desc": "Mahamede, Mafamede, Mohammed ou Mahomet: Mafamede, Mohammed ou Mahomet, profeta pa fundador do Islamismo",
+        "wiki": "https://www.wikidata.org/wiki/Q9458",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/b/bf/Muslim_depiction_of_Muhammad_-_17th_century_Ottoman_copy_from_the_%22Edinburgh_codex%22.jpg",
+        "tipo": "pessoa",
+        "lat": null,
+        "lon": null
+    },
+    "reis_portugueses": {
+        "nome": " Reis de Portugal (Dinastias expansionistas)",
+        "desc": " n\u00e3o h\u00e1 informa\u00e7\u00f5es em Peixoto(1924) ",
+        "wiki": "#",
+        "img": "",
+        "tipo": "pessoa",
+        "lat": null,
+        "lon": null
+    },
+    "doze_inglaterra": {
+        "nome": "Os Doze de Inglaterra",
+        "desc": " n\u00e3o h\u00e1 informa\u00e7\u00f5es em Peixoto(1924)",
+        "wiki": "https://www.wikidata.org/wiki/Q3774650",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/e/e1/Magri%C3%A7o_-_Jorge_Cola%C3%A7o_%28Pal%C3%A1cio_Hotel_do_Bu%C3%A7aco%29.png",
+        "tipo": "pessoa",
+        "lat": null,
+        "lon": null
+    },
+    "almeidas": {
+        "nome": " Almeidas. D. Francisco e D.Louren\u00e7o ",
+        "desc": "D. Francisco e seu filho D. Louren\u00e7o.",
+        "wiki": "https://www.wikidata.org/wiki/Q337066",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/8/88/Retrato_de_D._Francisco_de_Almeida_%28ap%C3%B3s_1545%29_-_Autor_desconhecido.png",
+        "tipo": "pessoa",
+        "lat": null,
+        "lon": null
+    },
+    "portugal": {
+        "nome": "Portugal",
+        "desc": "Portugal, a parte mais ocidental da Ib\u00e9ria, Lusitania",
+        "wiki": "http://www.wikidata.org/entity/Q45",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/b/bf/Muslim_depiction_of_Muhammad_-_17th_century_Ottoman_copy_from_the_%22Edinburgh_codex%22.jpg",
+        "tipo": "lugar",
+        "lat": 39.0,
+        "lon": -9.0
+    },
+    "lisboa": {
+        "nome": "Lisboa",
+        "desc": "Lisb\u00f4a, cidade principal da Lusitania, capital de Portugal:",
+        "wiki": "http://www.wikidata.org/entity/Q597",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/4/43/Lisboa837.png",
+        "tipo": "lugar",
+        "lat": 39.0,
+        "lon": -9.0
+    },
+    "tejo": {
+        "nome": "Rio Tejo",
+        "desc": "Tejo, rio de Espanha e Portugal, que desagua n\u00f3 Atlantico, junto de Lisb\u00f4a",
+        "wiki": "https://www.wikidata.org/wiki/Q14294",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/5/55/Castelo_de_Rodao.jpg",
+        "tipo": "lugar",
+        "lat": 40.3197,
+        "lon": -1.6975
+    },
+    "india": {
+        "nome": "\u00cdndia",
+        "desc": "\u00cdndia, regi\u00e3o meridional da Asia:",
+        "wiki": "http://www.wikidata.org/entity/Q668",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/e/e7/India_Montage.jpg",
+        "tipo": "lugar",
+        "lat": 22.8,
+        "lon": 83.0
+    },
+    "mocambique": {
+        "nome": "Mo\u00e7ambique",
+        "desc": "Mo\u00e7ambique, regi\u00e3o da costa oriental de Africa",
+        "wiki": "http://www.wikidata.org/entity/Q1029",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/0/05/Mozambique_-_Location_Map_%282013%29_-_MOZ_-_UNOCHA.svg",
+        "tipo": "lugar",
+        "lat": -19.0,
+        "lon": 35.0
+    },
+    "taprobana": {
+        "nome": "Taprobana (Sri Lanka)",
+        "desc": "Taprobana, Ceil\u00e3o, a grande ilha do Oceano Indico, assim chamada pelos ge\u00f3grafos, do nome sanscrito \"Tamraparna\"",
+        "wiki": "https://www.wikidata.org/wiki/Q854",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/b/b6/Topography_Sri_Lanka.jpg",
+        "tipo": "lugar",
+        "lat": 7.0,
+        "lon": 81.0
+    },
+    "olimpo": {
+        "nome": "Monte Olimpo",
+        "desc": "Olimpo, monte na Tess\u00e1lia, em cujo alto tinham morada os deuses fabulosos",
+        "wiki": "https://www.wikidata.org/wiki/Q70054479",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/2/2e/Olymp_01.jpg",
+        "tipo": "lugar",
+        "lat": null,
+        "lon": null
+    },
+    "imperio_portugues_oriente": {
+        "nome": "Imp\u00e9rio Portugu\u00eas do Oriente",
+        "desc": "n\u00e3o h\u00e1 informa\u00e7\u00e3o em Peixoto(1924)",
+        "wiki": "https://www.wikidata.org/wiki/Q200464",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/f/f4/PortugueseColonialEmpire02.png",
+        "tipo": "lugar",
+        "lat": null,
+        "lon": null
+    },
+    "hipocrene": {
+        "nome": "Hipocrene",
+        "desc": "Mit., fonte na Be\u00f3cia, proxima do monte H\u00e9licon:",
+        "wiki": "https://www.wikidata.org/wiki/Q195848",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/2/24/Hippocrenesource.jpg",
+        "tipo": "lugar",
+        "lat": 38.32,
+        "lon": 23.03
+    },
+    "rio_ganges": {
+        "nome": "Rio Ganges",
+        "desc": "Gange, o mais notavel rio da India, tambem chamado Pischon, tido como sagrado pelos naturais",
+        "wiki": "https://www.wikidata.org/wiki/Q5089",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/2/29/View_of_Ghats_across_the_Ganges%2C_Varanasi.jpg",
+        "tipo": "lugar",
+        "lat": 30.9833,
+        "lon": 78.9167
+    },
+    "inglaterra": {
+        "nome": "Inglaterra",
+        "desc": "Inglaterra, pa\u00eds da Europa, tambem chamado Gram Bretanha",
+        "wiki": "https://www.wikidata.org/wiki/Q21",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/b/b1/England_satellite_image.png",
+        "tipo": "lugar",
+        "lat": 53.0,
+        "lon": -1.0
+    },
+    "franca": {
+        "nome": "Fran\u00e7a",
+        "desc": "Fran\u00e7a, pa\u00eds do sul da Europa, que tem por capital Paris",
+        "wiki": "http://www.wikidata.org/entity/Q142",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg",
+        "tipo": "lugar",
+        "lat": 47.0,
+        "lon": 2.0
+    },
+    "espanha": {
+        "nome": "Espanha",
+        "desc": "Espanha, Na\u00e7\u00e3o que, com Portugal, forma a Peninsula Iberica. Antigamente designava o termo Espanha toda a Peninsula Iberica, que compreendia muitos reinos, como Castela, Ovi\u00eado...:",
+        "wiki": "https://www.wikidata.org/wiki/Q29",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/8/89/Bandera_de_Espa%C3%B1a.svg",
+        "tipo": "lugar",
+        "lat": 40.2,
+        "lon": -3.5
+    },
+    "nisa": {
+        "nome": "Nisa",
+        "desc": "Nisa, cidade mencionada na lenda fabulosa de Baco: Cam\u00f5es a sit\u00faa junto do Hidaspe",
+        "wiki": "https://www.wikidata.org/wiki/Q1238530",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/e/ef/Nysa_is_given_the_infant_Dionysus_by_Hermes%2C_relief_400s_BC%2C_Archaeological_Museum_of_Piraeus_01.jpg",
+        "tipo": "lugar",
+        "lat": null,
+        "lon": null
+    },
+    "indo": {
+        "nome": "Indo",
+        "desc": "Indo, grande rio de Asia, que nasce no Tib\u00e9 e desag\u00faa no mar de Oman, depois de atravessar o Indost\u00e3o",
+        "wiki": "https://www.wikidata.org/wiki/Q7348",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/d/d2/Indus_near_Skardu.jpg",
+        "tipo": "lugar",
+        "lat": 32.4983,
+        "lon": 79.6911
+    },
+    "parnaso": {
+        "nome": "Parnaso",
+        "desc": "Parnaso, monte na Be\u00f3cia, onde havia a fonte Cast\u00e1lia, consagrada a Apolo e as Musas que davam o dom da poesia",
+        "wiki": "https://www.wikidata.org/wiki/Q105261",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Parnassos2.jpg",
+        "tipo": "lugar",
+        "lat": 38.533,
+        "lon": 22.6167
+    },
+    "lete": {
+        "nome": "Rio Lete>",
+        "desc": "Leteu, a, de Letes, rio fabuloso do esquecimento",
+        "wiki": "https://www.wikidata.org/wiki/Q161096",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Gustove_Dore%2C_The_Divine_Comedy%2C_Paradise%2C_plate_115%2C_Dante_and_the_River_of_Lethe.jpg",
+        "tipo": "lugar",
+        "lat": null,
+        "lon": null
+    },
+    "tingitana": {
+        "nome": "Tingitana",
+        "desc": "Tingitania, de Tinge, hoje Tanger, nome antigo da Mauritania:",
+        "wiki": "https://www.wikidata.org/wiki/Q1244742",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/5/51/Mauretania_Tingitana_SPQR.png",
+        "tipo": "lugar",
+        "lat": 35.8903,
+        "lon": -5.48
+    },
+    "etiopia": {
+        "nome": "Eti\u00f3pia",
+        "desc": "Etiopia, abessinia",
+        "wiki": "https://www.wikidata.org/wiki/Q115",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/c/c4/Ethiopia_in_its_region.svg",
+        "tipo": "lugar",
+        "lat": 9.0,
+        "lon": 40.0
+    },
+    "rio_pado": {
+        "nome": "Rio Pado",
+        "desc": "Pado, rio da It\u00e1lia, o P\u00f3 (Padus) onde caiu precipitado do c\u00e9u fulminado por Jupiter, Faetonte, filho de Ap\u00f3lo, que inexperto gui\u00e1ra o carro do Sol; as irm\u00e3s, entre as quais Lampetusa, 0) choraram amargamente",
+        "wiki": "https://www.wikidata.org/wiki/Q643",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/e/e8/Po_bei_Mantova.jpg",
+        "tipo": "lugar",
+        "lat": 44.9697,
+        "lon": 12.5467
+    },
+    "aqueronte": {
+        "nome": "Aqueronte",
+        "desc": "Aqueronte, Mit., lago ou rio do inferno, regi\u00e3o da morte",
+        "wiki": "https://www.wikidata.org/wiki/Q12626619",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/7/72/Acheron_river_2.jpg",
+        "tipo": "lugar",
+        "lat": null,
+        "lon": null
+    },
+    "quiloa": {
+        "nome": "Qu\u00edloa",
+        "desc": "Qu\u00edloa, cidade da costa oriental de Africa",
+        "wiki": "https://www.wikidata.org/wiki/Q1741475",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/d/dc/GreatMosque.jpg",
+        "tipo": "lugar",
+        "lat": -8.9817,
+        "lon": 39.5172
+    },
+    "mombaca": {
+        "nome": "Mombaca",
+        "desc": "Momba\u00e7a, cidade africana, da costa oriental, entre Qu\u00edloa e Melinde",
+        "wiki": "https://www.wikidata.org/wiki/Q225641",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/2/21/Downtown_Mombasa.jpg",
+        "tipo": "lugar",
+        "lat": -4.05,
+        "lon": 39.6667
+    },
+    "sofala": {
+        "nome": "Sofala",
+        "desc": "Sofala, porto e povoa\u00e7\u00e3o na costa d'\u00c1frica, em Mo\u00e7ambique",
+        "wiki": "https://www.wikidata.org/wiki/Q622801",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/9/95/Gorongosa_-_Gogogo_peak._%284403966914%29.jpg",
+        "tipo": "lugar",
+        "lat": -19.0,
+        "lon": 34.75
+    },
+    "idaspe": {
+        "nome": "Idaspe",
+        "desc": "Hid\u00e1spe, Geogr., nome antigo do rio hoje dito Yelum, afluente do Indo e limite oriental das expedi\u00e7\u00f5es de Alexandre",
+        "wiki": "https://www.wikidata.org/wiki/Q214874",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/c/c7/Jhelum_River-Pakistan.jpg",
+        "tipo": "lugar",
+        "lat": 33.5347,
+        "lon": 75.2497
+    },
+    "turquia": {
+        "nome": "Turquia",
+        "desc": "Turquia, pa\u00eds da Europa e da Asia Menor:",
+        "wiki": "https://www.wikidata.org/wiki/Q43",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/a/aa/Europe_location_Turkey.svg",
+        "tipo": "lugar",
+        "lat": 39.0,
+        "lon": 36.0
+    },
+    "europa": {
+        "nome": "Europa",
+        "desc": "Europa (2), uma das tres grandes divis\u00f5es do mundo, conhecido pelos antigos",
+        "wiki": "https://www.wikidata.org/wiki/Q46",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Europe_satellite_orthographic.jpg",
+        "tipo": "lugar",
+        "lat": 48.6909,
+        "lon": 9.1406
+    },
+    "prasso_promontorio": {
+        "nome": "Promont\u00f3rio do Prasso",
+        "desc": "Prasso, cabo ou promontorio, limite meridional da costa de \u00c1frica, segundo geografos antigos; talvez o Cabo Delgado",
+        "wiki": "https://www.wikidata.org/wiki/Q466538",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/9/93/Bridge_over_Rio_Lurio_EN1_road_%283911465523%29.jpg",
+        "tipo": "lugar",
+        "lat": -12.75,
+        "lon": 39.5
+    },
+    "nabateia": {
+        "nome": "Nabateia",
+        "desc": "Nabateu, de Nabath, filho de Ismael, filho de Agar, de quem descendem os Arabes ou Agarenos",
+        "wiki": "https://www.wikidata.org/wiki/Q11029653",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/0/0b/Al-Khazneh%2C_Petra%2C_Jordan.jpg",
+        "tipo": "lugar",
+        "lat": 30.3286,
+        "lon": 35.4419
+    },
+    "citera": {
+        "nome": "Citere",
+        "desc": "Citera, ilha do Mediterraneo, consagrada a Venus:",
+        "wiki": "https://www.wikidata.org/wiki/Q207239",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Kythira_-_Kapsali.jpg",
+        "tipo": "lugar",
+        "lat": 36.2575,
+        "lon": 22.9975
+    },
+    "africa": {
+        "nome": "\u00c1frica",
+        "desc": "Africa, a terceira parte da terra, na ordem comum de enumera\u00e7\u00e3o:",
+        "wiki": "https://www.wikidata.org/wiki/Q15",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/2/21/Africa_satellite_orthographic.jpg",
+        "tipo": "lugar",
+        "lat": -7.455425189682856,
+        "lon": 34.40834322591169
+    },
+    "asia": {
+        "nome": "\u00c1sia",
+        "desc": "\u00c1sia, a maior e mais oriental das tres divis\u00f5es do antigo continente",
+        "wiki": "https://www.wikidata.org/wiki/Q48",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/2/2a/Asia_satellite_orthographic.jpg",
+        "tipo": "lugar",
+        "lat": 35.52516041564837,
+        "lon": 100.40441255830005
+    }
+};
+    // Troca do servidor para CartoDB (Evita Erro 403)
+   const map = L.map('mapa').setView([15, 20], 2);
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map);
+
+    const markers = {};
+    Object.keys(autoridades).forEach(id => {
+        const d = autoridades[id];
+        if (d.lat && d.lon) {
+            markers[id] = L.marker([d.lat, d.lon]).addTo(map).bindPopup("<b>"+d.nome+"</b>");
+        }
+    });
+
+    
+    // Mantém as entidades originais e seus IDs.
+    // Altera somente a interação com o painel.
+
+    let entidadeAtiva = null;
+    let temporizadorPainel = null;
+
+    const painelAutoridade = document.getElementById('painel');
+
+    function posicionarPainel(elemento) {
+        if (!elemento || painelAutoridade.style.display !== 'block') {
+            return;
+        }
+
+        const rect = elemento.getBoundingClientRect();
+        const largura = painelAutoridade.offsetWidth;
+        const altura = painelAutoridade.offsetHeight;
+
+        let esquerda = Math.min(
+            rect.left,
+            window.innerWidth - largura - 12
+        );
+
+        esquerda = Math.max(12, esquerda);
+
+        let topo = rect.bottom + 9;
+
+        if (topo + altura > window.innerHeight - 12) {
+            topo = rect.top - altura - 9;
+        }
+
+        topo = Math.max(
+            12,
+            Math.min(topo, window.innerHeight - altura - 12)
+        );
+
+        painelAutoridade.style.left = esquerda + 'px';
+        painelAutoridade.style.top = topo + 'px';
+    }
+
+    function mostrarEntidade(id, elemento) {
+        clearTimeout(temporizadorPainel);
+
+        const d = autoridades[id];
+
+        if (!d) return;
+
+        entidadeAtiva = elemento;
+
+        document.getElementById('modal-titulo').innerText = d.nome;
+
+        document.getElementById('modal-desc').innerText = d.desc || '';
+
+        const link = document.getElementById('modal-link');
+        link.href = d.wiki || '#';
+        link.style.display = d.wiki ? 'inline' : 'none';
+
+        const img = document.getElementById('modal-img');
+
+        img.style.display = d.img && d.img.trim()
+            ? 'block'
+            : 'none';
+
+        img.src = d.img || '';
+
+        painelAutoridade.style.display = 'block';
+
+        posicionarPainel(elemento);
+
+        img.onload = () => {
+            if (entidadeAtiva === elemento) {
+                posicionarPainel(elemento);
+            }
+        };
+    }
+
+    function fecharPainel() {
+        clearTimeout(temporizadorPainel);
+
+        painelAutoridade.style.display = 'none';
+        entidadeAtiva = null;
+    }
+
+    function agendarFechamento() {
+        clearTimeout(temporizadorPainel);
+
+        temporizadorPainel = setTimeout(fecharPainel, 180);
+    }
+
+function localizarNoMapa(id) {
+    const d = autoridades[id];
+
+    // Somente entidades geográficas com marcador
+    if (!d || d.tipo !== 'lugar' || !markers[id]) {
+        return;
+    }
+
+    // Movimenta o mapa para a localização
+    map.flyTo([d.lat, d.lon], 5, {
+        animate: true,
+        duration: 1.5
+    });
+
+    // Abre o marcador depois do deslocamento
+    map.once('moveend', () => {
+        markers[id].openPopup();
+    });
+
+    // Leva a página até o mapa
+    document.getElementById('mapa-container').scrollIntoView({
+        behavior: 'smooth',
+        block: 'center'
+    });
+}
+
+    // Configura todas as entidades já marcadas no poema.
+    document.querySelectorAll('#texto-poema .entidade')
+        .forEach(elemento => {
+
+            const codigo = elemento.getAttribute('onclick') || '';
+
+            const match = codigo.match(
+                /mostrarEntidade\(['"]([^'"]*)['"]\)/
+            );
+
+            elemento.removeAttribute('onclick');
+
+            if (!match || !autoridades[match[1]]) return;
+
+            const id = match[1];
+
+            elemento.setAttribute('role', 'link');
+            elemento.setAttribute('tabindex', '0');
+
+            // Abre o painel ao passar o mouse.
+            elemento.addEventListener('mouseenter', () => {
+                mostrarEntidade(id, elemento);
+            });
+
+            // Fecha o painel ao retirar o mouse.
+            elemento.addEventListener(
+                'mouseleave',
+                agendarFechamento
+            );
+
+            // Permite usar o teclado.
+            elemento.addEventListener('focus', () => {
+                mostrarEntidade(id, elemento);
+            });
+
+            elemento.addEventListener(
+                'blur',
+                agendarFechamento
+            );
+
+            elemento.addEventListener('click', event => {
+              event.stopPropagation();
+              // Se for um lugar, mostra no mapa.
+              if (autoridades[id].tipo === 'lugar') {
+                localizarNoMapa(id);
+              }
+            });
+    
+    
+            elemento.addEventListener('keydown', event => {
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+
+                    if (autoridades[id].tipo === 'lugar') {
+                        localizarNoMapa(id);
+                    }
+                }
+            });
+              });
+
+
+    // Permite entrar com o mouse no próprio painel.
+    painelAutoridade.addEventListener('mouseenter', () => {
+        clearTimeout(temporizadorPainel);
+    });
+
+    painelAutoridade.addEventListener(
+        'mouseleave',
+        agendarFechamento
+    );
+
+    window.addEventListener('scroll', () => {
+        if (entidadeAtiva) {
+            posicionarPainel(entidadeAtiva);
+        }
+    }, { passive: true });
+
+    window.addEventListener('resize', () => {
+        if (entidadeAtiva) {
+            posicionarPainel(entidadeAtiva);
+        }
+    });
+
+
+    function toggleMapa() {
+        const m = document.getElementById('mapa');
+        const btn = document.getElementById('btn-mapa');
+        m.classList.toggle('expandido');
+        btn.innerText = m.classList.contains('expandido') ? "⤡ Minimizar" : "⤢ Expandir Mapa";
+        setTimeout(() => map.invalidateSize(), 500);
+    }
+</script>
+</body>
+</html>

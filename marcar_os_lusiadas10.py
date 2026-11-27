@@ -470,7 +470,7 @@ def inserir_no_texto(verso, anterior, texto, deslocamento, marcas):
         elemento = etree.Element(TEI + tag)
         elemento.set("type", tipo)
         if ref:
-            elemento.set("ref", ref)
+            elemento.set("ref", f"autoridades.xml{ref}" if ref.startswith("#") else ref)
         elemento.text = texto[inicio - deslocamento:fim - deslocamento]
         proximo = novas[i + 1][0] if i + 1 < len(novas) else deslocamento + len(texto)
         elemento.tail = texto[fim - deslocamento:proximo - deslocamento]
